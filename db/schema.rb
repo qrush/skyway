@@ -11,19 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140307022923) do
+ActiveRecord::Schema.define(version: 20140307031413) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "sets", force: true do |t|
+  create_table "setlists", force: true do |t|
     t.integer  "show_id"
     t.integer  "position",   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "sets", ["show_id"], name: "index_sets_on_show_id", using: :btree
+  add_index "setlists", ["show_id"], name: "index_setlists_on_show_id", using: :btree
 
   create_table "shows", force: true do |t|
     t.integer  "venue_id"
