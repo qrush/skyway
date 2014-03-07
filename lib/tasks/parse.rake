@@ -3,26 +3,28 @@ namespace :skyway do
   task :scrape => :environment do
     require 'mechanize'
 
+    shows = []
+
     (2010..2014).each do |year|
       mech = Mechanize.new
       mech.get("http://aqueousband.com/setlists/#{year}/main.php") do |page|
         page.links_with(:href => /_/).each do |link|
           show = link.click
 
-          puts
-          puts "*"*80
-          puts "*** VENUE"
-          puts venue = show.at(".setlist_setlist h1:first").remove.text
-          puts "*** CITY"
+          data = {year: year}
+          data[:venue] = show.at(".setlist_setlist h1:first").remove.text
+
           venue_info = show.at(".setlist_setlist h5:first").remove
-          puts city = venue_info.children[0].text
-          puts "*** DATE"
-          puts performed_at = venue_info.children[1..-1].text
-          puts "*** SETLIST"
-          puts raw_setlist = show.at(".setlist_setlist").text.strip.gsub("\t", "").gsub("\r\n\r\n", "\n").gsub("\r\n", "\n")
-          puts
+          data[:city] = venue_info.children[0].text
+          data[:performed_at] = venue_info.children[1..-1].text
+          data[:raw_setlist] = show.at(".setlist_setlist").text.strip.gsub("\t", "").gsub("\r\n\r\n", "\n").gsub("\r\n", "\n")
+
+          puts "#{year}: #{data[:venue]}"
+          shows << data
         end
       end
     end
+
+    File.write("shows.json", JSON.dump(shows))
   end
 end
