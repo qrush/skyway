@@ -12,3 +12,5 @@ gem 'turbolinks'
 
 gem 'unicorn'
 gem 'rails_12factor'
+
+gem 'mechanize', require: false
