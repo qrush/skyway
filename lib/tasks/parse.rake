@@ -3,7 +3,7 @@ namespace :skyway do
   task :scrape => :environment do
     require 'mechanize'
 
-    (2014..2014).each do |year|
+    (2010..2014).each do |year|
       mech = Mechanize.new
       mech.get("http://aqueousband.com/setlists/#{year}/main.php") do |page|
         page.links_with(:href => /_/).each do |link|
