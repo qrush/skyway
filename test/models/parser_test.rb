@@ -54,6 +54,16 @@ EOF
     assert slot.transition?
   end
 
+  test "notes are remembered" do
+    slot1 = @show.setlists.first.slots[4]
+    slot2 = @show.setlists.first.slots[5]
+    slot3 = @show.setlists.second.slots[6]
+
+    assert_equal %{Supertramp cover}, slot1.notes
+    assert_equal %{"Purple Haze" and "Third Stone from the Sun" (Jimi Hendrix) teases}, slot2.notes
+    assert_equal %{The Beatles cover}, slot3.notes
+  end
+
   test "show can be saved" do
     @show.save!
   end
