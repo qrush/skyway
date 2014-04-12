@@ -44,7 +44,14 @@ EOF
   end
 
   test "songs are parsed out of sets" do
-    assert_equal ['Mosquito Valley Part I >', 'Strange Times'], @show.setlists.last.songs.map(&:name)
+    slots = @show.setlists.last.slots
+    assert_equal ['Mosquito Valley Part I', 'Strange Times'], slots.map { |slot| slot.song.name }
+  end
+
+  test "transitions are marked" do
+    slot = @show.setlists.last.slots.first
+    assert_equal 'Mosquito Valley Part I', slot.song.name
+    assert slot.transition?
   end
 
   test "show can be saved" do
