@@ -11,6 +11,7 @@ class Parser
     @setlist = nil
     @notes_by_bookmark = {}
     @slots_by_bookmark = {}
+    @songs = {}
   end
 
   def parse
@@ -33,13 +34,23 @@ class Parser
 
   private
 
-    def build_slot(name, options = {})
+    def build_slot(line, options = {})
       slot = @setlist.slots.build(options.merge(position: @setlist.slots.size))
-      song = slot.build_song(name: name.gsub(BOOKMARKS, "").strip)
+      name = parse_name(line)
 
-      name.scan(BOOKMARKS).each do |(bookmark)|
+      if song = @songs[name]
+        slot.song = song
+      else
+        @songs[name] ||= slot.build_song(name: name)
+      end
+
+      line.scan(BOOKMARKS).each do |(bookmark)|
         @slots_by_bookmark[bookmark] = slot
       end
+    end
+
+    def parse_name(name)
+      name.gsub(BOOKMARKS, "").gsub(/(, )?(Part|Pt) [\dI]+/, "").strip
     end
 
     def build_notes

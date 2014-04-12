@@ -18,12 +18,12 @@ class BasicParserTest < ActiveSupport::TestCase
 
   test "songs are parsed out of sets" do
     slots = @show.setlists.last.slots
-    assert_equal ['Mosquito Valley Part I', 'Strange Times'], slots.map { |slot| slot.song.name }
+    assert_equal ['Mosquito Valley', 'Strange Times'], slots.map { |slot| slot.song.name }
   end
 
   test "transitions are marked" do
     slot = @show.setlists.last.slots.first
-    assert_equal 'Mosquito Valley Part I', slot.song.name
+    assert_equal 'Mosquito Valley', slot.song.name
     assert slot.transition?
   end
 
@@ -48,5 +48,16 @@ class EdgeParserTest < ActiveSupport::TestCase
     slot = show.setlists.first.slots.first
 
     assert_equal ["Mahnkali's Pocket Watch tease", "With John from Broccoli Samurai on guitar"], slot.notes
+  end
+
+  test "parts of songs are parsed" do
+    show = Parser.parse raw_setlists("origami")
+    show.save!
+
+    slot1 = show.setlists.first.slots.first
+    slot2 = show.setlists.last.slots.first
+
+    assert_equal "Yoshimi Battles the Pink Robots", slot1.song.name
+    assert_equal slot1.song_id, slot2.song_id
   end
 end
