@@ -60,4 +60,13 @@ class EdgeParserTest < ActiveSupport::TestCase
     assert_equal "Yoshimi Battles the Pink Robots", slot1.song.name
     assert_equal slot1.song_id, slot2.song_id
   end
+
+  test "songs aren't repeated" do
+    assert_nothing_raised do
+      2.times do
+        show = Parser.parse raw_setlists("origami")
+        show.save!
+      end
+    end
+  end
 end

@@ -38,7 +38,7 @@ class Parser
       slot = @setlist.slots.build(options.merge(position: @setlist.slots.size))
       name = parse_name(line)
 
-      if song = @songs[name]
+      if song = (@songs[name] || Song.find_by_name(name))
         slot.song = song
       else
         @songs[name] ||= slot.build_song(name: name)
