@@ -18,7 +18,7 @@ class Parser
     @raw.split("\n").map(&:strip).each_with_index do |line, index|
       case line
       when /^(SET|ENCORE)/i
-        @setlist = @show.setlists.build(position: @show.setlists.size)
+        @setlist = @show.setlists.build(position: @show.setlists.size, name: line)
       when /^#{BOOKMARKS}/
         @notes_by_bookmark[$1] = $'.strip
       when /^(.+) >$/

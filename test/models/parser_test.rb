@@ -69,4 +69,9 @@ class EdgeParserTest < ActiveSupport::TestCase
       end
     end
   end
+
+  test "multiple encores" do
+    show = Parser.parse raw_setlists("eondon")
+    assert_equal ['SET I', 'ENCORE I', 'ENCORE II'], show.setlists.map(&:name)
+  end
 end
