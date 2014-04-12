@@ -17,8 +17,8 @@ class Parser
       when /^\*/
         # ignore notes for now
       else
-        song = setlist.songs.find_or_initialize_by(name: line)
-        setlist.slots.build(song: song, position: setlist.slots.size)
+        slot = setlist.slots.build(position: setlist.slots.size)
+        slot.build_song(name: line)
       end
     end
 

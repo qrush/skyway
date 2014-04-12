@@ -46,4 +46,8 @@ EOF
   test "songs are parsed out of sets" do
     assert_equal ['Mosquito Valley Part I >', 'Strange Times'], @show.setlists.last.songs.map(&:name)
   end
+
+  test "show can be saved" do
+    @show.save!
+  end
 end
