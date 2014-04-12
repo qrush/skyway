@@ -12,4 +12,8 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+
+  def raw_setlists(name)
+    Rails.root.join("test/fixtures/raw_setlists/#{name}.txt").read
+  end
 end

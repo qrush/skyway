@@ -1,4 +1,6 @@
 class Parser
+  BOOKMARKS = /([%\*\^\$]+)/
+
   def self.parse(raw)
     new(raw).parse
   end
@@ -16,7 +18,7 @@ class Parser
       case line
       when /^(SET|ENCORE)/i
         @setlist = @show.setlists.build(position: @show.setlists.size)
-      when /^(\*+)/
+      when /^#{BOOKMARKS}/
         @notes_by_bookmark[$1] = $'.strip
       when /^(.+) >$/
         build_slot($1, transition: true)
@@ -32,17 +34,19 @@ class Parser
   private
 
     def build_slot(name, options = {})
-      name = $`.strip if name =~ /(\*+)$/
-
       slot = @setlist.slots.build(options.merge(position: @setlist.slots.size))
-      song = slot.build_song(name: name)
+      song = slot.build_song(name: name.gsub(BOOKMARKS, "").strip)
 
-      @slots_by_bookmark[$1] = slot
+      name.scan(BOOKMARKS).each do |(bookmark)|
+        @slots_by_bookmark[bookmark] = slot
+      end
     end
 
     def build_notes
       @notes_by_bookmark.each do |bookmark, note|
-        @slots_by_bookmark[bookmark].notes = note
+        if @slots_by_bookmark[bookmark]
+          @slots_by_bookmark[bookmark].notes << note
+        end
       end
     end
 end

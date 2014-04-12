@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ParserTest < ActiveSupport::TestCase
+class BasicParserTest < ActiveSupport::TestCase
   setup do
     @show = Parser.parse raw_setlists("kitty")
   end
@@ -32,18 +32,21 @@ class ParserTest < ActiveSupport::TestCase
     slot2 = @show.setlists.first.slots[5]
     slot3 = @show.setlists.second.slots[6]
 
-    assert_equal %{Supertramp cover}, slot1.notes
-    assert_equal %{"Purple Haze" and "Third Stone from the Sun" (Jimi Hendrix) teases}, slot2.notes
-    assert_equal %{The Beatles cover}, slot3.notes
+    assert_equal [%{Supertramp cover}], slot1.notes
+    assert_equal [%{"Purple Haze" and "Third Stone from the Sun" (Jimi Hendrix) teases}], slot2.notes
+    assert_equal [%{The Beatles cover}], slot3.notes
   end
 
   test "show can be saved" do
     @show.save!
   end
+end
 
-  private
+class EdgeParserTest < ActiveSupport::TestCase
+  test "more than one note is supported" do
+    show = Parser.parse raw_setlists("candy")
+    slot = show.setlists.first.slots.first
 
-     def raw_setlists(name)
-       Rails.root.join("test/fixtures/raw_setlists/#{name}.txt").read
-     end
+    assert_equal ["Mahnkali's Pocket Watch tease", "With John from Broccoli Samurai on guitar"], slot.notes
+  end
 end
