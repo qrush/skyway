@@ -2,7 +2,7 @@ require 'test_helper'
 
 class ParserTest < ActiveSupport::TestCase
   setup do
-    @raw_setlist = <<EOF
+    @show = Parser.parse <<EOF
 SET I
 Kitty Chaser (Explosions)
 What's the Connection?
@@ -33,10 +33,17 @@ EOF
   end
 
   test "has 3 sets" do
-    show = Parser.parse(@raw_setlist)
-
-    assert_equal 3, show.setlists.size
-    assert_equal [0, 1, 2], show.setlists.map(&:position)
+    assert_equal 3, @show.setlists.size
+    assert_equal [0, 1, 2], @show.setlists.map(&:position)
   end
 
+  test "slots are parsed out of sets" do
+    assert_equal 8,  @show.setlists.first.slots.size
+    assert_equal 10, @show.setlists.second.slots.size
+    assert_equal 2,  @show.setlists.third.slots.size
+  end
+
+  test "songs are parsed out of sets" do
+    assert_equal ['Mosquito Valley Part I >', 'Strange Times'], @show.setlists.last.songs.map(&:name)
+  end
 end
