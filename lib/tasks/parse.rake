@@ -27,4 +27,21 @@ namespace :skyway do
 
     File.write("shows.json", JSON.dump(shows))
   end
+
+  desc "Load scraped shows"
+  task :load => :environment do
+    scrapes = JSON.load(File.read("shows.json"))
+
+    scrapes.each do |scrape|
+      venue = Venue.find_or_initialize_by(name: scrape["venue"])
+      venue.location ||= scrape["city"]
+
+      show = Parser.parse(scrape["raw_setlist"])
+      show.venue = venue
+      show.performed_at = DateTime.parse(scrape["performed_at"])
+
+      puts "Loading #{show.performed_at} / #{show.venue.name}..."
+      show.save!
+    end
+  end
 end
