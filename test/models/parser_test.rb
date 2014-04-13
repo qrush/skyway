@@ -81,4 +81,12 @@ class EdgeParserTest < ActiveSupport::TestCase
     show = Parser.parse raw_setlists("eondon")
     assert_equal ['SET I', 'ENCORE I', 'ENCORE II'], show.setlists.map(&:name)
   end
+
+  test "remembers debuts" do
+    show = Parser.parse raw_setlists("eondon")
+    slot = show.setlists.first.slots[5]
+
+    assert_equal "She Said She Said", slot.song.name
+    assert slot.debut?
+  end
 end
