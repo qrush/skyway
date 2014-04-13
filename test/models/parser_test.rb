@@ -37,6 +37,13 @@ class BasicParserTest < ActiveSupport::TestCase
     assert_equal [%{The Beatles cover}], slot3.notes
   end
 
+  test "covers are remembered" do
+    song = @show.setlists.first.slots[4].song
+
+    assert_equal "Bloody Well Right", song.name
+    assert song.cover?
+  end
+
   test "show can be saved" do
     @show.save!
   end

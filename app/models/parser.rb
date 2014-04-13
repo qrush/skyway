@@ -28,7 +28,7 @@ class Parser
       end
     end
 
-    build_notes
+    build_slot_metadata
     @show
   end
 
@@ -53,10 +53,14 @@ class Parser
       name.gsub(BOOKMARKS, "").gsub(/(, )?(Part|Pt) [\dI]+/, "").strip
     end
 
-    def build_notes
+    def build_slot_metadata
       @notes_by_bookmark.each do |bookmark, note|
-        if @slots_by_bookmark[bookmark]
-          @slots_by_bookmark[bookmark].notes << note
+        if slot = @slots_by_bookmark[bookmark]
+          slot.notes << note
+
+          if slot.song.new_record? && note =~ /cover/i
+            slot.song.cover = true
+          end
         end
       end
     end
