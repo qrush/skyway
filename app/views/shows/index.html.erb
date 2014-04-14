@@ -1,15 +1,15 @@
-<h2>Shows</h2>
+<article class="type-system-sans">
+  <% @shows.each do |show| %>
+    <h3><%= show.performed_at %></h3>
+    <p><%= show.venue.name %></p>
 
-<% @shows.each do |show| %>
-  <h3><%= show.performed_at %></h3>
-  <p><%= show.venue.name %></p>
-
-  <% show.setlists.each do |setlist| %>
-    <p>
-      <%= setlist.name %>:
-      <% setlist.slots.each do |slot| %>
-        <%= slot.song.name %> &gt;
-      <% end %>
-    </p>
+    <% show.setlists.each do |setlist| %>
+      <p>
+        <%= setlist.name %>:
+        <% setlist.slots.each do |slot| %>
+          <%= slot.song.name %> &gt;
+        <% end %>
+      </p>
+    <% end %>
   <% end %>
-<% end %>
+</article>

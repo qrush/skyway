@@ -5,10 +5,41 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+  <head>
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,400italic,600italic,600,700,700italic,900,300italic,300,200italic,200' rel='stylesheet' type='text/css'>
+  </head>
 </head>
 <body>
 
-<%= yield %>
+<header class="navigation">
+  <div class="menu-wrapper">
+    <a href="javascript:void(0)" class="logo">
+      <img src="https://raw.github.com/Magnus-G/Random/master/placeholder_logo_1.png" alt="">
+    </a>
+    <div class="nav">
+      <ul id="navigation-menu">
+        <li><a href="javascript:void(0)">Shows</a></li>
+        <li><a href="javascript:void(0)">Songs</a></li>
+        <li><a href="javascript:void(0)">Venues</a></li>
+        <li class="navigation-search-bar">
+          <div class="search-bar">
+            <div class="search-and-submit">
+              <input type="search" placeholder="Enter Search" />
+              <button type="submit">
+                <%= image_tag "search-icon.png" %>
+              </button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<div id="wrapper">
+  <%= yield %>
+</div>
 
 </body>
 </html>
