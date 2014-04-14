@@ -18,9 +18,7 @@
     <% show.setlists.each do |setlist| %>
       <p>
         <span><%= setlist.name %></span>:
-        <% setlist.slots.each do |slot| %>
-          <%= slot.song.name %> &gt;
-        <% end %>
+        <%= format_setlist(setlist) %>
       </p>
     <% end %>
     <hr/>
