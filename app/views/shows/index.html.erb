@@ -1,15 +1,29 @@
-<article class="type-system-sans">
-  <% @shows.each do |show| %>
-    <h3><%= show.performed_at %></h3>
-    <p><%= show.venue.name %></p>
+<div class="hero">
+  <div class="hero-inner">
+    <a href="" class="hero-logo"><%= image_tag "logo.png" %></a>
+    <div class="hero-copy">
+      <h1>AqueousBand.net</h1>
+      <p>Tracking setlists, shows, and more for Aqueous fans since 2014.</p>
+    </div>
+  </div>
+</div>
 
-    <% show.setlists.each do |setlist| %>
-      <p>
-        <%= setlist.name %>:
-        <% setlist.slots.each do |slot| %>
-          <%= slot.song.name %> &gt;
-        <% end %>
-      </p>
-    <% end %>
+<article class="type-system-sans">
+
+<h2>Latest shows</h2>
+
+<% @shows.each do |show| %>
+  <h3><%= show.performed_at.to_date %></h3>
+  <p><%= show.venue.name %></p>
+
+  <% show.setlists.each do |setlist| %>
+    <p>
+      <%= setlist.name %>:
+      <% setlist.slots.each do |slot| %>
+        <%= slot.song.name %> &gt;
+      <% end %>
+    </p>
   <% end %>
+<% end %>
+
 </article>

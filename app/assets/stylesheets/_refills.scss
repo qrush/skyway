@@ -135,7 +135,7 @@ header.navigation {
     display: none;
 
     @include media($large-screen) {
-      @include position(absolute, 0px 76px 0 0);
+      @include position(absolute, 0px -15px 0 0);
       display: inline-block;
       line-height: 0 !important;
       padding: 13px 30px; // this to get around Firefox/Opera line-height "bug"
