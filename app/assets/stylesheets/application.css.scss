@@ -13,6 +13,10 @@
   padding: 1em;
 }
 
+.type {
+  margin-top: 1em;
+}
+
 .hero {
   $hero-background: #3B8E94;
   $hero-color: white;
@@ -106,7 +110,7 @@ article.type-system-sans {
     font-size: 1.2em;
     font-weight: 400;
     line-height: 1.4em;
-    margin-bottom: 1.2em;
+    margin-bottom: .2em;
 
     @include media($medium-screen) {
       font-size: 1.4em;
@@ -119,7 +123,7 @@ article.type-system-sans {
     font-weight: 700;
     text-transform: uppercase;
     line-height: 1.4em;
-    margin-bottom: .5em; 
+    margin-bottom: 1.5em;
   }
 
   p.date {

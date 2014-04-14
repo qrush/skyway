@@ -9,21 +9,20 @@
 </div>
 
 <article class="type-system-sans">
+  <p class="type">Latest shows</h2>
 
-<h2>Latest shows</h2>
+  <% @shows.each do |show| %>
+    <h2><%= show.performed_at.to_date.to_s(:long_ordinal) %></h2>
+    <h3><%= show.venue.name %>, <%= show.venue.location %></h3>
 
-<% @shows.each do |show| %>
-  <h3><%= show.performed_at.to_date %></h3>
-  <p><%= show.venue.name %></p>
-
-  <% show.setlists.each do |setlist| %>
-    <p>
-      <%= setlist.name %>:
-      <% setlist.slots.each do |slot| %>
-        <%= slot.song.name %> &gt;
-      <% end %>
-    </p>
+    <% show.setlists.each do |setlist| %>
+      <p>
+        <span><%= setlist.name %></span>:
+        <% setlist.slots.each do |slot| %>
+          <%= slot.song.name %> &gt;
+        <% end %>
+      </p>
+    <% end %>
+    <hr/>
   <% end %>
-<% end %>
-
 </article>
