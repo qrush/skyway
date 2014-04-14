@@ -1,26 +1,5 @@
-<div class="hero">
-  <div class="hero-inner">
-    <a href="" class="hero-logo"><%= image_tag "logo.png" %></a>
-    <div class="hero-copy">
-      <h1>AqueousBand.net</h1>
-      <p>Tracking setlists, shows, and more for Aqueous fans since 2014.</p>
-    </div>
-  </div>
-</div>
-
 <article class="type-system-sans">
-  <p class="type">Latest shows</h2>
+  <p class="type">All shows</p>
 
-  <% @shows.each do |show| %>
-    <h2><%= show.performed_at.to_date.to_s(:long_ordinal) %></h2>
-    <h3><%= show.venue.name %>, <%= show.venue.location %></h3>
-
-    <% show.setlists.each do |setlist| %>
-      <p>
-        <span><%= setlist.name %></span>:
-        <%= format_setlist(setlist) %>
-      </p>
-    <% end %>
-    <hr/>
-  <% end %>
+  <%= render @shows %>
 </article>

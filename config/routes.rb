@@ -1,4 +1,4 @@
 Skyway::Application.routes.draw do
   resources :shows
-  root to: "shows#index"
+  root to: "home#index"
 end
