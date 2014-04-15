@@ -1,5 +1,5 @@
 class Parser
-  BOOKMARKS = /([#%\*\^\$-]+)/
+  BOOKMARKS = /([#%\*\^\$\-&†]+)/
 
   def self.parse(raw)
     new(raw).parse

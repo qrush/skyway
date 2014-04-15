@@ -1,0 +1,9 @@
+<article class="type-system-sans">
+  <p class="type"><%= @song.name %></p>
+
+  <% @song.slots.each do |slot| %>
+    <h2><%= slot.show.performed_at.to_date.to_s(:long_ordinal) %></h2>
+    <h3><%= slot.show.venue.name %>, <%= slot.show.venue.location %></h3>
+    <hr />
+  <% end %>
+</article>

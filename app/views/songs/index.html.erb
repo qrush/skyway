@@ -1,0 +1,10 @@
+<article class="type-system-sans">
+  <p class="type">All songs</p>
+
+  <% @songs.each do |song| %>
+    <p>
+      <%= link_to song.name, song %>
+    </p>
+
+  <% end %>
+</article>
