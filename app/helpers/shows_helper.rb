@@ -4,21 +4,20 @@ module ShowsHelper
     current_jam = []
 
     setlist.slots.each do |slot|
-      name = slot.song.name.dup
-
+      notes = ""
       slot.notes.each do |note|
-        name << " #{bookmark(bookmarks[setlist.show_id])}"
+        notes << " #{bookmark(bookmarks[setlist.show_id])}"
         bookmarks[setlist.show_id] += 1
       end
 
-      current_jam << name
+      current_jam << "#{link_to(slot.song.name, slot.song)} #{notes}"
 
       unless slot.transition?
         names << current_jam.join(" > ")
         current_jam.clear
       end
     end
-    names.join(', ')
+    names.join(', ').html_safe
   end
 
   def notes_for(show)
