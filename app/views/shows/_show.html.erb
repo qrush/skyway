@@ -1,11 +1,24 @@
-<h2><%= show.performed_at.to_date.to_s(:long_ordinal) %></h2>
-<h3><%= show.venue.name %>, <%= show.venue.location %></h3>
+<div id="<%= dom_id(show) %>">
+  <h2><%= show.performed_at.to_date.to_s(:long_ordinal) %></h2>
+  <h3><%= show.venue.name %>, <%= show.venue.location %></h3>
 
-<% show.setlists.each do |setlist| %>
-  <p>
-    <span><%= setlist.name %></span>:
-    <%= format_setlist(setlist) %>
-  </p>
-<% end %>
+  <% show.setlists.each do |setlist| %>
+    <p>
+      <span><%= setlist.name %></span>:
+      <%= format_setlist(setlist) %>
+    </p>
+  <% end %>
 
-<hr/>
+  <% if show.notes? %>
+    <p>
+      <span>Notes:</span>
+      <br />
+      <% notes_for(show).each do |bookmark, notes| %>
+        <%= bookmark %> <%= notes %>
+        <br />
+      <% end %>
+    </p>
+  <% end %>
+
+  <hr/>
+</div>

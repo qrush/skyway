@@ -1,14 +1,43 @@
 module ShowsHelper
   def format_setlist(setlist)
     names = []
-    current_name = []
+    current_jam = []
+
     setlist.slots.each do |slot|
-      current_name << slot.song.name
+      name = slot.song.name.dup
+
+      slot.notes.each do |note|
+        name << " #{bookmark(bookmarks[setlist.show_id])}"
+        bookmarks[setlist.show_id] += 1
+      end
+
+      current_jam << name
+
       unless slot.transition?
-        names << current_name.join(" > ")
-        current_name.clear
+        names << current_jam.join(" > ")
+        current_jam.clear
       end
     end
     names.join(', ')
+  end
+
+  def notes_for(show)
+    notes = {}
+    index = 0
+    show.setlists.map(&:slots).flatten.select(&:notes?).each do |slot|
+      slot.notes.each do |note|
+        notes[bookmark(index)] = note
+        index += 1
+      end
+    end
+    notes
+  end
+
+  def bookmark(index)
+    %w(* ** *** # % ^ $).fetch(index, "@" * index)
+  end
+
+  def bookmarks
+    @bookmarks ||= Hash.new(0)
   end
 end

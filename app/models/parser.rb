@@ -1,5 +1,5 @@
 class Parser
-  BOOKMARKS = /([#%\*\^\$]+)/
+  BOOKMARKS = /([#%\*\^\$-]+)/
 
   def self.parse(raw)
     new(raw).parse
@@ -35,7 +35,8 @@ class Parser
   private
 
     def build_slot(line, options = {})
-      slot = @setlist.slots.build(options.merge(position: @setlist.slots.size))
+      slot = @setlist.slots.build(options.merge(position: @setlist.slots.size, notes: ['Array driver is broken']))
+      slot.notes.pop
       name = parse_name(line)
 
       if song = (@songs[name] || Song.find_by_name(name))
