@@ -7,4 +7,12 @@ class Song < ActiveRecord::Base
   def to_param
     "#{id}-#{CGI.escape(name).downcase}"
   end
+
+  def merge(other_song)
+    other_song.slots.each do |slot|
+      slot.song = self
+      slot.save!
+    end
+    other_song.destroy
+  end
 end
