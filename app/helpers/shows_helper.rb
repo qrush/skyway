@@ -10,7 +10,7 @@ module ShowsHelper
         bookmarks[setlist.show_id] += 1
       end
 
-      current_jam << "#{link_to(slot.song.name, slot.song)}#{notes}"
+      current_jam << "#{link_to(slot.song.name, slot.song)}#{notes.strip}"
 
       unless slot.transition?
         names << current_jam.join(" > ")
