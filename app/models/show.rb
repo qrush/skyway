@@ -9,4 +9,12 @@ class Show < ActiveRecord::Base
   def notes?
     setlists.map(&:slots).flatten.any?(&:notes?)
   end
+
+  def when
+    performed_at.to_date.to_s(:long_ordinal)
+  end
+
+  def to_param
+    performed_at.to_date.to_s(:db)
+  end
 end

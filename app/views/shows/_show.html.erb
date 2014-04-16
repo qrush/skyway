@@ -1,5 +1,5 @@
 <div id="<%= dom_id(show) %>">
-  <h2><%= show.performed_at.to_date.to_s(:long_ordinal) %></h2>
+  <h2><%= link_to show.when, show %></h2>
   <h3><%= show.venue.name %>, <%= show.venue.location %></h3>
 
   <% show.setlists.each do |setlist| %>
