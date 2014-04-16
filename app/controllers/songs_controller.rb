@@ -4,6 +4,6 @@ class SongsController < ApplicationController
   end
 
   def show
-    @song = Song.includes(slots: {setlist: {show: :venue}}).order("shows.performed_at desc").where("lower(songs.name) = ?", CGI.unescape(params[:id]).downcase).first
+    @song = Song.includes(slots: {setlist: {show: :venue}}).order("shows.performed_at desc").find(params[:id])
   end
 end

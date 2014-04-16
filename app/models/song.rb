@@ -5,6 +5,6 @@ class Song < ActiveRecord::Base
   validates_presence_of :name
 
   def to_param
-    CGI.escape(name).downcase
+    "#{id}-#{CGI.escape(name).downcase}"
   end
 end
