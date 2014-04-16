@@ -15,7 +15,7 @@ class Parser
   end
 
   def parse
-    @raw.split("\n").map(&:strip).each_with_index do |line, index|
+    lines.each_with_index do |line, index|
       case line
       when /^(SET|ENCORE)/i
         @setlist = @show.setlists.build(position: @show.setlists.size, name: line)
@@ -33,6 +33,10 @@ class Parser
   end
 
   private
+
+    def lines
+      @raw.split("\n").select(&:present?).map(&:strip)
+    end
 
     def build_slot(line, options = {})
       slot = @setlist.slots.build(options.merge(position: @setlist.slots.size, notes: ['Array driver is broken']))
