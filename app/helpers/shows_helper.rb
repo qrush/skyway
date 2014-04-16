@@ -6,11 +6,11 @@ module ShowsHelper
     setlist.slots.each do |slot|
       notes = ""
       slot.notes.each do |note|
-        notes << " #{bookmark(bookmarks[setlist.show_id])}"
+        notes << "<sup>#{bookmark(bookmarks[setlist.show_id])}</sup> "
         bookmarks[setlist.show_id] += 1
       end
 
-      current_jam << "#{link_to(slot.song.name, slot.song)} #{notes}"
+      current_jam << "#{link_to(slot.song.name, slot.song)}#{notes}"
 
       unless slot.transition?
         names << current_jam.join(" > ")

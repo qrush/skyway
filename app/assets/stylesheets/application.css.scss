@@ -17,6 +17,13 @@
   margin-top: 1em;
 }
 
+sup {
+  position: relative;
+  bottom: 0.3em;
+  left: 0.1em;
+  font-size: 0.8em;
+}
+
 .hero {
   $hero-background: #3B8E94;
   $hero-color: white;
