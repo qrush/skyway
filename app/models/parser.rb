@@ -21,7 +21,7 @@ class Parser
         @setlist = @show.setlists.build(position: @show.setlists.size, name: line)
       when /^#{BOOKMARKS}/
         @notes_by_bookmark[$1] = $'.strip
-      when /^(.+) >$/
+      when /^(.+) >/
         build_slot($1, transition: true)
       else
         build_slot(line)

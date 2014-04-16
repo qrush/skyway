@@ -89,4 +89,12 @@ class EdgeParserTest < ActiveSupport::TestCase
     assert_equal "She Said She Said", slot.song.name
     assert slot.debut?
   end
+
+  test "transition can be before notes" do
+    show = Parser.parse raw_setlists("warren")
+    slot = show.setlists.first.slots[1]
+
+    assert_equal "All In", slot.song.name
+    assert slot.transition?
+  end
 end
