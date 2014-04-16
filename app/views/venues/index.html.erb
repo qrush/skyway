@@ -1,0 +1,9 @@
+<article class="type-system-sans">
+  <p class="type">All venues</p>
+
+  <% @venues.each do |venue| %>
+    <p>
+      <%= link_to venue.name, venue %>
+    </p>
+  <% end %>
+</article>

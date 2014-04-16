@@ -1,0 +1,7 @@
+<article class="type-system-sans">
+  <p class="type"><%= @venue.name %></p>
+
+  <% @venue.shows.performed.each do |show| %>
+    <%= render show %>
+  <% end %>
+</article>
