@@ -66,10 +66,6 @@ class Parser
           if slot.song.new_record? && note =~ /cover/i
             slot.song.cover = true
           end
-
-          if note =~ /first time/i
-            slot.debut = true
-          end
         end
       end
     end

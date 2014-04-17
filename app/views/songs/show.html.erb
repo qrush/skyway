@@ -1,6 +1,12 @@
 <article class="type-system-sans">
   <p class="type"><%= @song.name %></p>
 
+  <p>
+    Played <em><%= @song.slots.size %></em> times.
+    Debuted on <em><%= link_to @song.debut_slot.show.when, @song.debut_slot.show %></em>.
+    Seen at <em><%= number_to_percentage @song.shows_percentage, precision: 1 %></em> of all shows.
+  </p>
+
   <% @song.slots.each do |slot| %>
     <h2><%= link_to slot.show.when, slot.show %></h2>
     <h3><%= slot.show.venue.name %>, <%= slot.show.venue.location %></h3>

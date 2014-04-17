@@ -1,8 +1,17 @@
 class Song < ActiveRecord::Base
   has_many :slots
   has_many :setlists, through: :slots
+  has_many :shows, through: :setlists
 
   validates_presence_of :name
+
+  def debut_slot
+    slots.last
+  end
+
+  def shows_percentage
+    (shows.count / Show.count.to_f) * 100
+  end
 
   def to_param
     "#{id}-#{CGI.escape(name).downcase}"
