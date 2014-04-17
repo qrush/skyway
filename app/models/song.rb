@@ -13,6 +13,14 @@ class Song < ActiveRecord::Base
     (shows.count / Show.count.to_f) * 100
   end
 
+  def first_letter
+    if name =~ /^[A-Z]/i
+      name[0]
+    else
+      "#"
+    end
+  end
+
   def to_param
     "#{id}-#{CGI.escape(name).downcase}"
   end

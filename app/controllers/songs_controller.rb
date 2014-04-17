@@ -1,6 +1,6 @@
 class SongsController < ApplicationController
   def index
-    @songs = Song.order("name asc")
+    @songs_by_first_letter = Song.order("name asc").group_by(&:first_letter)
   end
 
   def show

@@ -1,9 +1,13 @@
 <article class="type-system-sans">
   <p class="type">All songs (<%= Song.count %>)</p>
 
-  <% @songs.each do |song| %>
-    <p>
-      <%= link_to song.name, song %>
-    </p>
+  <% @songs_by_first_letter.each do |first_letter, songs| %>
+    <h2><%= first_letter %></h2>
+    <% songs.each do |song| %>
+      <p>
+        <%= link_to song.name, song %>
+      </p>
+    <% end %>
+    <hr />
   <% end %>
 </article>
