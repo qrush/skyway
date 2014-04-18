@@ -1,0 +1,19 @@
+<article class="type-system-sans">
+  <p class="type">Editing "<%= @venue.name %>"</p>
+
+  <%= form_for @venue do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.submit %>
+  <% end %>
+
+  <br />
+  <p class="type">Merge "<%= @venue.name %>"</p>
+
+  <%= form_for [:merge, @venue] do |f| %>
+    <%= f.label :other_venue_id, "Keep this venue and merge in:" %>
+    <%= f.collection_select :other_venue_id, Venue.by_name, :id, :name %>
+    <%= f.submit "Merge venue" %>
+  <% end %>
+</article>

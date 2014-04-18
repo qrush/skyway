@@ -1,0 +1,40 @@
+module Mergeable
+  extend ActiveSupport::Concern
+
+  included do
+    class_attribute :mergeable_class
+  end
+
+  def update
+    @mergeable = mergeable_class.find(params[:id])
+    @mergeable.update_attributes!(mergeable_params)
+    redirect_to @mergeable
+  end
+
+  def merge
+    @mergeable = mergeable_class.find(params[:id])
+    @other_mergeable = mergeable_class.find(other_mergeable_params[other_mergeable_param])
+
+    @mergeable.merge!(@other_mergeable)
+    redirect_to @mergeable
+  end
+
+  private
+
+    def mergeable_params
+      params.require(mergeable_param).permit(:name)
+    end
+
+    def other_mergeable_params
+      params.require(mergeable_param).permit(other_mergeable_param)
+    end
+
+    def mergeable_param
+      mergeable_class.to_s.downcase
+    end
+
+    def other_mergeable_param
+      :"other_#{mergeable_param}_id"
+    end
+
+end

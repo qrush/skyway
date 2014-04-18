@@ -1,30 +1,12 @@
 class Song < ActiveRecord::Base
+  include Showable
+
   has_many :slots
   has_many :setlists, through: :slots
   has_many :shows, through: :setlists
 
-  scope :by_name, -> { order("name asc") }
-
-  validates_presence_of :name
-
-  def other_song_id
-    id
-  end
-
   def debut_slot
     slots.last
-  end
-
-  def shows_percentage
-    (shows.count / Show.count.to_f) * 100
-  end
-
-  def first_letter
-    if name =~ /^[A-Z]/i
-      name[0]
-    else
-      "#"
-    end
   end
 
   def to_param
