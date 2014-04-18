@@ -9,7 +9,7 @@ class Parser
     @show = Show.new(options)
     @setlist = nil
     @notes_by_bookmark = {}
-    @slots_by_bookmark = {}
+    @slots_with_bookmarks = []
     @songs = {}
   end
 
@@ -49,7 +49,7 @@ class Parser
       end
 
       line.scan(BOOKMARKS).each do |(bookmark)|
-        @slots_by_bookmark[bookmark] = slot
+        @slots_with_bookmarks << [bookmark, slot]
       end
     end
 
@@ -59,11 +59,13 @@ class Parser
 
     def build_slot_metadata
       @notes_by_bookmark.each do |bookmark, note|
-        if slot = @slots_by_bookmark[bookmark]
-          slot.notes << note
+        @slots_with_bookmarks.each do |(slotted_bookmark, slot)|
+          if bookmark == slotted_bookmark
+            slot.notes << note
 
-          if slot.song.new_record? && note =~ /cover/i
-            slot.song.cover = true
+            if slot.song.new_record? && note =~ /cover/i
+              slot.song.cover = true
+            end
           end
         end
       end

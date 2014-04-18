@@ -89,4 +89,17 @@ class EdgeParserTest < ActiveSupport::TestCase
     assert_equal "All In", slot.song.name
     assert slot.transition?
   end
+
+  test "bookmarks can be used on more than one song" do
+    show = Parser.parse raw_setlist: raw_setlists("breathe")
+    slot = show.setlists.first.slots[1]
+
+    assert_equal "Short Skirt, Long Jacket", slot.song.name
+    assert_equal ["First time played"], slot.notes
+
+    slot = show.setlists.first.slots[3]
+
+    assert_equal "Lets Get It On", slot.song.name
+    assert_equal ["First time played"], slot.notes
+  end
 end
