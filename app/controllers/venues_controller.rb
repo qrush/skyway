@@ -13,4 +13,20 @@ class VenuesController < ApplicationController
   def edit
     @venue = Venue.find(params[:id])
   end
+
+  def new
+    @venue = Venue.new
+  end
+
+  def create
+    @venue = Venue.new(venue_params)
+    @venue.save!
+    redirect_to @venue
+  end
+
+  private
+
+    def venue_params
+      params.require(:venue).permit(:name, :location)
+    end
 end

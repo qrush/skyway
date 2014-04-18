@@ -1,12 +1,7 @@
 <article class="type-system-sans">
   <p class="type">Editing "<%= @venue.name %>"</p>
 
-  <%= form_for @venue do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-
-    <%= f.submit %>
-  <% end %>
+  <%= render "form" %>
 
   <br />
   <p class="type">Merge "<%= @venue.name %>"</p>

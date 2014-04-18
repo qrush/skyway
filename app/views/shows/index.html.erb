@@ -1,5 +1,10 @@
 <article class="type-system-sans">
-  <p class="type">All shows (<%= Show.count %>)</p>
+  <p class="type">All shows</p>
+
+  <p>
+    Played <em><%= pluralize Venue.count, "show" %></em> since 2006.
+    <%= link_to "Add a new show.", new_show_path %>
+  </p>
 
   <%= render @shows %>
 </article>

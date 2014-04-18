@@ -1,0 +1,9 @@
+<%= form_for @venue do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, placeholder: "Awesome Bar" %>
+
+  <%= f.label :location %>
+  <%= f.text_field :location, placeholder: "Buffalo, NY" %>
+
+  <%= f.submit %>
+<% end %>
