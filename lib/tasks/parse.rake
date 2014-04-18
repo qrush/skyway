@@ -36,9 +36,7 @@ namespace :skyway do
       venue = Venue.find_or_initialize_by(name: scrape["venue"])
       venue.location ||= scrape["city"]
 
-      show = Parser.parse(scrape["raw_setlist"])
-      show.venue = venue
-      show.performed_at = DateTime.parse(scrape["performed_at"])
+      show = Parser.parse raw_setlist: scrape["raw_setlist"], venue: venue, performed_at: DateTime.parse(scrape["performed_at"])
 
       puts "Loading #{show.performed_at} / #{show.venue.name}..."
       show.save!
