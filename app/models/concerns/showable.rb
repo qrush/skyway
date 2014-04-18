@@ -17,7 +17,7 @@ module Showable
 
   def first_letter
     if name =~ /^[A-Z]/i
-      name[0]
+      name[0].upcase
     else
       "#"
     end
