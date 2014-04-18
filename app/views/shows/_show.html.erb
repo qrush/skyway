@@ -1,6 +1,6 @@
 <div id="<%= dom_id(show) %>">
   <h2><%= link_to show.when, show %></h2>
-  <h3><%= link_to show.venue.name, show.venue %>, <%= show.venue.location %></h3>
+  <%= render show.venue %>
 
   <% show.setlists.each do |setlist| %>
     <p>

@@ -23,9 +23,9 @@
         <li><%= link_to "Songs", songs_path %></li>
         <li><%= link_to "Venues", venues_path %></li>
         <li class="navigation-search-bar">
-          <div class="search-bar">
+          <form action="<%= search_path %>" method="get" class="search-bar">
             <div class="search-and-submit">
-              <input type="search" placeholder="Search" />
+              <input type="search" name="query" placeholder="Search" />
               <button type="submit">
                 <%= image_tag "search-icon.png" %>
               </button>

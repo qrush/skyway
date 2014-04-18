@@ -8,11 +8,7 @@
 
   <% @venues_by_first_letter.each do |first_letter, venues| %>
     <h2><%= first_letter %></h2>
-    <% venues.each do |venue| %>
-      <p>
-        <%= link_to venue.name, venue %>
-      </p>
-    <% end %>
+    <%= render venues %>
     <hr />
   <% end %>
 </article>
