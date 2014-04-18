@@ -1,0 +1,23 @@
+<article class="type-system-sans">
+  <p class="type">Editing "<%= @song.name %>"</p>
+
+  <p>
+    <%= render @song %>
+  </p>
+
+  <%= form_for @song do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.submit %>
+  <% end %>
+
+  <br />
+  <p class="type">Merge "<%= @song.name %>"</p>
+
+  <%= form_for [:merge, @song] do |f| %>
+    <%= f.label :other_song_id, "Keep this song and merge in:" %>
+    <%= f.collection_select :other_song_id, Song.by_name, :id, :name %>
+    <%= f.submit "Merge song" %>
+  <% end %>
+</article>

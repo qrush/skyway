@@ -1,0 +1,3 @@
+Played <em><%= pluralize @song.slots.size, "time" %></em>.
+Debuted on <em><%= link_to @song.debut_slot.show.when, @song.debut_slot.show %></em>.
+Seen at <em><%= number_to_percentage @song.shows_percentage, precision: 1 %></em> of all shows.

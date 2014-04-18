@@ -3,7 +3,13 @@ class Song < ActiveRecord::Base
   has_many :setlists, through: :slots
   has_many :shows, through: :setlists
 
+  scope :by_name, -> { order("name asc") }
+
   validates_presence_of :name
+
+  def other_song_id
+    id
+  end
 
   def debut_slot
     slots.last
@@ -25,7 +31,7 @@ class Song < ActiveRecord::Base
     "#{id}-#{CGI.escape(name).downcase}"
   end
 
-  def merge(other_song)
+  def merge!(other_song)
     other_song.slots.each do |slot|
       slot.song = self
       slot.save!
