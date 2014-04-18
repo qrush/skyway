@@ -1,13 +1,12 @@
 module ShowsHelper
-  def format_setlist(setlist)
+  def format_setlist(show, setlist)
     names = []
     current_jam = []
 
     setlist.slots.each do |slot|
       notes = ""
       slot.notes.each do |note|
-        notes << "<sup>#{bookmark(bookmarks[setlist.show_id])}</sup> "
-        bookmarks[setlist.show_id] += 1
+        notes << "<sup>#{bookmark(show.notes.index(note))}</sup> "
       end
 
       current_jam << "#{link_to(slot.song.name, slot.song)}#{notes.strip}"
@@ -20,23 +19,7 @@ module ShowsHelper
     names.join(', ').html_safe
   end
 
-  def notes_for(show)
-    notes = {}
-    index = 0
-    show.setlists.map(&:slots).flatten.select(&:notes?).each do |slot|
-      slot.notes.each do |note|
-        notes[bookmark(index)] = note
-        index += 1
-      end
-    end
-    notes
-  end
-
   def bookmark(index)
     %w(* ** *** # % ^ $).fetch(index, "@" * index)
-  end
-
-  def bookmarks
-    @bookmarks ||= Hash.new(0)
   end
 end

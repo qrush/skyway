@@ -4,7 +4,7 @@ class ShowsController < ApplicationController
   end
 
   def show
-    @show = Show.find_by_performed_at!(DateTime.parse(params[:id]))
+    @show = Show.performed.find_by_performed_at!(DateTime.parse(params[:id]))
   end
 
   def new

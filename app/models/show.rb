@@ -10,6 +10,10 @@ class Show < ActiveRecord::Base
     setlists.map(&:slots).flatten.any?(&:notes?)
   end
 
+  def notes
+    @notes ||= cache_notes
+  end
+
   def when
     performed_at.to_date.to_s(:long_ordinal)
   end
@@ -17,4 +21,16 @@ class Show < ActiveRecord::Base
   def to_param
     performed_at.to_date.to_s(:db)
   end
+
+  private
+
+    def cache_notes
+      notes = []
+      setlists.map(&:slots).flatten.select(&:notes?).each do |slot|
+        slot.notes.each do |note|
+          notes << note
+        end
+      end
+      notes.uniq
+    end
 end

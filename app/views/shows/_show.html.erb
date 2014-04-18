@@ -5,7 +5,7 @@
   <% show.setlists.each do |setlist| %>
     <p>
       <span><%= setlist.name %></span>:
-      <%= format_setlist(setlist) %>
+      <%= format_setlist(show, setlist) %>
     </p>
   <% end %>
 
@@ -13,8 +13,8 @@
     <p>
       <span>Notes:</span>
       <br />
-      <% notes_for(show).each do |bookmark, notes| %>
-        <sup><%= bookmark %></sup> <%= notes %>
+      <% show.notes.each_with_index do |note, index| %>
+        <sup><%= bookmark(index) %></sup> <%= note %>
         <br />
       <% end %>
     </p>
