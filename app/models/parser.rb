@@ -1,13 +1,12 @@
 class Parser
   BOOKMARKS = /([#%\*\^\$\-&†]+|Note:)/i
 
-  def self.parse(raw)
-    new(raw).parse
+  def self.parse(options)
+    new(options).parse
   end
 
-  def initialize(raw)
-    @raw = raw
-    @show = Show.new
+  def initialize(options = {})
+    @show = Show.new(options)
     @setlist = nil
     @notes_by_bookmark = {}
     @slots_by_bookmark = {}
@@ -35,7 +34,7 @@ class Parser
   private
 
     def lines
-      @raw.split("\n").select(&:present?).map(&:strip)
+      @show.raw_setlist.split("\n").select(&:present?).map(&:strip)
     end
 
     def build_slot(line, options = {})

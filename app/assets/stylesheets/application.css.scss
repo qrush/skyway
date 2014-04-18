@@ -6,6 +6,12 @@
 
 @import "refills";
 
+form {
+  textarea {
+    height: 300px;
+  }
+}
+
 #wrapper {
   max-width: 68em;
   margin-left: auto;
@@ -22,6 +28,12 @@ sup {
   bottom: 0.3em;
   left: 0.1em;
   font-size: 0.8em;
+}
+
+pre {
+  background-color: #ccc;
+  font-family: "Monaco", "Courier New", monospace;
+  padding: 10px;
 }
 
 .hero {

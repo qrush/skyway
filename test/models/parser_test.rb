@@ -2,7 +2,7 @@ require 'test_helper'
 
 class BasicParserTest < ActiveSupport::TestCase
   setup do
-    @show = Parser.parse raw_setlists("kitty")
+    @show = Parser.parse raw_setlist: raw_setlists("kitty")
   end
 
   test "has 3 sets" do
@@ -51,14 +51,14 @@ end
 
 class EdgeParserTest < ActiveSupport::TestCase
   test "more than one note is supported" do
-    show = Parser.parse raw_setlists("candy")
+    show = Parser.parse raw_setlist: raw_setlists("candy")
     slot = show.setlists.first.slots.first
 
     assert_equal ["Mahnkali's Pocket Watch tease", "With John from Broccoli Samurai on guitar"], slot.notes
   end
 
   test "parts of songs are parsed" do
-    show = Parser.parse raw_setlists("origami")
+    show = Parser.parse raw_setlist: raw_setlists("origami")
     show.save!
 
     slot1 = show.setlists.first.slots.first
@@ -71,19 +71,19 @@ class EdgeParserTest < ActiveSupport::TestCase
   test "songs aren't repeated" do
     assert_nothing_raised do
       2.times do
-        show = Parser.parse raw_setlists("origami")
+        show = Parser.parse raw_setlist: raw_setlists("origami")
         show.save!
       end
     end
   end
 
   test "multiple encores" do
-    show = Parser.parse raw_setlists("eondon")
+    show = Parser.parse raw_setlist: raw_setlists("eondon")
     assert_equal ['SET I', 'ENCORE I', 'ENCORE II'], show.setlists.map(&:name)
   end
 
   test "transition can be before notes" do
-    show = Parser.parse raw_setlists("warren")
+    show = Parser.parse raw_setlist: raw_setlists("warren")
     slot = show.setlists.first.slots[1]
 
     assert_equal "All In", slot.song.name

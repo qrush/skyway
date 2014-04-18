@@ -4,7 +4,7 @@ class Show < ActiveRecord::Base
 
   scope :performed, -> { order("performed_at desc").includes(:venue, setlists: {slots: :song}) }
 
-  attr_accessor :bookmark_index
+  attr_accessor :bookmark_index, :raw_setlist
 
   def notes?
     setlists.map(&:slots).flatten.any?(&:notes?)

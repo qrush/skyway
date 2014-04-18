@@ -1,0 +1,43 @@
+<article class="type-system-sans">
+  <p class="type">Add new show</p>
+
+  <%= form_for @show do |f| %>
+    <%= f.label :performed_at %>
+    <%= f.text_field :performed_at, placeholder: Date.today.to_s(:long_ordinal) %>
+
+    <%= f.label :venue_id, "Venue" %>
+    <%= f.collection_select :venue_id, Venue.by_name, :id, :name %>
+
+    <%= f.label :raw_setlist, "Setlist" %>
+    <%= f.text_area :raw_setlist %>
+
+    <%= f.submit %>
+  <% end %>
+
+  <p class="type">Example setlist:</p>
+  <pre>
+    SET I
+    Breathe &gt;
+    Dave's Song 
+    Rock Montage $ &gt;
+    Voodoo Chile 
+    Mosquito Valley 
+    Short Skirt, Long Jacket *
+    Triangle 
+
+    SET II
+    Dear Prudence &gt;
+    Glass Onion &gt;
+    While My Guitar Gently Weeps 
+    Echoes 
+    Bennie and the Jets 
+    Mind Games
+
+    ENCORE
+    YYZ $$
+
+    * First time played 
+    $ Bullet tease 
+    $$ Enter Sandman tease
+  </pre>
+</article>
