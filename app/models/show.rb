@@ -3,6 +3,7 @@ class Show < ActiveRecord::Base
   has_many :setlists, -> { order "setlists.position asc" }, dependent: :destroy
 
   scope :performed, -> { order("performed_at desc").includes(:venue, setlists: {slots: :song}) }
+  scope :for_year, -> (year) { where("EXTRACT(YEAR FROM performed_at) = ?", year) }
 
   attr_accessor :bookmark_index, :raw_setlist
 
