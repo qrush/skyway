@@ -3,10 +3,10 @@ class Song < ActiveRecord::Base
 
   has_many :slots
   has_many :setlists, through: :slots
-  has_many :shows, -> { performed }, through: :setlists
+  has_many :shows, -> { uniq.performed }, through: :setlists
 
-  def debut_slot
-    slots.last
+  def debut_show
+    shows.last
   end
 
   def to_param
