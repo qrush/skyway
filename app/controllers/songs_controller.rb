@@ -9,7 +9,7 @@ class SongsController < ApplicationController
   end
 
   def show
-    @song = Song.includes(slots: {setlist: {show: :venue}}).order("shows.performed_at desc").find(params[:id])
+    @song = Song.includes(shows: :venue).find(params[:id])
   end
 
   def edit

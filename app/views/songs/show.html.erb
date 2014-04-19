@@ -6,9 +6,9 @@
     <%= link_to "Edit this song.", [:edit, @song] if admin? %>
   </p>
 
-  <% @song.slots.each do |slot| %>
-    <h2><%= link_to slot.show.when, slot.show %></h2>
-    <h3><%= slot.show.venue.name %>, <%= slot.show.venue.location %></h3>
+  <% @song.shows.each do |show| %>
+    <h2><%= link_to show.when, show %></h2>
+    <h3><%= show.venue.name %>, <%= show.venue.location %></h3>
     <hr />
   <% end %>
 </article>
