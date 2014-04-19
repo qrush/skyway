@@ -1,13 +1,13 @@
 class Show < ActiveRecord::Base
   belongs_to :venue
-  has_many :setlists, -> { order "position asc" }, dependent: :destroy
+  has_many :setlists, -> { order "setlists.position asc" }, dependent: :destroy
 
   scope :performed, -> { order("performed_at desc").includes(:venue, setlists: {slots: :song}) }
 
   attr_accessor :bookmark_index, :raw_setlist
 
   def notes?
-    setlists.map(&:slots).flatten.any?(&:notes?)
+    slots.any?(&:notes?)
   end
 
   def notes
@@ -22,11 +22,19 @@ class Show < ActiveRecord::Base
     performed_at.to_date.to_s(:db)
   end
 
+  def cache_key
+    "#{super}-#{Digest::MD5.hexdigest [ venue.cache_key, *setlists.map(&:cache_key) ].join("-")}"
+  end
+
   private
+
+    def slots
+      setlists.map(&:slots).flatten
+    end
 
     def cache_notes
       notes = []
-      setlists.map(&:slots).flatten.select(&:notes?).each do |slot|
+      slots.select(&:notes?).each do |slot|
         slot.notes.each do |note|
           notes << note
         end
