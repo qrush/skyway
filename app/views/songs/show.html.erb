@@ -6,7 +6,7 @@
     <%= link_to "Edit this song.", [:edit, @song] if admin? %>
   </p>
 
-  <% @song.shows.each do |show| %>
+  <% @song.performed_shows.each do |show| %>
     <h2><%= link_to show.when, show %></h2>
     <h3><%= show.venue.name %>, <%= show.venue.location %></h3>
     <hr />

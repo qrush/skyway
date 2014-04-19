@@ -6,7 +6,11 @@ class Song < ActiveRecord::Base
   has_many :shows, -> { uniq }, through: :setlists
 
   def debut_show
-    shows.last
+    performed_shows.last
+  end
+
+  def performed_shows
+    @performed_shows ||= shows.performed
   end
 
   def to_param
