@@ -18,4 +18,6 @@ gem 'mechanize', require: false
 group :production do
   gem 'unicorn'
   gem 'rails_12factor'
+  gem 'memcachier'
+  gem 'dalli'
 end

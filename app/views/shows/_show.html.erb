@@ -1,24 +1,26 @@
-<div id="<%= dom_id(show) %>">
-  <h2><%= link_to show.when, show %></h2>
-  <%= render show.venue %>
+<% cache [ show ] do %>
+  <div id="<%= dom_id(show) %>">
+    <h2><%= link_to show.when, show %></h2>
+    <%= render show.venue %>
 
-  <% show.setlists.each do |setlist| %>
-    <p>
-      <span><%= setlist.name %></span>:
-      <%= format_setlist(show, setlist) %>
-    </p>
-  <% end %>
+    <% show.setlists.each do |setlist| %>
+      <p>
+        <span><%= setlist.name %></span>:
+        <%= format_setlist(show, setlist) %>
+      </p>
+    <% end %>
 
-  <% if show.notes? %>
-    <p>
-      <span>Notes:</span>
-      <br />
-      <% show.notes.each_with_index do |note, index| %>
-        <sup><%= bookmark(index) %></sup> <%= note %>
+    <% if show.notes? %>
+      <p>
+        <span>Notes:</span>
         <br />
-      <% end %>
-    </p>
-  <% end %>
+        <% show.notes.each_with_index do |note, index| %>
+          <sup><%= bookmark(index) %></sup> <%= note %>
+          <br />
+        <% end %>
+      </p>
+    <% end %>
 
-  <hr/>
-</div>
+    <hr/>
+  </div>
+<% end %>
