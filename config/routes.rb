@@ -14,6 +14,7 @@ Skyway::Application.routes.draw do
   end
 
   resource :search
+  resource :admin
 
   root to: "home#index"
 end

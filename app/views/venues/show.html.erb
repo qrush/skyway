@@ -4,7 +4,7 @@
   <p>
     Performed at <em><%= pluralize @venue.shows.size, "time" %></em>.
     Appeared at this venue for <em><%= number_to_percentage @venue.shows_percentage, precision: 1 %></em> of all shows.
-    <%= link_to "Edit this venue.", [:edit, @venue] %>
+    <%= link_to "Edit this venue.", [:edit, @venue] if admin? %>
   </p>
 
   <% @venue.shows.performed.each do |show| %>

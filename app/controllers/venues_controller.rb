@@ -2,6 +2,8 @@ class VenuesController < ApplicationController
   include Mergeable
   self.mergeable_class = Venue
 
+  before_filter :require_admin, except: [:index, :show]
+
   def index
     @venues_by_first_letter = Venue.by_name.group_by(&:first_letter)
   end

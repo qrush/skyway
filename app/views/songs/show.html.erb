@@ -3,7 +3,7 @@
 
   <p>
     <%= render @song %>
-    <%= link_to "Edit this song.", [:edit, @song] %>
+    <%= link_to "Edit this song.", [:edit, @song] if admin? %>
   </p>
 
   <% @song.slots.each do |slot| %>

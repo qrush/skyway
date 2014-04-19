@@ -9,7 +9,7 @@
 
   <p>
     Played <em><%= pluralize Show.for_year(@year).count, "show" %></em> in <%= @year %>.
-    <%= link_to "Add a new show.", new_show_path %>
+    <%= link_to "Add a new show.", new_show_path if admin? %>
   </p>
 
   <%= render @shows %>
