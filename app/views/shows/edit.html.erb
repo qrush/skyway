@@ -1,12 +1,9 @@
-<article class="type-system-sans">
-  <p class="type">Edit <%= @show.when %></p>
+<% @title = "Edit #{@show.when}" %>
 
-  <%= form_for @show do |f| %>
-    <%= error_messages_for :new_show %>
+<%= form_for @show do |f| %>
+  <%= error_messages_for :new_show %>
 
-    <%= render "form", form: f %>
+  <%= render "form", form: f %>
 
-    <%= f.submit %>
-  <% end %>
-
-</article>
+  <%= f.submit %>
+<% end %>

@@ -1,13 +1,11 @@
-<article class="type-system-sans">
-  <p class="type"><%= @venue.name %></p>
+<% @title = @venue.name %>
 
-  <p>
-    Performed at <em><%= pluralize @venue.shows.size, "time" %></em>.
-    Appeared at this venue for <em><%= number_to_percentage @venue.shows_percentage, precision: 1 %></em> of all shows.
-    <%= link_to "Edit this venue.", [:edit, @venue] if admin? %>
-  </p>
+<p>
+  Performed at <em><%= pluralize @venue.shows.size, "time" %></em>.
+  Appeared at this venue for <em><%= number_to_percentage @venue.shows_percentage, precision: 1 %></em> of all shows.
+  <%= link_to "Edit this venue.", [:edit, @venue] if admin? %>
+</p>
 
-  <% @venue.shows.performed.each do |show| %>
-    <%= render show %>
-  <% end %>
-</article>
+<% @venue.shows.performed.each do |show| %>
+  <%= render show %>
+<% end %>

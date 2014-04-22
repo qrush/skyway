@@ -1,16 +1,16 @@
-<nav>
-  <div class="button-group">
-    <%= year_buttons_for(@year) %>
-  </div>
-</nav>
+<% @title = "All shows from #{@year}" %>
 
-<article class="type-system-sans">
-  <p class="type">All shows from <%= @year %></p>
+<% content_for :top do %>
+  <nav>
+    <div class="button-group">
+      <%= year_buttons_for(@year) %>
+    </div>
+  </nav>
+<% end %>
 
-  <p>
-    Played <em><%= pluralize Show.for_year(@year).count, "show" %></em> in <%= @year %>.
-    <%= link_to "Add a new show.", new_show_path if admin? %>
-  </p>
+<p>
+  Played <em><%= pluralize Show.for_year(@year).count, "show" %></em> in <%= @year %>.
+  <%= link_to "Add a new show.", new_show_path if admin? %>
+</p>
 
-  <%= render @shows %>
-</article>
+<%= render @shows %>

@@ -1,11 +1,9 @@
-<article class="type-system-sans">
-  <p class="type">Setlist</p>
+<% @title = "Setlist from #{@show.when}" %>
 
-  <% if admin? %>
-    <p>
-      <%= link_to "Edit this show.", [:edit, @show] %>
-    </p>
-  <% end %>
+<% if admin? %>
+  <p>
+    <%= link_to "Edit this show.", [:edit, @show] %>
+  </p>
+<% end %>
 
-  <%= render @show %>
-</article>
+<%= render @show %>

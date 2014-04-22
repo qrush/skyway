@@ -1,14 +1,12 @@
-<article class="type-system-sans">
-  <p class="type">All venues</p>
+<% @title = "All venues" %>
 
-  <p>
-    Performed at <em><%= pluralize Venue.count, "venues" %></em> since 2006.
-    <%= link_to "Add a new venue.", new_venue_path if admin? %>
-  </p>
+<p>
+  Performed at <em><%= pluralize Venue.count, "venues" %></em> since 2006.
+  <%= link_to "Add a new venue.", new_venue_path if admin? %>
+</p>
 
-  <% @venues_by_first_letter.each do |first_letter, venues| %>
-    <h2><%= first_letter %></h2>
-    <%= render venues %>
-    <hr />
-  <% end %>
-</article>
+<% @venues_by_first_letter.each do |first_letter, venues| %>
+  <h2><%= first_letter %></h2>
+  <%= render venues %>
+  <hr />
+<% end %>

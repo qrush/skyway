@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Skyway</title>
+  <title>AqueousBand.net: <%= @title %></title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -38,7 +38,13 @@
 </header>
 
 <div id="wrapper">
-  <%= yield %>
+  <%= yield :top %>
+
+  <article class="type-system-sans">
+    <p class="type"><%= @title %></p>
+
+    <%= yield %>
+  </article>
 </div>
 
 <footer class="footer">

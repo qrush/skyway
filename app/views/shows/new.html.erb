@@ -1,38 +1,36 @@
-<article class="type-system-sans">
-  <p class="type">Add new show</p>
+<% @title = 'Add new show' %>
 
-  <%= form_for @show do |f| %>
-    <%= f.error_messages %>
+<%= form_for @show do |f| %>
+  <%= f.error_messages %>
 
-    <%= render "form", form: f %>
+  <%= render "form", form: f %>
 
-    <%= f.submit %>
-  <% end %>
+  <%= f.submit %>
+<% end %>
 
-  <p class="type">Example setlist:</p>
-  <pre>
-    SET I
-    Breathe &gt;
-    Dave's Song 
-    Rock Montage $ &gt;
-    Voodoo Chile 
-    Mosquito Valley 
-    Short Skirt, Long Jacket *
-    Triangle 
+<p class="type">Example setlist:</p>
+<pre>
+  SET I
+  Breathe &gt;
+  Dave's Song 
+  Rock Montage $ &gt;
+  Voodoo Chile 
+  Mosquito Valley 
+  Short Skirt, Long Jacket *
+  Triangle 
 
-    SET II
-    Dear Prudence &gt;
-    Glass Onion &gt;
-    While My Guitar Gently Weeps 
-    Echoes 
-    Bennie and the Jets 
-    Mind Games
+  SET II
+  Dear Prudence &gt;
+  Glass Onion &gt;
+  While My Guitar Gently Weeps 
+  Echoes 
+  Bennie and the Jets 
+  Mind Games
 
-    ENCORE
-    YYZ $$
+  ENCORE
+  YYZ $$
 
-    * First time played 
-    $ Bullet tease 
-    $$ Enter Sandman tease
-  </pre>
-</article>
+  * First time played 
+  $ Bullet tease 
+  $$ Enter Sandman tease
+</pre>

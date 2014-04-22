@@ -1,25 +1,23 @@
-<article class="type-system-sans">
-  <p class="type">Songs matching "<%= @search.query %>"</p>
+<% @title = "Songs matching '#{@search.query}'" %>
 
-  <% if @search.songs.present? %>
-    <% @search.songs.each do |song| %>
-      <p>
-        <%= link_to song.name, song %>
-      </p>
-    <% end %>
-  <% else %>
+<% if @search.songs.present? %>
+  <% @search.songs.each do |song| %>
     <p>
-      No songs were found matching this term.
+      <%= link_to song.name, song %>
     </p>
   <% end %>
+<% else %>
+  <p>
+    No songs were found matching this term.
+  </p>
+<% end %>
 
-  <p class="type">Venues matching "<%= @search.query %>"</p>
+<p class="type">Venues matching "<%= @search.query %>"</p>
 
-  <% if @search.venues.present? %>
-    <%= render @search.venues %>
-  <% else %>
-    <p>
-      No venues were found matching this term.
-    </p>
-  <% end %>
-</article>
+<% if @search.venues.present? %>
+  <%= render @search.venues %>
+<% else %>
+  <p>
+    No venues were found matching this term.
+  </p>
+<% end %>
