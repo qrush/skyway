@@ -14,6 +14,7 @@ gem 'bitters'
 gem 'neat'
 
 gem 'dynamic_form'
+gem 'rack-rewrite'
 gem 'mechanize', require: false
 
 group :production do

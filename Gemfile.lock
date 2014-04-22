@@ -86,6 +86,7 @@ GEM
     pg (0.17.1)
     polyglot (0.3.4)
     rack (1.5.2)
+    rack-rewrite (1.5.0)
     rack-test (0.6.2)
       rack (>= 1.0)
     rails (4.1.0)
@@ -153,6 +154,7 @@ DEPENDENCIES
   memcachier
   neat
   pg
+  rack-rewrite
   rails (= 4.1.0)
   rails_12factor
   turbolinks
