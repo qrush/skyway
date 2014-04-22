@@ -6,6 +6,7 @@
 
 @import "refills";
 @import "form";
+@import "shows";
 
 #wrapper {
   max-width: 68em;
@@ -16,19 +17,6 @@
 
 .type {
   margin-top: 1em;
-}
-
-sup {
-  position: relative;
-  bottom: 0.3em;
-  left: 0.1em;
-  font-size: 0.8em;
-}
-
-pre {
-  background-color: #ccc;
-  font-family: "Monaco", "Courier New", monospace;
-  padding: 10px;
 }
 
 .hero {

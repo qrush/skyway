@@ -1,0 +1,18 @@
+sup {
+  position: relative;
+  bottom: 0.3em;
+  left: 0.1em;
+  font-size: 0.8em;
+}
+
+.jam {
+  font-weight: normal;
+  padding: 3px;
+  background-color: #F5F9FA;
+  border-radius: 3px;
+  @include transition(background-color 0.5s ease-in-out);
+
+  &:hover {
+    background-color: #EDF2F7;
+  }
+}
