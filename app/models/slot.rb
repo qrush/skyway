@@ -9,4 +9,13 @@ class Slot < ActiveRecord::Base
   def show
     setlist.show
   end
+
+  def to_s
+    name = [song.name]
+    notes.each do |note|
+      name << show.bookmark_for(note)
+    end
+    name << ">" if transition?
+    name.join(" ")
+  end
 end

@@ -1,0 +1,10 @@
+<article class="type-system-sans">
+  <p class="type">Edit <%= @show.when %></p>
+
+  <%= form_for @show do |f| %>
+    <%= render "form", form: f %>
+
+    <%= f.submit %>
+  <% end %>
+
+</article>

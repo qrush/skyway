@@ -6,7 +6,7 @@ module ShowsHelper
     setlist.slots.each do |slot|
       notes = ""
       slot.notes.each do |note|
-        notes << "<sup>#{bookmark(show.notes.index(note))}</sup> "
+        notes << "<sup>#{show.bookmark_for(note)}</sup> "
       end
 
       current_jam << "#{link_to(slot.song.name, slot.song)}#{notes.strip}"
@@ -17,10 +17,6 @@ module ShowsHelper
       end
     end
     names.join(', ').html_safe
-  end
-
-  def bookmark(index)
-    %w(* ** *** # % ^ $).fetch(index, "@" * index)
   end
 
   def year_buttons_for(current_year)

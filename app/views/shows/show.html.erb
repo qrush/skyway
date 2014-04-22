@@ -1,5 +1,11 @@
 <article class="type-system-sans">
   <p class="type">Setlist</p>
 
+  <% if admin? %>
+    <p>
+      <%= link_to "Edit this show.", [:edit, @show] %>
+    </p>
+  <% end %>
+
   <%= render @show %>
 </article>

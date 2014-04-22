@@ -2,14 +2,7 @@
   <p class="type">Add new show</p>
 
   <%= form_for @show do |f| %>
-    <%= f.label :performed_at %>
-    <%= f.text_field :performed_at, placeholder: Date.today.to_s(:long_ordinal) %>
-
-    <%= f.label :venue_id, "Venue" %>
-    <%= f.collection_select :venue_id, Venue.by_name, :id, :name %>
-
-    <%= f.label :raw_setlist, "Setlist" %>
-    <%= f.text_area :raw_setlist %>
+    <%= render "form", form: f %>
 
     <%= f.submit %>
   <% end %>

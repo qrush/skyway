@@ -2,13 +2,27 @@ class Show < ActiveRecord::Base
   belongs_to :venue
   has_many :setlists, -> { order "setlists.position asc" }, dependent: :destroy
 
+  validates_presence_of :setlists
+  validates_uniqueness_of :performed_at
+
   scope :performed, -> { order("performed_at desc").includes(:venue, setlists: {slots: :song}) }
   scope :for_year, -> (year) { where("EXTRACT(YEAR FROM performed_at) = ?", year) }
 
-  attr_accessor :bookmark_index, :raw_setlist
+  attr_writer :raw_setlist
+
+  def self.parse!(params)
+    Parser.parse(params).tap(&:save!)
+  end
+
+  def replace!(params)
+    transaction do
+      destroy
+      self.class.parse!(params)
+    end
+  end
 
   def notes?
-    slots.any?(&:notes?)
+    notes.any?
   end
 
   def notes
@@ -27,10 +41,25 @@ class Show < ActiveRecord::Base
     "#{super}-#{Digest::MD5.hexdigest [ venue.cache_key, *setlists.map(&:cache_key) ].join("-")}"
   end
 
+  def raw_setlist
+    @raw_setlist || [*setlists.map(&:to_s), *note_setlist].join("\n\n")
+  end
+
+  def bookmark_for(note)
+    index = notes.index(note)
+    %w(* ** *** # % ^ $).fetch(index, "@" * index)
+  end
+
   private
 
     def slots
       setlists.map(&:slots).flatten
+    end
+
+    def note_setlist
+      if notes?
+        ["NOTES", *notes.map { |note| "#{bookmark_for(note)} #{note}" }].join("\n")
+      end
     end
 
     def cache_notes
@@ -40,6 +69,6 @@ class Show < ActiveRecord::Base
           notes << note
         end
       end
-      notes.uniq
+      notes.uniq + self[:notes]
     end
 end

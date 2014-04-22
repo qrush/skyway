@@ -6,4 +6,8 @@ class Setlist < ActiveRecord::Base
   def cache_key
     [super, *slots.map(&:cache_key)].join("-")
   end
+
+  def to_s
+    [name, *slots.map(&:to_s)].join("\n")
+  end
 end

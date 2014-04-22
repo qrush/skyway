@@ -1,0 +1,8 @@
+<%= form.label :performed_at %>
+<%= form.date_field :performed_at %>
+
+<%= form.label :venue_id, "Venue" %>
+<%= form.collection_select :venue_id, Venue.by_name, :id, :name %>
+
+<%= form.label :raw_setlist, "Setlist" %>
+<%= form.text_area :raw_setlist %>
