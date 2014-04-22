@@ -70,8 +70,8 @@ class EdgeParserTest < ActiveSupport::TestCase
 
   test "songs aren't repeated" do
     assert_nothing_raised do
-      2.times do
-        show = Parser.parse raw_setlist: raw_setlists("origami")
+      2.times do |n|
+        show = Parser.parse raw_setlist: raw_setlists("origami"), performed_at: n.days.ago
         show.save!
       end
     end
@@ -101,5 +101,10 @@ class EdgeParserTest < ActiveSupport::TestCase
 
     assert_equal "Lets Get It On", slot.song.name
     assert_equal ["First time played"], slot.notes
+  end
+
+  test "NOTES does not get parsed as a song" do
+    show = Parser.parse raw_setlist: raw_setlists("breathe")
+    assert show.setlists.map(&:slots).flatten.none? { |slot| slot.song.name == "NOTES" }
   end
 end

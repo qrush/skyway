@@ -34,7 +34,7 @@ class Parser
   private
 
     def lines
-      @show.raw_setlist.split("\n").select(&:present?).map(&:strip)
+      @show.raw_setlist.split("\n").map(&:strip).select { |line| line.present? && line !~ /NOTES/i }
     end
 
     def build_slot(line, options = {})
