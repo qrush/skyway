@@ -5,8 +5,9 @@ sup {
   font-size: 0.8em;
 }
 
-.setlist {
+p.setlist {
   line-height: 1.75em;
+  margin-bottom: 0.75em !important;
 
   em {
     font-weight: normal;
