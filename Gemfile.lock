@@ -46,6 +46,7 @@ GEM
     dalli (2.7.0)
     domain_name (0.5.16)
       unf (>= 0.0.5, < 1.0.0)
+    dynamic_form (1.1.4)
     erubis (2.7.0)
     execjs (2.0.2)
     hike (1.2.3)
@@ -146,6 +147,7 @@ DEPENDENCIES
   bourbon
   coffee-rails (~> 4.0.0)
   dalli
+  dynamic_form
   jquery-rails
   mechanize
   memcachier

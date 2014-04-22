@@ -19,14 +19,21 @@ class ShowsController < ApplicationController
   end
 
   def create
-    @show = Show.parse!(show_params)
-    redirect_to @show
+    @show = Show.parse(show_params)
+    if @show.save
+      redirect_to @show
+    else
+      render :new
+    end
   end
 
   def update
-    old_show = find_show_by_performed_at
-    new_show = old_show.replace!(show_params)
-    redirect_to new_show
+    @show = find_show_by_performed_at
+    @new_show = Show.parse(show_params)
+    @new_show.replace(@show)
+    redirect_to @new_show
+  rescue ActiveRecord::RecordInvalid
+    render :edit
   end
 
   private

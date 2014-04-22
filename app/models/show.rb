@@ -2,7 +2,7 @@ class Show < ActiveRecord::Base
   belongs_to :venue
   has_many :setlists, -> { order "setlists.position asc" }, dependent: :destroy
 
-  validates_presence_of :setlists
+  validates_presence_of :performed_at, :venue, :setlists
   validates_uniqueness_of :performed_at
 
   scope :performed, -> { order("performed_at desc").includes(:venue, setlists: {slots: :song}) }
@@ -10,14 +10,14 @@ class Show < ActiveRecord::Base
 
   attr_writer :raw_setlist
 
-  def self.parse!(params)
-    Parser.parse(params).tap(&:save!)
+  def self.parse(params)
+    Parser.parse(params).tap(&:save)
   end
 
-  def replace!(params)
+  def replace(show)
     transaction do
-      destroy
-      self.class.parse!(params)
+      show.destroy
+      save!
     end
   end
 

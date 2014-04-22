@@ -13,7 +13,8 @@ class ActiveSupport::TestCase
 
   # Add more helper methods to be used by all tests here...
 
-  def raw_setlists(name)
-    Rails.root.join("test/fixtures/raw_setlists/#{name}.txt").read
+  def parse_show(name, options = {})
+    raw_setlist = Rails.root.join("test/fixtures/raw_setlists/#{name}.txt").read
+    Parser.parse({raw_setlist: raw_setlist, venue: venues(:bar), performed_at: Date.today}.merge(options))
   end
 end

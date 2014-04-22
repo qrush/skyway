@@ -2,7 +2,7 @@ require 'test_helper'
 
 class BasicParserTest < ActiveSupport::TestCase
   setup do
-    @show = Parser.parse raw_setlist: raw_setlists("kitty")
+    @show = parse_show("kitty")
   end
 
   test "has 3 sets" do
@@ -51,14 +51,14 @@ end
 
 class EdgeParserTest < ActiveSupport::TestCase
   test "more than one note is supported" do
-    show = Parser.parse raw_setlist: raw_setlists("candy")
+    show = parse_show("candy")
     slot = show.setlists.first.slots.first
 
     assert_equal ["Mahnkali's Pocket Watch tease", "With John from Broccoli Samurai on guitar"], slot.notes
   end
 
   test "parts of songs are parsed" do
-    show = Parser.parse raw_setlist: raw_setlists("origami")
+    show = parse_show("origami")
     show.save!
 
     slot1 = show.setlists.first.slots.first
@@ -71,19 +71,19 @@ class EdgeParserTest < ActiveSupport::TestCase
   test "songs aren't repeated" do
     assert_nothing_raised do
       2.times do |n|
-        show = Parser.parse raw_setlist: raw_setlists("origami"), performed_at: n.days.ago
+        show = parse_show("origami", performed_at: n.days.ago)
         show.save!
       end
     end
   end
 
   test "multiple encores" do
-    show = Parser.parse raw_setlist: raw_setlists("eondon")
+    show = parse_show("eondon")
     assert_equal ['SET I', 'ENCORE I', 'ENCORE II'], show.setlists.map(&:name)
   end
 
   test "transition can be before notes" do
-    show = Parser.parse raw_setlist: raw_setlists("warren")
+    show = parse_show("warren")
     slot = show.setlists.first.slots[1]
 
     assert_equal "All In", slot.song.name
@@ -91,7 +91,7 @@ class EdgeParserTest < ActiveSupport::TestCase
   end
 
   test "bookmarks can be used on more than one song" do
-    show = Parser.parse raw_setlist: raw_setlists("breathe")
+    show = parse_show("breathe")
     slot = show.setlists.first.slots[1]
 
     assert_equal "Short Skirt, Long Jacket", slot.song.name
@@ -104,12 +104,12 @@ class EdgeParserTest < ActiveSupport::TestCase
   end
 
   test "NOTES does not get parsed as a song" do
-    show = Parser.parse raw_setlist: raw_setlists("breathe")
+    show = parse_show("breathe")
     assert show.setlists.map(&:slots).flatten.none? { |slot| slot.song.name == "NOTES" }
   end
 
   test "unmatched notes get saved on the show" do
-    show = Parser.parse raw_setlist: raw_setlists("breathe")
+    show = parse_show("breathe")
     assert_equal 'Played by Nick on drums', show.notes.last
   end
 end

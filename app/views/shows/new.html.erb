@@ -2,6 +2,8 @@
   <p class="type">Add new show</p>
 
   <%= form_for @show do |f| %>
+    <%= f.error_messages %>
+
     <%= render "form", form: f %>
 
     <%= f.submit %>

@@ -13,6 +13,7 @@ gem 'bitters'
 #gem 'refills'
 gem 'neat'
 
+gem 'dynamic_form'
 gem 'mechanize', require: false
 
 group :production do

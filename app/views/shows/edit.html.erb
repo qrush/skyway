@@ -2,6 +2,8 @@
   <p class="type">Edit <%= @show.when %></p>
 
   <%= form_for @show do |f| %>
+    <%= error_messages_for :new_show %>
+
     <%= render "form", form: f %>
 
     <%= f.submit %>

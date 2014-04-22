@@ -5,12 +5,7 @@
 @import "neat";
 
 @import "refills";
-
-form {
-  textarea {
-    height: 300px;
-  }
-}
+@import "form";
 
 #wrapper {
   max-width: 68em;
