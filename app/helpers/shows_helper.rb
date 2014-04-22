@@ -12,7 +12,7 @@ module ShowsHelper
       current_jam << "#{link_to(slot.song.name, slot.song)}#{notes.strip}"
 
       unless slot.transition?
-        names << "<em class='jam'>#{current_jam.join(" > ")}</em>"
+        names << "<em>#{current_jam.join(" > ")}</em>"
         current_jam.clear
       end
     end

@@ -5,14 +5,18 @@ sup {
   font-size: 0.8em;
 }
 
-.jam {
-  font-weight: normal;
-  padding: 3px;
-  background-color: #F5F9FA;
-  border-radius: 3px;
-  @include transition(background-color 0.5s ease-in-out);
+.setlist {
+  line-height: 1.75em;
 
-  &:hover {
-    background-color: #EDF2F7;
+  em {
+    font-weight: normal;
+    padding: 3px;
+    background-color: #F5F9FA;
+    border-radius: 3px;
+    @include transition(background-color 0.5s ease-in-out);
+
+    &:hover {
+      background-color: #EDF2F7;
+    }
   }
 }

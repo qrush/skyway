@@ -4,7 +4,7 @@
     <%= render show.venue %>
 
     <% show.setlists.each do |setlist| %>
-      <p>
+      <p class="setlist">
         <span><%= setlist.name %></span>:
         <%= format_setlist(show, setlist) %>
       </p>
