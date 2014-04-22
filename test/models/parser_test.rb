@@ -107,4 +107,9 @@ class EdgeParserTest < ActiveSupport::TestCase
     show = Parser.parse raw_setlist: raw_setlists("breathe")
     assert show.setlists.map(&:slots).flatten.none? { |slot| slot.song.name == "NOTES" }
   end
+
+  test "unmatched notes get saved on the show" do
+    show = Parser.parse raw_setlist: raw_setlists("breathe")
+    assert_equal 'Played by Nick on drums', show.notes.last
+  end
 end

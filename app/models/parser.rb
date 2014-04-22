@@ -28,6 +28,7 @@ class Parser
     end
 
     build_slot_metadata
+    @show.notes = build_show_notes
     @show
   end
 
@@ -69,5 +70,15 @@ class Parser
           end
         end
       end
+    end
+
+    def build_show_notes
+      @notes_by_bookmark.map do |bookmark, note|
+        if @slots_with_bookmarks.none? { |(slotted_bookmark), _| bookmark == slotted_bookmark }
+          note
+        else
+          nil
+        end
+      end.compact
     end
 end
