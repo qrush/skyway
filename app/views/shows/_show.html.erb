@@ -10,6 +10,12 @@
       </p>
     <% end %>
 
+    <% if show.unknown_setlist? %>
+      <p class="unknown">
+        Setlist unavailable for this show.
+      </p>
+    <% end %>
+
     <% if show.notes? %>
       <p>
         <span>Notes:</span>

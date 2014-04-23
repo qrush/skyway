@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140422011018) do
+ActiveRecord::Schema.define(version: 20140422220443) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,7 +31,8 @@ ActiveRecord::Schema.define(version: 20140422011018) do
     t.datetime "performed_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "notes",        default: [], array: true
+    t.string   "notes",           default: [],                 array: true
+    t.boolean  "unknown_setlist", default: false, null: false
   end
 
   add_index "shows", ["notes"], name: "index_shows_on_notes", using: :gin

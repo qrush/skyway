@@ -2,7 +2,8 @@ class Show < ActiveRecord::Base
   belongs_to :venue
   has_many :setlists, -> { order "setlists.position asc" }, dependent: :destroy
 
-  validates_presence_of :performed_at, :venue, :setlists
+  validates_presence_of :performed_at, :venue
+  validates_presence_of :setlists, unless: :unknown_setlist?
   validates_uniqueness_of :performed_at
 
   scope :performed, -> { order("performed_at desc").includes(:venue, setlists: {slots: :song}) }

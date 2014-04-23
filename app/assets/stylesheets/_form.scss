@@ -8,6 +8,10 @@ form {
     font-family: "Monaco", "Courier New", monospace;
     padding: 10px;
   }
+
+  .checkbox_label {
+    display: inline-block;
+  }
 }
 
 #errorExplanation {
