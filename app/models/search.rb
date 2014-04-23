@@ -20,4 +20,8 @@ class Search
       []
     end
   end
+
+  def shows
+    @shows ||= Show.performed.find(songs.map(&:show_ids).flatten.uniq)
+  end
 end

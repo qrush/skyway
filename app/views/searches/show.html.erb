@@ -1,4 +1,4 @@
-<% @title = "Songs matching '#{@search.query}'" %>
+<% @title = "Searching for '#{@search.query}'" %>
 
 <% if @search.songs.present? %>
   <% @search.songs.each do |song| %>
@@ -19,5 +19,17 @@
 <% else %>
   <p>
     No venues were found matching this term.
+  </p>
+<% end %>
+
+<p class="type">Shows matching '<%= @search.query %>'</p>
+
+<% if @search.shows.present? %>
+  <div data-highlight="<%= @search.query %>">
+    <%= render @search.shows %>
+  </div>
+<% else %>
+  <p>
+    No shows were found matching this term.
   </p>
 <% end %>
