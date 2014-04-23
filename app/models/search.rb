@@ -22,6 +22,12 @@ class Search
   end
 
   def shows
-    @shows ||= Show.performed.find(songs.map(&:show_ids).flatten.uniq)
+    @shows ||= Show.performed.find(show_ids)
   end
+
+  private
+
+    def show_ids
+      (songs.map(&:show_ids).flatten + venues.map(&:show_ids).flatten).uniq
+    end
 end

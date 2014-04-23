@@ -8,7 +8,7 @@ $ ->
     highlight = highlightElement.data("highlight")
     console.log highlight
 
-    highlightElement.find("em").each ->
+    highlightElement.find("em, h3").each ->
       if $(this).text().match(new RegExp(highlight, "i"))
         $(this).addClass("highlight")
 

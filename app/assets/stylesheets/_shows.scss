@@ -5,6 +5,16 @@ sup {
   font-size: 0.8em;
 }
 
+.highlight {
+  background-color: lighten(#ff9900, 30);
+}
+
+h3.highlight {
+  padding: 2px;
+  display: inline-block;
+  border-radius: 3px;
+}
+
 p.setlist {
   line-height: 1.75em;
   margin-bottom: 0.75em !important;
@@ -20,9 +30,6 @@ p.setlist {
       background-color: #EDF2F7;
     }
 
-    &.highlight {
-      background-color: lighten(#ff9900, 30);
-    }
   }
 }
 
