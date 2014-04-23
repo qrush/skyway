@@ -1,0 +1,60 @@
+.hero {
+  $hero-background: #3B8E94;
+  $hero-color: white;
+
+  background: url(/band.png);
+  background-color: $hero-background;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .hero-logo img {
+    height: 3em;
+    margin-bottom: 1em;
+  }
+
+  .hero-inner {
+    @include outer-container;
+    @include clearfix;
+    padding: 3em;
+    padding-top: 5em;
+    margin: auto;
+    text-align: center;
+    color: $hero-color;
+
+    button {
+      @include button(simple, $base-accent-color);
+      font-size: $base-font-size;
+      outline: none;
+    }
+
+    .hero-copy {
+      text-align: center;
+
+      h1 {
+        font-size: 1.4em;
+        margin-bottom: .2em;
+
+        @include media($large-screen) {
+          font-size: 1.8em;
+        }
+      }
+
+      p {
+        margin: auto;
+        margin-bottom: 3em;	
+        font-weight: 200;
+
+        @include media($large-screen) {
+          font-size: 1.2em;
+          max-width: 40%;
+        }
+
+        a, a:visited {
+          text-decoration: underline;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
