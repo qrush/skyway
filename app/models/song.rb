@@ -5,16 +5,14 @@ class Song < ActiveRecord::Base
   has_many :setlists, through: :slots
   has_many :shows, -> { uniq }, through: :setlists
 
+  to_param :name
+
   def debut_show
     performed_shows.last
   end
 
   def performed_shows
     @performed_shows ||= shows.performed
-  end
-
-  def to_param
-    "#{id}-#{CGI.escape(name).downcase}"
   end
 
   def merge!(other_song)

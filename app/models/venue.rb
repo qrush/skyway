@@ -1,6 +1,7 @@
 class Venue < ActiveRecord::Base
   include Showable
 
+  to_param :name
   has_many :shows
 
   def merge!(other_venue)
