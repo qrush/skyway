@@ -1,11 +1,11 @@
-%flash-error {
+#flash_error {
   @include flash($error-color);
 }
 
-%flash-notice {
+#flash_notice {
   @include flash($notice-color);
 }
 
-%flash-success {
+#flash_success {
   @include flash($success-color);
 }

@@ -7,6 +7,8 @@ class Song < ActiveRecord::Base
 
   to_param :name
 
+  before_destroy :check_for_slots
+
   def debut_show
     performed_shows.last
   end
@@ -22,4 +24,10 @@ class Song < ActiveRecord::Base
     end
     other_song.destroy
   end
+
+  private
+
+    def check_for_slots
+      slots.empty?
+    end
 end
