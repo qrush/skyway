@@ -21,6 +21,7 @@ class ShowsController < ApplicationController
   def create
     @show = Show.parse(show_params)
     if @show.save
+      flash[:success] = "Successfully created a new show."
       redirect_to @show
     else
       render :new
@@ -31,6 +32,8 @@ class ShowsController < ApplicationController
     @show = find_show_by_performed_at
     @new_show = Show.parse(show_params)
     @new_show.replace(@show)
+
+    flash[:success] = "Successfully updated this show."
     redirect_to @new_show
   rescue ActiveRecord::RecordInvalid
     render :edit

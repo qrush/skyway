@@ -8,6 +8,8 @@ module Mergeable
   def update
     @mergeable = mergeable_class.find(params[:id])
     @mergeable.update_attributes!(mergeable_params)
+
+    flash[:success] = "Successfully updated #{@mergeable.name}!"
     redirect_to @mergeable
   end
 
@@ -16,6 +18,8 @@ module Mergeable
     @other_mergeable = mergeable_class.find(other_mergeable_params[other_mergeable_param])
 
     @mergeable.merge!(@other_mergeable)
+
+    flash[:success] = "Successfully merged #{@mergeable.name}!"
     redirect_to @mergeable
   end
 
