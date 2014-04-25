@@ -3,49 +3,12 @@ form {
     height: 300px;
   }
 
-  pre {
-    background-color: #ccc;
-    font-family: "Monaco", "Courier New", monospace;
-    padding: 10px;
-  }
-
   .checkbox_label {
     display: inline-block;
   }
 }
 
 #errorExplanation {
-  border: 2px solid #CC6666;
-  padding: 0px;
-  padding-bottom: 12px;
-  margin-left: 35px;
-  margin-right: 55px;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
-
-  h2 {
-    text-align: left;
-    font-weight: bold;
-    padding: 5px 5px 5px 15px;
-    font-size: 12px;
-    margin: 0px;
-    background-color: #CC6666;
-    color: white;
-    float: none;
-    margin-bottom: 10px;
-  }
-
-  p {
-    display: none;
-  }
-
-  ul {
-    margin: 2px 10px;
-
-    li {
-      font-size: 12px;
-      list-style: none;
-      padding: 3px;
-    }
-  }
+  @include flash($error-color);
+  font-size: 80%;
 }

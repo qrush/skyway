@@ -1,0 +1,60 @@
+.button-group {
+  $button-group-background: $base-body-color;
+  $button-group-color: lighten($base-font-color, 30);
+  $button-group-border-highlight: lighten($button-group-background, 15);
+  $button-group-active: $base-accent-color;
+
+  a {
+    @include button(simple, $button-group-background);
+    font-weight: 400;
+    color: $button-group-color;
+    font-size: $base-font-size;
+    outline: none;
+    width: 100%;
+    display: block;
+    border-top-width: 0;
+
+    &.active {
+      @include button(simple, $button-group-active);
+      font-weight: 400;
+      font-size: $base-font-size;
+      color: #fff;
+    }
+
+    &:first-child {
+      @include border-bottom-radius(0);
+      border-top-width: 1px;
+    }
+
+    &:not(:first-child):not(:last-child) {
+      border-radius: 0;
+    }
+
+    &:last-child {
+      @include border-top-radius(0);
+    }
+
+    @include media($medium-screen) {
+      width: auto;
+      display: inline-block;
+      border-top-width: 1px;
+      margin: 0;
+
+      &:first-child {
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 3px;
+      }
+
+      &:not(:first-child):not(:last-child) {
+        border-left: 1px solid $button-group-border-highlight;
+        border-radius: 0;
+      }
+
+      &:last-child {
+        border-left: 1px solid $button-group-border-highlight;
+        border-bottom-left-radius: 0;
+      }
+    }
+  }
+}
+
