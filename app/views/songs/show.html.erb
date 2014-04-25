@@ -4,7 +4,7 @@
   <%= render @song %>
   <% if admin? %>
     <%= link_to "Edit this song.", [:edit, @song] %>
-    <%= link_to "Delete this song.", @song, method: :delete, confirm: true %>
+    <%= link_to "Delete this song.", @song, method: :delete, data: {confirm: "Are you sure you want to delete this song?"} %>
   <% end %>
 </p>
 
