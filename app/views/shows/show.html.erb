@@ -7,3 +7,8 @@
 <% end %>
 
 <%= render @show %>
+
+<p class="pager">
+  <%= link_to "← #{@show.previous_show.when}", @show.previous_show if @show.previous_show %>
+  <%= link_to "#{@show.next_show.when} →", @show.next_show, id: "next_show" if @show.next_show %>
+</p>

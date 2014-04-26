@@ -36,3 +36,14 @@ p.setlist {
 p.unknown {
   font-style: italic;
 }
+
+p.pager {
+  a {
+    margin-bottom: 5px;
+    display: inline-block;
+  }
+
+  a#next_show {
+    float: right;
+  }
+}

@@ -6,7 +6,8 @@ class Show < ActiveRecord::Base
   validates_presence_of :setlists, unless: :unknown_setlist?
   validates_uniqueness_of :performed_at
 
-  scope :performed, -> { order(performed_at: :desc).includes(:venue, setlists: {slots: :song}) }
+  scope :ordered, -> { order(performed_at: :desc) }
+  scope :performed, -> { ordered.includes(:venue, setlists: {slots: :song}) }
   scope :for_year, -> (year) { where("EXTRACT(YEAR FROM performed_at) = ?", year) }
 
   attr_writer :raw_setlist
@@ -49,6 +50,14 @@ class Show < ActiveRecord::Base
   def bookmark_for(note)
     index = notes.index(note)
     %w(* ** *** # % ^ $).fetch(index, "@" * index)
+  end
+
+  def next_show
+    @next_show ||= self.class.ordered.where("performed_at > ?", performed_at).last
+  end
+
+  def previous_show
+    @previous_show ||= self.class.ordered.where("performed_at < ?", performed_at).first
   end
 
   private
