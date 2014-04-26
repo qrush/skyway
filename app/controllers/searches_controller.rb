@@ -1,5 +1,5 @@
 class SearchesController < ApplicationController
-  def show
-    @search = Search.new(params[:query])
+  def index
+    @search = Search.new(query: params[:query])
   end
 end

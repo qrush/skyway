@@ -132,6 +132,12 @@ header.navigation {
     }
   }
 
+  li.navigation-mobile-search {
+    @include media($large-screen) {
+      display: none;
+    }
+  }
+
   li.navigation-search-bar {
     display: none;
 

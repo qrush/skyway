@@ -6,7 +6,6 @@
 ready = ->
   if highlightElement = $("[data-highlight]")
     highlight = highlightElement.data("highlight")
-    console.log highlight
 
     highlightElement.find("em, h3").each ->
       if $(this).text().match(new RegExp(highlight, "i"))

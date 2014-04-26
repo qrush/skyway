@@ -1,0 +1,49 @@
+<% content_for :top do %>
+  <%= form_for @search, method: :get, html: {class: "search-big"} do |f| %>
+    <%= f.label :query, "Search:" %>
+    <%= f.text_field :query, name: :query, type: :search, placeholder: "Search for a song, venue, location..." %>
+  <% end %>
+<% end %>
+
+<% if @search.query.present? %>
+  <% @title = "Searching for '#{@search.query}'" %>
+
+  <% if @search.songs.present? %>
+    <% @search.songs.each do |song| %>
+      <p>
+        <%= link_to song.name, song %>
+      </p>
+    <% end %>
+  <% else %>
+    <p>
+      No songs were found matching this term.
+    </p>
+  <% end %>
+
+  <p class="type">Venues matching '<%= @search.query %>'</p>
+
+  <% if @search.venues.present? %>
+    <%= render @search.venues %>
+  <% else %>
+    <p>
+      No venues were found matching this term.
+    </p>
+  <% end %>
+
+  <p class="type">Shows matching '<%= @search.query %>'</p>
+
+  <% if @search.shows.present? %>
+    <div data-highlight="<%= @search.query %>">
+      <%= render @search.shows %>
+    </div>
+  <% else %>
+    <p>
+      No shows were found matching this term.
+    </p>
+  <% end %>
+<% else %>
+  <% @title = "Searching for something?" %>
+  <p>
+    Please enter a search term, and we'll see if any jams match!
+  </p>
+<% end %>

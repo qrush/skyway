@@ -1,9 +1,6 @@
 class Search
-  attr_reader :query
-
-  def initialize(query)
-    @query = query
-  end
+  include ActiveModel::Model
+  attr_accessor :query
 
   def songs
     @songs ||= if @query

@@ -13,7 +13,7 @@ Skyway::Application.routes.draw do
     end
   end
 
-  resource :search
+  resources :searches, path: "search"
   resource :admin
 
   root to: "home#index"
