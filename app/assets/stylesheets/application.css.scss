@@ -34,3 +34,13 @@ pre {
   font-family: "Monaco", "Courier New", monospace;
   padding: 10px;
 }
+
+.spark {
+  display: none;
+
+  @include media ($large-screen) {
+    display: inline;
+    float: right;
+    opacity: 0.3;
+  }
+}
