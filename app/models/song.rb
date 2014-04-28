@@ -3,18 +3,16 @@ class Song < ActiveRecord::Base
 
   has_many :slots
   has_many :setlists, through: :slots
-  has_many :shows, -> { uniq }, through: :setlists
+  has_many :shows, -> { merge(Show.ordered).uniq }, through: :setlists
 
   to_param :name
+
+  scope :with_shows, -> { includes(:shows) }
 
   before_destroy :check_for_slots
 
   def debut_show
-    performed_shows.last
-  end
-
-  def performed_shows
-    @performed_shows ||= shows.performed
+    shows.last
   end
 
   def merge!(other_song)

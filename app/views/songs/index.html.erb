@@ -1,16 +1,17 @@
-<% @title = "All songs (#{Song.count})" %>
+<% @title = @playlist.title %>
+
+<% content_for :top do %>
+  <nav>
+    <div class="button-group">
+      <%= playlist_buttons_for(@playlist) %>
+    </div>
+  </nav>
+<% end %>
 
 <div id="songs" data-show-ids="<%= @show_ids.to_json %>">
-  <% @songs_by_first_letter.each do |first_letter, songs| %>
-    <h2><%= first_letter %></h2>
-    <% songs.each do |song| %>
-      <%= cache song do %>
-        <p>
-          <div class="spark" id="spark_<%= dom_id(song) %>"></div>
-          <%= link_to song.name, song, id: dom_id(song), :'data-performed-show-ids' => song.show_ids.to_json %>
-        </p>
-      <% end %>
-    <% end %>
-    <hr />
+  <% if @playlist.template %>
+    <%= render @playlist.template, songs: @playlist.songs %>
+  <% else %>
+    <%= render @playlist.songs %>
   <% end %>
 </div>

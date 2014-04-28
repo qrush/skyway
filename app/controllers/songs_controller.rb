@@ -5,7 +5,7 @@ class SongsController < ApplicationController
   before_filter :require_admin, except: [:index, :show]
 
   def index
-    @songs_by_first_letter = Song.by_name.includes(:shows).group_by(&:first_letter)
+    @playlist = Playlist.find(params[:order])
     @show_ids = Show.order(performed_at: :asc).pluck(:id)
   end
 

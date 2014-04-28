@@ -4,7 +4,7 @@ class Search
 
   def songs
     @songs ||= if @query
-      Song.where("lower(name) like lower(?)", "%#{@query}%").by_name
+      Song.with_shows.where("lower(name) like lower(?)", "%#{@query}%").by_name
     else
       []
     end
