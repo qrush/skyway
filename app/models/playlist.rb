@@ -23,6 +23,14 @@ class Playlist
     playlist_class.new(order: ORDERS.keys.include?(order) ? order : ORDERS.keys.first)
   end
 
+  def songs
+    @songs ||= playlist(Song.with_shows)
+  end
+
+  def cache_key
+    Digest::MD5.hexdigest songs.map(&:cache_key).join("-")
+  end
+
   def template
     nil
   end
@@ -33,10 +41,8 @@ class Playlist
 end
 
 class AlphabeticalPlaylist < Playlist
-  def songs
-    Song.with_shows.
-      by_name.
-      group_by(&:first_letter)
+  def playlist(scope)
+    scope.by_name
   end
 
   def template
@@ -49,10 +55,8 @@ class AlphabeticalPlaylist < Playlist
 end
 
 class CoverPlaylist < Playlist
-  def songs
-    Song.with_shows.
-      where(cover: true).
-      by_name
+  def playlist(scope)
+    scope.where(cover: true).by_name
   end
 
   def title
@@ -61,8 +65,8 @@ class CoverPlaylist < Playlist
 end
 
 class DebutPlaylist < Playlist
-  def songs
-    Song.with_shows.
+  def playlist(scope)
+    scope.
       sort_by { |song| song.debut_show.performed_at }.
       reverse
   end
@@ -73,8 +77,8 @@ class DebutPlaylist < Playlist
 end
 
 class FrequencyPlaylist < Playlist
-  def songs
-    Song.with_shows.
+  def playlist(scope)
+    scope.
       select("songs.*, count(song_id) as songs_count").
       joins(:slots).
       group("songs.id").

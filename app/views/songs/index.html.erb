@@ -8,10 +8,14 @@
   </nav>
 <% end %>
 
+<div id="sparkline"></div>
+
 <div id="songs" data-show-ids="<%= @show_ids.to_json %>">
-  <% if @playlist.template %>
-    <%= render @playlist.template, songs: @playlist.songs %>
-  <% else %>
-    <%= render @playlist.songs %>
+  <% cache @playlist do %>
+    <% if @playlist.template %>
+      <%= render @playlist.template, songs: @playlist.songs %>
+    <% else %>
+      <%= render @playlist.songs %>
+    <% end %>
   <% end %>
 </div>

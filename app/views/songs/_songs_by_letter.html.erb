@@ -1,4 +1,4 @@
-<% songs.each do |first_letter, group| %>
+<% songs.group_by(&:first_letter).each do |first_letter, group| %>
   <h2><%= first_letter %></h2>
   <%= render group %>
   <hr />
