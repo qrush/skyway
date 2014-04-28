@@ -80,6 +80,7 @@ GEM
       sass (>= 3.3)
     net-http-digest_auth (1.4)
     net-http-persistent (2.9.4)
+    newrelic_rpm (3.8.0.218)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
     ntlm-http (0.1.1)
@@ -156,6 +157,7 @@ DEPENDENCIES
   mechanize
   memcachier
   neat
+  newrelic_rpm
   pg
   rack-rewrite
   rails (= 4.1.0)

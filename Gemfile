@@ -18,6 +18,8 @@ gem 'dynamic_form'
 gem 'rack-rewrite'
 gem 'mechanize', require: false
 
+gem 'newrelic_rpm'
+
 group :production do
   gem 'unicorn'
   gem 'rails_12factor'
