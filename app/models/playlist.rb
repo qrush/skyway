@@ -15,12 +15,12 @@ class Playlist
       CoverPlaylist,
       DebutPlaylist,
       FrequencyPlaylist
-    ])].fetch(order, AlphabeticalPlaylist)
+    ])].fetch(order, FrequencyPlaylist)
   end
 
   def self.find(order)
     playlist_class = playlist_for(order)
-    playlist_class.new(order: ORDERS.keys.include?(order) ? order : ORDERS.keys.first)
+    playlist_class.new(order: ORDERS.keys.include?(order) ? order : ORDERS.keys.last)
   end
 
   def songs
