@@ -60,7 +60,7 @@ class CoverPlaylist < Playlist
   end
 
   def title
-    "Covered songs"
+    "Covered songs (#{songs.count})"
   end
 end
 
