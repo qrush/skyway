@@ -3,7 +3,7 @@ class Song < ActiveRecord::Base
 
   has_many :slots
   has_many :setlists, through: :slots
-  has_many :shows, -> { merge(Show.ordered).uniq }, through: :setlists
+  has_many :shows, -> { merge(Show.ordered) }, through: :setlists
 
   to_param :name
 

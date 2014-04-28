@@ -28,7 +28,7 @@ class Playlist
   end
 
   def cache_key
-    Digest::MD5.hexdigest songs.map(&:cache_key).join("-")
+    Digest::MD5.hexdigest [order, *Song.select(:id, :updated_at).map(&:cache_key)].join("-")
   end
 
   def template
