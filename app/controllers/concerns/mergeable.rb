@@ -26,7 +26,7 @@ module Mergeable
   private
 
     def mergeable_params
-      params.require(mergeable_param).permit(:name, :location)
+      params.require(mergeable_param).permit(:name, :location, :cover)
     end
 
     def other_mergeable_params

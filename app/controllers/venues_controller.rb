@@ -21,14 +21,8 @@ class VenuesController < ApplicationController
   end
 
   def create
-    @venue = Venue.new(venue_params)
+    @venue = Venue.new(mergeable_params)
     @venue.save!
     redirect_to @venue
   end
-
-  private
-
-    def venue_params
-      params.require(:venue).permit(:name, :location)
-    end
 end

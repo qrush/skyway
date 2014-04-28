@@ -6,6 +6,11 @@ form {
   .checkbox_label {
     display: inline-block;
   }
+
+  input[type='submit'] {
+    margin-top: 3px;
+    display: block;
+  }
 }
 
 #errorExplanation {
