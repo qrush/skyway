@@ -67,6 +67,7 @@ end
 class DebutPlaylist < Playlist
   def playlist(scope)
     scope.
+      select { |song| song.shows.present? }.
       sort_by { |song| song.debut_show.performed_at }.
       reverse
   end
