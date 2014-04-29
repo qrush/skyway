@@ -8,7 +8,7 @@
   <% end %>
 </p>
 
-<% @song.shows.each do |show| %>
+<% @song.shows.uniq.each do |show| %>
   <h2><%= link_to show.when, show %></h2>
   <h3><%= show.venue.name %>, <%= show.venue.location %></h3>
   <hr />
