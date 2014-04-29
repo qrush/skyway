@@ -4,11 +4,12 @@ skyway.ready ->
     showIds = songs.data("show-ids")
 
     height = 16
+    labelOffset = 30
 
     svg = d3.select("#sparkline").
       append("svg:svg").
       attr("height", height).
-      attr("width", showIds.length * 2)
+      attr("width", showIds.length * 2 + labelOffset)
 
     node = svg.
       selectAll("g").
@@ -28,9 +29,15 @@ skyway.ready ->
           else
             0
 
+        d3.select(clone).append("svg:text")
+          .attr("x", labelOffset - 7)
+          .attr("y", 13)
+          .style("text-anchor", "end")
+          .text(performedShowIds.length)
+
         clonedNode = d3.select(clone).selectAll("g").data(showIds).enter()
         clonedNode.append("svg:rect")
-            .attr("x", (d, i) -> i * 2 + 1)
-            .attr("y", calculateY)
-            .attr("height", height / 2)
-            .attr("width", 1)
+          .attr("x", (d, i) -> i * 2 + labelOffset)
+          .attr("y", calculateY)
+          .attr("height", height / 2)
+          .attr("width", 1)
