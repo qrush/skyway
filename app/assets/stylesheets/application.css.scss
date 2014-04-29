@@ -40,7 +40,10 @@ pre {
   background-color: lighten(#ff9900, 30) !important;
 }
 
-.cover {
+a.cover, a.cover:visited {
   color: #769999;
   font-style: italic;
+  &:hover {
+    color: #596D74;
+  }
 }
