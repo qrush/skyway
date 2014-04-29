@@ -1,4 +1,4 @@
 <p>
   <span class="spark" id="spark_<%= dom_id(song) %>"></span>
-  <%= link_to song.name, song, id: dom_id(song), :'data-performed-show-ids' => song.show_ids.to_json %>
+  <%= link_to song.name, song, id: dom_id(song), :'data-performed-show-ids' => song.show_ids.to_json, class: song.version %>
 </p>

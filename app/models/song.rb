@@ -11,6 +11,10 @@ class Song < ActiveRecord::Base
 
   before_destroy :check_for_slots
 
+  def version
+    cover? ? "cover" : "original"
+  end
+
   def debut_show
     shows.last
   end

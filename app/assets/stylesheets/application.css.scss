@@ -10,6 +10,7 @@
 @import "navigation";
 @import "form";
 @import "shows";
+@import "songs";
 @import "buttons";
 
 #wrapper {
@@ -35,16 +36,11 @@ pre {
   padding: 10px;
 }
 
-.spark {
-  display: none;
-
-  @include media ($large-screen) {
-    display: inline;
-    float: right;
-    opacity: 0.3;
-  }
+.highlight {
+  background-color: lighten(#ff9900, 30) !important;
 }
 
-#sparkline {
-  display: none;
+.cover {
+  color: #769999;
+  font-style: italic;
 }

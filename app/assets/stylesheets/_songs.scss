@@ -1,0 +1,13 @@
+.spark {
+  display: none;
+
+  @include media ($large-screen) {
+    display: inline;
+    float: right;
+    opacity: 0.3;
+  }
+}
+
+#sparkline {
+  display: none;
+}

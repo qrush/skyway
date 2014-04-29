@@ -3,7 +3,6 @@ module ShowsHelper
     names = []
     current_jam = []
 
-    cover_options = {class: "cover", title: "Cover song"}
 
     setlist.slots.each do |slot|
       notes = ""
@@ -11,7 +10,7 @@ module ShowsHelper
         notes << "<sup>#{show.bookmark_for(note)}</sup> "
       end
 
-      song_link = link_to(slot.song.name, slot.song, slot.song.cover? ? cover_options : {})
+      song_link = link_to(slot.song.name, slot.song, class: slot.song.version, title: "#{slot.song.version.titleize} song")
       current_jam << "#{song_link}#{notes.strip}"
 
       unless slot.transition?
