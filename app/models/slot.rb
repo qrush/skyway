@@ -1,6 +1,6 @@
 class Slot < ActiveRecord::Base
   belongs_to :setlist
-  belongs_to :song
+  belongs_to :song, touch: true
 
   def cache_key
     "#{super}-#{song.cache_key}"
