@@ -79,11 +79,7 @@ end
 
 class FrequencyPlaylist < Playlist
   def playlist(scope)
-    scope.
-      select("songs.*, count(song_id) as songs_count").
-      joins(:slots).
-      group("songs.id").
-      order("songs_count desc")
+    scope.order(shows_count: :desc)
   end
 
   def title

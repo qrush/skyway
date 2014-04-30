@@ -3,13 +3,14 @@ class Song < ActiveRecord::Base
 
   has_many :slots
   has_many :setlists, through: :slots
-  has_many :shows, -> { merge(Show.ordered).uniq }, through: :setlists
+  has_many :shows, -> { uniq.merge(Show.ordered) }, through: :setlists
 
   to_param :name
 
   scope :with_shows, -> { includes(:shows) }
 
   before_destroy :check_for_slots
+  after_touch :update_shows_count
 
   def version
     cover? ? "cover" : "original"
@@ -31,5 +32,9 @@ class Song < ActiveRecord::Base
 
     def check_for_slots
       slots.empty?
+    end
+
+    def update_shows_count
+      Song.where(id: id).update_all shows_count: shows.count
     end
 end
