@@ -79,7 +79,7 @@ end
 
 class FrequencyPlaylist < Playlist
   def playlist(scope)
-    scope.order(shows_count: :desc)
+    scope.order(shows_count: :desc).by_name
   end
 
   def title
