@@ -22,7 +22,7 @@
     font-weight: 900;
     height: $grid-item-height;
     background-color: $grid-item-background;
-    background-image: url("/assets/audience.png");
+    background-image: asset-url("audience.png");
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
