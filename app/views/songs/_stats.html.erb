@@ -1,5 +1,24 @@
 <% if song.debut_show %>
-  Played <em><%= pluralize song.shows.size, "time" %></em>.
-  Debuted on <em><%= link_to song.debut_show.when, song.debut_show %></em>.
-  Seen at <em><%= number_to_percentage song.shows_percentage, precision: 1 %></em> of all shows.
+  <div class="grid-items">
+    <p class="grid-item">
+      <em><%= song.shows_count %></em>
+      <span><%= song.shows_count == 1 ? "time played only" : "total plays" %></span>
+    </p>
+    <p class="grid-item">
+      <em><%= number_to_percentage song.shows_percentage, precision: 1 %></em>
+      <span>of shows played at</span>
+    </p>
+    <p class="grid-item">
+      <em><%= song.debut_show.short_when %></em>
+      <span>debuted on</span>
+    </p>
+    <p class="grid-item">
+      <em><%= song.shows_since_debut %></em>
+      <span><%= song.shows_since_debut == 1 ? "show" : "shows" %> since debut</span>
+    </p>
+    <p class="grid-item">
+      <em><%= song.shows_since_last_play %></em>
+      <span><%= song.shows_since_last_play == 1 ? "show" : "shows" %> since last play</span>
+    </p>
+  </div>
 <% end %>

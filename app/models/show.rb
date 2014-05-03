@@ -35,6 +35,10 @@ class Show < ActiveRecord::Base
     performed_at.to_date.to_s(:long_ordinal)
   end
 
+  def short_when
+    performed_at.strftime("%m/%e/%Y").gsub(/(^0|\s)/, "")
+  end
+
   def to_param
     performed_at.to_date.to_s(:db)
   end

@@ -1,0 +1,94 @@
+@mixin grid-item-columns($columns) {
+  width: (100% / 20) * $columns;
+}
+
+.grid-items {
+  $grid-items-background: $base-body-color;
+  $grid-item-background: desaturate($base-accent-color, 30); 
+  // http://www.colourlovers.com/palette/206409/Chillin_Underwater
+  $grid-item-colors: #1B4555, #CCC28D, #769999, #b4d079, #769999;
+  $grid-item-border-size: 9px;
+  $grid-item-columns: 4;
+  $grid-item-big-columns: 8;
+  $grid-item-color: white;
+  $grid-item-height: 8em;
+
+  @include clearfix;
+
+  .grid-item {
+    @include transition (all 0.2s ease-in-out);
+    font-family: "Titillium Web", sans-serif;
+    text-transform: uppercase;
+    font-weight: 900;
+    height: $grid-item-height;
+    background-color: $grid-item-background;
+    background-image: url("/assets/audience.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    overflow: hidden;
+    float: left;
+    padding: 2.1em 1em;
+    border-top: 0;
+    border-bottom: $grid-item-border-size solid $grid-items-background;
+    border-left: $grid-item-border-size /2 solid $grid-items-background;
+    border-right: $grid-item-border-size /2 solid $grid-items-background;
+    text-align: center;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+
+    @include media($large-screen) {
+      @include grid-item-columns($grid-item-columns);
+    }
+
+    @for $i from 1 to 6 { 
+      // assign colors from $grid-item-colors list
+      &:nth-child(#{$i}) {
+        $background-from-list: nth($grid-item-colors, $i);
+        background-color: $background-from-list;
+        box-shadow: inset 0px 0px 1px 2px darken($background-from-list, 10);
+        background-position: (($i - 1) * 20%) 0%;
+        &:hover {
+          background-color: darken($background-from-list, 10);
+        }
+      }
+    }
+  }
+
+  .grid-item em {
+    color: $grid-item-color;
+    font-size: 2.0em;
+    margin-bottom: .4em;
+
+    a, a:visited {
+      color: $grid-item-color;
+    }
+  }
+
+  .grid-item span {
+    display: block;
+    margin: auto;
+    color: transparentize($grid-item-color, .1);
+    @include media($medium-screen) {
+      max-width: 90%;
+    }
+  }
+
+  .grid-item-big {
+    @include media($large-screen) {
+      @include grid-item-columns($grid-item-big-columns);
+    }
+    p {
+      @include media($medium-screen) {
+        max-width: 60%;
+      }  
+    }
+  }
+
+  .grid-item-image {
+    background: url(https://raw.github.com/Magnus-G/Random/master/lake-transparent.png);
+    background-color: $grid-item-background;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+  }
+}

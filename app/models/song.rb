@@ -20,6 +20,14 @@ class Song < ActiveRecord::Base
     shows.last
   end
 
+  def shows_since_debut
+    Show.where("performed_at > ?", debut_show.performed_at).count
+  end
+
+  def shows_since_last_play
+    Show.where("performed_at > ?", shows.first.performed_at).count
+  end
+
   def merge!(other_song)
     other_song.slots.each do |slot|
       slot.song = self

@@ -1,15 +1,16 @@
 <% @title = @song.name %>
 
-<p>
-  <%= render "stats", song: @song %>
-  <% if admin? %>
+<%= render "stats", song: @song %>
+
+<% if admin? %>
+  <p>
     <%= link_to "Edit this song.", [:edit, @song] %>
     <%= link_to "Delete this song.", @song, method: :delete, data: {confirm: "Are you sure you want to delete this song?"} %>
-  <% end %>
-</p>
+  </p>
+<% end %>
 
 <% @song.shows.each do |show| %>
   <h2><%= link_to show.when, show %></h2>
-  <h3><%= show.venue.name %>, <%= show.venue.location %></h3>
+  <h3><%= link_to show.venue.name, show.venue %>, <%= show.venue.location %></h3>
   <hr />
 <% end %>
