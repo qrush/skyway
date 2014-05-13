@@ -18,6 +18,9 @@ gem 'dynamic_form'
 gem 'rack-rewrite'
 gem 'mechanize', require: false
 
+gem 'paperclip'
+gem 'aws-sdk'
+
 gem 'newrelic_rpm'
 
 group :production do

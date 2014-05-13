@@ -43,3 +43,26 @@ p.pager {
     float: right;
   }
 }
+
+#show_banner {
+  header {
+    height: 200px;
+    margin-bottom: 10px;
+    color: #ddd;
+    padding: 60px 20px;
+
+    h2 {
+      font-size: 30px;
+      font-weight: 900;
+    }
+
+    h3 {
+      font-size: 20px;
+    }
+
+    a {
+      color: #fff;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 1);
+    }
+  }
+}

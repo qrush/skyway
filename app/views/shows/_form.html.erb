@@ -4,6 +4,9 @@
 <%= form.label :venue_id, "Venue" %>
 <%= form.collection_select :venue_id, Venue.by_name, :id, :name %>
 
+<%= form.label :banner %>
+<%= form.file_field :banner %>
+
 <%= form.label :unknown_setlist, "Unknown Setlist?", class: "checkbox_label" %>
 <%= form.check_box :unknown_setlist %>
 

@@ -1,7 +1,9 @@
 <% cache [ show ] do %>
-  <div id="<%= dom_id(show) %>">
-    <h2><%= link_to show.when, show %></h2>
-    <%= render show.venue %>
+  <article id="<%= dom_id(show) %>">
+    <header>
+      <h2><%= link_to show.when, show %></h2>
+      <%= render show.venue %>
+    </header>
 
     <% show.setlists.each do |setlist| %>
       <p class="setlist">
@@ -28,5 +30,5 @@
     <% end %>
 
     <hr/>
-  </div>
+  </article>
 <% end %>

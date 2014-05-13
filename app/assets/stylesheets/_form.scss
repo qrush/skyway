@@ -7,6 +7,11 @@ form {
     display: inline-block;
   }
 
+  input[type='file'] {
+    display: block;
+    margin-bottom: 15px;
+  }
+
   input[type='submit'] {
     margin-top: 3px;
     display: block;
