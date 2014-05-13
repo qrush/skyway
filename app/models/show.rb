@@ -4,7 +4,9 @@ class Show < ActiveRecord::Base
 
   has_attached_file :banner,
     styles: {fit: "1056x200#"},
-    convert_options: {fit: "-strip"}
+    convert_options: {fit: "-strip"},
+    s3_host_alias: "files.aqueousband.net",
+    url: ":s3_alias_url"
 
   validates_presence_of :performed_at, :venue
   validates_presence_of :setlists, unless: :unknown_setlist?
