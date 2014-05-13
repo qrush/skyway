@@ -86,6 +86,7 @@ Skyway::Application.configure do
       secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
     },
     s3_host_alias: "files.aqueousband.net",
-    url: ":s3_alias_url"
+    url: ":s3_alias_url",
+    path: '/:class/:attachment/:id_partition/:style/:filename'
   }
 end
