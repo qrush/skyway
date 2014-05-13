@@ -2,6 +2,7 @@ ruby '2.1.1'
 source 'https://rubygems.org'
 
 gem 'rails', '4.1.0'
+gem 'spring', group: 'development'
 gem 'pg'
 
 gem 'coffee-rails', '~> 4.0.0'
