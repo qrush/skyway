@@ -8,9 +8,13 @@
   </style>
 <% end %>
 
-<div id="show_banner">
+<% if @show.banner? %>
+  <div id="show_banner">
+    <%= render @show %>
+  </div>
+<% else %>
   <%= render @show %>
-</div>
+<% end %>
 
 <% if admin? %>
   <p>
