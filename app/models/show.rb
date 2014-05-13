@@ -5,11 +5,11 @@ class Show < ActiveRecord::Base
   has_attached_file :banner,
     styles: {fit: "1056x200#"},
     convert_options: {fit: "-strip"}
+    #url: '/system/:class/:attachment/:performed_at/:style.:extension'
 
   validates_presence_of :performed_at, :venue
   validates_presence_of :setlists, unless: :unknown_setlist?
-  validates_uniqueness_of :performed_at
-  validates_attachment_content_type :banner, :content_type => /\Aimage\/.*\Z/
+  validates_attachment :banner, content_type: { content_type: /\Aimage\/.*\Z/ }
 
   scope :ordered, -> { order(performed_at: :desc) }
   scope :performed, -> { ordered.includes(:venue, setlists: {slots: :song}) }
@@ -23,8 +23,9 @@ class Show < ActiveRecord::Base
 
   def replace(show)
     transaction do
-      show.destroy
+      self.banner = show.banner if !self.banner? && show.banner?
       save!
+      show.destroy
     end
   end
 

@@ -10,7 +10,7 @@
 
 <% if @show.banner? %>
   <div id="show_banner">
-    <%= render @show %>
+    <%= render @show, embeds: true %>
   </div>
 <% else %>
   <%= render @show %>

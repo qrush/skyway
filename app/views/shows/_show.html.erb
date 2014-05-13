@@ -1,10 +1,14 @@
-<% cache [ show ] do %>
-  <article id="<%= dom_id(show) %>">
-    <header>
-      <h2><%= link_to show.when, show %></h2>
-      <%= render show.venue %>
-    </header>
+<article class="show" id="<%= dom_id(show) %>">
+  <header>
+    <h2><%= link_to show.when, show %></h2>
+    <%= render show.venue %>
+  </header>
 
+  <% if local_assigns[:embeds] && @show.embeds? %>
+    <%= simple_format @show.embeds, {}, {sanitize: false, wrapper_tag: "aside"} %>
+  <% end %>
+
+  <% cache [ show ] do %>
     <% show.setlists.each do |setlist| %>
       <p class="setlist">
         <span><%= setlist.name %></span>:
@@ -28,7 +32,7 @@
         <% end %>
       </p>
     <% end %>
+  <% end %>
 
-    <hr/>
-  </article>
-<% end %>
+  <hr/>
+</article>

@@ -47,7 +47,7 @@ p.pager {
 #show_banner {
   header {
     height: 200px;
-    margin-bottom: 10px;
+    margin-bottom: 1.5em;
     color: #ddd;
     padding: 60px 20px;
 
@@ -64,5 +64,10 @@ p.pager {
       color: #fff;
       text-shadow: 1px 1px 3px rgba(0, 0, 0, 1);
     }
+  }
+
+  aside {
+    float: right;
+    padding-left: 10px;
   }
 }
