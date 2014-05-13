@@ -4,10 +4,6 @@
     <%= render show.venue %>
   </header>
 
-  <% if local_assigns[:embeds] && @show.embeds? %>
-    <%= simple_format @show.embeds, {}, {sanitize: false, wrapper_tag: "aside"} %>
-  <% end %>
-
   <% cache [ show ] do %>
     <% show.setlists.each do |setlist| %>
       <p class="setlist">
@@ -32,6 +28,13 @@
         <% end %>
       </p>
     <% end %>
+  <% end %>
+
+  <% if local_assigns[:embeds] && @show.embeds? %>
+    <footer>
+      <h3>Media</h3>
+      <%= simple_format @show.embeds, {}, {sanitize: false} %>
+    </footer>
   <% end %>
 
   <hr/>
