@@ -9,3 +9,9 @@ test:
   encoding: unicode
   database: skyway_test
   pool: 5
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: skyway_development
+  pool: 5

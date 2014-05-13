@@ -5,7 +5,6 @@ class Show < ActiveRecord::Base
   has_attached_file :banner,
     styles: {fit: "1056x200#"},
     convert_options: {fit: "-strip"}
-    #url: '/system/:class/:attachment/:performed_at/:style.:extension'
 
   validates_presence_of :performed_at, :venue
   validates_presence_of :setlists, unless: :unknown_setlist?
