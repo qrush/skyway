@@ -86,6 +86,7 @@ Skyway::Application.configure do
       secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
     },
     url: ':s3_alias_url',
-    s3_host_alias: ENV['S3_BUCKET_NAME']
+    s3_host_alias: ENV['S3_BUCKET_NAME'],
+    s3_host_name: ENV['S3_HOST_NAME']
   }
 end
