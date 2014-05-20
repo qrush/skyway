@@ -53,7 +53,7 @@ class Show < ActiveRecord::Base
   end
 
   def simple_setlist
-    setlists.map { |setlist| setlist.to_s(without_notes: true) }.join(" ")
+    setlists.map { |setlist| setlist.to_s(without_notes: true) }.join(" \n")
   end
 
   def raw_setlist
