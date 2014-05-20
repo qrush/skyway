@@ -49,22 +49,15 @@ p.pager {
     height: 200px;
     margin-bottom: 1.5em;
     color: #ddd;
+    padding: 60px 20px;
     text-shadow: 1px 1px 10px rgba(0, 0, 0, 1);
 
-    img {
-      position: absolute;
-      z-index: -1;
-    }
-
     h2 {
-      padding-top: 60px;
-      padding-left: 20px;
       font-size: 30px;
       font-weight: 900;
     }
 
     h3 {
-      padding-left: 20px;
       font-size: 20px;
     }
 

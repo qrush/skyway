@@ -1,8 +1,16 @@
 <% @title = "Setlist from #{@show.when}" %>
 
+<% content_for :head do %>
+  <style type="text/css">
+    #show_banner header {
+      background-image: url('<%= @show.banner.url(:fit) %>');
+    }
+  </style>
+<% end %>
+
 <% if @show.banner? %>
   <div id="show_banner">
-    <%= render @show, embeds: true, banner: true %>
+    <%= render @show, embeds: true %>
   </div>
 <% else %>
   <%= render @show, embeds: true %>
