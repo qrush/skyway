@@ -52,6 +52,10 @@ class Show < ActiveRecord::Base
     "#{super}-#{Digest::MD5.hexdigest [ venue.cache_key, *setlists.map(&:cache_key) ].join("-")}"
   end
 
+  def simple_setlist
+    setlists.map { |setlist| setlist.to_s(without_notes: true) }.join(" ")
+  end
+
   def raw_setlist
     @raw_setlist || [*setlists.map(&:to_s), *note_setlist].join("\n\n")
   end

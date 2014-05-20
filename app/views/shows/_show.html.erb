@@ -1,8 +1,12 @@
 <article class="show" id="<%= dom_id(show) %>">
-  <header>
-    <h2><%= link_to show.when, show %></h2>
-    <%= render show.venue %>
-  </header>
+  <% if local_assigns[:banner] %>
+    <header style="background-image: url('<%= @show.banner.url(:fit) %>');">
+  <% else %>
+    <header>
+  <% end %>
+      <h2><%= link_to show.when, show %></h2>
+      <%= render show.venue %>
+    </header>
 
   <% cache [ show ] do %>
     <% show.setlists.each do |setlist| %>

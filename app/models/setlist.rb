@@ -7,7 +7,15 @@ class Setlist < ActiveRecord::Base
     [super, *slots.map(&:cache_key)].join("-")
   end
 
-  def to_s
-    [name, *slots.map(&:to_s)].join("\n")
+  def without_notes
+    [name, *slots.map(&:name)].join("\n")
+  end
+
+  def to_s(options = {})
+    if options[:without_notes]
+      "#{name}: #{slots.map { |slot| slot.to_s(options) }.join(' ')}"
+    else
+      [name, *slots.map { |slot| slot.to_s(options) }].join("\n")
+    end
   end
 end

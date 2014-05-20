@@ -1,16 +1,8 @@
 <% @title = "Setlist from #{@show.when}" %>
 
-<% content_for :head do %>
-  <style type="text/css">
-    #show_banner header {
-      background-image: url('<%= @show.banner.url(:fit) %>');
-    }
-  </style>
-<% end %>
-
 <% if @show.banner? %>
   <div id="show_banner">
-    <%= render @show, embeds: true %>
+    <%= render @show, embeds: true, banner: true %>
   </div>
 <% else %>
   <%= render @show, embeds: true %>
@@ -26,3 +18,14 @@
   <%= link_to "← #{@show.previous_show.when}", @show.previous_show if @show.previous_show %>
   <%= link_to "#{@show.next_show.when} →", @show.next_show, id: "next_show" if @show.next_show %>
 </p>
+
+<% content_for :head do %>
+  <% if @show.banner? %>
+    <meta property="og:image" value="<%= @show.banner.url(:fit) %>">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1056">
+    <meta property="og:image:height" content="200">
+  <% end %>
+  <meta property="og:description" content="<%= @show.simple_setlist %>">
+<% end %>
+
