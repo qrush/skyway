@@ -18,19 +18,6 @@ class Search
     end
   end
 
-  def noted_show_ids
-    Show.from("(select id, unnest(notes) note from shows) shows").
-      where("note ilike ?", "%#{@query}%").
-      pluck(:id)
-  end
-
-  def noted_show_ids_from_slots
-    Slot.from("(select setlist_id, unnest(notes) note from slots) slots").
-      where("note ilike ?", "%#{@query}%").
-      joins(:setlist).
-      pluck(:show_id)
-  end
-
   def shows
     @shows ||= Show.performed.find(show_ids)
   end
@@ -39,5 +26,18 @@ class Search
 
     def show_ids
       (songs.map(&:show_ids) + venues.map(&:show_ids) + noted_show_ids + noted_show_ids_from_slots).flatten.uniq
+    end
+
+    def noted_show_ids
+      Show.from("(select id, unnest(notes) note from shows) shows").
+        where("note ilike ?", "%#{@query}%").
+        pluck(:id)
+    end
+
+    def noted_show_ids_from_slots
+      Slot.from("(select setlist_id, unnest(notes) note from slots) slots").
+        where("note ilike ?", "%#{@query}%").
+        joins(:setlist).
+        pluck(:show_id)
     end
 end
