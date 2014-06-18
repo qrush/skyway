@@ -4,9 +4,18 @@ sup {
   left: 0.25em;
   font-size: 0.5em;
   font-weight: normal;
+}
 
-  p.notes & {
+p.notes {
+  sup {
     left: 0;
+  }
+
+  .note {
+    font-weight: normal;
+    display: inline-block;
+    text-transform: none !important;
+    font-size: 0.9em;
   }
 }
 

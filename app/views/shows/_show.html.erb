@@ -27,7 +27,8 @@
         <span>Notes:</span>
         <br />
         <% show.notes.each_with_index do |note| %>
-          <sup><%= show.bookmark_for(note) %></sup> <%= note %>
+          <sup><%= show.bookmark_for(note) %></sup>
+          <span class="note"><%= note %></span>
           <br />
         <% end %>
       </p>
