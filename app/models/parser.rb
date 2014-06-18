@@ -55,7 +55,7 @@ class Parser
     end
 
     def parse_name(name)
-      name.gsub(BOOKMARKS, "").gsub(/(, )?(Part|Pt) [\dI]+/, "").strip
+      name.gsub(BOOKMARKS, "").strip
     end
 
     def build_slot_metadata
