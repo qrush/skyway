@@ -1,4 +1,7 @@
 class Show < ActiveRecord::Base
+  HUMAN_BOOKMARKS = %w(* ** *** # % ^ $ @ @@)
+  FANCY_BOOKMARKS = %w(1 2 3 4 5 6 7 8 9)
+
   belongs_to :venue
   has_many :setlists, -> { order position: :asc }, dependent: :destroy
 
@@ -60,9 +63,9 @@ class Show < ActiveRecord::Base
     @raw_setlist || [*setlists.map(&:to_s), *note_setlist].join("\n\n")
   end
 
-  def bookmark_for(note)
+  def bookmark_for(note, bookmarks = FANCY_BOOKMARKS)
     index = notes.index(note)
-    %w(* ** *** # % ^ $).fetch(index, "@" * index)
+    bookmarks[index] || "@" * (index - 7)
   end
 
   def next_show
@@ -81,7 +84,7 @@ class Show < ActiveRecord::Base
 
     def note_setlist
       if notes?
-        ["NOTES", *notes.map { |note| "#{bookmark_for(note)} #{note}" }].join("\n")
+        ["NOTES", *notes.map { |note| "#{bookmark_for(note, HUMAN_BOOKMARKS)} #{note}" }].join("\n")
       end
     end
 

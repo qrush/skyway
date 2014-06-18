@@ -1,8 +1,13 @@
 sup {
   position: relative;
-  bottom: 0.3em;
-  left: 0.1em;
-  font-size: 0.8em;
+  bottom: 1em;
+  left: 0.25em;
+  font-size: 0.5em;
+  font-weight: normal;
+
+  p.notes & {
+    left: 0;
+  }
 }
 
 h3.highlight {

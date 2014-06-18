@@ -13,7 +13,7 @@ class Slot < ActiveRecord::Base
   def to_s(options = {})
     name = [song.name]
     notes.each do |note|
-      name << show.bookmark_for(note)
+      name << show.bookmark_for(note, Show::HUMAN_BOOKMARKS)
     end unless options[:without_notes]
     name << ">" if transition?
     name.join(" ")
