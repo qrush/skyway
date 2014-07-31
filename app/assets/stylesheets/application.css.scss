@@ -60,13 +60,22 @@ section.home {
   }
 
   > article.upcoming {
-    @include span-columns(3);
+    @include media($large-screen) {
+      @include span-columns(3);
+    }
 
     opacity: 0.6;
   }
-  > article.latest { @include span-columns(6); }
+
+  > article.latest {
+    @include media($large-screen) {
+      @include span-columns(6);
+    }
+  }
   > article.media {
-    @include span-columns(3);
+    @include media($large-screen) {
+      @include span-columns(3);
+    }
 
     h2, h3 {
       font-size: 80%;
