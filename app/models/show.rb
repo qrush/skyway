@@ -13,6 +13,7 @@ class Show < ActiveRecord::Base
   validates_presence_of :setlists, unless: :unknown_setlist?
   validates_attachment :banner, content_type: { content_type: /\Aimage\/.*\Z/ }
 
+  scope :upcoming, -> { where("performed_at > ?", Date.today.end_of_day).order(performed_at: :asc) }
   scope :ordered, -> { order(performed_at: :desc) }
   scope :performed, -> { ordered.includes(:venue, setlists: {slots: :song}) }
   scope :for_year, -> (year) { where("EXTRACT(YEAR FROM performed_at) = ?", year) }
