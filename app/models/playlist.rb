@@ -78,11 +78,13 @@ class DebutPlaylist < Playlist
 end
 
 class FrequencyPlaylist < Playlist
+  LIMIT = 30
+
   def playlist(scope)
-    scope.order(shows_count: :desc).by_name
+    scope.order(shows_count: :desc).limit(LIMIT).by_name
   end
 
   def title
-    "Most frequently played songs"
+    "Top #{LIMIT} frequently played songs"
   end
 end
