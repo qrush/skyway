@@ -14,6 +14,9 @@ class Show < ActiveRecord::Base
   validates_attachment :banner, content_type: { content_type: /\Aimage\/.*\Z/ }
 
   scope :upcoming, -> { where("performed_at > ?", Date.today.end_of_day).order(performed_at: :asc) }
+  scope :latest,   -> { where("performed_at < ?", Date.today.end_of_day).performed }
+  scope :taped,    -> { where.not(embeds: "").ordered }
+
   scope :ordered, -> { order(performed_at: :desc) }
   scope :performed, -> { ordered.includes(:venue, setlists: {slots: :song}) }
   scope :for_year, -> (year) { where("EXTRACT(YEAR FROM performed_at) = ?", year) }

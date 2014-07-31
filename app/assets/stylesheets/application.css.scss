@@ -77,9 +77,13 @@ section.home {
       @include span-columns(3);
     }
 
-    h2, h3 {
+    h2 {
       font-size: 80%;
-      margin-bottom: 0;
+    }
+
+    h3 {
+      font-size: 70%;
+      margin-bottom: 0.3em;
     }
 
     iframe {
