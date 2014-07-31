@@ -1,0 +1,26 @@
+<header class="navigation">
+  <div class="menu-wrapper">
+    <a href="/" class="logo">
+      <%= image_tag "logo.png" %>
+    </a>
+    <p class="navigation-menu-button" id="js-mobile-menu">MENU</p>
+    <div class="nav">
+      <ul id="navigation-menu">
+        <li><%= link_to "Shows", shows_path %></li>
+        <li><%= link_to "Songs", songs_path %></li>
+        <li><%= link_to "Venues", venues_path %></li>
+        <li class="navigation-mobile-search"><%= link_to "Search", searches_path %></li>
+        <li class="navigation-search-bar">
+          <%= form_for @search || Search.new, method: :get, html: {class: "search-bar"} do |f| %>
+            <div class="search-and-submit">
+              <%= f.text_field :query, name: :query, type: :search, placeholder: "Search for a song, venue, location..." %>
+              <button type="submit">
+                <%= image_tag "search-icon.png" %>
+              </button>
+            </div>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>

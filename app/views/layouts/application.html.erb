@@ -1,45 +1,9 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>AqueousBand.net: <%= @title %></title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-  <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,400italic,600italic,600,700,700italic,900,300italic,300,200italic,200' rel='stylesheet' type='text/css'>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <meta property="og:url" content="<%= request.url %>">
-  <meta property="og:title" content="<%= @title %>">
-  <%= yield :head %>
-</head>
+<%= render "layouts/head" %>
 <body>
 
-<header class="navigation">
-  <div class="menu-wrapper">
-    <a href="/" class="logo">
-      <%= image_tag "logo.png" %>
-    </a>
-    <p class="navigation-menu-button" id="js-mobile-menu">MENU</p>
-    <div class="nav">
-      <ul id="navigation-menu">
-        <li><%= link_to "Shows", shows_path %></li>
-        <li><%= link_to "Songs", songs_path %></li>
-        <li><%= link_to "Venues", venues_path %></li>
-        <li class="navigation-mobile-search"><%= link_to "Search", searches_path %></li>
-        <li class="navigation-search-bar">
-          <%= form_for @search || Search.new, method: :get, html: {class: "search-bar"} do |f| %>
-            <div class="search-and-submit">
-              <%= f.text_field :query, name: :query, type: :search, placeholder: "Search for a song, venue, location..." %>
-              <button type="submit">
-                <%= image_tag "search-icon.png" %>
-              </button>
-            </div>
-          <% end %>
-        </li>
-      </ul>
-    </div>
-  </div>
-</header>
+<%= render "layouts/nav" %>
 
 <div id="wrapper">
   <% flash.each do |name, msg| %>
@@ -55,29 +19,6 @@
   </article>
 </div>
 
-<footer class="footer">
-  <div class="footer-logo">
-    <%= image_tag "logo.png" %>
-  </div>
-
-  <hr>
-
-  <p>A <a href="https://github.com/qrush/skyway">tiny project</a> from <a href="https://twitter.com/qrush">@qrush</a>. Curated by <a href="https://twitter.com/unclephilsblog">@unclephilsblog</a>.<br />All content &copy; 2006-2014 <a href="http://aqueousband.com">Aqueous</a>.</p>
-</footer>
-
-<script type="text/javascript">
-  var _gauges = _gauges || [];
-  (function() {
-    var t   = document.createElement('script');
-    t.type  = 'text/javascript';
-    t.async = true;
-    t.id    = 'gauges-tracker';
-    t.setAttribute('data-site-id', '5357b558e32bb44d6e000325');
-    t.src = '//secure.gaug.es/track.js';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(t, s);
-  })();
-</script>
-
+<%= render "layouts/footer" %>
 </body>
 </html>

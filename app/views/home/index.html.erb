@@ -1,6 +1,6 @@
-<% @title = "Latest shows" %>
+<% @title = "Setlists, show stats, and more for groove rock band Aqueous" %>
 
-<% content_for :top do %>
+<section class="home">
   <div class="hero">
     <div class="hero-inner">
       <a href="" class="hero-logo"><%= image_tag "logo.png" %></a>
@@ -10,6 +10,29 @@
       </div>
     </div>
   </div>
-<% end %>
 
-<%= render @shows %>
+  <article class="type-system-sans upcoming">
+    <h1 class="type">Upcoming shows</h1>
+
+    <%= render @upcoming_shows %>
+  </article>
+
+  <article class="type-system-sans latest">
+    <h1 class="type">Latest shows</h1>
+
+    <%= render @latest_shows %>
+  </article>
+
+  <article class="type-system-sans media">
+    <h1 class="type">Freshly taped</h1>
+
+    <% @taped_shows.each do |show| %>
+      <article>
+        <h2><%= link_to show.when, show %></h2>
+        <%= render show.venue %>
+
+        <%= simple_format show.embeds, {}, {sanitize: false} %>
+      </article>
+    <% end %>
+  </article>
+</section>

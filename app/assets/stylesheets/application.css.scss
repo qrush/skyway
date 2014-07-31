@@ -49,3 +49,33 @@ a.cover, a.cover:visited {
     color: #596D74;
   }
 }
+
+section.home {
+  @include outer-container;
+
+  h1.type {
+    text-align: center;
+    display: block;
+    border: none;
+  }
+
+  > article.upcoming {
+    @include span-columns(3);
+
+    opacity: 0.6;
+  }
+  > article.latest { @include span-columns(6); }
+  > article.media {
+    @include span-columns(3);
+
+    h2, h3 {
+      font-size: 80%;
+      margin-bottom: 0;
+    }
+
+    iframe {
+      width: 100% !important;
+      max-height: 200px !important;
+    }
+  }
+}
