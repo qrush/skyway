@@ -47,6 +47,10 @@ class Show < ActiveRecord::Base
     performed_at.strftime("%m/%e/%Y").gsub(/(^0|\s)/, "")
   end
 
+  def played?
+    performed_at <= Date.today.end_of_day
+  end
+
   def to_param
     performed_at.to_date.to_s(:db)
   end

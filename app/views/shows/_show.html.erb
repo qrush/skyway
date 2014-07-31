@@ -4,7 +4,11 @@
   <% else %>
     <header>
   <% end %>
-      <h2><%= link_to show.when, show %></h2>
+      <% if show.played? %>
+        <h2><%= link_to show.when, show %></h2>
+      <% else %>
+        <h2><%= show.when %></h2>
+      <% end %>
       <%= render show.venue %>
     </header>
 
@@ -16,7 +20,7 @@
       </p>
     <% end %>
 
-    <% if show.unknown_setlist? %>
+    <% if show.played? && show.unknown_setlist? %>
       <p class="unknown">
         Setlist unavailable for this show.
       </p>
