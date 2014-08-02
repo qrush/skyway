@@ -21,11 +21,11 @@ class Song < ActiveRecord::Base
   end
 
   def shows_since_debut
-    Show.where("performed_at > ?", debut_show.performed_at).count
+    Show.before_today.where("performed_at > ?", debut_show.performed_at).count
   end
 
   def shows_since_last_play
-    Show.where("performed_at > ?", shows.first.performed_at).count
+    Show.before_today.where("performed_at > ?", shows.first.performed_at).count
   end
 
   def merge!(other_song)

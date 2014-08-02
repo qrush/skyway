@@ -6,7 +6,7 @@ class SongsController < ApplicationController
 
   def index
     @playlist = Playlist.find(params[:order])
-    @show_ids = Show.order(performed_at: :asc).pluck(:id)
+    @show_ids = Show.before_today.order(performed_at: :asc).pluck(:id)
   end
 
   def show

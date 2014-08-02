@@ -3,7 +3,7 @@ class ShowsController < ApplicationController
 
   def index
     @year = params[:year] || DateTime.now.year.to_s
-    @shows = Show.performed.for_year(@year)
+    @shows = Show.latest.for_year(@year)
   end
 
   def show

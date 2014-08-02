@@ -12,7 +12,7 @@ module Showable
   end
 
   def shows_percentage
-    (shows.count / Show.count.to_f) * 100
+    (shows.count / Show.before_today.count.to_f) * 100
   end
 
   def first_letter
