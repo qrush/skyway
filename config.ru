@@ -2,7 +2,7 @@
 
 require 'rack-rewrite'
  
-DOMAIN = 'www.aqueousband.net'
+DOMAIN = 'aqueousband.net'
  
 # Redirect to the www version of the domain in production
 use Rack::Rewrite do
