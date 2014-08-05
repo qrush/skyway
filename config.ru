@@ -7,7 +7,7 @@ DOMAIN = 'aqueousband.net'
 # Redirect to the www version of the domain in production
 use Rack::Rewrite do
   r301 %r{.*}, "http://#{DOMAIN}$&", :if => Proc.new {|rack_env|
-    rack_env['SERVER_NAME'] != DOMAIN && ENV['RACK_ENV'] == "production"
+    rack_env['SERVER_NAME'] != DOMAIN && ENV['RAILS_ENV'] == "production"
   }
 end
 
