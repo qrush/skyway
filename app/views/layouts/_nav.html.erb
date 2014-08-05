@@ -1,26 +1,36 @@
 <header class="navigation">
-  <div class="menu-wrapper">
+  <div class="navigation-wrapper">
     <a href="/" class="logo">
       <%= image_tag "logo.png" %>
     </a>
-    <p class="navigation-menu-button" id="js-mobile-menu">MENU</p>
+    <a href="" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
     <div class="nav">
       <ul id="navigation-menu">
-        <li><%= link_to "Shows", shows_path %></li>
-        <li><%= link_to "Songs", songs_path %></li>
-        <li><%= link_to "Venues", venues_path %></li>
-        <li class="navigation-mobile-search"><%= link_to "Search", searches_path %></li>
-        <li class="navigation-search-bar">
-          <%= form_for @search || Search.new, method: :get, html: {class: "search-bar"} do |f| %>
-            <div class="search-and-submit">
-              <%= f.text_field :query, name: :query, type: :search, placeholder: "Search for a song, venue, location..." %>
-              <button type="submit">
-                <%= image_tag "search-icon.png" %>
-              </button>
-            </div>
-          <% end %>
-        </li>
+        <li class="nav-link"><%= link_to "Shows", shows_path %></li>
+        <li class="nav-link"><%= link_to "Songs", songs_path %></li>
+        <li class="nav-link"><%= link_to "Venues", venues_path %></li>
+        <% if admin? %>
+          <li class="nav-link more"><a href="javascript:void(0)">Admin</a>
+            <ul class="submenu">
+              <li><%= link_to "New show", new_show_path %></li>
+              <li><%= link_to "New venue", new_venue_path %></li>
+            </ul>
+          </li>
+        <% end %>
       </ul>
+    </div>
+    <div class="navigation-tools">
+      <div class="search-bar">
+        <%= form_for @search || Search.new, method: :get, html: {class: "search-and-submit"} do |f| %>
+          <div class="search-and-submit">
+            <%= f.text_field :query, name: :query, type: :search, placeholder: "Search for a song, venue, location..." %>
+            <button type="submit">
+              <%= image_tag "search-icon.png" %>
+            </button>
+          </div>
+        <% end %>
+      </div>
+      <!-- <a href="javascript:void(0)" class="sign-up">Sign Up</a> -->
     </div>
   </div>
 </header>
