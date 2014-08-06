@@ -10,7 +10,6 @@ class Show < ActiveRecord::Base
     convert_options: {fit: "-strip"}
 
   validates_presence_of :performed_at, :venue
-  validates_presence_of :setlists, unless: :unknown_setlist?
   validates_attachment :banner, content_type: { content_type: /\Aimage\/.*\Z/ }
 
   scope :upcoming,     -> { where("performed_at > ?", Date.today.end_of_day).order(performed_at: :asc) }
@@ -30,6 +29,8 @@ class Show < ActiveRecord::Base
   def replace(show)
     transaction do
       self.banner = show.banner if !self.banner? && show.banner?
+      self.venue = show.venue
+      self.performed_at = show.performed_at
       save!
       show.destroy
     end

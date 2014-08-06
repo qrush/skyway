@@ -1,0 +1,43 @@
+<% @title = "Edit setlist for #{@show.when}" %>
+
+<%= form_for @show, url: [@show, :setlist] do |form| %>
+  <%= error_messages_for :new_show %>
+
+  <%= form.label :unknown_setlist, "Unknown Setlist?", class: "checkbox_label" %>
+  <%= form.check_box :unknown_setlist %>
+
+  <%= form.label :raw_setlist, "Setlist" %>
+  <%= form.text_area :raw_setlist %>
+
+  <%= form.label :embeds, "Embeds (Please don't break any HTML)" %>
+  <%= form.text_area :embeds %>
+
+  <%= form.submit "Update setlist" %>
+<% end %>
+
+<p class="type">Example setlist:</p>
+<pre>
+  SET I
+  Breathe &gt;
+  Dave's Song 
+  Rock Montage $ &gt;
+  Voodoo Chile 
+  Mosquito Valley 
+  Short Skirt, Long Jacket *
+  Triangle 
+
+  SET II
+  Dear Prudence &gt;
+  Glass Onion &gt;
+  While My Guitar Gently Weeps 
+  Echoes 
+  Bennie and the Jets 
+  Mind Games
+
+  ENCORE
+  YYZ $$
+
+  * First time played 
+  $ Bullet tease 
+  $$ Enter Sandman tease
+</pre>

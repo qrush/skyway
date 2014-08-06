@@ -19,7 +19,7 @@ class ShowsController < ApplicationController
   end
 
   def create
-    @show = Show.parse(show_params)
+    @show = Show.new(show_params)
     if @show.save
       flash[:success] = "Successfully created a new show."
       redirect_to @show
@@ -30,11 +30,9 @@ class ShowsController < ApplicationController
 
   def update
     @show = find_show_by_performed_at
-    @new_show = Show.parse(show_params)
-    @new_show.replace(@show)
-
+    @show.update_attributes(show_params)
     flash[:success] = "Successfully updated this show."
-    redirect_to @new_show
+    redirect_to @show
   rescue ActiveRecord::RecordInvalid
     render :edit
   end
@@ -42,7 +40,7 @@ class ShowsController < ApplicationController
   private
 
     def show_params
-      params.require(:show).permit(:performed_at, :raw_setlist, :unknown_setlist, :venue_id, :banner, :embeds)
+      params.require(:show).permit(:performed_at, :venue_id)
     end
 
     def find_show_by_performed_at

@@ -1,5 +1,7 @@
 Skyway::Application.routes.draw do
-  resources :shows
+  resources :shows do
+    resource :setlist
+  end
 
   resources :songs do
     member do
