@@ -4,7 +4,7 @@
 
 ## Setup (OSX)
 
-Install [Homebrew](http://brew.sh/) and (Pow)[http://pow.cx], then:
+Install [Homebrew](http://brew.sh/) and [Pow](http://pow.cx), then:
 
 ``` shell
 # Add rbenv to bash so that it loads every time you open a terminal
