@@ -40,7 +40,7 @@ class ShowsController < ApplicationController
   private
 
     def show_params
-      params.require(:show).permit(:performed_at, :venue_id)
+      params.require(:show).permit(:performed_at, :venue_id, :banner)
     end
 
     def find_show_by_performed_at
