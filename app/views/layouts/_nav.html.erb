@@ -17,6 +17,7 @@
               <% if @show.try(:persisted?) %>
                 <li><%= link_to "Edit show", [:edit, @show] %>
                 <li><%= link_to "Edit setlist", [:edit, @show, :setlist] %>
+                <li><%= link_to "Remove show", @show, method: :delete, data: { confirm: "Are you sure?" } %>
               <% end %>
               <% if @song.try(:persisted?) %>
                 <li><%= link_to "Edit song", [:edit, @song] %></li>

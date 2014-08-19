@@ -37,6 +37,14 @@ class ShowsController < ApplicationController
     render :edit
   end
 
+  def destroy
+    @show = find_show_by_performed_at
+    @show.destroy
+
+    flash[:success] = "Successfully removed the show for #{@show.when}."
+    redirect_to shows_path
+  end
+
   private
 
     def show_params

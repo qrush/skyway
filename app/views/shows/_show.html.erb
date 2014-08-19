@@ -4,11 +4,7 @@
   <% else %>
     <header>
   <% end %>
-      <% if show.played? %>
-        <h2><%= link_to show.when, show %></h2>
-      <% else %>
-        <h2><%= show.when %></h2>
-      <% end %>
+      <h2><%= link_to show.when, show %></h2>
       <%= render show.venue %>
     </header>
 
