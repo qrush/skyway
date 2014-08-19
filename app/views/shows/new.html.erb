@@ -5,5 +5,7 @@
 
   <%= render "form", form: f %>
 
+  <%= f.hidden_field :unknown_setlist, value: true %>
+
   <%= f.submit %>
 <% end %>
