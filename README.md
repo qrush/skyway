@@ -31,6 +31,14 @@ cd ~/.pow
 ln -s ~/Dev/skyway
 ```
 
+## Ops
+
+Run a migration, ssh in and:
+
+```
+dokku run aqueousband.net rake db:migrate
+```
+
 ## License
 
 MIT. See `LICENSE`.
