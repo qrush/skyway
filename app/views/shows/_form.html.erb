@@ -1,11 +1,11 @@
+<%= form.label :venue_id, "Venue" %>
+<%= form.collection_select :venue_id, Venue.by_name, :id, :name, include_blank: true %>
+
 <%= form.label :performed_at, "Date of show" %>
 <%= form.date_field :performed_at, value: @show.new_record? && Date.tomorrow %>
 
 <%= form.label :starts_at, "Time of admission" %>
 <%= form.time_field :starts_at, step: 15.minutes, value: @show.new_record? && "21:00" %>
-
-<%= form.label :venue_id, "Venue" %>
-<%= form.collection_select :venue_id, Venue.by_name, :id, :name %>
 
 <%= form.label :banner %>
 <%= form.file_field :banner %>

@@ -3,6 +3,9 @@
 <%= form_for @show do |f| %>
   <%= f.error_messages %>
 
+  <%= f.label :venue_name, "New venue" %>
+  <%= f.text_field :venue_name, placeholder: "Awesome Bar" %>
+
   <%= render "form", form: f %>
 
   <%= f.hidden_field :unknown_setlist, value: true %>
