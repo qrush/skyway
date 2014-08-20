@@ -1,6 +1,7 @@
 class VenuesController < ApplicationController
   include Mergeable
   self.mergeable_class = Venue
+  self.permitted_params = [:name, :location, :address, :url, :twitter, :facebook]
 
   before_filter :require_admin, except: [:index, :show]
 

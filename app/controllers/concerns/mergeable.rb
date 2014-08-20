@@ -2,7 +2,7 @@ module Mergeable
   extend ActiveSupport::Concern
 
   included do
-    class_attribute :mergeable_class
+    class_attribute :mergeable_class, :permitted_params
   end
 
   def update
@@ -15,7 +15,7 @@ module Mergeable
 
   def merge
     @mergeable = mergeable_class.find(params[:id])
-    @other_mergeable = mergeable_class.find(other_mergeable_params[other_mergeable_param])
+    @other_mergeable = mergeable_class.find(other_mergeable_params[other_mergeable_param_name])
 
     @mergeable.merge!(@other_mergeable)
 
@@ -26,19 +26,19 @@ module Mergeable
   private
 
     def mergeable_params
-      params.require(mergeable_param).permit(:name, :location, :cover)
+      params.require(mergeable_param_name).permit(permitted_params)
     end
 
     def other_mergeable_params
-      params.require(mergeable_param).permit(other_mergeable_param)
+      params.require(mergeable_param_name).permit(other_mergeable_param_name)
     end
 
-    def mergeable_param
+    def mergeable_param_name
       mergeable_class.to_s.downcase
     end
 
-    def other_mergeable_param
-      :"other_#{mergeable_param}_id"
+    def other_mergeable_param_name
+      :"other_#{mergeable_param_name}_id"
     end
 
 end

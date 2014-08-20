@@ -2,8 +2,20 @@
   <%= f.label :name %>
   <%= f.text_field :name, placeholder: "Awesome Bar" %>
 
-  <%= f.label :location %>
+  <%= f.label :location, "City" %>
   <%= f.text_field :location, placeholder: "Buffalo, NY" %>
+
+  <%= f.label :address, "Address" %>
+  <%= f.text_field :address, placeholder: "123 Shakedown St" %>
+
+  <%= f.label :url, "Website URL" %>
+  <%= f.text_field :url, placeholder: "http://awesomebar.com" %>
+
+  <%= f.label :twitter, "Twitter Handle" %>
+  <%= f.text_field :twitter, placeholder: "@awesomebar" %>
+
+  <%= f.label :facebook, "Facebook Page (Just the path, we'll add the http://facebook.com)" %>
+  <%= f.text_field :twitter, placeholder: "awesomebarbuffalo" %>
 
   <%= f.submit %>
 <% end %>

@@ -1,8 +1,20 @@
-<%= form.label :performed_at %>
-<%= form.date_field :performed_at %>
+<%= form.label :performed_at, "Date of show" %>
+<%= form.date_field :performed_at, placeholder: Date.tomorrow %>
+
+<%= form.label :starts_at, "Time of admission" %>
+<%= form.time_field :age_restriction, step: 15.minutes, value: "21:00" %>
 
 <%= form.label :venue_id, "Venue" %>
 <%= form.collection_select :venue_id, Venue.by_name, :id, :name %>
 
 <%= form.label :banner %>
 <%= form.file_field :banner %>
+
+<%= form.label :url, "Event URL (facebook, event page, etc)" %>
+<%= form.url_field :url, placeholder: "http://awesomebar.com/aqueous" %>
+
+<%= form.label :price, "Admission price" %>
+<%= form.number_field :price, placeholder: "$10" %>
+
+<%= form.label :age_restriction %>
+<%= form.number_field :age_restriction, placeholder: "21" %>
