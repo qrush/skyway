@@ -39,6 +39,14 @@ Run a migration, ssh in and:
 dokku run aqueousband.net rake db:migrate
 ```
 
+Sometimes memcached gets unhappy. If so:
+
+```
+dokku memcached:delete aqueousband.net
+dokku memcached:rebuild aqueousband.net
+dokku memcached:link aqueousband.net aqueousband.net
+```
+
 ## License
 
 MIT. See `LICENSE`.
