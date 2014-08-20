@@ -1,4 +1,6 @@
 Skyway::Application.routes.draw do
+  resource :tour
+
   resources :shows do
     resource :setlist
   end

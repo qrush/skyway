@@ -1,0 +1,35 @@
+<% @title = "Fall Tour 2014" %>
+
+<table class="tour table-minimal">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>City</th>
+      <th>Venue</th>
+      <th>Time</th>
+      <th>Admission</th>
+      <th>Address</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @shows.each do |show| %>
+      <tr>
+        <td>
+          <% if admin? %>
+            <%= link_to performed_at_for(show), show %>
+          <% else %>
+            <%= performed_at_for(show) %>
+          <% end %>
+        </td>
+        <td><%= show.venue.location %></td>
+        <td>
+          <%= link_to show.venue.name, show.venue %>
+          <small>Age Restrictions: <%= show.age_restriction.presence || "All Ages" %></small>
+        </td>
+        <td><%= starts_at_for(show) %></td>
+        <td><%= link_to_price_for(show) %></td>
+        <td><%= link_to_address_for(show) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

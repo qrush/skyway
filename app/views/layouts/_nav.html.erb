@@ -6,9 +6,9 @@
     <a href="" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
     <div class="nav">
       <ul id="navigation-menu">
-        <li class="nav-link"><%= link_to "Shows", shows_path %></li>
+        <li class="nav-link"><%= link_to "Tour", tour_path %></li>
+        <li class="nav-link"><%= link_to "Setlists", shows_path %></li>
         <li class="nav-link"><%= link_to "Songs", songs_path %></li>
-        <li class="nav-link"><%= link_to "Venues", venues_path %></li>
         <% if admin? %>
           <li class="nav-link more"><a href="javascript:void(0)">Admin</a>
             <ul class="submenu">
@@ -17,6 +17,7 @@
               <% if @show.try(:persisted?) %>
                 <li><%= link_to "Edit show", [:edit, @show] %>
                 <li><%= link_to "Edit setlist", [:edit, @show, :setlist] %>
+                <li><%= link_to "Edit venue", [:edit, @show.venue] %></li>
                 <li><%= link_to "Remove show", @show, method: :delete, data: { confirm: "Are you sure?" } %>
               <% end %>
               <% if @song.try(:persisted?) %>
