@@ -48,7 +48,7 @@ class ShowsController < ApplicationController
   private
 
     def show_params
-      params.require(:show).permit(:performed_at, :venue_name, :venue_id, :banner, :unknown_setlist, :url, :price, :age_restriction, :starts_at)
+      params.require(:show).permit(:performed_at, :venue_id, :banner, :unknown_setlist, :url, :price, :age_restriction, :starts_at)
     end
 
     def find_show_by_performed_at

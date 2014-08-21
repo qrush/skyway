@@ -9,7 +9,6 @@ class Show < ActiveRecord::Base
     styles: {fit: "1056x200#"},
     convert_options: {fit: "-strip"}
 
-  before_validation :build_venue_with_name, if: :venue_name
   validates_presence_of :performed_at, :venue
   validates_attachment :banner, content_type: { content_type: /\Aimage\/.*\Z/ }
 
@@ -21,7 +20,6 @@ class Show < ActiveRecord::Base
   scope :performed,    -> { ordered.includes(:venue, setlists: {slots: :song}) }
   scope :for_year,     -> (year) { before_today.where("EXTRACT(YEAR FROM performed_at) = ?", year) }
 
-  attr_accessor :venue_name
   attr_writer :raw_setlist
 
   def self.parse(params)
@@ -107,9 +105,5 @@ class Show < ActiveRecord::Base
         end
       end
       notes.uniq + self[:notes]
-    end
-
-    def build_venue_with_name
-      build_venue(name: venue_name, location: "Anytown, USA")
     end
 end
