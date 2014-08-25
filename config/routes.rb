@@ -20,5 +20,7 @@ Skyway::Application.routes.draw do
   resources :searches, path: "search"
   resource :admin
 
+  get "/home" => "home#show"
+
   root to: "home#index"
 end

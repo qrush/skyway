@@ -1,0 +1,108 @@
+@import "reset";
+
+@import "bourbon";
+@import "bitters/bitters";
+@import "bitters/flashes";
+@import "neat";
+
+@import "navigation";
+
+body {
+  //background: #fff asset-url("skulls-alpha.png") repeat;
+}
+
+#wrapper {
+  max-width: 551px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1em;
+}
+
+header.navigation {
+  background-color: transparent;
+  border: none;
+
+  @include media($large-screen) {
+    .nav {
+      float: none;
+    }
+
+    ul#navigation-menu {
+      display: inline-block;
+      text-align: center;
+    }
+  }
+
+  ul li.nav-link {
+    font-weight: 900;
+    text-transform: lowercase;
+    display: inline-block;
+    padding: 0 20px;
+
+    a {
+      display: block;
+      padding: 0;
+      font-size: 19px;
+      color: #000;
+
+      &:hover {
+        color: #666;
+      }
+    }
+  }
+}
+
+article {
+  header p {
+    text-align: right;
+    margin-bottom: 0.75em;
+  }
+
+  table {
+    td {
+      border-bottom: 1px solid #eee;
+      font-size: 20px;
+    }
+
+    td:first-child {
+      width: 30%;
+      font-weight: 900;
+    }
+  }
+}
+
+footer {
+  img {
+    height: 25px;
+    opacity: 0.03;
+    margin: 2em auto;
+    text-align: center;
+    display: block;
+  }
+
+  ul {
+    text-align: center;
+
+    li {
+      text-transform: lowercase;
+      font-size: 14px;
+      padding: 9px;
+      display: inline-block;
+      opacity: 0.8;
+    }
+  }
+}
+
+h1 {
+  background: asset-url("biglogo.png") no-repeat;
+  background-size: contain;
+  height: 100px;
+  text-indent: -9999px;
+  margin-top: 0.75em;
+}
+
+h2 {
+  text-transform: lowercase;
+  margin-top: 0.75em;
+  margin-bottom: 0.75em;
+}
