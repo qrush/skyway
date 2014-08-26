@@ -39,10 +39,19 @@ canvas {
 }
 
 header.navigation {
-  background-color: transparent;
-  border: none;
+  ul li.nav-link {
+    font-weight: 900;
+    text-transform: lowercase;
+  }
+
+  ul li:first-child {
+    display: none;
+  }
 
   @include media($large-screen) {
+    background-color: transparent;
+    border: none;
+
     .nav {
       float: none;
     }
@@ -51,22 +60,28 @@ header.navigation {
       display: inline-block;
       text-align: center;
     }
-  }
 
-  ul li.nav-link {
-    font-weight: 900;
-    text-transform: lowercase;
-    display: inline-block;
-    padding: 0 20px;
+    ul li:first-child {
+      display: inline-block;
+    }
 
-    a {
-      display: block;
-      padding: 0;
-      font-size: 19px;
-      color: #000;
+    .logo {
+      display: none;
+    }
 
-      &:hover {
-        color: #666;
+    ul li.nav-link {
+      display: inline-block;
+      padding: 0 20px;
+
+      a {
+        display: block;
+        padding: 0;
+        font-size: 19px;
+        color: #000;
+
+        &:hover {
+          color: #666;
+        }
       }
     }
   }
@@ -75,13 +90,17 @@ header.navigation {
 article {
   header p {
     text-align: right;
-    margin-bottom: 1.75em;
+    @include media($medium-screen) {
+      margin-bottom: 1.75em;
+    }
   }
 
   table {
     td {
       border-bottom: 1px solid rgba(204, 204, 204, 0.3);
-      font-size: 25px;
+      @include media($medium-screen) {
+        font-size: 25px;
+      }
     }
 
     td:first-child {
@@ -118,17 +137,43 @@ footer {
   }
 }
 
+#bandcamp {
+  height: 500px;
+
+  @include media($medium-screen) {
+    height: 936px;
+  }
+}
+
+#youtube {
+  height: 250px;
+
+  @include media($medium-screen) {
+    height: 476px;
+  }
+}
+
 h1 {
   background: asset-url("biglogo.png") no-repeat;
-  background-size: contain;
-  height: 100px;
   text-indent: -9999px;
+  width: 100%;
   margin-top: 0.75em;
+
+  height: 50px;
+  background-size: contain;
+
+  @include media($medium-screen) {
+    height: 100px;
+    background-size: cover;
+  }
 }
 
 h2 {
   text-transform: lowercase;
   margin-top: 0.75em;
   margin-bottom: 0.75em;
-  font-size: 35px;
+
+  @include media($medium-screen) {
+    font-size: 35px;
+  }
 }

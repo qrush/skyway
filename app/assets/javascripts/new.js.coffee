@@ -39,3 +39,10 @@ $ ->
   noise.seed(Math.random())
   requestAnimationFrame(draw)
   $("#canvas").fadeIn(16000)
+
+  $('#js-mobile-menu').on 'click', (e) ->
+    e.preventDefault()
+    menu = $('#navigation-menu')
+    menu.slideToggle ->
+      if menu.is(':hidden')
+        menu.removeAttr('style')
