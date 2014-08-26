@@ -38,7 +38,7 @@ draw = (timestamp) ->
 $ ->
   noise.seed(Math.random())
   requestAnimationFrame(draw)
-  $("#canvas").fadeIn(16000)
+  $("#canvas").fadeIn(1000)
 
   $('#js-mobile-menu').on 'click', (e) ->
     e.preventDefault()
