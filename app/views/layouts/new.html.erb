@@ -19,41 +19,14 @@
   </header>
 
   <div id="wrapper">
-    <article>
-      <header>
-        <h1>Aqueous</h1>
-        <p>is a groove rock band</p>
-      </header>
-
-      <section>
-        <h2>Tour</h2>
-        <table>
-          <% @upcoming_shows.each do |show| %>
-            <tr>
-              <td><%= performed_at_for(show) %></td>
-              <td><%= show.venue.location %> @ <%= show.venue.name %></td>
-            </tr>
-          <% end %>
-        </table>
-      </section>
-
-      <section>
-        <h2>Listen</h2>
-        <iframe style="border: 0; width: 100%; height: 936px;" src="http://bandcamp.com/EmbeddedPlayer/album=3634413396/size=large/bgcol=ffffff/linkcol=0687f5/transparent=true/" seamless><a href="http://aqueous1.bandcamp.com/album/willy-is-40">Willy is 40 by Aqueous</a></iframe>
-      </section>
-
-      <section>
-        <h2>Watch</h2>
-        <iframe width="100%" height="476" src="http://www.youtube.com/embed/x7YHjUm7XBI" frameborder="0" allowfullscreen></iframe>
-      </section>
-    </article>
+    <%= yield %>
 
     <footer>
       <p>
         <%= image_tag "logo_black.png" %>
       </p>
       <ul>
-        <li><%= link_to "Contact", "" %></li>
+        <li><%= link_to "Contact", page_path("contact") %></li>
         <li><%= link_to "Facebook", "https://facebook.com/aqueousband" %></li>
         <li><%= link_to "Twitter", "https://twitter.com/aqueousband" %></li>
         <li><%= link_to "YouTube", "https://twitter.com/aqueousband" %></li>
