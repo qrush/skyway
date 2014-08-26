@@ -1,6 +1,7 @@
 #= require jquery
 #= require jquery_ujs
 #= require turbolinks
+#= require perlin
 
 # Based on http://codepen.io/GiorgioMalvone/pen/CfeAa
 # http://creativejs.com/resources/requestanimationframe/
@@ -12,26 +13,29 @@ ctx = canvas.getContext("2d")
 canvas.width = window.innerWidth
 canvas.height = window.innerHeight
 
-drawLines = ->
+drawLines = (timestamp) ->
   canvas.width = window.innerWidth
   canvas.height = window.innerHeight
 
   for i in [0.5..canvas.width] by 15
-    ctx.moveTo(i, Math.floor(Math.random()*canvas.height))
-    ctx.lineTo(i, Math.floor(Math.random()*canvas.width))
+    start = Math.abs(Math.floor(noise.simplex2(i, timestamp) * canvas.height))
+    end = Math.abs(Math.floor(noise.simplex2(i, timestamp) * canvas.width))
+    ctx.moveTo(i, start)
+    ctx.lineTo(i, end)
 
-  random = Math.floor(Math.random()*10)
+  ctx.lineCap = "round"
   ctx.lineWidth = 5
-  ctx.strokeStyle = "rgba(144, 144, #{144 + random}, 0.04)"
+  ctx.strokeStyle = "rgba(144, 144, 144, 0.05)"
   ctx.stroke()
 
 fps = 1
 draw = (timestamp) ->
   setTimeout ->
     requestAnimationFrame(draw)
-    drawLines()
+    drawLines(timestamp)
   , 1000 / fps
 
 $ ->
+  noise.seed(Math.random())
   requestAnimationFrame(draw)
   $("#canvas").fadeIn(16000)
