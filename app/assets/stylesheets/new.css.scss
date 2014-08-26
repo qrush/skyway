@@ -154,17 +154,17 @@ footer {
 }
 
 h1 {
-  background: asset-url("biglogo.png") no-repeat;
+  background: asset-url("biglogo.png") no-repeat 50% 50%;
   text-indent: -9999px;
   width: 100%;
   margin-top: 0.75em;
 
-  height: 50px;
   background-size: contain;
+  min-height: 75px;
 
   @include media($medium-screen) {
-    height: 100px;
-    background-size: cover;
+    background-size: contain;
+    height: 125px;
   }
 }
 

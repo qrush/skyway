@@ -25,10 +25,10 @@ drawLines = (timestamp) ->
 
   ctx.lineCap = "round"
   ctx.lineWidth = 5
-  ctx.strokeStyle = "rgba(144, 144, 144, 0.05)"
+  ctx.strokeStyle = "rgba(144, 144, 144, 0.03)"
   ctx.stroke()
 
-fps = 1
+fps = 0.5
 draw = (timestamp) ->
   setTimeout ->
     requestAnimationFrame(draw)
