@@ -9,7 +9,6 @@
 
 body {
   -webkit-animation: pulse 80s infinite alternate;
-  font-color: red;
   background-color: #FFFFFF;
 }
 
@@ -18,7 +17,6 @@ canvas {
   position: fixed;
   width: 100%;
   height: 100%;
-  //opacity: 0.05;
   z-index: -1;
   top: 0;
 }
@@ -33,9 +31,8 @@ canvas {
   100% {background-color: transparentize(#32A62E, 0.9);}
 }
 
-
 #wrapper {
-  max-width: 551px;
+  max-width: 635px;
   margin-left: auto;
   margin-right: auto;
   padding: 1em;
@@ -78,13 +75,13 @@ header.navigation {
 article {
   header p {
     text-align: right;
-    margin-bottom: 0.75em;
+    margin-bottom: 1.75em;
   }
 
   table {
     td {
       border-bottom: 1px solid rgba(204, 204, 204, 0.3);
-      font-size: 20px;
+      font-size: 25px;
     }
 
     td:first-child {
@@ -112,6 +109,11 @@ footer {
       padding: 9px;
       display: inline-block;
       opacity: 0.8;
+
+      a, a:hover {
+        color: #000;
+        text-decoration: underline;
+      }
     }
   }
 }
@@ -128,4 +130,5 @@ h2 {
   text-transform: lowercase;
   margin-top: 0.75em;
   margin-bottom: 0.75em;
+  font-size: 35px;
 }

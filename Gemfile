@@ -21,6 +21,7 @@ gem 'mechanize', require: false
 
 gem 'paperclip'
 gem 'aws-sdk'
+gem 'high_voltage'
 
 gem 'newrelic_rpm'
 
