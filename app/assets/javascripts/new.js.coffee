@@ -25,7 +25,7 @@ drawLines = (timestamp) ->
 
   ctx.lineCap = "round"
   ctx.lineWidth = 5
-  ctx.strokeStyle = "rgba(144, 144, 144, 0.03)"
+  ctx.strokeStyle = "rgba(144, 144, 144, 0.04)"
   ctx.stroke()
 
 fps = 0.5
