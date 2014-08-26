@@ -12,6 +12,10 @@ body {
   background-color: #FFFFFF;
 }
 
+body, h1, h2 {
+  font-family: 'Oxygen', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+}
+
 canvas {
   position: fixed;
   width: 100%;
@@ -39,7 +43,7 @@ canvas {
 
 header.navigation {
   ul li.nav-link {
-    font-weight: 900;
+    font-weight: 700;
     text-transform: lowercase;
   }
 
@@ -104,7 +108,7 @@ article {
 
     td:first-child {
       width: 30%;
-      font-weight: 900;
+      font-weight: 700;
       opacity: 0.5;
     }
   }
@@ -172,7 +176,7 @@ h2 {
   text-transform: lowercase;
   margin-top: 0.75em;
   margin-bottom: 0.75em;
-  font-weight: 900;
+  font-weight: 700;
 
   @include media($medium-screen) {
     font-size: 35px;
