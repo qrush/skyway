@@ -173,7 +173,6 @@ h2 {
   margin-top: 0.75em;
   margin-bottom: 0.75em;
   font-weight: 900;
-  border-bottom: 5px solid rgba(144, 144, 144, 0.25);
 
   @include media($medium-screen) {
     font-size: 35px;
