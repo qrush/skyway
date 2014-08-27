@@ -31,8 +31,9 @@ drawLines = (timestamp) ->
 fps = 0.5
 draw = (timestamp) ->
   setTimeout ->
-    requestAnimationFrame(draw)
-    drawLines(timestamp)
+    if $("body").hasClass("home")
+      requestAnimationFrame(draw)
+      drawLines(timestamp)
   , 1000 / fps
 
 $ ->

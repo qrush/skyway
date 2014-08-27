@@ -5,6 +5,8 @@
 @import "bitters/flashes";
 @import "neat";
 
+@import "type";
+
 @import "navigation";
 
 body {
@@ -64,10 +66,6 @@ header.navigation {
       text-align: center;
     }
 
-    ul li:first-child {
-      display: inline-block;
-    }
-
     .logo {
       display: none;
     }
@@ -90,7 +88,22 @@ header.navigation {
   }
 }
 
-article {
+.home article {
+  h1 {
+    background: asset-url("biglogo.png") no-repeat 50% 50%;
+    text-indent: -9999px;
+    width: 100%;
+    margin-top: 0.75em;
+
+    background-size: contain;
+    min-height: 75px;
+
+    @include media($medium-screen) {
+      background-size: contain;
+      height: 125px;
+    }
+  }
+
   header p {
     text-align: right;
     @include media($medium-screen) {
@@ -111,6 +124,25 @@ article {
       font-weight: 700;
       opacity: 0.5;
     }
+  }
+}
+
+@include media($medium-screen) {
+  .home header.navigation .logo {
+    display: none;
+  }
+
+  header.navigation .logo {
+    display: block;
+    position: absolute;
+    background: asset-url("biglogo.png") no-repeat;
+    background-size: contain;
+    text-indent: -9999px;
+    opacity: 0.1;
+    @include transform(rotate(-90deg));
+    width: 50%;
+    left: -80px;
+    top: 98px;
   }
 }
 
@@ -157,20 +189,6 @@ footer {
   }
 }
 
-h1 {
-  background: asset-url("biglogo.png") no-repeat 50% 50%;
-  text-indent: -9999px;
-  width: 100%;
-  margin-top: 0.75em;
-
-  background-size: contain;
-  min-height: 75px;
-
-  @include media($medium-screen) {
-    background-size: contain;
-    height: 125px;
-  }
-}
 
 h2 {
   text-transform: lowercase;

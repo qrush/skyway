@@ -1,7 +1,7 @@
 module ApplicationHelper
   def nav_menu
     links = [
-      link_to("Home",     root_path),
+      link_to("Home",     "/home"),
       link_to("Tour",     tour_path),
       link_to("Setlists", shows_path),
       link_to("Music",    page_path("music")),
