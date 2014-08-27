@@ -127,22 +127,26 @@ header.navigation {
   }
 }
 
-@include media($medium-screen) {
+@include media($large-screen) {
   .home header.navigation .logo {
     display: none;
   }
 
   header.navigation .logo {
-    display: block;
     position: absolute;
-    background: asset-url("biglogo.png") no-repeat;
+    display: block;
+    background: url(/assets/biglogo.png) no-repeat;
     background-size: contain;
-    text-indent: -9999px;
     opacity: 0.1;
+    width: 100%;
+    background-position: center;
     @include transform(rotate(-90deg));
-    width: 50%;
-    left: -80px;
-    top: 98px;
+    top: 220px;
+    left: -350px;
+
+    img {
+      visibility: hidden;
+    }
   }
 }
 
