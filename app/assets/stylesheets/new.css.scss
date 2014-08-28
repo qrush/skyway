@@ -8,23 +8,13 @@
 @import "type";
 @import "navigation";
 
+@import "home";
 @import "pages";
 
 body {
   @include animation(pulse 80s infinite alternate);
   background-color: #FFFFFF;
-}
-
-body, h1, h2 {
   font-family: 'Oxygen', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-}
-
-canvas {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  top: 0;
 }
 
 // http://www.colourlovers.com/palette/759664/r.a.d.i.o.h.e.a.d.!
@@ -68,7 +58,20 @@ header.navigation {
     }
 
     .logo {
-      display: none;
+      position: absolute;
+      display: block;
+      background: asset-url("biglogo.png") no-repeat;
+      background-size: contain;
+      opacity: 0.1;
+      width: 100%;
+      background-position: center;
+      @include transform(rotate(-90deg));
+      top: 220px;
+      left: -350px;
+
+      img {
+        visibility: hidden;
+      }
     }
 
     ul li.nav-link {
@@ -85,68 +88,6 @@ header.navigation {
           color: #666;
         }
       }
-    }
-  }
-}
-
-.home article {
-  h1 {
-    background: asset-url("biglogo.png") no-repeat 50% 50%;
-    text-indent: -9999px;
-    width: 100%;
-    margin-top: 0.75em;
-
-    background-size: contain;
-    min-height: 75px;
-
-    @include media($medium-screen) {
-      background-size: contain;
-      height: 125px;
-    }
-  }
-
-  header p {
-    text-align: right;
-    @include media($medium-screen) {
-      margin-bottom: 2.5em;
-    }
-  }
-
-  table {
-    td {
-      border-bottom: 1px solid rgba(204, 204, 204, 0.3);
-      @include media($medium-screen) {
-        font-size: 25px;
-      }
-    }
-
-    td:first-child {
-      width: 30%;
-      font-weight: 700;
-      opacity: 0.5;
-    }
-  }
-}
-
-@include media($large-screen) {
-  .home header.navigation .logo {
-    display: none;
-  }
-
-  header.navigation .logo {
-    position: absolute;
-    display: block;
-    background: url(/assets/biglogo.png) no-repeat;
-    background-size: contain;
-    opacity: 0.1;
-    width: 100%;
-    background-position: center;
-    @include transform(rotate(-90deg));
-    top: 220px;
-    left: -350px;
-
-    img {
-      visibility: hidden;
     }
   }
 }
@@ -183,29 +124,10 @@ footer {
   }
 }
 
-#bandcamp {
-  height: 500px;
-
-  @include media($medium-screen) {
-    height: 936px;
-  }
-}
-
-#youtube {
-  height: 250px;
-
-  @include media($medium-screen) {
-    height: 450px;
-  }
-}
-
-h2 {
-  text-transform: lowercase;
-  margin-top: 0.75em;
-  margin-bottom: 0.75em;
-  font-weight: 700;
-
-  @include media($medium-screen) {
-    font-size: 35px;
-  }
+#canvas {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  top: 0;
 }

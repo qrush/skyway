@@ -1,0 +1,72 @@
+body.home {
+  @include media($large-screen) {
+    header.navigation .logo {
+      display: none;
+    }
+  }
+
+  h1 {
+    background: asset-url("biglogo.png") no-repeat 50% 50%;
+    text-indent: -9999px;
+    width: 100%;
+    margin-top: 0.5em;
+    margin-bottom: 0;
+
+    background-size: contain;
+    min-height: 75px;
+
+    @include media($medium-screen) {
+      background-size: contain;
+      height: 125px;
+    }
+  }
+
+  h2 {
+    text-transform: lowercase;
+    margin-top: 0.75em;
+    margin-bottom: 0.75em;
+    font-weight: 700;
+
+    @include media($medium-screen) {
+      font-size: 35px;
+    }
+  }
+
+  header p {
+    text-align: right;
+    @include media($medium-screen) {
+      margin-bottom: 2em;
+    }
+  }
+
+  table {
+    td {
+      border-bottom: 1px solid rgba(204, 204, 204, 0.3);
+      @include media($medium-screen) {
+        font-size: 25px;
+      }
+    }
+
+    td:first-child {
+      width: 30%;
+      font-weight: 700;
+      opacity: 0.5;
+    }
+  }
+
+  #bandcamp {
+    height: 500px;
+
+    @include media($medium-screen) {
+      height: 936px;
+    }
+  }
+
+  #youtube {
+    height: 250px;
+
+    @include media($medium-screen) {
+      height: 450px;
+    }
+  }
+}
