@@ -89,4 +89,7 @@ Skyway::Application.configure do
     url: ":s3_alias_url",
     path: '/:class/:attachment/:id_partition/:style/:filename'
   }
+
+  config.middleware.use Rack::Deflater
+  config.static_cache_control = "public, max-age=31536000"
 end
