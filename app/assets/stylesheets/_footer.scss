@@ -1,0 +1,32 @@
+body > footer {
+  aside {
+    font-size: 10px;
+    text-align: center;
+  }
+
+  img {
+    text-align: center;
+    height: 50px;
+    opacity: 0.1;
+    margin: 2em auto;
+    display: block;
+  }
+
+  ul {
+    text-align: center;
+
+    li {
+      text-transform: lowercase;
+      font-size: 14px;
+      padding: 9px;
+      display: inline-block;
+      opacity: 0.8;
+
+      a, a:hover {
+        color: #000;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
