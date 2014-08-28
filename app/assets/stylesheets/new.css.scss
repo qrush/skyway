@@ -6,8 +6,9 @@
 @import "neat";
 
 @import "type";
-
 @import "navigation";
+
+@import "pages";
 
 body {
   @include animation(pulse 80s infinite alternate);
@@ -151,11 +152,16 @@ header.navigation {
 }
 
 footer {
+  aside {
+    font-size: 10px;
+    text-align: center;
+  }
+
   img {
+    text-align: center;
     height: 50px;
     opacity: 0.1;
     margin: 2em auto;
-    text-align: center;
     display: block;
   }
 
@@ -192,7 +198,6 @@ footer {
     height: 450px;
   }
 }
-
 
 h2 {
   text-transform: lowercase;

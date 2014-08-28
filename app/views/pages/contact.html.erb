@@ -1,0 +1,51 @@
+<article class="type-system-sans">
+<header>
+  <h1>contact</h1>
+</header>
+
+<section>
+  <aside>
+    <h2>Info</h2>
+    <ul>
+      <li><%= link_to "Press Kit (PDF)", "http://aqueousband.com/media/images/presskit.pdf" %></li>
+      <li><%= link_to "Press Photo", "http://files.aqueousband.net/images/2014/AQ-PRESSPIC.jpg" %></li>
+      <li><%= link_to "Taping Policy", page_path("taping") %></li>
+    </ul>
+  </aside>
+
+  <h2>Booking</h2>
+  <ul>
+    <li><%= link_to "Nimbleslick Entertainment", "http://nimbleslick.com/" %></li>
+    <li>Justin Willis</li>
+    <li><%= mail_to "justin@nimbleslick.com", "justin@nimbleslick.com" %></li>
+    <li>(706) 354-0335</li>
+  </ul>
+
+  <h2>Management</h2>
+  <ul>
+    <li><%= link_to "Blue Stream Productions", "http://bluestreamproductions.com/" %></li>
+    <li>Josh Holtzman</li>
+    <li><%= mail_to "josh@bluestreamproductions.com", "josh@bluestreamproductions.com" %></li>
+    <li>(585) 703-0508</li>
+  </ul>
+
+  <h2>Street Team</h2>
+  <ul>
+    <li><%= link_to "Blue Stream Productions", "http://bluestreamproductions.com/" %></li>
+    <li>Carolyn Lesniak</li>
+    <li><%= mail_to "carolyn@bluestreamproductions.com", "carolyn@bluestreamproductions.com" %></li>
+  </ul>
+
+  <h2>Fan Relations</h2>
+  <ul>
+    <li>Do you want to send us a friendly message?</li>
+    <li><%= mail_to "fans@aqueousband.com", "fans@aqueousband.com" %></li>
+  </ul>
+
+  <h2>Website</h2>
+  <ul>
+    <li>Have questions about the website?</li>
+    <li>Ask <%= mail_to "Nick", "nick@quaran.to" %>! This site is <%= link_to "open source", "https://github.com/qrush/skyway" %>.</li>
+  </ul>
+</section>
+</article>

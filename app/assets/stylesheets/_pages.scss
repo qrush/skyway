@@ -1,0 +1,52 @@
+.pages {
+  section {
+    ul {
+      margin-bottom: 2em;
+    }
+
+    aside {
+      float: right;
+
+      h2 {
+        margin-top: 0;
+      }
+    }
+  }
+
+  #bios {
+    h2 {
+      margin-bottom: 1em;
+    }
+
+    h3 {
+      margin: 0;
+      float: left;
+      padding-left: 165px;
+    }
+
+    p {
+      padding-top: 30px;
+      padding-left: 165px;
+      margin-bottom: 2em;
+      background-repeat: no-repeat;
+      background-size: 150px;
+    }
+    //}
+
+    #mike {
+      background-image: asset-url("photos/mike.png");
+    }
+
+    #dave {
+      background-image: asset-url("photos/dave.png");
+    }
+
+    #evan {
+      background-image: asset-url("photos/evan.png");
+    }
+
+    #ryan {
+      background-image: asset-url("photos/ryan.png");
+    }
+  }
+}
