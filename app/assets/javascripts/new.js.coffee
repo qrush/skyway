@@ -28,7 +28,7 @@ drawLines = (timestamp) ->
   ctx.strokeStyle = "rgba(144, 144, 144, 0.04)"
   ctx.stroke()
 
-fps = 0.5
+fps = 0.75
 draw = (timestamp) ->
   setTimeout ->
     if $("body").hasClass("home")
