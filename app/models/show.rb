@@ -15,7 +15,7 @@ class Show < ActiveRecord::Base
   scope :upcoming,     -> { where("date(performed_at) > ?", Date.yesterday).order(performed_at: :asc) }
   scope :latest,       -> { before_today.performed }
   scope :taped,        -> { where.not(embeds: "").ordered }
-  scope :before_today, -> { where("date(performed_at) < ?", Date.yesterday) }
+  scope :before_today, -> { where("date(performed_at) <= ?", Date.yesterday) }
   scope :ordered,      -> { order(performed_at: :desc) }
   scope :performed,    -> { ordered.includes(:venue, setlists: {slots: :song}) }
   scope :for_year,     -> (year) { before_today.where("EXTRACT(YEAR FROM performed_at) = ?", year) }
