@@ -1,6 +1,3 @@
-#= require jquery
-#= require jquery_ujs
-#= require turbolinks
 #= require perlin
 
 # Based on http://codepen.io/GiorgioMalvone/pen/CfeAa
@@ -36,14 +33,7 @@ draw = (timestamp) ->
       drawLines(timestamp)
   , 1000 / fps
 
-$ ->
+skyway.ready ->
   noise.seed(Math.random())
   drawLines(0)
   requestAnimationFrame(draw)
-
-  $('#js-mobile-menu').on 'click', (e) ->
-    e.preventDefault()
-    menu = $('#navigation-menu')
-    menu.slideToggle ->
-      if menu.is(':hidden')
-        menu.removeAttr('style')

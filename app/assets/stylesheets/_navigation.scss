@@ -42,6 +42,23 @@ header.navigation {
       max-height: $navigation-height;
       padding: .8em 0;
     }
+
+    @include media ($large-screen) {
+      position: absolute;
+      display: block;
+      background: asset-url("biglogo.png") no-repeat;
+      background-size: contain;
+      opacity: 0.1;
+      width: 100%;
+      background-position: center;
+      @include transform(rotate(-90deg));
+      top: 220px;
+      left: -350px;
+
+      img {
+        visibility: hidden;
+      }
+    }
   }
 
   // Mobile view
@@ -119,8 +136,8 @@ header.navigation {
       text-transform: lowercase;
 
       @include media ($horizontal-bar-mode) {
-        padding-left: 15px;
-        padding-right: 15px;
+        padding-left: 16.75px;
+        padding-right: 16.75px;
       }
 
       &:hover {

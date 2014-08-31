@@ -1,6 +1,20 @@
 <header class="navigation">
   <div class="navigation-wrapper">
     <a href="/" class="logo">
+      <%= image_tag "logo_black.png" %>
+    </a>
+    <a href="" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
+    <div class="nav">
+      <ul id="navigation-menu">
+        <%= nav_menu %>
+      </ul>
+    </div>
+  </div>
+</header>
+<!--
+<header class="navigation">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
       <%= image_tag "logo.png" %>
     </a>
     <a href="" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
@@ -43,7 +57,7 @@
           </div>
         <% end %>
       </div>
-      <!-- <a href="javascript:void(0)" class="sign-up">Sign Up</a> -->
     </div>
   </div>
 </header>
+-->

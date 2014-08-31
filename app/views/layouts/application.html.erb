@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <%= render "layouts/head" %>
-<body>
+<body class="<%= controller_name %>">
 
 <%= render "layouts/nav" %>
 
@@ -13,12 +13,16 @@
   <%= yield :top %>
 
   <article class="type-system-sans">
-    <h1 class="type"><%= @title %></h1>
+    <% if @title %>
+      <h1><%= @title %></h1>
+    <% end %>
 
     <%= yield %>
   </article>
 </div>
 
 <%= render "layouts/footer" %>
+<canvas id="canvas"></canvas>
+<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 </body>
 </html>

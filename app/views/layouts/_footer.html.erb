@@ -1,23 +1,16 @@
-<footer class="footer">
-  <div class="footer-logo">
-    <%= image_tag "logo.png" %>
-  </div>
-
-  <hr>
-
-  <p>A <a href="https://github.com/qrush/skyway">tiny project</a> from <a href="https://twitter.com/qrush">@qrush</a>. Curated by <a href="https://twitter.com/unclephilsblog">@unclephilsblog</a>.<br />All content &copy; 2006-2014 <a href="http://aqueousband.com">Aqueous</a>.</p>
+<footer>
+  <p>
+    <%= image_tag "logo_black.png" %>
+  </p>
+  <ul>
+    <li><%= link_to "Contact", page_path("contact") %></li>
+    <li><%= link_to "Facebook", "https://facebook.com/aqueousband" %></li>
+    <li><%= link_to "Twitter", "https://twitter.com/aqueousband" %></li>
+    <li><%= link_to "YouTube", "https://twitter.com/aqueousband" %></li>
+    <li><%= link_to "Jambase", "http://www.jambase.com/Artists/49138/Aqueous" %></li>
+    <li><%= link_to "Soundcloud", "http://soundcloud.com/aqueousband" %></li>
+  </ul>
+  <aside>
+    Copyright &copy; 2014 · Aqueous
+  </aside>
 </footer>
-
-<script type="text/javascript">
-  var _gauges = _gauges || [];
-  (function() {
-    var t   = document.createElement('script');
-    t.type  = 'text/javascript';
-    t.async = true;
-    t.id    = 'gauges-tracker';
-    t.setAttribute('data-site-id', '5357b558e32bb44d6e000325');
-    t.src = '//secure.gaug.es/track.js';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(t, s);
-  })();
-</script>

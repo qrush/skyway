@@ -5,92 +5,47 @@
 @import "bitters/flashes";
 @import "neat";
 
-@import "buttons";
-@import "hero";
-@import "navigation";
 @import "type";
+@import "buttons";
 @import "grid";
 @import "table";
 
+@import "footer";
 @import "form";
+@import "home";
+@import "navigation";
+@import "pages";
 @import "shows";
 @import "songs";
 @import "tour";
 
+body {
+  @include animation(pulse 80s infinite alternate);
+  background-color: #FFFFFF;
+  font-family: 'Oxygen', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+}
+
+// http://www.colourlovers.com/palette/759664/r.a.d.i.o.h.e.a.d.!
+@include keyframes(pulse) {
+  0%   {background-color: #FFFFFF;}
+  20%  {background-color: transparentize(#96E3DB, 0.9);}
+  40%  {background-color: transparentize(#FCE446, 0.9);}
+  60%  {background-color: transparentize(#C4674D, 0.9);}
+  80%  {background-color: transparentize(#3439C9, 0.9);}
+  100% {background-color: transparentize(#32A62E, 0.9);}
+}
+
 #wrapper {
-  max-width: 68em;
+  max-width: 635px;
   margin-left: auto;
   margin-right: auto;
   padding: 1em;
 }
 
-.type {
-  margin-top: 1em;
-}
-
-nav {
-  text-align: center;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em !important;
-}
-
-pre {
-  background-color: #ccc;
-  font-family: "Monaco", "Courier New", monospace;
-  padding: 10px;
-}
-
-.highlight {
-  background-color: lighten(#ff9900, 30) !important;
-}
-
-a.cover, a.cover:visited {
-  color: #769999;
-  font-style: italic;
-  &:hover {
-    color: #596D74;
-  }
-}
-
-section.home {
-  @include outer-container;
-
-  h1.type {
-    text-align: center;
-    display: block;
-    border: none;
-  }
-
-  > article.upcoming {
-    @include media($large-screen) {
-      @include span-columns(3);
-    }
-
-    opacity: 0.6;
-  }
-
-  > article.latest {
-    @include media($large-screen) {
-      @include span-columns(6);
-    }
-  }
-  > article.media {
-    @include media($large-screen) {
-      @include span-columns(3);
-    }
-
-    h2 {
-      font-size: 80%;
-    }
-
-    h3 {
-      font-size: 70%;
-      margin-bottom: 0.3em;
-    }
-
-    iframe {
-      width: 100% !important;
-      max-height: 200px !important;
-    }
-  }
+#canvas {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  top: 0;
 }

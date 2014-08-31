@@ -7,6 +7,5 @@ class HomeController < ApplicationController
 
   def show
     @upcoming_shows = Show.upcoming.limit(5)
-    render "show", layout: "new"
   end
 end

@@ -3,9 +3,12 @@
   $button-group-color: lighten($base-font-color, 30);
   $button-group-border-highlight: lighten($button-group-background, 15);
   $button-group-active: $base-accent-color;
+  margin-bottom: 1em;
+  text-align: center;
 
   a {
     @include button(simple, $button-group-background);
+    padding: 5px 7px;
     font-weight: 400;
     color: $button-group-color;
     font-size: $base-font-size;
@@ -16,6 +19,7 @@
 
     &.active {
       @include button(simple, $button-group-active);
+      padding: 5px 7px;
       font-weight: 400;
       font-size: $base-font-size;
       color: #fff;
