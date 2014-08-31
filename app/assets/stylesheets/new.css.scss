@@ -35,64 +35,6 @@ body {
   padding: 1em;
 }
 
-header.navigation {
-  ul li.nav-link {
-    font-weight: 700;
-    text-transform: lowercase;
-  }
-
-  ul li:first-child {
-    display: none;
-  }
-
-  @include media($large-screen) {
-    background-color: transparent;
-    border: none;
-
-    .nav {
-      float: none;
-    }
-
-    ul#navigation-menu {
-      display: inline-block;
-      text-align: center;
-    }
-
-    .logo {
-      position: absolute;
-      display: block;
-      background: asset-url("biglogo.png") no-repeat;
-      background-size: contain;
-      opacity: 0.1;
-      width: 100%;
-      background-position: center;
-      @include transform(rotate(-90deg));
-      top: 220px;
-      left: -350px;
-
-      img {
-        visibility: hidden;
-      }
-    }
-
-    ul li.nav-link {
-      display: inline-block;
-      padding: 0 20px;
-
-      a {
-        display: block;
-        padding: 0;
-        font-size: 19px;
-        color: #000;
-
-        &:hover {
-          color: #666;
-        }
-      }
-    }
-  }
-}
-
 #canvas {
   position: fixed;
   width: 100%;
