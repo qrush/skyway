@@ -25,15 +25,12 @@ $base-border-color: #ddd;
 
   thead {
     th {
-      background-color: $table-header-color;
       padding: $table-padding;
       border-bottom: 0px;
     }
   }
 
   tbody {
-    background-color: $table-background;
-
     td {
       padding: $table-padding;
       border-top: 1px solid $table-border-color;
