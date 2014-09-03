@@ -46,18 +46,6 @@
         <% end %>
       </ul>
     </div>
-    <div class="navigation-tools">
-      <div class="search-bar">
-        <%= form_for @search || Search.new, method: :get, html: {class: "search-and-submit"} do |f| %>
-          <div class="search-and-submit">
-            <%= f.text_field :query, name: :query, type: :search, placeholder: "Search for a song, venue, location..." %>
-            <button type="submit">
-              <%= image_tag "search-icon.png" %>
-            </button>
-          </div>
-        <% end %>
-      </div>
-    </div>
   </div>
 </header>
 -->

@@ -1,12 +1,8 @@
 <% @title = @playlist.title %>
 
-<% content_for :top do %>
-  <nav>
-    <div class="button-group">
-      <%= playlist_buttons_for(@playlist) %>
-    </div>
-  </nav>
-<% end %>
+<div class="button-group">
+  <%= playlist_buttons_for(@playlist) %>
+</div>
 
 <div id="sparkline"></div>
 

@@ -26,6 +26,6 @@ module ShowsHelper
       options ||= {}
       options[:class] = "active" if year.to_s == current_year
       link_to year, shows_path(year: year), options
-    end.join.html_safe
+    end.reverse.join.html_safe
   end
 end
