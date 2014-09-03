@@ -24,5 +24,5 @@ Skyway::Application.routes.draw do
 
   get "/:page.php", format: false, to: redirect('/%{page}')
 
-  root to: "home#index"
+  root to: "home#show"
 end
