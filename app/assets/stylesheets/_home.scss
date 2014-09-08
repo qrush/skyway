@@ -32,17 +32,6 @@ body.home {
     }
   }
 
-  #banner {
-    position: absolute;
-    overflow: hidden;
-    left: 0;
-    //height: 300px;
-    //background: asset-url('banner.jpg');
-    width: 100%;
-    background-position: center;
-    display: none;
-  }
-
   article header {
     padding: 315px 16px 16px 16px;
     background: rgba(10, 10, 10, 1) asset-url('banner.jpg') no-repeat;
@@ -67,13 +56,16 @@ body.home {
 
   article section:first-of-type {
     @include media($large-screen) {
-      margin-top: 550px;
+      margin-top: 560px;
     }
   }
 
   table {
+    margin-top: 0;
+
     td {
-      border-bottom: 1px solid rgba(204, 204, 204, 0.3);
+      border-top: 1px solid rgba(204, 204, 204, 0.4);
+      border-bottom: none;
       @include media($medium-screen) {
         font-size: 25px;
       }
@@ -105,5 +97,6 @@ body.home {
 
   .more {
     text-align: right;
+    margin-bottom: 0;
   }
 }
