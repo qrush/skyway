@@ -6,7 +6,7 @@ body.home {
   }
 
   h1 {
-    background: asset-url("biglogo.png") no-repeat 50% 50%;
+    background: asset-url("biglogo_white.png") no-repeat 50% 50%;
     text-indent: -9999px;
     width: 100%;
     margin-top: 0.5em;
@@ -36,23 +36,39 @@ body.home {
     position: absolute;
     overflow: hidden;
     left: 0;
-    height: 300px;
-    background: asset-url('banner.jpg');
+    //height: 300px;
+    //background: asset-url('banner.jpg');
     width: 100%;
     background-position: center;
+    display: none;
   }
 
-  header {
+  article header {
+    padding: 315px 16px 16px 16px;
+    background: rgba(10, 10, 10, 1) asset-url('banner.jpg') no-repeat;
+    background-size: cover;
+
+    @include media($large-screen) {
+      border-radius: 20px 20px 0 0;
+      height: 550px;
+      background-position: center -90px;
+      position: absolute;
+      top: 60px;
+      width: 635px;
+      margin-left: -16px;
+      max-width: 100%;
+    }
+
     p {
+      color: #fff;
       text-align: right;
-      @include media($medium-screen) {
-        margin-bottom: 2em;
-      }
     }
   }
 
   article section:first-of-type {
-    margin-top: 350px;
+    @include media($large-screen) {
+      margin-top: 550px;
+    }
   }
 
   table {
