@@ -40,22 +40,14 @@ body {
   margin-right: auto;
   padding: 1em;
   background: rgba(255, 255, 255, 0.8);
-}
 
-#canvas {
-  //position: fixed;
-  //width: 50%;
-  //height: 100%;
-  //margin: 0 auto;
-  //background: rgba(255, 255, 255, 0.75);
-  //left: 25%;
-  //-webkit-filter: blur(10px);
-  //z-index: -1;
-  //top: 0;
+  @include media($large-screen) {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
 }
 
 a, a:visited {
-  //color: #477dca;
   color: #3B8686;
   &:hover {
     color: #3B8686;

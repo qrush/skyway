@@ -10,6 +10,10 @@ footer {
     opacity: 0.1;
     margin: 2em auto;
     display: block;
+
+    &:hover {
+      opacity: 0.4;
+    }
   }
 
   ul {
@@ -23,7 +27,7 @@ footer {
       opacity: 0.8;
 
       a, a:hover {
-        color: #000;
+        color: #000 !important;
         text-decoration: underline;
       }
     }

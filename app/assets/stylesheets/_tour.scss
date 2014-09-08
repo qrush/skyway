@@ -1,12 +1,13 @@
-.tour {
+.tours {
   small {
     display: block;
     font-size: 75%;
   }
 
-}
+  #wrapper > article {
+    font-size: 80%;
+  }
 
-.tours {
   // http://css-tricks.com/responsive-data-tables/
   @media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px)  {
     /* Force table to not be like tables anymore */

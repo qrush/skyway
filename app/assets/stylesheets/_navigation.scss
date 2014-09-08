@@ -117,7 +117,7 @@ header.navigation {
     width: 100%;
     z-index: 9999;
     padding-right: .8em;
-    border-bottom: 1px solid rgba(204, 204, 204, 0.4);
+    border-bottom: 1px solid rgba(55, 55, 55, 0.3);
 
     @include media ($horizontal-bar-mode) {
       background: transparent;
