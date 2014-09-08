@@ -22,7 +22,7 @@ drawLines = (timestamp) ->
 
   ctx.lineCap = "round"
   ctx.lineWidth = 5
-  ctx.strokeStyle = "rgba(144, 144, 144, 0.04)"
+  ctx.strokeStyle = "rgba(144, 144, 144, 0.05)"
   ctx.stroke()
 
 fps = 0.7
@@ -35,5 +35,5 @@ draw = (timestamp) ->
 
 skyway.ready ->
   noise.seed(Math.random())
-  drawLines(0)
-  requestAnimationFrame(draw)
+  #drawLines(0)
+  #requestAnimationFrame(draw)

@@ -32,11 +32,27 @@ body.home {
     }
   }
 
-  header p {
-    text-align: right;
-    @include media($medium-screen) {
-      margin-bottom: 2em;
+  #banner {
+    position: absolute;
+    overflow: hidden;
+    left: 0;
+    height: 300px;
+    background: url('/assets/banner.jpg');
+    width: 100%;
+    background-position: center;
+  }
+
+  header {
+    p {
+      text-align: right;
+      @include media($medium-screen) {
+        margin-bottom: 2em;
+      }
     }
+  }
+
+  article section:first-of-type {
+    margin-top: 350px;
   }
 
   table {

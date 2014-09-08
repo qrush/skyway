@@ -20,8 +20,7 @@
 @import "tour";
 
 body {
-  @include animation(pulse 80s infinite alternate);
-  background-color: #FFFFFF;
+  background: asset-url("waves.png") repeat;
   font-family: 'Oxygen', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 }
 
@@ -40,12 +39,26 @@ body {
   margin-left: auto;
   margin-right: auto;
   padding: 1em;
+  background: rgba(255, 255, 255, 0.8);
 }
 
 #canvas {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  top: 0;
+  //position: fixed;
+  //width: 50%;
+  //height: 100%;
+  //margin: 0 auto;
+  //background: rgba(255, 255, 255, 0.75);
+  //left: 25%;
+  //-webkit-filter: blur(10px);
+  //z-index: -1;
+  //top: 0;
+}
+
+a, a:visited {
+  //color: #477dca;
+  color: #3B8686;
+  &:hover {
+    color: #3B8686;
+    text-decoration: underline;
+  }
 }
