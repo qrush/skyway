@@ -1,38 +1,28 @@
-<% @title = "Setlists, show stats, and more for groove rock band Aqueous" %>
+<% @title = "Setlists" %>
 
-<section class="home">
-  <div class="hero">
-    <div class="hero-inner">
-      <a href="" class="hero-logo"><%= image_tag "logo.png" %></a>
-      <div class="hero-copy">
-        <h1>AqueousBand.net</h1>
-        <p>Tracking setlists, shows, and more for <a href="http://aqueousband.com">Aqueous</a> fans.</p>
-      </div>
-    </div>
-  </div>
+<div class="latest">
+  <h3 class="type">Latest setlists</h1>
 
-  <article class="type-system-sans upcoming">
-    <h1 class="type">Upcoming shows</h1>
+  <%= render @latest_shows %>
 
-    <%= render @upcoming_shows %>
-  </article>
+  <p class="more">
+    <%= link_to "More shows &rarr;".html_safe, shows_path %>
+  </p>
+</div>
 
-  <article class="type-system-sans latest">
-    <h1 class="type">Latest setlists</h1>
+<div class="taped">
+  <h3 class="type">Freshly taped</h1>
 
-    <%= render @latest_shows %>
-  </article>
+  <% @taped_shows.each do |show| %>
+    <article>
+      <h2><%= link_to show.when, show %></h2>
+      <%= render show.venue %>
 
-  <article class="type-system-sans media">
-    <h1 class="type">Freshly taped</h1>
+      <%= simple_format show.embeds, {}, {sanitize: false} %>
+    </article>
+  <% end %>
 
-    <% @taped_shows.each do |show| %>
-      <article>
-        <h2><%= link_to show.when, show %></h2>
-        <%= render show.venue %>
-
-        <%= simple_format show.embeds, {}, {sanitize: false} %>
-      </article>
-    <% end %>
-  </article>
-</section>
+  <p class="more">
+    <%= link_to "More videos &rarr;".html_safe, "http://youtube.com/AqueousBand" %>
+  </p>
+</div>

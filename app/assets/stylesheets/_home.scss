@@ -1,4 +1,32 @@
-body.home {
+body.home-index {
+  h1 {
+    display: none;
+  }
+
+  .latest {
+    font-size: 80%;
+    padding-right: 16px;
+    @include media($medium-screen) {
+      float: left;
+      width: 300px;
+    }
+  }
+
+  .taped {
+    font-size: 80%;
+    @include media($medium-screen) {
+      float: right;
+      width: 300px;
+    }
+
+    iframe {
+      width: 100% !important;
+      max-height: 250px !important;
+    }
+  }
+}
+
+body.home-show {
   @include media($large-screen) {
     header.navigation .logo {
       display: none;

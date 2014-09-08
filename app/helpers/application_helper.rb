@@ -3,7 +3,7 @@ module ApplicationHelper
     links = [
       link_to("Home",     "/home"),
       link_to("Tour",     tour_path),
-      link_to("Setlists", shows_path),
+      link_to("Setlists", setlists_path),
       link_to("Music",    page_path("music")),
       link_to("Merch",    "http://aqueous1.bandcamp.com/merch"),
       link_to("Mobilize", page_path("mobilize")),

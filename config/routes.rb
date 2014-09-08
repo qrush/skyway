@@ -21,6 +21,7 @@ Skyway::Application.routes.draw do
   resource :admin
 
   get "/home" => "home#show"
+  get "/setlists" => "home#index"
 
   get "/:page.php", format: false, to: redirect('/%{page}')
 
