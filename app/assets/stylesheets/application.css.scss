@@ -38,10 +38,12 @@ body {
   }
 }
 
+// http://www.colourlovers.com/palette/1370975/Something_Blue
+$link-color: #FA6900;
 a, a:visited {
-  color: #3B8686;
+  color: $link-color;
   &:hover {
-    color: #3B8686;
+    color: $link-color;
     text-decoration: underline;
   }
 }
