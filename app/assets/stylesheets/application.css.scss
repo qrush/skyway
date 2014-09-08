@@ -1,5 +1,8 @@
 @import "reset";
 
+// http://www.colourlovers.com/palette/1370975/Something_Blue
+$link-color: #FA6900;
+
 @import "bourbon";
 @import "bitters/bitters";
 @import "bitters/flashes";
@@ -38,12 +41,12 @@ body {
   }
 }
 
-// http://www.colourlovers.com/palette/1370975/Something_Blue
-$link-color: #FA6900;
-a, a:visited {
-  color: $link-color;
-  &:hover {
+p, h2, h3, table {
+  a, a:visited {
     color: $link-color;
-    text-decoration: underline;
+    &:hover {
+      color: $link-color;
+      text-decoration: underline;
+    }
   }
 }

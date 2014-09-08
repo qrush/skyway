@@ -1,4 +1,8 @@
 .pages {
+  a, a:hover {
+    color: $link-color;
+  }
+
   section {
     ul {
       margin-bottom: 2em;
