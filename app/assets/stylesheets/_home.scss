@@ -26,7 +26,13 @@ body.home-index {
   }
 }
 
+$max-width: 60em;
+
 body.home-show {
+  #wrapper {
+    max-width: $max-width;
+  }
+
   @include media($large-screen) {
     header.navigation .logo {
       display: none;
@@ -60,43 +66,62 @@ body.home-show {
     }
   }
 
-  article header {
-    padding: 0px 16px 16px 16px;
-    background: rgba(10, 10, 10, 1) asset-url('banner.jpg') no-repeat;
-    background-size: cover;
+  article {
+    @include outer-container;
 
     @include media($large-screen) {
-      border-radius: 20px 20px 0 0;
-      height: 250px;
-      background-position: center -10px;
-      position: absolute;
-      top: 60px;
-      width: 635px;
-      margin-left: -16px;
-      max-width: 100%;
+      padding-top: 230px;
     }
 
-    p {
-      color: #fff;
-      text-align: right;
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 1);
-    }
-  }
+    @include media($medium-screen) {
+      section:first-of-type {
+        @include span-columns(5);
+      }
 
-  article section:first-of-type {
-    @include media($large-screen) {
-      margin-top: 260px;
+      section {
+        @include span-columns(7);
+        @include omega();
+      }
+    }
+
+    header {
+      padding: 0px 16px 16px 16px;
+      background: rgba(10, 10, 10, 1) asset-url('banner.jpg') no-repeat;
+      background-size: cover;
+
+      @include media($large-screen) {
+        border-radius: 20px 20px 0 0;
+        height: 250px;
+        background-position: center -110px;
+        position: absolute;
+        top: 60px;
+        width: $max-width;
+        margin-left: -16px;
+        max-width: 100%;
+      }
+
+      p {
+        display: none;
+        color: #fff;
+        @include media($large-screen) {
+          display: block;
+          padding-top: 4.75em;
+          text-align: right;
+          text-shadow: 1px 1px 2px rgba(0, 0, 0, 1);
+        }
+      }
     }
   }
 
   table {
-    margin-top: 0;
+    margin: 0;
 
     td {
       border-top: 1px solid rgba(204, 204, 204, 0.4);
       border-bottom: none;
       @include media($medium-screen) {
         font-size: 25px;
+        line-height: 28px;
       }
     }
 
@@ -109,23 +134,20 @@ body.home-show {
 
   #bandcamp {
     width: 100%;
-    height: 500px;
-
-    @include media($medium-screen) {
-      height: 721px;
-    }
+    height: 250px;
   }
 
   #youtube {
     height: 250px;
 
     @include media($medium-screen) {
-      height: 450px;
+      height: 300px;
     }
   }
 
   .more {
     text-align: right;
+    margin-top: 1em;
     margin-bottom: 0;
   }
 }
