@@ -136,15 +136,17 @@ header.navigation {
       @include media ($horizontal-bar-mode) {
         padding-left: 16.75px;
         padding-right: 16.75px;
+        padding-top: 4px;
+        padding-bottom: 4px;
       }
 
+      border-top: 4px solid rgba(255, 255, 255, 0.0);
       &:hover {
-        @include media ($large-screen) {
-          background: rgba(255, 255, 255, 0.8);
-          border-top-left-radius: 20px;
-          border-top-right-radius: 20px;
-        }
         color: $navigation-color-hover;
+        @include media ($horizontal-bar-mode) {
+          border-top: 4px solid rgba(255, 255, 255, 0.8);
+          @include transition (all 0.15s ease-in-out);
+        }
       }
     }
   }
