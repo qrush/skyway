@@ -74,11 +74,11 @@ body.home-show {
     }
 
     @include media($medium-screen) {
-      section:first-of-type {
+      section.left {
         @include span-columns(5);
       }
 
-      section {
+      section.right {
         @include span-columns(7);
         @include omega();
       }

@@ -5,14 +5,23 @@
 
 <div id="banner"></div>
 
-<section>
+<section class="left">
   <h2>News</h2>
   <p>
-    Come see us at <%= link_to "Night Lights Fest", "http://www.nightlightsfest.com/" %> on Saturday night!
+    <%= image_tag "photos/nightlights.jpg" %>
+    Come see us at <%= link_to "Night Lights Fest", "http://www.nightlightsfest.com/" %> on Saturday night! Get your tickets <%= link_to "here.", "https://www.facebook.com/events/692674394117522/?fref=ts" %>
   </p>
-  <p>
-    Make sure to check out <%= link_to "our latest Kickstarter backer update", "https://www.kickstarter.com/projects/aqueous/aqueous-new-studio-album/posts/951488" %> about our new album, and <%= link_to "follow us on Facebook", "https://www.facebook.com/aqueousband" %> for the absolute latest happenings.
+</section>
+
+<section class="right">
+  <h2>Listen</h2>
+  <iframe id="bandcamp" src="http://bandcamp.com/EmbeddedPlayer/album=3634413396/size=large/bgcol=ffffff/linkcol=FA6900/artwork=small/transparent=true/" seamless><a href="http://aqueous1.bandcamp.com/album/willy-is-40">Willy is 40 by Aqueous</a></iframe>
+  <p class="more">
+    <%= link_to "More music &rarr;".html_safe, page_path("music") %>
   </p>
+</section>
+
+<section class="left">
   <h2>Tour</h2>
   <table>
     <% @upcoming_shows.each do |show| %>
@@ -27,15 +36,7 @@
   </p>
 </section>
 
-<section>
-  <h2>Listen</h2>
-  <iframe id="bandcamp" src="http://bandcamp.com/EmbeddedPlayer/album=3634413396/size=large/bgcol=ffffff/linkcol=FA6900/artwork=small/transparent=true/" seamless><a href="http://aqueous1.bandcamp.com/album/willy-is-40">Willy is 40 by Aqueous</a></iframe>
-  <p class="more">
-    <%= link_to "More music &rarr;".html_safe, page_path("music") %>
-  </p>
-</section>
-
-<section>
+<section class="right">
   <h2>Watch</h2>
   <iframe id="youtube" width="100%" src="http://www.youtube.com/embed/x7YHjUm7XBI" frameborder="0" allowfullscreen></iframe>
   <p class="more">
