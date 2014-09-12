@@ -138,10 +138,10 @@ body.home-show {
   }
 
   #youtube {
-    height: 250px;
+    height: 300px;
 
     @include media($medium-screen) {
-      height: 300px;
+      height: 400px;
     }
   }
 
