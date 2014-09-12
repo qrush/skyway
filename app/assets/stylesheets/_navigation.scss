@@ -1,6 +1,6 @@
 // Copied from http://refills.bourbon.io
 header.navigation {
-  $navigation-padding: 1em;
+  $navigation-padding: 0.5em;
   $navigation-background: $dark-gray;
   $navigation-color: transparentize(#000, 0.1);
   $navigation-color-hover: transparentize(#000, 0.4);
@@ -15,8 +15,6 @@ header.navigation {
   $navigation-submenu-width: 12em;
   $horizontal-bar-mode: $large-screen;
 
-  //background-color: $navigation-background;
-  //border-bottom: 1px solid darken($navigation-background, 10);
   width: 100%;
   z-index: 999;
 
@@ -48,12 +46,12 @@ header.navigation {
       display: block;
       background: asset-url("biglogo.png") no-repeat;
       background-size: contain;
-      opacity: 0.1;
+      opacity: 0.15;
       width: 100%;
       background-position: center;
       @include transform(rotate(-90deg));
       top: 220px;
-      left: -350px;
+      left: -370px;
 
       img {
         visibility: hidden;
@@ -141,6 +139,11 @@ header.navigation {
       }
 
       &:hover {
+        @include media ($large-screen) {
+          background: rgba(255, 255, 255, 0.8);
+          border-top-left-radius: 20px;
+          border-top-right-radius: 20px;
+        }
         color: $navigation-color-hover;
       }
     }
