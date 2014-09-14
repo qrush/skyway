@@ -140,9 +140,15 @@ header.navigation {
         padding-bottom: 4px;
       }
 
-      border-top: 4px solid rgba(255, 255, 255, 0.0);
       &:hover {
         color: $navigation-color-hover;
+      }
+    }
+
+    > a {
+      border-top: 4px solid rgba(255, 255, 255, 0.0);
+
+      &:hover {
         @include media ($horizontal-bar-mode) {
           border-top: 4px solid rgba(255, 255, 255, 0.8);
           @include transition (all 0.15s ease-in-out);
@@ -161,27 +167,10 @@ header.navigation {
   li.more.nav-link {
     padding-right: 0;
 
-    @include media($large-screen) {
-      padding-right: $navigation-submenu-padding;
-    }
-
     > ul > li:first-child a  {
       padding-top: 1em;
     }
 
-    a {
-      margin-right: $navigation-submenu-padding;
-    }
-
-    > a {
-      padding-right: 0.6em;
-    }
-
-    > a:after {
-      @include position(absolute, auto -.4em auto auto);
-      content: '\25BE';
-      color: $navigation-color;
-    }
   }
 
   li.more {
@@ -193,19 +182,11 @@ header.navigation {
     }
 
     > a {
-      padding-right: 1.6em;
       position: relative;
 
       @include media($large-screen) {
         margin-right: $navigation-submenu-padding;
       }
-
-      &:after {
-        content: '›';
-        font-size: 1.2em;
-        position: absolute;
-        right: $navigation-submenu-padding / 2;
-      }      
     }
 
     &:hover > .submenu {
@@ -221,11 +202,11 @@ header.navigation {
   ul.submenu {
     display: none;
     padding-left: 0;
+    background: #fff;
 
     @include media($horizontal-bar-mode) {
-      left: -$navigation-submenu-padding;
+      //left: -$navigation-submenu-padding;
       position: absolute;
-      top: 1.5em;
     }
 
     .submenu {
