@@ -4,12 +4,17 @@
   }
 
   section {
-    ul {
+    > ul {
       margin-bottom: 2em;
     }
 
     aside {
+      padding: 20px;
+      background: rgba(150, 150, 150, 0.1);
       float: right;
+      margin-top: -20px;
+      margin-right: 40px;
+      border-radius: 20px;
 
       h2 {
         margin-top: 0;
