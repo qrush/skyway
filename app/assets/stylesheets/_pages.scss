@@ -1,4 +1,6 @@
 .pages {
+  $highlight-background: rgba(250, 105, 0, 0.05);
+
   a, a:hover {
     color: $link-color;
   }
@@ -8,9 +10,23 @@
       margin-bottom: 2em;
     }
 
+    #mc_embed_signup {
+      background: $highlight-background;
+      clear:left;
+      font:14px Helvetica,Arial,sans-serif;
+
+      p {
+        padding-right: 16px;
+      }
+
+      .mc-field-group {
+        padding-bottom: 0;
+      }
+    }
+
     aside {
       padding: 20px;
-      background: rgba(150, 150, 150, 0.1);
+      background: $highlight-background;
       float: right;
       margin-top: -20px;
       margin-right: 40px;
