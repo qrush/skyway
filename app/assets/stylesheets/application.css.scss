@@ -23,17 +23,17 @@ $link-color: #FA6900;
 @import "tour";
 
 body {
-  background: rgba(188, 230, 224, 0.5) asset-url("waves.gif") repeat;
+  background: rgba(188, 230, 224, 1.0) asset-url("waves.gif") repeat;
   font-family: 'Oxygen', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 }
 
 #wrapper {
-  max-width: 42em;
+  max-width: 45em;
   min-height: 340px;
   margin-left: auto;
   margin-right: auto;
   padding: 1em;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.9);
 
   @include media($large-screen) {
     border-top-left-radius: 20px;

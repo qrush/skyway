@@ -2,7 +2,7 @@
 header.navigation {
   $navigation-padding: 0.5em;
   $navigation-background: $dark-gray;
-  $navigation-color: transparentize(#000, 0.1);
+  $navigation-color: transparentize(#fff, 0.1);
   $navigation-color-hover: transparentize(#000, 0.4);
   $navigation-height: 60px;
   $navigation-nav-button-background: $base-accent-color;
@@ -46,12 +46,12 @@ header.navigation {
       display: block;
       background: asset-url("biglogo.png") no-repeat;
       background-size: contain;
-      opacity: 0.15;
+      opacity: 0.4;
       width: 100%;
       background-position: center;
       @include transform(rotate(-90deg));
       top: 220px;
-      left: -370px;
+      left: -440px;
 
       img {
         visibility: hidden;
@@ -71,13 +71,14 @@ header.navigation {
     margin: 0;
     padding-right: 1em;
     text-transform: uppercase;
+    text-shadow: 0px 0px 4px #000;
 
     @include media ($horizontal-bar-mode) {
       display: none;
     }
 
     &:hover {
-      color: $navigation-color-hover;
+      color: $navigation-color;
     }
   }
 
@@ -130,8 +131,10 @@ header.navigation {
     a {
       color: $navigation-color;
       display: inline-block;
-      font-weight: 400;
+      font-weight: 700;
       text-transform: lowercase;
+      font-size: 140%;
+      text-shadow: 0px 0px 4px #000;
 
       @include media ($horizontal-bar-mode) {
         padding-left: 16.75px;
@@ -141,7 +144,7 @@ header.navigation {
       }
 
       &:hover {
-        color: $navigation-color-hover;
+        //color: $navigation-color-hover;
       }
     }
 
