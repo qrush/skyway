@@ -47,7 +47,7 @@ header.navigation {
     }
 
     @include media ($large-screen) {
-      background: #000 url(/assets/biglogo_white@2x.png) 50% 50% no-repeat;
+      background: #000 asset-url(biglogo_white@2x.png) 50% 50% no-repeat;
       background-size: contain;
       height: 100px;
       max-height: 100px;
