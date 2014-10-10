@@ -25,13 +25,17 @@ header.navigation {
     z-index: 9999;
     border-bottom: 1px solid $navigation-color;
 
+    @include media ($large-screen) {
+      background: $white;
+    }
+
     @include media ($horizontal-bar-mode) {
       border: none;
     }
   }
 
   .logo {
-    float: left;    
+    float: left;
     max-height: $navigation-height;
     padding-left: $navigation-padding;
     padding-right: 2em;
@@ -42,20 +46,7 @@ header.navigation {
     }
 
     @include media ($large-screen) {
-      position: absolute;
-      display: block;
-      background: asset-url("biglogo.png") no-repeat;
-      background-size: contain;
-      opacity: 0.4;
-      width: 100%;
-      background-position: center;
-      @include transform(rotate(-90deg));
-      top: 220px;
-      left: -440px;
-
-      img {
-        visibility: hidden;
-      }
+      display: none;
     }
   }
 
@@ -88,7 +79,7 @@ header.navigation {
     text-align: center;
   }
 
-  ul#navigation-menu {    
+  ul#navigation-menu {
     -webkit-transform-style: preserve-3d; // stop webkit flicker
     clear: both;
     display: none;
@@ -108,7 +99,7 @@ header.navigation {
   // The nav items
 
   ul li.nav-link {
-    //background: $navigation-background;
+    background: $white;
     display: block;
     line-height: $navigation-height;
     overflow: hidden;
@@ -129,12 +120,11 @@ header.navigation {
     }
 
     a {
-      color: $navigation-color;
+      color: $black;
       display: inline-block;
       font-weight: 700;
       text-transform: lowercase;
       font-size: 140%;
-      text-shadow: 0px 0px 4px #000;
 
       @include media ($horizontal-bar-mode) {
         padding-left: 16.75px;
@@ -149,11 +139,12 @@ header.navigation {
     }
 
     > a {
-      border-top: 4px solid rgba(255, 255, 255, 0.0);
+      border-top: 4px solid transparent;
+      margin-bottom: 4px;
 
       &:hover {
         @include media ($horizontal-bar-mode) {
-          border-top: 4px solid rgba(255, 255, 255, 0.8);
+          border-top: 4px solid $black;
           @include transition (all 0.15s ease-in-out);
         }
       }
@@ -239,13 +230,11 @@ header.navigation {
       }
 
       a {
-        //background-color: darken($navigation-background, 3);
         display: inline-block;
         text-align: right;
         width: 100%;
 
         @include media($horizontal-bar-mode) {
-          //background-color: $navigation-background;
           padding-left: $navigation-submenu-padding;
           text-align: left;
           width: $navigation-submenu-width;
