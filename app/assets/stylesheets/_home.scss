@@ -31,7 +31,16 @@ body.home-index {
 body.home-show {
   #wrapper {
     max-width: $max-width;
+  }
 
+  header.navigation {
+    .logo {
+      display: none;
+    }
+
+    .navigation-wrapper {
+      padding-bottom: 0;
+    }
   }
 
   h2 {
