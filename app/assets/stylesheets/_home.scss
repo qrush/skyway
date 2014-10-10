@@ -3,25 +3,27 @@ body.home-index {
     display: none;
   }
 
-  .latest {
-    font-size: 80%;
-    padding-right: 16px;
+  article {
+    @include outer-container;
+
     @include media($medium-screen) {
-      float: left;
-      width: 300px;
+      .latest {
+        @include span-columns(7);
+      }
+
+      .taped {
+        @include span-columns(5);
+        @include omega();
+      }
     }
   }
 
+
   .taped {
-    font-size: 80%;
-    @include media($medium-screen) {
-      float: right;
-      width: 300px;
-    }
 
     iframe {
       width: 100% !important;
-      max-height: 250px !important;
+      max-height: 400px !important;
     }
   }
 }
@@ -29,11 +31,7 @@ body.home-index {
 body.home-show {
   #wrapper {
     max-width: $max-width;
-  }
 
-  header.hero {
-    @include media($large-screen) {
-    }
   }
 
   h2 {
@@ -48,6 +46,10 @@ body.home-show {
 
   article {
     @include outer-container;
+
+    @include media($large-screen) {
+      padding-top: 240px;
+    }
 
     @include media($medium-screen) {
       section.left {

@@ -27,10 +27,11 @@
     aside {
       padding: 20px;
       background: $highlight-background;
-      float: right;
-      margin-top: -20px;
-      margin-right: 40px;
       border-radius: 20px;
+      border-radius: 20px;
+      width: 50%;
+      margin: 0 auto;
+      margin-bottom: 20px;
 
       h2 {
         margin-top: 0;
@@ -75,10 +76,16 @@
   }
 
   #music {
+    text-align: center;
     iframe {
       margin-bottom: 1em;
-      width: 100%;
+      width: 75%;
       height: 300px;
+      margin: 0 auto;
     }
+  }
+
+  #contact {
+    text-align: center;
   }
 }

@@ -37,12 +37,6 @@ body {
   margin-right: auto;
   padding: 1em;
   background: $white;
-
-  article {
-    @include media($large-screen) {
-      padding-top: 240px;
-    }
-  }
 }
 
 p, h2, h3, table {
