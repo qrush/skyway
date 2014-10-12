@@ -24,6 +24,7 @@ Skyway::Application.routes.draw do
   get "/setlists" => "home#index"
 
   get "/:page.php", format: false, to: redirect('/%{page}')
+  get "/street.php", format: false, to: redirect('/mobilize')
 
   root to: "home#show"
 end
