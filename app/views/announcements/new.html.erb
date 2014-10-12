@@ -1,0 +1,18 @@
+<% @title = 'Edit news' %>
+
+<%= form_for @announcement do |f| %>
+  <%= f.error_messages %>
+
+  <%= f.label :body, "What's new?" %>
+  <%= f.text_area :body %>
+
+  <%= f.submit %>
+<% end %>
+
+<h3>Some notes about NEWS:</h3>
+<pre>
+  * This updates the home page *immediately*
+  * Any HTML is accepted so please be careful!
+  * Please don't make the text too long.
+  * Any img tags need to be uploaded elsewhere.
+</pre>

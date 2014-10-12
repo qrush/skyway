@@ -18,6 +18,7 @@ Skyway::Application.routes.draw do
   end
 
   resources :searches, path: "search"
+  resources :announcements
   resource :admin
 
   get "/home" => "home#show"
