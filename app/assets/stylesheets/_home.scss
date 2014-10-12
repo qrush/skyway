@@ -35,7 +35,9 @@ body.home-show {
 
   header.navigation {
     .logo {
-      display: none;
+      @include media($large-screen) {
+        display: none;
+      }
     }
 
     .navigation-wrapper {
@@ -73,7 +75,6 @@ body.home-show {
         height: 125px;
       }
     }
-
 
     p {
       display: none;
@@ -123,8 +124,9 @@ body.home-show {
       border-top: 1px solid rgba(204, 204, 204, 0.4);
       border-bottom: none;
       @include media($medium-screen) {
-        font-size: 25px;
-        line-height: 28px;
+        font-size: 23px;
+        line-height: 24px;
+        height: 83px;
       }
     }
 
@@ -135,16 +137,43 @@ body.home-show {
     }
   }
 
+  form {
+    input[type=email] {
+      display: inline-block;
+      @include media($large-screen) {
+        width: 279px;
+      }
+    }
+    input[type=submit] {
+      @include button(simple, rgba(94, 201, 185, 1.0));
+      margin-top: -4px;
+      height: 36px;
+    }
+    margin-bottom: 0.75em;
+  }
+
+  #news, #listen {
+    h2 {
+      margin-top: 0.75em;
+      @include media($large-screen) {
+        margin-top: 0;
+      }
+    }
+    p {
+      margin-bottom: 1em;
+    }
+  }
+
   #bandcamp {
     width: 100%;
-    height: 250px;
+    height: 354px;
   }
 
   #youtube {
     height: 300px;
 
     @include media($medium-screen) {
-      height: 400px;
+      height: 415px;
     }
   }
 

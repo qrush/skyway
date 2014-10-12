@@ -3,15 +3,35 @@
   <p>(is a groove rock band)</p>
 </header>
 
-<section class="left">
+<!-- Begin MailChimp Signup Form -->
+<!--
+<link href="//cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
+	/* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+-->
+<section class="left" id="news">
   <h2>News</h2>
   <p>
     <%= image_tag "photos/nightlights.jpg" %>
     Our new album is almost ready. Come see us at <%= link_to "our CD release party in Buffalo", "https://www.facebook.com/events/333261936839155/" %>!
   </p>
+  <div id="mc_embed_signup">
+    <form action="//aqueousband.us3.list-manage.com/subscribe/post?u=8a7b74553cfe81321de539280&amp;id=cdaaaf66d6" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+      <div id="mc_embed_signup_scroll">
+        <label for="mce-EMAIL">Subscribe for tour updates &amp; more:</label>
+        <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+        <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+        <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+        <div style="position: absolute; left: -5000px;"><input type="text" name="b_8a7b74553cfe81321de539280_cdaaaf66d6" tabindex="-1" value=""></div>
+      </div>
+    </form>
+  </div>
 </section>
 
-<section class="right">
+<section class="right" id="listen">
   <h2>Listen</h2>
   <iframe id="bandcamp" src="http://bandcamp.com/EmbeddedPlayer/album=3832919194/size=large/bgcol=ffffff/linkcol=FA6900/artwork=small/transparent=true/" seamless><a href="http://aqueous1.bandcamp.com/album/willy-is-40">Cycles by Aqueous</a></iframe>
   <p class="more">
@@ -19,7 +39,7 @@
   </p>
 </section>
 
-<section class="left">
+<section class="left" id="tour">
   <h2>Tour</h2>
   <table>
     <% @upcoming_shows.each do |show| %>
@@ -34,7 +54,7 @@
   </p>
 </section>
 
-<section class="right">
+<section class="right" id="watch">
   <h2>Watch</h2>
   <iframe id="youtube" width="100%" src="http://www.youtube.com/embed/qYhZPv5Vxbs" frameborder="0" allowfullscreen></iframe>
   <p class="more">
