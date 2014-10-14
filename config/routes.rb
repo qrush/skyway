@@ -24,8 +24,12 @@ Skyway::Application.routes.draw do
   get "/home" => "home#show"
   get "/setlists" => "home#index"
 
-  get "/:page.php", format: false, to: redirect('/%{page}')
   get "/street.php", format: false, to: redirect('/mobilize')
+  get "/setlists/setlists.php", format: false, to: redirect('/setlists')
+  %w(mike dave evan nick).each do |player|
+    get "/#{player}.php", format: false, to: redirect('/about')
+  end
+  get "/:page.php", format: false, to: redirect('/%{page}')
 
   root to: "home#show"
 end
