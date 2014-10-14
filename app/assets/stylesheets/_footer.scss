@@ -4,7 +4,9 @@ footer {
     text-align: center;
   }
 
-  img {
+  p a {
+    background: asset-url("logo_black.png") no-repeat center;
+    background-size: contain;
     text-align: center;
     height: 50px;
     opacity: 0.1;
