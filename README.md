@@ -45,6 +45,7 @@ ln -s ~/Dev/skyway
 
 ```
 apt-get install nodejs postgresql-server-dev-all postgresql-client-9.3 unzip
+cd /var/lib/dokku/plugins
 dokku plugins-install
 dokku postgresql:create aqueousband.com
 
