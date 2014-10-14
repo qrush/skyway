@@ -8,7 +8,7 @@
   <meta name="description" content="Groovy rock band that uses gratifying harmonies and multiple soundscapes to build an intense bond with the crowd through an improvisational foundation." /> 
   <meta property="og:site_name" content="Aqueous">
   <meta property="og:url" content="<%= request.url %>">
-  <meta property="og:title" content="Aqueous - <%= @title %>">
+  <meta property="og:title" content="<%= @title || "Aqueous - Groove Rock %>">
   <meta property="og:image" content="http://files.aqueousband.net/images/AQUEOUS-CYCLES-COVERART.jpg"/>
   <%= yield :head %>
 </head>
