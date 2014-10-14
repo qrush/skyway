@@ -33,6 +33,35 @@ ln -s ~/Dev/skyway
 
 ## Ops
 
+### Plugins
+
+* https://github.com/Kloadut/dokku-pg-plugin
+* https://github.com/rlaneve/dokku-link
+* https://github.com/mordred/dokku-redirects-plugin
+* https://github.com/jlachowski/dokku-memcached-plugin
+* https://github.com/scottatron/dokku-rebuild
+
+### Rebuild
+
+```
+apt-get install nodejs postgresql-server-dev-all postgresql-client-9.3 unzip
+dokku plugins-install
+dokku postgresql:create aqueousband.com
+
+# Push app to dokku@IP_ADDRESS:aqueousband.com
+dokku postgresql:link aqueousband.com aqueousband.com
+psql -d db -h DB_ADDRESS -p DB_PORT < dump.sql
+
+dokku memcached:create aqueousband.com
+dokku memcached:link aqueousband.com aqueousband.com
+
+dokku redirects:set aqueousband.com www.aqueousband.com=aqueousband.com www.aqueousband.net=aqueousband.com aqueousband.net=aqueousband.com
+
+dokku config:set aqueousband.com ADMIN_PASSWORD=x AWS_ACCESS_KEY_ID=x AWS_SECRET_ACCESS_KEY=x S3_BUCKET_NAME=files.aqueousband.net S3_HOST_NAME=s3-eu-west-1.amazonaws.com
+```
+
+### Tasks
+
 Run a migration, ssh in and:
 
 ```
@@ -42,10 +71,12 @@ dokku run aqueousband.net rake db:migrate
 Sometimes memcached gets unhappy. If so:
 
 ```
-dokku memcached:delete aqueousband.net
-dokku memcached:rebuild aqueousband.net
-dokku memcached:link aqueousband.net aqueousband.net
+dokku memcached:delete aqueousband.com
+dokku memcached:rebuild aqueousband.com
+dokku memcached:link aqueousband.com aqueousband.com
 ```
+
+Restarting/rebuilding container: `dokku rebuild aqueousband.com`
 
 ## License
 
