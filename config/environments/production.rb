@@ -53,6 +53,7 @@ Skyway::Application.configure do
 
   # Use a different cache store in production.
   config.cache_store = :dalli_store, ENV["MEMCACHE_PORT_11211_TCP_ADDR"]
+  config.session_store ActionDispatch::Session::CacheStore, expire_after: 7.days
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   config.action_controller.asset_host = "http://d44l7c0q3oisf.cloudfront.net"

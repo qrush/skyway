@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Skyway::Application.config.secret_key_base = 'e24314c5c693d15697f4ced0fa69874e34ec62f077d641023bcc190d54262198a16a1a0e317abc0b6eea3c39bb26643c18c17f0dd9349c2d672fa4889f5c7f95'
+Skyway::Application.config.secret_key_base = ENV['SECRET_KEY_BASE'] || 'deadbeef'
