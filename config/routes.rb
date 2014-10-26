@@ -29,6 +29,20 @@ Skyway::Application.routes.draw do
   %w(mike dave evan nick).each do |player|
     get "/#{player}.php", format: false, to: redirect('/about')
   end
+
+  get "/setlists/:slug.php", format: false, to: redirect { |path_params, req|
+    date = Date.parse(path_params[:slug]) rescue nil
+    if date
+      "/shows/#{date}"
+    else
+      "/setlists"
+    end
+  }
+
+  get "/setlists/:year/:slug.php", format: false, to: redirect { |path_params, req|
+    "/shows/#{path_params[:year]}-#{path_params[:slug].gsub("_", "-")}"
+  }
+
   get "/:page.php", format: false, to: redirect('/%{page}')
 
   root to: "home#show"
