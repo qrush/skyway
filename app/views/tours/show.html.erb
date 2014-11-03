@@ -13,7 +13,7 @@
   </thead>
   <tbody>
     <% @shows.each do |show| %>
-      <tr itemprop="event" itemscope itemtype="http://schema.org/Event">
+      <tr itemprop="event" itemscope itemtype="http://schema.org/MusicEvent">
         <meta itemprop="name" content="<%= show.name %>" />
         <meta itemprop="url" content="<%= show_url(show) %>" />
         <meta itemprop="offers" content="<%= show.url %>"/ >

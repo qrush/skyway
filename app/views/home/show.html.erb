@@ -33,7 +33,7 @@
   <h2>Tour</h2>
   <table>
     <% @upcoming_shows.each do |show| %>
-      <tr itemprop="event" itemscope itemtype="http://schema.org/Event">
+      <tr itemprop="event" itemscope itemtype="http://schema.org/MusicEvent">
         <td><%= performed_at_for(show) %></td>
         <td itemprop="name"><%= show.name %></td>
         <meta itemprop="startDate" content="<%= show.performed_at.to_date %>" />
