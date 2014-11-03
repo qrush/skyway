@@ -14,7 +14,11 @@
   <tbody>
     <% @shows.each do |show| %>
       <tr itemprop="event" itemscope itemtype="http://schema.org/Event">
-        <td itemprop="startDate">
+        <meta itemprop="name" content="<%= show.name %>" />
+        <meta itemprop="url" content="<%= show_url(show) %>" />
+        <meta itemprop="offers" content="<%= show.url %>"/ >
+        <meta itemprop="startDate" content="<%= show.performed_at.to_date %>" />
+        <td>
           <% if admin? %>
             <%= link_to performed_at_for(show), show %>
           <% else %>
@@ -28,12 +32,9 @@
             <small>Age Restrictions: <%= show.age_restriction %>+</small>
           <% end %>
         </td>
-        <td itemprop="startDate"><%= starts_at_for(show) %></td>
-        <td><%= link_to_price_for(show) %></td>
+        <td><%= starts_at_for(show) %></td>
+        <td itemprop="price"><%= link_to_price_for(show) %></td>
         <td><%= link_to_address_for(show) %></td>
-        <meta itemprop="name" content="<%= show.name %>">
-        <meta itemprop="url" content="<%= show_url(show) %>">
-        <meta itemprop="offers" content="<%= show.url %>">
       </tr>
     <% end %>
   </tbody>

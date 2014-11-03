@@ -34,11 +34,12 @@
   <table itemprop="event" itemscope itemtype="http://schema.org/Event">
     <% @upcoming_shows.each do |show| %>
       <tr>
-        <td itemprop="startDate"><%= performed_at_for(show) %></td>
+        <td><%= performed_at_for(show) %></td>
         <td itemprop="name"><%= show.name %></td>
-        <meta itemprop="location" content="<%= show.venue.location %>">
-        <meta itemprop="url" content="<%= show_url(show) %>">
-        <meta itemprop="offers" content="<%= show.url %>">
+        <meta itemprop="startDate" content="<%= show.performed_at.to_date %>" />
+        <meta itemprop="location" content="<%= show.venue.location %>" />
+        <meta itemprop="url" content="<%= show_url(show) %>" />
+        <meta itemprop="offers" content="<%= show.url %>" />
       </tr>
     <% end %>
   </table>
