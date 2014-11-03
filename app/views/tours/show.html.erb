@@ -14,27 +14,25 @@
   <tbody>
     <% @shows.each do |show| %>
       <tr itemprop="event" itemscope itemtype="http://schema.org/MusicEvent">
-        <meta itemprop="name" content="<%= show.name %>" />
-        <meta itemprop="url" content="<%= show_url(show) %>" />
-        <meta itemprop="offers" content="<%= show.url %>"/ >
-        <meta itemprop="startDate" content="<%= show.performed_at.to_date %>" />
-        <td>
+        <td itemprop="name" content="<%= show.name %>">
           <% if admin? %>
             <%= link_to performed_at_for(show), show %>
           <% else %>
             <%= performed_at_for(show) %>
           <% end %>
         </td>
-        <td itemprop="location"><%= show.venue.location %></td>
+        <td><%= show.venue.location %></td>
         <td>
           <%= link_to show.venue.name, show.venue %>
           <% if show.age_restriction.present? %>
             <small>Age Restrictions: <%= show.age_restriction %>+</small>
           <% end %>
         </td>
-        <td><%= starts_at_for(show) %></td>
+        <td itemprop="startDate" content="<%= show.performed_at.to_date %>"><%= starts_at_for(show) %></td>
         <td><%= link_to_price_for(show) %></td>
-        <td><%= link_to_address_for(show) %></td>
+        <td itemprop="location" content="<%= show.venue.location %>"><%= link_to_address_for(show) %></td>
+        <meta itemprop="url" content="<%= show_url(show) %>" />
+        <meta itemprop="offers" content="<%= show.url %>" />
       </tr>
     <% end %>
   </tbody>
