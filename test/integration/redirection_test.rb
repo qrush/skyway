@@ -23,4 +23,9 @@ class RedirectionTest < ActionDispatch::IntegrationTest
     get "/setlists/bananas.php"
     assert_match "/setlists", redirect_to_url
   end
+
+  test "setlists for a year get redirected" do
+    get "/setlists/2012/main.php"
+    assert_match "/shows?year=2012", redirect_to_url
+  end
 end

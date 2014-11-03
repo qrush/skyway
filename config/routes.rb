@@ -40,7 +40,14 @@ Skyway::Application.routes.draw do
   }
 
   get "/setlists/:year/:slug.php", format: false, to: redirect { |path_params, req|
-    "/shows/#{path_params[:year]}-#{path_params[:slug].gsub("_", "-")}"
+    year = path_params[:year]
+    slug = path_params[:slug]
+
+    if slug =~ /_/
+      "/shows/#{year}-#{slug.gsub("_", "-")}"
+    else
+      "/shows?year=#{year}"
+    end
   }
 
   get "/:page.php", format: false, to: redirect('/%{page}')
