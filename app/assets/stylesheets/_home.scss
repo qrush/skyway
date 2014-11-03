@@ -18,9 +18,7 @@ body.home-index {
     }
   }
 
-
   .taped {
-
     iframe {
       width: 100% !important;
       max-height: 400px !important;
@@ -185,5 +183,30 @@ body.home-show {
     text-align: right;
     margin-top: 1em;
     margin-bottom: 0;
+  }
+}
+
+form.search-big {
+  @include outer-container;
+
+  background: $white;
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: 0;
+
+  input[type='search'] {
+    font-family: 'Oxygen', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    background: $black;
+    margin: 0;
+    text-align: center;
+    color: $white;
+    border: none;
+    border-radius: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  input[type='submit'] {
+    display: none;
   }
 }

@@ -41,16 +41,3 @@ form[accept-charset] {
     font-size: 20px;
   }
 }
-
-form.search-big {
-  label {
-    display: inline-block;
-    margin-right: 5px;
-  }
-  input {
-    display: inline-block;
-    @include media($large-screen) {
-      width: 400px;
-    }
-  }
-}

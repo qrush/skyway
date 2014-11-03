@@ -5,6 +5,8 @@
 
 <%= render "layouts/nav" %>
 
+<%= yield :top %>
+
 <div id="wrapper">
   <% flash.each do |name, msg| %>
     <div id="flash_<%= name %>"><span><%= msg %></span></div>
