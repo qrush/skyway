@@ -31,9 +31,9 @@
 
 <section class="left" id="tour">
   <h2>Tour</h2>
-  <table itemprop="event" itemscope itemtype="http://schema.org/Event">
+  <table>
     <% @upcoming_shows.each do |show| %>
-      <tr>
+      <tr itemprop="event" itemscope itemtype="http://schema.org/Event">
         <td><%= performed_at_for(show) %></td>
         <td itemprop="name"><%= show.name %></td>
         <meta itemprop="startDate" content="<%= show.performed_at.to_date %>" />
