@@ -31,11 +31,14 @@
 
 <section class="left" id="tour">
   <h2>Tour</h2>
-  <table>
+  <table itemprop="event" itemscope itemtype="http://schema.org/Event">
     <% @upcoming_shows.each do |show| %>
       <tr>
-        <td><%= performed_at_for(show) %></td>
-        <td><%= show.venue.location %> @ <%= show.venue.name %></td>
+        <td itemprop="startDate"><%= performed_at_for(show) %></td>
+        <td itemprop="name"><%= show.name %></td>
+        <meta itemprop="location" content="<%= show.venue.location %>">
+        <meta itemprop="url" content="<%= show_url(show) %>">
+        <meta itemprop="offers" content="<%= show.url %>">
       </tr>
     <% end %>
   </table>

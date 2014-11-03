@@ -44,6 +44,10 @@ class Show < ActiveRecord::Base
     @notes ||= cache_notes
   end
 
+  def name
+    "#{venue.location} @ #{venue.name}"
+  end
+
   def when
     performed_at.to_date.to_s(:long_ordinal)
   end

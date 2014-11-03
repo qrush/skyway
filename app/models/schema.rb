@@ -1,28 +1,6 @@
 class Schema
   include ActiveModel::Serializers::JSON
 
-  class Event
-    include Rails.application.routes.url_helpers
-
-    def initialize(show)
-      @show = show
-    end
-
-    def as_json(*)
-      {
-        :@type => "Event",
-        :name => "#{@show.venue.location} @ #{@show.venue.name}",
-        :location => @show.venue.location,
-        :startDate => @show.performed_at.to_date,
-        :url => @show.url.presence || "http://aqueousband.com/shows/#{@show.to_param}"
-      }
-    end
-  end
-
-  def events
-    Show.upcoming.limit(5).map { |show| Event.new(show) }
-  end
-
   def as_json(*)
     {
       :@context => "http://schema.org",
@@ -33,7 +11,6 @@ class Schema
         "http://files.aqueousband.net/images/2014/AQ-PRESSPIC.jpg",
         "http://files.aqueousband.net/images/2014/nightlights-2.jpg"
       ],
-      :event => events,
       :video => {
         :@type => "VideoObject",
         :description => "Debut track from the latest Aqueous album Cycles, released on 10/21/14",
