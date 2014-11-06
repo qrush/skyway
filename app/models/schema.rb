@@ -11,6 +11,7 @@ class Schema
     def as_json(*)
       {
         :@type => "Event",
+        :name => "#{@show.venue.location} @ #{@show.venue.name}",
         :location => @show.venue.location,
         :startDate => @show.performed_at.to_date,
         :url => @show.url.presence || "http://aqueousband.com/shows/#{@show.to_param}"
