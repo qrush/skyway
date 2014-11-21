@@ -34,8 +34,9 @@
   <table>
     <% @upcoming_shows.each do |show| %>
       <tr itemprop="event" itemscope itemtype="http://schema.org/MusicEvent">
-        <td itemprop="startDate" content="<%= show.performed_at.to_date %>"><%= performed_at_for(show) %></td>
+        <td><%= performed_at_for(show) %></td>
         <td itemprop="name"><%= show.name %></td>
+        <meta itemprop="startDate" content="<%= show.performed_at.to_date %>" />
         <meta itemprop="location" content="<%= show.venue.location %>" />
         <meta itemprop="url" content="<%= show_url(show) %>" />
         <meta itemprop="offers" content="<%= show.url %>" />
