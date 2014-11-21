@@ -26,6 +26,6 @@ module ToursHelper
   end
 
   def performed_at_for(show)
-    show.performed_at.strftime("%b %d").upcase
+    show.performed_at.strftime("%m/%d/%y")
   end
 end
