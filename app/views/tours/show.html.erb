@@ -12,7 +12,7 @@
       <th>Address</th>
     </tr>
   </thead>
-  <tbody itemprop="events">
+  <tbody>
     <% @shows.each do |show| %>
       <tr itemprop="event" itemscope itemtype="http://schema.org/MusicEvent">
         <td itemprop="name" content="<%= show.name %>">

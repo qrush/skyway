@@ -24,10 +24,6 @@
 </div>
 
 <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-<%= yield :js %>
-<script type="application/ld+json">
-  <%== Schema.new.to_json %>
-</script>
 <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
