@@ -29,9 +29,10 @@
   </p>
 </section>
 
-<section class="left" id="tour">
+<section class="left" id="tour" itemscope itemtype="http://schema.org/MusicGroup">
   <h2>Tour</h2>
-  <table>
+  <meta itemprop="name" content="Aqueous" />
+  <table itemprop="events">
     <% @upcoming_shows.each do |show| %>
       <tr itemprop="event" itemscope itemtype="http://schema.org/MusicEvent">
         <td><%= performed_at_for(show) %></td>

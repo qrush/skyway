@@ -1,6 +1,7 @@
 <% @title = "Winter Tour 2014" %>
 
-<table class="tour table-minimal">
+<table class="tour table-minimal"  itemscope itemtype="http://schema.org/MusicGroup">
+  <meta itemprop="name" content="Aqueous" />
   <thead>
     <tr>
       <th>Date</th>
@@ -11,7 +12,7 @@
       <th>Address</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody itemprop="events">
     <% @shows.each do |show| %>
       <tr itemprop="event" itemscope itemtype="http://schema.org/MusicEvent">
         <td itemprop="name" content="<%= show.name %>">
@@ -28,9 +29,10 @@
             <small>Age Restrictions: <%= show.age_restriction %>+</small>
           <% end %>
         </td>
-        <td itemprop="startDate" content="<%= show.performed_at.to_date %>"><%= starts_at_for(show) %></td>
+        <td><%= starts_at_for(show) %></td>
         <td><%= link_to_price_for(show) %></td>
         <td itemprop="location" content="<%= show.venue.location %>"><%= link_to_address_for(show) %></td>
+        <meta itemprop="startDate" content="<%= show.performed_at.to_date %>" />
         <meta itemprop="url" content="<%= show_url(show) %>" />
         <meta itemprop="offers" content="<%= show.url %>" />
       </tr>
