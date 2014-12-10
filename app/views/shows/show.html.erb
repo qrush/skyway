@@ -1,5 +1,7 @@
 <% @title = "Setlist from #{@show.when}" %>
 
+<%= render "searches/form" %>
+
 <% if @show.banner? %>
   <div id="show_banner">
     <%= render @show, embeds: true, banner: true %>
