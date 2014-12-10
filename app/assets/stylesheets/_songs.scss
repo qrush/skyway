@@ -17,10 +17,10 @@
 }
 
 a.cover, a.cover:visited {
-  color: #769999;
+  color: #769999 !important;
   font-style: italic;
   &:hover {
-    color: #596D74;
+    color: #596D74 !important;
   }
 }
 
