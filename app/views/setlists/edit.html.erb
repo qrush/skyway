@@ -7,10 +7,13 @@
   <%= form.check_box :unknown_setlist %>
 
   <%= form.label :raw_setlist, "Setlist" %>
-  <%= form.text_area :raw_setlist %>
+  <%= form.text_area :raw_setlist, placeholder: "See example below for setlist format." %>
 
-  <%= form.label :embeds, "Embeds (Please don't break any HTML)" %>
-  <%= form.text_area :embeds %>
+  <%= form.label :extra_notes %>
+  <%= form.text_area :extra_notes, placeholder: "Use this for extra things that happened during the show." %>
+
+  <%= form.label :embeds %>
+  <%= form.text_area :embeds, placeholder: "HTML is allowed. Embed videos, soundclouds, etc." %>
 
   <%= form.submit "Update setlist" %>
 <% end %>

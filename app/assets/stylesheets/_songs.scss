@@ -24,3 +24,19 @@ a.cover, a.cover:visited {
   }
 }
 
+body.songs-show {
+  article {
+    @include outer-container;
+
+    @include media($medium-screen) {
+      .latest {
+        @include span-columns(5);
+      }
+
+      .info {
+        @include span-columns(7);
+        @include omega();
+      }
+    }
+  }
+}

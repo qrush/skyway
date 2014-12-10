@@ -43,6 +43,6 @@ class ToursHelperTest < ActionView::TestCase
 
   test "performed at for shortens date" do
     @show.performed_at = Date.parse("August 19th 2014")
-    assert_equal "AUG 19", performed_at_for(@show)
+    assert_equal "08/19/14", performed_at_for(@show)
   end
 end

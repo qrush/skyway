@@ -19,7 +19,7 @@ class SetlistsController < ApplicationController
   private
 
     def show_params
-      params.require(:show).permit(:raw_setlist, :unknown_setlist, :embeds)
+      params.require(:show).permit(:raw_setlist, :unknown_setlist, :extra_notes, :embeds)
     end
 
     def find_show_by_performed_at

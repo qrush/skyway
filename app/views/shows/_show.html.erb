@@ -22,7 +22,7 @@
       </p>
     <% end %>
 
-    <% if show.notes? %>
+    <% if show.notes? || show.extra_notes.present? %>
       <p class="notes">
         <span>Notes:</span>
         <br />
@@ -31,6 +31,10 @@
           <span class="note"><%= note %></span>
           <br />
         <% end %>
+
+        <% if show.extra_notes.present? %>
+          <%= raw_format show.extra_notes %>
+        <% end %>
       </p>
     <% end %>
   <% end %>
@@ -38,7 +42,7 @@
   <% if local_assigns[:embeds] && @show.embeds? %>
     <footer>
       <h3>Media</h3>
-      <%= simple_format @show.embeds, {}, {sanitize: false} %>
+      <%= raw_format @show.embeds %>
     </footer>
   <% end %>
 

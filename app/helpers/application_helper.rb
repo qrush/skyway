@@ -12,4 +12,8 @@ module ApplicationHelper
     ]
     links.map { |link| content_tag :li, link, class: "nav-link" }.join.html_safe
   end
+
+  def raw_format(text)
+    simple_format text, {}, {sanitize: false}
+  end
 end

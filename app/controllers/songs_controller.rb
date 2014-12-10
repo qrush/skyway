@@ -1,7 +1,7 @@
 class SongsController < ApplicationController
   include Mergeable
   self.mergeable_class = Song
-  self.permitted_params = [:name, :cover]
+  self.permitted_params = [:name, :cover, :history, :lyrics]
 
   before_filter :require_admin, except: [:index, :show]
 

@@ -2,8 +2,24 @@
 
 <%= render "stats", song: @song %>
 
-<% @song.shows.each do |show| %>
-  <h2><%= link_to show.when, show %></h2>
-  <h3><%= link_to show.venue.name, show.venue %>, <%= show.venue.location %></h3>
-  <hr />
-<% end %>
+<div class="latest">
+  <h3 class="type">Last played</h3>
+
+  <% @song.shows.each do |show| %>
+    <h2><%= link_to show.when, show %></h2>
+    <h3><%= link_to show.venue.name, show.venue %>, <%= show.venue.location %></h3>
+    <hr />
+  <% end %>
+</div>
+
+<div class="info">
+  <% if @song.history.present? %>
+    <h3 class="type">History</h3>
+    <%= raw_format @song.history %>
+  <% end %>
+
+  <% if @song.lyrics.present? %>
+    <h3 class="type">Lyrics</h3>
+    <%= raw_format @song.lyrics %>
+  <% end %>
+</div>

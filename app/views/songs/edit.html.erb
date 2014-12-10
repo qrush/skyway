@@ -11,6 +11,12 @@
   <%= f.label :cover, "Cover:", class: "checkbox_label" %>
   <%= f.check_box :cover %>
 
+  <%= f.label :history %>
+  <%= f.text_area :history, placeholder: "Any notes, videos, etc for this song" %>
+
+  <%= f.label :lyrics %>
+  <%= f.text_area :lyrics, placeholder: "Please don't include lyrics for covers so we don't get sued" %>
+
   <%= f.submit %>
 <% end %>
 
