@@ -10,6 +10,12 @@
   <% @song.shows.each do |show| %>
     <h2><%= link_to show.when, show %></h2>
     <h3><%= link_to show.venue.name, show.venue %>, <%= show.venue.location %></h3>
+    <p class="setlist">
+      <% @song.slots.select { |slot| slot.show == show }.each do |slot| %>
+        <span><%= slot.setlist.name %>, Song <%= slot.position + 1 %></span>
+        <br />
+      <% end %>
+    </p>
     <hr />
   <% end %>
 </div>

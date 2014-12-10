@@ -31,6 +31,10 @@ body.songs-show {
     @include media($medium-screen) {
       .latest {
         @include span-columns(5);
+
+        h3 {
+          margin-bottom: 7px;
+        }
       }
 
       .info {
