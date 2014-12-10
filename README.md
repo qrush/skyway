@@ -66,7 +66,7 @@ dokku config:set aqueousband.com ADMIN_PASSWORD=x AWS_ACCESS_KEY_ID=x AWS_SECRET
 Run a migration, ssh in and:
 
 ```
-dokku run aqueousband.net rake db:migrate
+dokku run aqueousband.com rake db:migrate
 ```
 
 Sometimes memcached gets unhappy. If so:
