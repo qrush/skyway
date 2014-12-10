@@ -32,7 +32,7 @@ body.songs-show {
       .latest {
         @include span-columns(5);
 
-        h3 {
+        h3:not(.type) {
           margin-bottom: 7px;
         }
       }
