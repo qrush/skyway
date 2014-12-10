@@ -43,4 +43,16 @@ body.songs-show {
       }
     }
   }
+
+  #songs {
+    a {
+      display: none;
+    }
+
+    .spark {
+      float: none;
+      text-align: center;
+      display: block;
+    }
+  }
 }

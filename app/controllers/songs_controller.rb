@@ -12,6 +12,7 @@ class SongsController < ApplicationController
 
   def show
     @song = Song.includes(shows: :venue).find(params[:id])
+    @show_ids = Show.before_today.order(performed_at: :asc).pluck(:id)
   end
 
   def edit

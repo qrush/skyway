@@ -2,6 +2,11 @@
 
 <%= render "searches/form" %>
 
+<div id="sparkline"></div>
+<div id="songs" data-show-ids="<%= @show_ids.to_json %>">
+  <%= render @song %>
+</div>
+
 <%= render "stats", song: @song %>
 
 <div class="latest">

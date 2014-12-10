@@ -5,12 +5,11 @@
 .grid-items {
   $grid-items-background: $base-body-color;
   $grid-item-background: desaturate($base-accent-color, 30); 
-  // http://www.colourlovers.com/palette/206409/Chillin_Underwater
-  $grid-item-colors: #1B4555, #CCC28D, #769999, #b4d079, #769999;
+  $grid-item-colors: transparent, transparent, transparent, transparent, transparent;
   $grid-item-border-size: 9px;
   $grid-item-columns: 4;
   $grid-item-big-columns: 8;
-  $grid-item-color: white;
+  $grid-item-color: #333;
   $grid-item-height: 8em;
 
   @include clearfix;
@@ -33,7 +32,6 @@
     border-left: $grid-item-border-size /2 solid $grid-items-background;
     border-right: $grid-item-border-size /2 solid $grid-items-background;
     text-align: center;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 
     @include media($large-screen) {
       @include grid-item-columns($grid-item-columns);
