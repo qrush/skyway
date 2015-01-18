@@ -215,6 +215,7 @@ header.navigation {
     @include media($horizontal-bar-mode) {
       //left: -$navigation-submenu-padding;
       position: absolute;
+      right: 0;
     }
 
     .submenu {
