@@ -1,4 +1,4 @@
-ruby '2.1.2'
+ruby '2.2.0'
 source 'https://rubygems.org'
 
 gem 'rails', '~> 4.1'
@@ -23,10 +23,9 @@ gem 'paperclip'
 gem 'aws-sdk'
 gem 'high_voltage'
 
-gem 'newrelic_rpm'
-
 group :production do
   gem 'unicorn'
+  gem 'kgio', '~> 2.9.3'
   gem 'rails_12factor'
   gem 'memcachier'
   gem 'dalli'
