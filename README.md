@@ -79,6 +79,22 @@ dokku memcached:link aqueousband.com aqueousband.com
 
 Restarting/rebuilding container: `dokku rebuild aqueousband.com`
 
+### Updating Dokku
+
+From http://progrium.viewdocs.io/dokku/upgrading but in case that goes away:
+
+```
+cd ~/dokku
+git pull --tags origin master
+sudo make install
+
+cd ~/buildstep
+git pull origin master
+sudo make build
+```
+
+Might need to rebuild after that.
+
 ## License
 
 MIT. See `LICENSE`.

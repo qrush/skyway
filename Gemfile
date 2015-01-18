@@ -24,8 +24,11 @@ gem 'aws-sdk'
 gem 'high_voltage'
 
 group :production do
+  # Bumping some unicorn deps so the app builds on 2.2.0
   gem 'unicorn'
   gem 'kgio', '~> 2.9.3'
+  gem 'raindrops', '~> 0.13.0'
+
   gem 'rails_12factor'
   gem 'memcachier'
   gem 'dalli'
