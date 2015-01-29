@@ -11,9 +11,9 @@ Install [Homebrew](http://brew.sh/) and [Pow](http://pow.cx), then:
 echo 'if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi' >> ~/.bash_profile
 source ~/.bash_profile
 
-# Install Ruby 2.1.2 and set it as the default version
-rbenv install 2.1.2
-rbenv global 2.1.2
+# Install Ruby 2.2.0 and set it as the default version
+rbenv install 2.2.0
+rbenv global 2.2.0
 ```
 
 Then:
