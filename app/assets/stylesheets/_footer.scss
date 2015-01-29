@@ -10,7 +10,7 @@ footer {
     text-align: center;
     height: 50px;
     opacity: 0.1;
-    margin: 2em auto;
+    margin: 1.5em auto;
     display: block;
 
     &:hover {
@@ -38,5 +38,21 @@ footer {
       }
     }
   }
-}
 
+  #mc_embed_signup {
+    text-align: center;
+    margin-bottom: 0.75em;
+
+    input[type=email] {
+      display: inline-block;
+      @include media($large-screen) {
+        width: 279px;
+      }
+    }
+    input[type=submit] {
+      @include button(simple, rgba(94, 201, 185, 1.0));
+      margin-top: -4px;
+      height: 36px;
+    }
+  }
+}
