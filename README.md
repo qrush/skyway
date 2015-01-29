@@ -79,6 +79,14 @@ dokku memcached:link aqueousband.com aqueousband.com
 
 Restarting/rebuilding container: `dokku rebuild aqueousband.com`
 
+Backup:
+
+```
+echo "pg_dump `dokku postgresql:info aqueousband.com | grep Url | awk '{print $2}'` > dump.sql" | sh
+```
+
+Then sftp/scp it down. Might need to gzip eventually!
+
 ### Updating Dokku
 
 From http://progrium.viewdocs.io/dokku/upgrading but in case that goes away:
