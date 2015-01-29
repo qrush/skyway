@@ -13,6 +13,16 @@
 </div>
 
 <div class="taped">
+  <% if @featured_show.present? %>
+    <div class="featured">
+      <h3 class="type">Featured show</h3>
+      <h2><%= link_to @featured_show.when, @featured_show %></h2>
+      <%= render @featured_show.venue %>
+
+      <%= simple_format @featured_show.embeds, {}, {sanitize: false} %>
+    </div>
+  <% end %>
+
   <h3 class="type">Freshly taped</h3>
 
   <% @taped_shows.each do |show| %>

@@ -3,6 +3,8 @@
 <%= form_for @show, url: [@show, :setlist] do |form| %>
   <%= error_messages_for :new_show %>
 
+  <%= form.hidden_field :featured %>
+
   <%= form.label :unknown_setlist, "Unknown Setlist?", class: "checkbox_label" %>
   <%= form.check_box :unknown_setlist %>
 

@@ -1,3 +1,5 @@
+<%= form.hidden_field :featured %>
+
 <%= form.label :performed_at, "Date of show" %>
 <%= form.date_field :performed_at, value: @show.new_record? && Date.tomorrow %>
 
