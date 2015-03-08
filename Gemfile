@@ -16,6 +16,7 @@ gem 'bitters'
 gem 'neat'
 
 gem 'dynamic_form'
+gem 'jbuilder'
 gem 'rack-rewrite'
 gem 'mechanize', require: false
 
