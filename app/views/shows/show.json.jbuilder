@@ -1,4 +1,4 @@
-json.(@show, :performed_at, :starts_at, :updated_at, :price, :age_restriction, :embeds)
+json.(@show, :performed_at, :starts_at, :updated_at, :price, :age_restriction, :embeds, :extra_notes)
 
 json.url polymorphic_url(@show)
 json.event_url @show.url
