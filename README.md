@@ -1,6 +1,6 @@
 # Skyway
 
-(Unofficial) stats and community site for [Aqueous](http://www.aqueousband.com/).
+Official stats and community site for [Aqueous](http://www.aqueousband.com/).
 
 ## Setup (OSX)
 
