@@ -1,6 +1,5 @@
 class Announcement < ActiveRecord::Base
   validates_presence_of :body
-  validates_format_of :video, with: /youtube/
 
   DEFAULT_VIDEO = "ol1rKB55lVU"
 
