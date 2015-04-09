@@ -18,6 +18,6 @@ class AnnouncementsController < ApplicationController
   private
 
     def announcement_params
-      params.require(:announcement).permit(:body)
+      params.require(:announcement).permit(:body, :video)
     end
 end
