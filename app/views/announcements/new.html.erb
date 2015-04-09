@@ -6,6 +6,9 @@
   <%= f.label :body, "What's new?" %>
   <%= f.text_area :body %>
 
+  <%= f.label :video, "Featured YouTube URL" %>
+  <%= f.text_field :video %>
+
   <%= f.submit %>
 <% end %>
 
@@ -15,4 +18,5 @@
   * Any HTML is accepted so please be careful!
   * Please don't make the text too long.
   * Any img tags need to be uploaded elsewhere.
+  * YouTube URLs need the "v" parameter (example: https://www.youtube.com/watch?v=ol1rKB55lVU)
 </pre>

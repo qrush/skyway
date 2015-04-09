@@ -6,7 +6,7 @@
 <section class="left" id="news">
   <h2>News</h2>
   <p>
-    <%== @announcement.body if @announcement %>
+    <%== @announcement.body %>
   </p>
 </section>
 
@@ -37,7 +37,7 @@
 
 <section class="right" id="watch">
   <h2>Watch</h2>
-  <iframe id="youtube" width="100%" src="//www.youtube.com/embed/ol1rKB55lVU" frameborder="0" allowfullscreen></iframe>
+  <iframe id="youtube" width="100%" src="<%= @announcement.embed_url %>" frameborder="0" allowfullscreen></iframe>
   <p class="more">
     <%= link_to "More videos &rarr;".html_safe, "http://youtube.com/AqueousBand" %>
   </p>
