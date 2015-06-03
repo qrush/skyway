@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+Dir["tmp/*.mp3"].each_with_index do |mp3, i|
+  if mp3 =~ /Studio/
+    color = "E44528"
+  else
+    color = "F69322"
+  end
+
+  system "sox '#{mp3}' -c 1 -t wav - | wav2png --foreground-color=#{color}33 --background-color=00000000 -o app/assets/images/waveforms/song#{i+1}.png /dev/stdin"
+end

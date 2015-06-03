@@ -2,25 +2,14 @@
 <html>
 <head>
   <%= render "layouts/head" %>
-  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+  <link href='http://fonts.googleapis.com/css?family=Raleway:300' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag "sampler", media: "all", "data-turbolinks-track" => true %>
   <%= yield :head %>
 </head>
 <body class="<%= controller_name %> <%= controller_name %>-<%= controller.action_name %>">
 
-<%= render "layouts/nav" %>
-
-<%= yield :top %>
-
 <div id="wrapper">
-  <% flash.each do |name, msg| %>
-    <div id="flash_<%= name %>"><span><%= msg %></span></div>
-  <% end %>
-
   <article class="type-system-sans">
-    <% if @title %>
-      <h1><%= @title %></h1>
-    <% end %>
-
     <%= yield %>
   </article>
 

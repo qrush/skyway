@@ -1,0 +1,48 @@
+<%= link_to "<h1>Aqueous</h1>".html_safe, root_path, id: "root" %>
+<h2>Est. 2009 &mdash; Buffalo, NY</h2>
+
+<h3>Sampler</h3>
+
+<p>
+  Here's the finest selection of our choice cuts. <%= link_to "Download them all!", "http://files.aqueousband.net/sampler/2015.zip", id: "download" %>
+</p>
+
+<article>
+  <div id="studio">
+    <h5>Studio</h5>
+
+    <dl>
+      <dt id="song1">Skyway</dt>
+      <dd>8:48 &mdash; <%= last_performed_for "Skyway" %>
+      <dt id="song2">The Median</dt>
+      <dd>6:42 &mdash; <%= last_performed_for "The Median" %></dd>
+      <dt id="song3">Complex Pt. II</dt>
+      <dd>9:05 &mdash; <%= last_performed_for "Complex Pt. II" %></dd>
+      <dt id="song4">Origami</dt>
+      <dd>10:16 &mdash; <%= last_performed_for "Origami" %></dd>
+      <dt id="song5">Staring into the Sun</dt>
+      <dd>15:02 &mdash; <%= last_performed_for "Staring into the Sun" %></dd>
+    </dl>
+  </div>
+
+  <div id="live">
+    <h5>Live</h5>
+
+    <dl>
+      <dt id="song6">Kitty Chaser (Explosions)</dt>
+      <dd>16:36 &mdash; <%= last_performed_for "Kitty Chaser (Explosions)" %></dd>
+      <dt id="song7">Underlyer</dt>
+      <dd>11:06 &mdash; <%= last_performed_for "Underlyer" %></dd>
+      <dt id="song8">Gordon's Mule</dt>
+      <dd>11:51 &mdash; <%= last_performed_for "Gordon's Mule" %></dd>
+      <dt id="song9">What's the Connection?</dt>
+      <dd>15:00 &mdash; <%= last_performed_for "Gordon's Mule" %></dd>
+      <dt id="song10">Don't Do It</dt>
+      <dd>13:56 &mdash; <%= last_performed_for "Don't Do It" %></dd>
+    </dl>
+  </div>
+</article>
+
+<p>
+  <%= link_to "Learn more about us", page_path("about") %>, <%= link_to "buy some swag", "http://aqueous1.bandcamp.com/merch" %>, or <%= link_to "come see us play sometime", tour_path %>.<br />Thanks for listening.
+</p>

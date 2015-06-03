@@ -53,4 +53,6 @@ Skyway::Application.routes.draw do
   get "/:page.php", format: false, to: redirect('/%{page}')
 
   root to: "home#show"
+
+  get "/*id" => 'pages#show', as: :page, format: false
 end
