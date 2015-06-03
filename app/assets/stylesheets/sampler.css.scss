@@ -23,19 +23,6 @@ body {
   color: #483E2B;
 }
 
-a, a:visited {
-  color: #72B195;
-  &:hover {
-    color: #72B195;
-    text-decoration: underline;
-  }
-
-  &#download {
-    font-weight: bold;
-    text-decoration: underline;
-  }
-}
-
 h1, h2, h3 {
   text-align: center;
 }
@@ -101,6 +88,19 @@ article {
   margin-top: 2em;
   margin-bottom: 2em;
 
+  a, a:visited {
+    color: #72B195;
+    &:hover {
+      color: #72B195;
+      text-decoration: underline;
+    }
+
+    &#download {
+      font-weight: bold;
+      text-decoration: underline;
+    }
+  }
+
   @include outer-container;
 
   @include media($medium-screen) {
@@ -116,5 +116,5 @@ article {
 }
 
 footer {
-  font-size: 80%;
+  font-size: 75%;
 }
