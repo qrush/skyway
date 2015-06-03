@@ -29,15 +29,15 @@
     <h5>Live</h5>
     <dl>
       <dt id="song6">Kitty Chaser (Explosions)</dt>
-      <dd>16:36 &mdash; April 18th, 2015 @ Buffalo Iron Works</dd>
+      <dd>16:36 &mdash; <%= link_to "April 18th, 2015 @ Buffalo Iron Works", Show.find_by_performed_at(DateTime.parse("2015-04-18")) %></dd>
       <dt id="song7">Underlyer</dt>
-      <dd>11:06 &mdash; March 28th, 2015 @ Nectar's</dd>
+      <dd>11:06 &mdash; <%= link_to "March 28th, 2015 @ Nectar's", Show.find_by_performed_at(DateTime.parse("2015-03-28")) %></dd>
       <dt id="song8">Gordon's Mule</dt>
-      <dd>11:51 &mdash; August 31st, 2014 @ moe.down</dd>
+      <dd>11:51 &mdash; <%= link_to "August 31st, 2014 @ moe.down", Show.find_by_performed_at(DateTime.parse("2014-08-31")) %></dd>
       <dt id="song9">What's the Connection?</dt>
-      <dd>15:00 &mdash; March 28th, 2015 @ Nectar's</dd>
+      <dd>15:00 &mdash; <%= link_to "March 28th, 2015 @ Nectar's", Show.find_by_performed_at(DateTime.parse("2015-03-28")) %></dd>
       <dt id="song10">Don't Do It</dt>
-      <dd>13:56 &mdash; March 28th, 2015 @ Nectar's</dd>
+      <dd>13:56 &mdash; <%= link_to "March 28th, 2015 @ Nectar's", Show.find_by_performed_at(DateTime.parse("2015-03-28")) %></dd>
     </dl>
   </div>
 </article>
