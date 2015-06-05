@@ -68,8 +68,6 @@ dl {
   }
 
   dd {
-    font-style: italic;
-    font-size: 80%;
     margin-bottom: 3em;
   }
 
@@ -85,6 +83,11 @@ p {
   font-size: 1.1em;
   font-family: 'Raleway', sans-serif;
   text-align: center;
+}
+
+small {
+  font-style: italic;
+  font-size: 80%;
 }
 
 article {
@@ -103,6 +106,12 @@ article {
     &#download {
       font-weight: bold;
       text-decoration: underline;
+    }
+
+    &.download {
+      background: asset-url("download.png") no-repeat;
+      background-size: contain;
+      padding-left: 20px;
     }
   }
 

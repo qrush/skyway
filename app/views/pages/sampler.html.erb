@@ -15,15 +15,15 @@
 
     <dl>
       <dt id="song1">Skyway</dt>
-      <dd>8:48</dd>
+      <dd><%= link_to "Download", "http://files.aqueousband.net/sampler/2015/01+-+Studio+-+Skyway.mp3", class: "download" %> &mdash; 8:48</dd>
       <dt id="song2">The Median</dt>
-      <dd>6:42</dd>
+      <dd><%= link_to "Download", "http://files.aqueousband.net/sampler/2015/02+-+Studio+-+The+Median.mp3", class: "download" %> &mdash; 6:42</dd>
       <dt id="song3">Complex Pt. II</dt>
-      <dd>9:05</dd>
+      <dd><%= link_to "Download", "http://files.aqueousband.net/sampler/2015/03+-+Studio+-+Complex+Pt+II.mp3", class: "download" %> &mdash; 9:05</dd>
       <dt id="song4">Origami</dt>
-      <dd>10:16</dd>
+      <dd><%= link_to "Download", "http://files.aqueousband.net/sampler/2015/04+-+Studio+-+Origami.mp3", class: "download" %> &mdash; 10:16</dd>
       <dt id="song5">Staring into the Sun</dt>
-      <dd>15:02</dd>
+      <dd><%= link_to "Download", "http://files.aqueousband.net/sampler/2015/05+-+Studio+-+Staring+Into+The+Sun.mp3", class: "download" %> &mdash; 15:02</dd>
     </dl>
   </div>
 
@@ -31,15 +31,15 @@
     <h5>Live</h5>
     <dl>
       <dt id="song6">Kitty Chaser (Explosions)</dt>
-      <dd>16:36 &mdash; <%= link_to "April 18th, 2015 @ Buffalo Iron Works", Show.find_by_performed_at(DateTime.parse("2015-04-18")) %></dd>
+      <dd><%= link_to "Download", "http://files.aqueousband.net/sampler/2015/06+-+Live+-+Kitty+Chaser+(Explosions).mp3", class: "download" %> &mdash; 16:36 &mdash; <%= link_to "April 18th, 2015 @ Buffalo Iron Works", Show.find_by_performed_at(DateTime.parse("2015-04-18")) %></dd>
       <dt id="song7">Underlyer</dt>
-      <dd>11:06 &mdash; <%= link_to "March 28th, 2015 @ Nectar's", Show.find_by_performed_at(DateTime.parse("2015-03-28")) %></dd>
+      <dd><%= link_to "Download", "http://files.aqueousband.net/sampler/2015/07+-+Live+-+Underlyer.mp3", class: "download" %> &mdash; 11:06 &mdash; <%= link_to "March 28th, 2015 @ Nectar's", Show.find_by_performed_at(DateTime.parse("2015-03-28")) %></dd>
       <dt id="song8">Gordon's Mule</dt>
-      <dd>11:51 &mdash; <%= link_to "August 31st, 2014 @ moe.down", Show.find_by_performed_at(DateTime.parse("2014-08-31")) %></dd>
-      <dt id="song9">What's the Connection?</dt>
-      <dd>15:00 &mdash; <%= link_to "March 28th, 2015 @ Nectar's", Show.find_by_performed_at(DateTime.parse("2015-03-28")) %></dd>
+      <dd><%= link_to "Download", "http://files.aqueousband.net/sampler/2015/08+-+Live+-+Gordons+Mule.mp3", class: "download" %> &mdash; 11:51 &mdash; <%= link_to "August 31st, 2014 @ moe.down", Show.find_by_performed_at(DateTime.parse("2014-08-31")) %></dd>
+      <dt id="song9">What's the Connecton?
+      <dd><%= link_to "Download", "http://files.aqueousband.net/sampler/2015/09+-+Live+-+Whats+the+Connection.mp3", class: "download" %> &mdash; 15:00 &mdash; <%= link_to "March 28th, 2015 @ Nectar's", Show.find_by_performed_at(DateTime.parse("2015-03-28")) %></dd>
       <dt id="song10">Don't Do It</dt>
-      <dd>13:56 &mdash; <%= link_to "March 28th, 2015 @ Nectar's", Show.find_by_performed_at(DateTime.parse("2015-03-28")) %></dd>
+      <dd><%= link_to "Download", "http://files.aqueousband.net/sampler/2015/10+-+Live+-+Dont+Do+It.mp3", class: "download" %> &mdash; 13:56 &mdash; <%= link_to "March 28th, 2015 @ Nectar's", Show.find_by_performed_at(DateTime.parse("2015-03-28")) %></dd>
     </dl>
   </div>
 </article>
@@ -47,3 +47,7 @@
 <p>
   <%= link_to "Learn more about us", page_path("about") %>, <%= link_to "buy some swag", "http://aqueous1.bandcamp.com/merch" %>, or <%= link_to "come see us play sometime", tour_path %>.<br />Thanks for listening.
 </p>
+
+<%= content_for :footer do %>
+  <br /><small><a href="https://thenounproject.com/bravebros/collection/video-service/">Icons by BraveBros.</a> from the Noun Project</small>
+<% end %>
