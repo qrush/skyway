@@ -2,9 +2,11 @@
 #= require jquery_ujs
 #= require d3.min
 #= require_self
-#= require_tree .
+
+#= require highlight
+#= require menu
+#= require spark
 
 @skyway =
   ready: (func) ->
     $(document).ready(func)
-    #$(document).on('page:load', func)

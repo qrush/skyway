@@ -10,6 +10,7 @@
 // http://www.colourlovers.com/palette/1867884/Chinese_Menu
 
 $background-color: rgba(211, 186, 132, 0.1);
+$text-color: #483E2B;
 
 body {
   background: $background-color asset-url("groovepaper.png") repeat;
@@ -22,7 +23,7 @@ body {
   margin-right: auto;
   padding: 1em;
   background: $background-color;
-  color: #483E2B;
+  color: $text-color;
 }
 
 h1, h2, h3 {
@@ -64,7 +65,25 @@ dl {
   font-family: 'Raleway', sans-serif;
   dt {
     line-height: 230%;
-    font-size: 200%;
+    font-size: 201%;
+
+    a, a:visited {
+      background: asset-url("play.png") right no-repeat;
+      background-size: contain;
+      padding-right: 40px;
+      color: $white;
+      @include filter(sepia(100%) brightness(0.3) opacity(95%));
+      @include transition (all 0.2s ease-in-out);
+
+      &[data-status=pause] {
+        background-image: asset-url("pause.png");
+      }
+
+      &:hover {
+        @include filter(sepia(100%) brightness(0) opacity(95%));
+        text-decoration: none;
+      }
+    }
   }
 
   dd {
@@ -90,6 +109,10 @@ small {
   font-size: 80%;
 }
 
+#mediaplayer {
+  display: none;
+}
+
 article {
   margin-top: 2em;
   margin-bottom: 2em;
@@ -108,7 +131,7 @@ article {
       text-decoration: underline;
     }
 
-    &.download {
+    &[data-behavior~=download] {
       background: asset-url("download.png") no-repeat;
       background-size: contain;
       padding-left: 20px;
