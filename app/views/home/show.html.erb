@@ -1,7 +1,15 @@
+<%= content_for :head do %>
+  <link href='http://fonts.googleapis.com/css?family=Raleway:300' rel='stylesheet' type='text/css'>
+<% end %>
+
 <header class="hero">
   <h1>Aqueous</h1>
   <p>(is a groove rock band)</p>
 </header>
+
+<div id="sampler">
+  <%= link_to "New to Aqueous? Dig into our (free!) sampler &rarr;".html_safe, page_path("sampler") %>
+</div>
 
 <section class="left" id="news">
   <h2>News</h2>
