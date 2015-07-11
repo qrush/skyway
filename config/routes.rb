@@ -3,6 +3,10 @@ Skyway::Application.routes.draw do
 
   resources :shows do
     resource :setlist
+
+    collection do
+      get :latest, format: :json
+    end
   end
 
   resources :songs do

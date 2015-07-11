@@ -1,5 +1,5 @@
 class ShowsController < ApplicationController
-  before_filter :require_admin, except: [:index, :show]
+  before_filter :require_admin, except: [:index, :show, :latest]
 
   def index
     @year = params[:year] || DateTime.now.year.to_s
@@ -43,6 +43,11 @@ class ShowsController < ApplicationController
 
     flash[:success] = "Successfully removed the show for #{@show.when}."
     redirect_to shows_path
+  end
+
+  def latest
+    @show = Show.latest.first
+    render :show
   end
 
   private
