@@ -39,10 +39,12 @@
     }
   }
 
-  #about {
-    img {
-      width: 50%;
-      height: 50%;
+  .about {
+    @include media($large-screen) {
+      img {
+        width: 75%;
+        height: 75%;
+      }
     }
   }
 
