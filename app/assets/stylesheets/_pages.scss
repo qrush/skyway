@@ -39,6 +39,13 @@
     }
   }
 
+  #about {
+    img {
+      width: 50%;
+      height: 50%;
+    }
+  }
+
   #bios {
     h2 {
       margin-bottom: 1em;
@@ -59,19 +66,19 @@
     }
 
     #mike {
-      background-image: asset-url("photos/mike.png");
+      background-image: asset-url("photos/mike2.jpg");
     }
 
     #dave {
-      background-image: asset-url("photos/dave.png");
+      background-image: asset-url("photos/dave2.jpg");
     }
 
     #evan {
-      background-image: asset-url("photos/evan.png");
+      background-image: asset-url("photos/evan2.jpg");
     }
 
-    #ryan {
-      background-image: asset-url("photos/ryan.png");
+    #tom {
+      background-image: asset-url("photos/tom2.jpg");
     }
   }
 
