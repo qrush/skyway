@@ -3,6 +3,7 @@
 <head>
   <%= render "layouts/head" %>
   <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag variant, media: "all", "data-turbolinks-track" => true if variant? %>
   <%= yield :head %>
 </head>
 <body class="<%= controller_name %> <%= controller_name %>-<%= controller.action_name %>">
