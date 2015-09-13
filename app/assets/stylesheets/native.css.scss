@@ -2,6 +2,13 @@ header.navigation {
   display: none;
 }
 
-#wrapper > footer {
-  display: none;
+#wrapper {
+  > footer, > article > h1 {
+    display: none;
+  }
+
+  iframe {
+    width: 100% !important;
+    height: 700px !important;
+  }
 }
