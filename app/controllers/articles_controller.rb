@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
-  before_filter :require_admin, except: [:index, :show]
+  before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :require_admin, except: [:index, :show]
 
   def index
     if admin?
@@ -10,7 +11,9 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.find(params[:id])
+    if !admin? && @article.draft?
+      redirect_to articles_path, flash: {error: "Not ready yet!"}
+    end
   end
 
   def new
@@ -28,12 +31,9 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    @article = Article.find(params[:id])
   end
 
   def update
-    @article = Article.find(params[:id])
-
     if @article.update_attributes(article_params)
       redirect_to @article
     else
@@ -42,7 +42,6 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    @article = Article.find(params[:id])
     @article.destroy
     redirect_to articles_path, flash: {success: "Deleted #{@article.title}."}
   end
@@ -52,4 +51,9 @@ class ArticlesController < ApplicationController
     def article_params
       params.require(:article).permit(:title, :body, :draft, :published_at)
     end
+
+    def set_article
+      @article = Article.find(params[:id])
+    end
+
 end
