@@ -15,7 +15,7 @@
   </div>
   <% if admin? %>
     <ul class="admin">
-      <li><%= link_to "Edit news", new_announcement_path %></li>
+      <li><%= link_to "Edit home", new_announcement_path %></li>
       <li><%= link_to "New show", new_show_path %></li>
       <li><%= link_to "New venue", new_venue_path %></li>
       <% if @show.try(:persisted?) %>
