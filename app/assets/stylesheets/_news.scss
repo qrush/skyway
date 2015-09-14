@@ -17,9 +17,11 @@
     display: block;
     margin: 0 auto 1.5em auto;
     width: 100%;
+    height: 175px;
 
     @include media($medium-screen) {
       width: 560px;
+      height: 315px;
     }
   }
 }
