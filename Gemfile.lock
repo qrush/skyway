@@ -79,6 +79,7 @@ GEM
       thor (>= 0.14, < 2.0)
     json (1.8.3)
     kgio (2.9.3)
+    kramdown (1.8.0)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
@@ -186,6 +187,7 @@ DEPENDENCIES
   jbuilder
   jquery-rails
   kgio (~> 2.9.3)
+  kramdown
   mechanize
   memcachier
   neat

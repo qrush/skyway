@@ -21,6 +21,8 @@ Skyway::Application.routes.draw do
     end
   end
 
+  resources :articles, path: :news
+
   resources :searches, path: "search"
   resources :announcements
   resource :admin

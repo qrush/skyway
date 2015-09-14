@@ -1,0 +1,15 @@
+<div class="news">
+  <h2><%= link_to article.title, article %></h2>
+
+  <%== article.to_html %>
+
+  <p class="published-on">
+    ― Published on <%= article.published_at.to_date.to_s(:long_ordinal) %>
+  </p>
+
+  <% if admin? && article.draft? %>
+    <p>
+      Draft post. <%= link_to "Edit to publish this post.", [:edit, article] %>
+    </p>
+  <% end %>
+</div>

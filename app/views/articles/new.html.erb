@@ -1,0 +1,9 @@
+<% @title = 'New news article' %>
+
+<%= form_for @article do |f| %>
+  <%= f.error_messages %>
+
+  <%= render "form", form: f %>
+
+  <%= f.submit %>
+<% end %>

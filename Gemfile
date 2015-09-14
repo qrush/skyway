@@ -23,6 +23,7 @@ gem 'mechanize', require: false
 gem 'paperclip'
 gem 'aws-sdk'
 gem 'high_voltage'
+gem 'kramdown'
 
 group :production do
   # Bumping some unicorn deps so the app builds on 2.2.0

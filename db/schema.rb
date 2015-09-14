@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150409013323) do
+ActiveRecord::Schema.define(version: 20150914012154) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,15 @@ ActiveRecord::Schema.define(version: 20150409013323) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "video"
+  end
+
+  create_table "articles", force: :cascade do |t|
+    t.string   "title"
+    t.text     "body"
+    t.boolean  "draft",        default: true, null: false
+    t.datetime "published_at"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "setlists", force: :cascade do |t|
@@ -38,7 +47,7 @@ ActiveRecord::Schema.define(version: 20150409013323) do
     t.datetime "performed_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "notes",                           default: [],                 array: true
+    t.string   "notes",               limit: 255, default: [],                 array: true
     t.boolean  "unknown_setlist",                 default: false, null: false
     t.string   "banner_file_name",    limit: 255
     t.string   "banner_content_type", limit: 255
@@ -61,11 +70,11 @@ ActiveRecord::Schema.define(version: 20150409013323) do
   create_table "slots", force: :cascade do |t|
     t.integer  "setlist_id"
     t.integer  "song_id"
-    t.integer  "position",                   null: false
-    t.boolean  "transition", default: false, null: false
+    t.integer  "position",                               null: false
+    t.boolean  "transition",             default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "notes",      default: [],                 array: true
+    t.string   "notes",      limit: 255, default: [],                 array: true
   end
 
   add_index "slots", ["notes"], name: "index_slots_on_notes", using: :gin

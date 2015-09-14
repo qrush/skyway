@@ -1,0 +1,18 @@
+.news {
+  margin: 0 10%;
+
+  ul {
+    list-style: disc inside;
+    margin-bottom: 1.5em;
+  }
+
+  iframe {
+    display: block;
+    margin: 0 auto 1.5em auto;
+    width: 100%;
+
+    @include media($medium-screen) {
+      width: 560px;
+    }
+  }
+}

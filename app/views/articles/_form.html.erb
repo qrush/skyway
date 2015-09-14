@@ -1,0 +1,15 @@
+<%= form.label :title %>
+<%= form.text_field :title %>
+
+<%= form.label :body do %>
+  Body - Accepts HTML and <%= link_to 'Markdown', 'https://gist.github.com/jonschlinkert/5854601' %>
+<% end %>
+<%= form.text_area :body %>
+
+<%= form.label :published_at, "When to publish" %>
+<%= form.date_field :published_at, value: @article.new_record? && Date.today %>
+
+<%= form.label :draft, "Draft (uncheck to publish)", class: "checkbox_label" %>
+<%= form.check_box :draft %>
+
+<br />

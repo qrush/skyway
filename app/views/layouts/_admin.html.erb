@@ -1,0 +1,27 @@
+<ul class="admin">
+  <li><%= link_to "Edit home", new_announcement_path %></li>
+  <li><%= link_to "New show", new_show_path %></li>
+  <li><%= link_to "New venue", new_venue_path %></li>
+
+  <% if @show.try(:persisted?) %>
+    <li><%= link_to "Edit show", [:edit, @show] %>
+    <li><%= link_to "Edit setlist", [:edit, @show, :setlist] %>
+    <li><%= link_to "Edit venue", [:edit, @show.venue] %></li>
+    <li><%= link_to "Remove show", @show, method: :delete, data: { confirm: "Are you sure?" } %>
+  <% end %>
+
+  <% if @song.try(:persisted?) %>
+    <li><%= link_to "Edit song", [:edit, @song] %></li>
+    <li><%= link_to "Delete song", @song, method: :delete, data: {confirm: "Are you sure you want to delete this song?"} %></li>
+  <% end %>
+
+  <% if @venue.try(:persisted?) %>
+    <li><%= link_to "Edit venue", [:edit, @venue] %></li>
+  <% end %>
+
+  <li><%= link_to "New news", new_article_path %></li>
+  <% if @article.try(:persisted?) %>
+    <li><%= link_to "Edit article", [:edit, @article] %></li>
+    <li><%= link_to "Delete article", @article, method: :delete, data: {confirm: "Are you sure you want to delete this article?"} %></li>
+  <% end %>
+</ul>
