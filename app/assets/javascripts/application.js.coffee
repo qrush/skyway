@@ -6,6 +6,7 @@
 #= require highlight
 #= require menu
 #= require spark
+#= require player
 
 @skyway =
   ready: (func) ->
