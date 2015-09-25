@@ -7,7 +7,7 @@ gem 'pg'
 
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
-gem 'turbolinks'
+gem 'turbolinks', git: "git://github.com/basecamp/turbolinks", branch: 'v5'
 gem 'uglifier'
 
 gem 'bourbon'
