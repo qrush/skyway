@@ -30,31 +30,10 @@ body.home-index {
   }
 }
 
+
 body.home-show {
   #wrapper {
     max-width: $max-width;
-  }
-
-  #sampler {
-    a {
-      display: block;
-      text-align: center;
-      font-family: 'Raleway', sans-serif;
-      font-size: 1.4em;
-      padding: 1em 0;
-      background: asset-url('waveforms/song4.png') no-repeat;
-      background-size: contain;
-      background-position: center;
-      color: #fff;
-      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
-      margin-top: 15px;
-
-      @include media($large-screen) {
-        margin: 10px 0;
-        padding: 2em 0;
-        font-size: 1.6em;
-      }
-    }
   }
 
   header.navigation {

@@ -1,0 +1,54 @@
+#sonic {
+  a {
+    background: rgba(33, 33, 33, 0.3) asset-url('sfaq.png') no-repeat;
+    background-size: contain;
+    background-position: left;
+    padding-left: 50px;
+    border-radius: 30px;
+
+    padding: 2em 1em 2em 8em;
+    border-radius: 100px;
+    max-width: 100%;
+    margin: 1em auto;
+    line-height: 1.1em;
+    font-size: 1.3em;
+    @include transition (all 0.3s ease-in-out);
+
+    &:hover {
+      background-color: rgba(10, 64, 126, 1);
+      text-shadow: 0;
+    }
+
+    @include media($large-screen) {
+      font-size: 1.5em;
+      max-width: 60%;
+    }
+  }
+}
+
+#fall {
+  a {
+    background: asset-url('waveforms/song6.png') no-repeat;
+    background-size: contain;
+    background-position: center;
+    text-align: center;
+    margin-top: 15px;
+    padding: 1em 0;
+    font-size: 1.4em;
+
+    @include media($large-screen) {
+      margin: 10px 0;
+      padding: 2em 0;
+      font-size: 1.6em;
+    }
+  }
+}
+
+.banner {
+  a {
+    display: block;
+    font-family: 'Raleway', sans-serif;
+    color: #fff;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.7);
+  }
+}

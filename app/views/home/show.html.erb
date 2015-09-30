@@ -7,8 +7,14 @@
   <p>(is a groove rock band)</p>
 </header>
 
-<div id="sampler">
-  <%= link_to "New to Aqueous? Dig into our (free!) sampler &rarr;".html_safe, page_path("sampler") %>
+<div id="fall" class="banner">
+  <%= link_to tour_path do %>
+    Fall Tour is in full swing!
+    <% if @week_count.nonzero? %>
+      There's <%= pluralize(@week_count, "show") %> this week
+    <% end %>
+    ➾
+  <% end %>
 </div>
 
 <section class="left" id="news">
