@@ -49,7 +49,7 @@ class ArticlesController < ApplicationController
   private
 
     def article_params
-      params.require(:article).permit(:title, :body, :draft, :published_at)
+      params.require(:article).permit(:title, :body, :draft, :published_at, :facebook_image_url)
     end
 
     def set_article

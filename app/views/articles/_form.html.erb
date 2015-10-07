@@ -9,6 +9,9 @@
 <%= form.label :published_at, "When to publish" %>
 <%= form.date_field :published_at, value: @article.new_record? && Date.today %>
 
+<%= form.label :facebook_image_url, "Facebook Preview Image URL" %>
+<%= form.text_field :facebook_image_url %>
+
 <%= form.label :draft, "Draft (uncheck to publish)", class: "checkbox_label" %>
 <%= form.check_box :draft %>
 
