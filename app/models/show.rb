@@ -12,7 +12,7 @@ class Show < ActiveRecord::Base
   validates_presence_of :performed_at, :venue
   validates_attachment :banner, content_type: { content_type: /\Aimage\/.*\Z/ }
 
-  scope :upcoming,     -> { where("date(performed_at) > ?", Date.yesterday).order(performed_at: :asc) }
+  scope :upcoming,     -> { where("date(performed_at) > ?", Date.yesterday.beginning_of_day).order(performed_at: :asc) }
   scope :latest,       -> { before_today.performed }
   scope :taped,        -> { where.not(embeds: "").ordered }
   scope :before_today, -> { where("date(performed_at) <= ?", Date.yesterday) }
