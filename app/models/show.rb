@@ -12,10 +12,10 @@ class Show < ActiveRecord::Base
   validates_presence_of :performed_at, :venue
   validates_attachment :banner, content_type: { content_type: /\Aimage\/.*\Z/ }
 
-  scope :upcoming,     -> { where("date(performed_at) > ?", Date.yesterday.beginning_of_day).order(performed_at: :asc) }
+  scope :upcoming,     -> { where("date(performed_at) > ?", Date.today.beginning_of_day).order(performed_at: :asc) }
   scope :latest,       -> { before_today.performed }
   scope :taped,        -> { where.not(embeds: "").ordered }
-  scope :before_today, -> { where("date(performed_at) <= ?", Date.yesterday) }
+  scope :before_today, -> { where("date(performed_at) <= ?", Date.today) }
   scope :ordered,      -> { order(performed_at: :desc) }
   scope :performed,    -> { ordered.includes(:venue, setlists: {slots: :song}) }
   scope :for_year,     -> (year) { before_today.where("EXTRACT(YEAR FROM performed_at) = ?", year) }
