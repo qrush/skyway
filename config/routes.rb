@@ -30,6 +30,7 @@ Skyway::Application.routes.draw do
   get "/home" => "home#show"
   get "/setlists" => "home#index"
 
+  get "/sampler", to: redirect('http://sonicfarmstudio.com/aqueous')
   get "/street.php", format: false, to: redirect('/mobilize')
   get "/setlists/setlists.php", format: false, to: redirect('/setlists')
   %w(mike dave evan nick).each do |player|
