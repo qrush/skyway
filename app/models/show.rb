@@ -1,5 +1,5 @@
 class Show < ActiveRecord::Base
-  HUMAN_BOOKMARKS = %w(* ** *** # ## ### % ^ $)
+  HUMAN_BOOKMARKS = %w(* ** *** # ## ### % %% %%% ^ ^^ ^^^ $ $$ $$$)
   FANCY_BOOKMARKS = %w(1 2 3 4 5 6 7 8 9)
 
   belongs_to :venue
