@@ -13,9 +13,10 @@ class Venue < ActiveRecord::Base
 
   TILE_ZOOM = 10
 
-  def to_tile
+  def to_tile(x_modifier = 0)
     if latitude? && longitude?
-      [TILE_ZOOM, *SimpleMercatorLocation.new(lat: latitude, lon: longitude).zoom_at(TILE_ZOOM).to_tile].join("/")
+      x, y = SimpleMercatorLocation.new(lat: latitude, lon: longitude).zoom_at(TILE_ZOOM).to_tile
+      [TILE_ZOOM, x + x_modifier, y].join("/")
     else
       ""
     end

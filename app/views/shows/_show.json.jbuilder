@@ -7,7 +7,10 @@ json.banner_url show.banner.url(:fit)
 json.venue do |json|
   json.(show.venue, :id, :name, :location, :address, :twitter, :facebook, :created_at, :updated_at)
   json.info_url show.venue.url
-  json.map_url "https://stamen-tiles.a.ssl.fastly.net/toner/#{show.venue.to_tile}@2x.png"
+  # TODO make a helper for this!
+  json.map_left_url   "https://stamen-tiles.a.ssl.fastly.net/watercolor/#{show.venue.to_tile(-1)}.jpg"
+  json.map_center_url "https://stamen-tiles.a.ssl.fastly.net/watercolor/#{show.venue.to_tile}.jpg"
+  json.map_right_url  "https://stamen-tiles.a.ssl.fastly.net/watercolor/#{show.venue.to_tile(1)}.jpg"
   json.url polymorphic_url(show.venue)
 end
 
