@@ -11,7 +11,7 @@ class Venue < ActiveRecord::Base
     [location, address].compact.join(', ')
   end
 
-  TILE_ZOOM = 12
+  TILE_ZOOM = 13
 
   def to_tile
     if latitude? && longitude?
