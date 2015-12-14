@@ -7,6 +7,7 @@ json.banner_url show.banner.url(:fit)
 json.venue do |json|
   json.(show.venue, :id, :name, :location, :address, :twitter, :facebook, :created_at, :updated_at)
   json.info_url show.venue.url
+  json.map_url "https://stamen-tiles.a.ssl.fastly.net/watercolor/#{show.venue.to_tile}.jpg"
   json.url polymorphic_url(show.venue)
 end
 

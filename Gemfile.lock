@@ -65,6 +65,7 @@ GEM
     dynamic_form (1.1.4)
     erubis (2.7.0)
     execjs (2.2.2)
+    geocoder (1.2.12)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     high_voltage (2.2.1)
@@ -148,6 +149,7 @@ GEM
     raindrops (0.13.0)
     rake (10.4.2)
     sass (3.4.6)
+    simple_mercator_location (1.0.0)
     spring (1.1.3)
     sprockets (3.3.3)
       rack (~> 1.0)
@@ -183,6 +185,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   dalli
   dynamic_form
+  geocoder
   high_voltage
   jbuilder
   jquery-rails
@@ -197,6 +200,7 @@ DEPENDENCIES
   rails (~> 4.1)
   rails_12factor
   raindrops (~> 0.13.0)
+  simple_mercator_location
   spring
   turbolinks
   uglifier

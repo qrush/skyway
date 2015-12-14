@@ -24,6 +24,8 @@ gem 'paperclip'
 gem 'aws-sdk'
 gem 'high_voltage'
 gem 'kramdown'
+gem 'simple_mercator_location'
+gem 'geocoder'
 
 group :production do
   # Bumping some unicorn deps so the app builds on 2.2.0
