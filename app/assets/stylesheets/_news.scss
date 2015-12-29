@@ -1,4 +1,12 @@
 .articles {
+  h1 {
+    display: none;
+  }
+
+  h2 {
+    margin-top: 5px;
+  }
+
   hr {
     margin: 3em auto 3em auto;
     width: 10em !important;
