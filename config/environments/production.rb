@@ -56,7 +56,7 @@ Skyway::Application.configure do
   config.session_store ActionDispatch::Session::CacheStore, expire_after: 7.days
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  config.action_controller.asset_host = "http://d44l7c0q3oisf.cloudfront.net"
+  config.action_controller.asset_host = "https://d44l7c0q3oisf.cloudfront.net"
 
   # Precompile additional assets.
   # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
