@@ -21,7 +21,7 @@ Then:
 ``` shell
 git clone git@github.com:qrush/skyway.git
 cd skyway
-script/setup -v
+bin/setup -v
 ```
 
 And make sure to link your app with Pow! Assuming you installed it in `~/Dev`:
