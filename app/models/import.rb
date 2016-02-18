@@ -1,5 +1,3 @@
-require 'csv'
-
 class Import < ActiveRecord::Base
   has_many :imported_shows, dependent: :delete_all
   has_many :imported_venues, dependent: :delete_all

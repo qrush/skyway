@@ -1,6 +1,5 @@
 class ImportsController < ApplicationController
   before_filter :require_admin
-
   before_filter :require_import, only: [:show, :confirm, :destroy]
 
   def new
@@ -31,7 +30,6 @@ class ImportsController < ApplicationController
   end
 
   private
-
     def import_params
       params.require(:import).permit(:csv)
     end
