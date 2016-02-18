@@ -12,12 +12,12 @@ gem 'uglifier'
 
 gem 'bourbon'
 gem 'bitters'
-#gem 'refills'
 gem 'neat'
 
 gem 'dynamic_form'
 gem 'jbuilder'
 gem 'rack-rewrite'
+gem 'chronic'
 
 gem 'paperclip'
 gem 'aws-sdk'

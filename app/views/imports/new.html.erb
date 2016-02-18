@@ -1,0 +1,19 @@
+<% @title = 'Import shows' %>
+
+<%= form_for @import do |f| %>
+  <%= f.error_messages %>
+
+  <%= f.label :csv, "CSV of shows (see format below)" %>
+  <%= f.file_field :csv %>
+
+  <%= f.submit "Import show data" %>
+<% end %>
+
+<h3>Some notes:</h3>
+<pre>
+  Must be in this format:
+
+  | Date | City | Venue | Time | Admission | URL |
+
+  Please <%= link_to "refer to this Google Sheet",  "https://docs.google.com/spreadsheets/d/1QTMY2oy6zzTSM6IhIUVPyaor_CXz8djO73aMM6CKaUw/edit#gid=0" %>.
+</pre>

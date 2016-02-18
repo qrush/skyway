@@ -21,6 +21,12 @@ Skyway::Application.routes.draw do
     end
   end
 
+  resources :imports do
+    member do
+      patch :confirm
+    end
+  end
+
   resources :articles, path: :news
 
   resources :searches, path: "search"

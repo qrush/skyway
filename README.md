@@ -35,7 +35,7 @@ ln -s ~/Dev/skyway
 
 ### Plugins
 
-* https://github.com/Kloadut/dokku-pg-plugin
+* https://github.com/dokku/dokku-postgres
 * https://github.com/rlaneve/dokku-link
 * https://github.com/mordred/dokku-redirects-plugin
 * https://github.com/jlachowski/dokku-memcached-plugin

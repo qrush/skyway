@@ -48,6 +48,7 @@ GEM
       sass (~> 3.3)
       thor
     builder (3.2.2)
+    chronic (0.10.2)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.4)
@@ -164,6 +165,7 @@ DEPENDENCIES
   aws-sdk
   bitters
   bourbon
+  chronic
   coffee-rails (~> 4.0.0)
   dalli
   dynamic_form

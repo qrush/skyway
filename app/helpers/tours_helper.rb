@@ -1,8 +1,8 @@
 module ToursHelper
-  def link_to_address_for(show)
-    query = [show.venue.address, show.venue.location].compact.join(" ")
+  def link_to_address_for(venue)
+    query = [venue.address, venue.location].compact.join(" ")
 
-    link_to show.venue.address || show.venue.location, "http://maps.google.com?q=#{CGI.escape(query)}"
+    link_to venue.address || venue.location, "http://maps.google.com?q=#{CGI.escape(query)}"
   end
 
   def link_to_price_for(show)

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151214040417) do
+ActiveRecord::Schema.define(version: 20160218031701) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,35 @@ ActiveRecord::Schema.define(version: 20151214040417) do
     t.string   "facebook_image_url"
   end
 
+  create_table "imported_shows", force: :cascade do |t|
+    t.date     "performed_at"
+    t.time     "starts_at"
+    t.string   "price"
+    t.text     "url"
+    t.integer  "venue_id"
+    t.integer  "imported_venue_id"
+    t.integer  "import_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "imported_shows", ["performed_at"], name: "index_imported_shows_on_performed_at", unique: true, using: :btree
+
+  create_table "imported_venues", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.string   "location"
+    t.string   "address"
+    t.integer  "import_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "imports", force: :cascade do |t|
+    t.text     "csv",        null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "setlists", force: :cascade do |t|
     t.integer  "show_id"
     t.integer  "position",               null: false
@@ -45,7 +74,7 @@ ActiveRecord::Schema.define(version: 20151214040417) do
 
   create_table "shows", force: :cascade do |t|
     t.integer  "venue_id"
-    t.datetime "performed_at"
+    t.date     "performed_at"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "notes",               limit: 255, default: [],                 array: true
@@ -65,7 +94,7 @@ ActiveRecord::Schema.define(version: 20151214040417) do
 
   add_index "shows", ["embeds"], name: "index_shows_on_embeds", using: :btree
   add_index "shows", ["notes"], name: "index_shows_on_notes", using: :gin
-  add_index "shows", ["performed_at"], name: "index_shows_on_performed_at", using: :btree
+  add_index "shows", ["performed_at"], name: "index_shows_on_performed_at", unique: true, using: :btree
   add_index "shows", ["venue_id"], name: "index_shows_on_venue_id", using: :btree
 
   create_table "slots", force: :cascade do |t|
