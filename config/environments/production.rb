@@ -52,7 +52,7 @@ Skyway::Application.configure do
   # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
 
   # Use a different cache store in production.
-  config.cache_store = :dalli_store, ENV["DOKKU_MEMCACHED_AQUEOUSBAND_COM_PORT_11211_TCP_PORT"]
+  config.cache_store = :dalli_store, ENV["MEMCACHED_URL"]
   config.session_store ActionDispatch::Session::CacheStore, expire_after: 7.days
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
