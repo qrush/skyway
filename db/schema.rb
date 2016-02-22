@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160218031701) do
+ActiveRecord::Schema.define(version: 20160222183200) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -94,7 +94,7 @@ ActiveRecord::Schema.define(version: 20160218031701) do
 
   add_index "shows", ["embeds"], name: "index_shows_on_embeds", using: :btree
   add_index "shows", ["notes"], name: "index_shows_on_notes", using: :gin
-  add_index "shows", ["performed_at"], name: "index_shows_on_performed_at", unique: true, using: :btree
+  add_index "shows", ["performed_at"], name: "index_shows_on_performed_at", using: :btree
   add_index "shows", ["venue_id"], name: "index_shows_on_venue_id", using: :btree
 
   create_table "slots", force: :cascade do |t|
