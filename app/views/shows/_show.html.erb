@@ -1,9 +1,5 @@
 <article class="show" id="<%= dom_id(show) %>">
-  <% if local_assigns[:banner] %>
-    <header style="background-image: url('<%= @show.banner.url(:fit) %>');">
-  <% else %>
     <header>
-  <% end %>
       <h2><%= link_to show.when, show %></h2>
       <%= render show.venue %>
     </header>

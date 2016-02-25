@@ -8,13 +8,7 @@
   </button>
 </p>
 
-<% if @show.banner? %>
-  <div id="show_banner">
-    <%= render @show, embeds: true, banner: true %>
-  </div>
-<% else %>
-  <%= render @show, embeds: true %>
-<% end %>
+<%= render @show, embeds: true %>
 
 <p class="pager">
   <%= link_to "← #{@show.previous_show.when}", @show.previous_show if @show.previous_show %>
