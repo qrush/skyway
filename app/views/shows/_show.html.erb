@@ -10,7 +10,7 @@
 
   <% cache [ show ] do %>
     <% show.setlists.each do |setlist| %>
-      <p class="setlist">
+      <p class="setlist" data-behavior="setlist">
         <span><%= setlist.name %></span>:
         <%= format_setlist(show, setlist) %>
       </p>
@@ -23,13 +23,10 @@
     <% end %>
 
     <% if show.notes? || show.extra_notes.present? %>
-      <p class="notes">
+      <p class="notes" data-behavior="setlist">
         <span>Notes:</span>
-        <br />
         <% show.notes.each_with_index do |note| %>
-          <sup><%= show.bookmark_for(note) %></sup>
-          <span class="note"><%= note %></span>
-          <br />
+          <span class="note"><sup><%= show.bookmark_for(note) %></sup> <%= note.strip %></span>
         <% end %>
 
         <% if show.extra_notes.present? %>

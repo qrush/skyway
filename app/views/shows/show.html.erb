@@ -2,6 +2,12 @@
 
 <%= render "searches/form" %>
 
+<p class="setlist-actions">
+  <button data-clipboard-text="Just because you can doesn't mean you should — clipboard.js">
+    Copy setlist
+  </button>
+</p>
+
 <% if @show.banner? %>
   <div id="show_banner">
     <%= render @show, embeds: true, banner: true %>
