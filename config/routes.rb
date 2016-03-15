@@ -67,5 +67,5 @@ Skyway::Application.routes.draw do
 
   root to: "home#show"
 
-  get "/*id" => 'pages#show', as: :page, format: false
+  get "/*id" => 'high_voltage/pages#show', as: :page, format: false
 end

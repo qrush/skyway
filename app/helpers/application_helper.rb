@@ -17,4 +17,12 @@ module ApplicationHelper
   def raw_format(text)
     simple_format text, {}, {sanitize: false}
   end
+
+  def link_to_file_url(text, path, *options)
+    link_to text, file_url(path), *options
+  end
+
+  def file_url(path)
+    "https://s3.amazonaws.com/files.aqueousband.net/images/#{path}"
+  end
 end
