@@ -82,10 +82,14 @@ Restarting/rebuilding container: `dokku rebuild aqueousband.com`
 Backup:
 
 ```
-echo "pg_dump `dokku postgresql:info aqueousband.com | grep Url | awk '{print $2}'` > dump.sql" | sh
+dokku postgres:export aqueousband.com > now.sql.bak
 ```
 
-Then sftp/scp it down. Might need to gzip eventually!
+Restoring:
+
+```
+pg_restore -d skyway_development now.sql.bak
+```
 
 ### Updating Dokku
 
