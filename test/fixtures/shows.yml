@@ -1,0 +1,5 @@
+first:
+  venue: bar
+  performed_at: 2016-01-01
+  url: https://example.com/awesome-show
+  price: 10

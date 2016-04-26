@@ -36,3 +36,8 @@ group :production do
   gem 'memcachier'
   gem 'dalli'
 end
+
+group :test do
+  gem 'capybara'
+  gem 'launchy'
+end

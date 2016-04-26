@@ -1,6 +1,7 @@
 ENV["RAILS_ENV"] ||= "test"
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
+require 'capybara/rails'
 
 class ActiveSupport::TestCase
   ActiveRecord::Migration.check_pending!
@@ -16,5 +17,14 @@ class ActiveSupport::TestCase
   def parse_show(name, options = {})
     raw_setlist = Rails.root.join("test/fixtures/raw_setlists/#{name}.txt").read
     Parser.parse({raw_setlist: raw_setlist, venue: venues(:bar), performed_at: Date.today}.merge(options))
+  end
+end
+
+class ActionDispatch::IntegrationTest
+  include Capybara::DSL
+
+  def teardown
+    Capybara.reset_sessions!
+    Capybara.use_default_driver
   end
 end
