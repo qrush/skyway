@@ -1,10 +1,11 @@
 require 'test_helper'
 
 class AddSetlistTest < ActionDispatch::IntegrationTest
-  test "adding a setlist" do
-    page.driver.browser.basic_authorize('admin', Skyway.admin_password)
-    visit "/admin"
+  setup do
+    sign_in_as_admin
+  end
 
+  test "adding a setlist" do
     click_link "Setlists"
     click_link "January 1st, 2016"
     click_link "Edit setlist"

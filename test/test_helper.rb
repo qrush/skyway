@@ -23,6 +23,11 @@ end
 class ActionDispatch::IntegrationTest
   include Capybara::DSL
 
+  def sign_in_as_admin
+    page.driver.browser.basic_authorize('admin', Skyway.admin_password)
+    visit "/admin"
+  end
+
   def teardown
     Capybara.reset_sessions!
     Capybara.use_default_driver
