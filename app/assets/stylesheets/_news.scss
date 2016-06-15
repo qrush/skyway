@@ -1,3 +1,17 @@
+#wrapper.fb-wrapper {
+  background: rgba(246,247,249, 0.9);
+
+  .fb-container {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .fb-page {
+    height: 2500px;
+  }
+}
+
 .articles {
   h1 {
     display: none;

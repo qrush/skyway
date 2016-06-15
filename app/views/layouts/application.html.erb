@@ -11,7 +11,7 @@
 
 <%= yield :top %>
 
-<div id="wrapper">
+<div id="wrapper" class="<%= @wrapper_class %>">
   <% flash.each do |name, msg| %>
     <div id="flash_<%= name %>"><span><%= msg %></span></div>
   <% end %>
@@ -37,5 +37,13 @@ try {
 var pageTracker = _gat._getTracker("UA-11671387-1");
 pageTracker._trackPageview();
 } catch(err) {}</script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6&appId=1089482694451127";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 </body>
 </html>
