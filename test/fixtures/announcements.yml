@@ -1,4 +1,4 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  body: "Our new album is almost ready. <a href='https://www.facebook.com/events/333261936839155/'>our CD release party in Buffalo</a>"
+  body: "<img src='http://files.aqueousband.net.s3.amazonaws.com/images/2014/nightlights-2.jpg' />\nOur new album is almost ready. <a href='https://www.facebook.com/events/333261936839155/'>our CD release party in Buffalo</a>"

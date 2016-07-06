@@ -36,7 +36,6 @@ Skyway::Application.routes.draw do
   get "/home" => "home#show"
   get "/setlists" => "home#index"
 
-  get "/sampler", to: redirect('https://aqueous1.bandcamp.com/album/sonic-farm-presents-aqueous-2015-09-26')
   get "/street.php", format: false, to: redirect('/mobilize')
   get "/setlists/setlists.php", format: false, to: redirect('/setlists')
   %w(mike dave evan nick).each do |player|
@@ -67,5 +66,5 @@ Skyway::Application.routes.draw do
 
   root to: "home#show"
 
-  get "/*id" => 'high_voltage/pages#show', as: :page, format: false
+  get "/*id" => 'pages#show', as: :page, format: false
 end
