@@ -8,6 +8,6 @@
 <meta property="og:site_name" content="Aqueous">
 <%= tag :meta, property: "og:url",   content: request.url %>
 <%= tag :meta, property: "og:title", content: @title || "Aqueous - Groove Rock" %>
-<%= tag :meta, property: "og:image", content: @og_image || "http://files.aqueousband.net/images/cycles_albumart.jpg" %>
+<%= tag :meta, property: "og:image", content: @og_image || "https://s3.amazonaws.com/files.aqueousband.net/images/cycles_albumart.jpg" %>
 <%= tag :meta, property: "og:description", content: @og_description if @og_description %>
 <%= tag :meta, property: "og:updated_time", content: @og_updated_time.to_i if @og_updated_time %>
