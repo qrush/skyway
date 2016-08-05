@@ -53,6 +53,7 @@ GEM
     bourbon (4.0.2)
       sass (~> 3.3)
       thor
+    bugsnag (4.2.1)
     builder (3.2.2)
     capybara (2.7.1)
       addressable
@@ -192,6 +193,7 @@ DEPENDENCIES
   aws-sdk
   bitters (~> 0.9.3)
   bourbon (~> 4.0.2)
+  bugsnag
   capybara
   chronic
   coffee-rails
