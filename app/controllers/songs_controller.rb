@@ -3,7 +3,7 @@ class SongsController < ApplicationController
   self.mergeable_class = Song
   self.permitted_params = [:name, :cover, :history, :lyrics]
 
-  before_filter :require_admin, except: [:index, :show]
+  before_action :require_admin, except: [:index, :show]
 
   def index
     @playlist = Playlist.find(params[:order])

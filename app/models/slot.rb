@@ -1,4 +1,4 @@
-class Slot < ActiveRecord::Base
+class Slot < ApplicationRecord
   belongs_to :setlist
   belongs_to :song, touch: true
 

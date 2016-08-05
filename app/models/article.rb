@@ -1,4 +1,4 @@
-class Article < ActiveRecord::Base
+class Article < ApplicationRecord
   validates_presence_of :title, :body, :published_at
 
   scope :undrafted, -> { where(draft: false) }

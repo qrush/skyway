@@ -1,5 +1,5 @@
 class AnnouncementsController < ApplicationController
-  before_filter :require_admin
+  before_action :require_admin
 
   def new
     @announcement = Announcement.new(body: Announcement.last.try(:body))

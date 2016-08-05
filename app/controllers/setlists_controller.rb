@@ -1,5 +1,5 @@
 class SetlistsController < ApplicationController
-  before_filter :require_admin
+  before_action :require_admin
 
   def edit
     @show = find_show_by_performed_at

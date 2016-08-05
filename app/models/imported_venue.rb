@@ -1,4 +1,4 @@
-class ImportedVenue < ActiveRecord::Base
+class ImportedVenue < ApplicationRecord
   belongs_to :import
 
   has_many :imported_shows

@@ -1,4 +1,4 @@
-class Import < ActiveRecord::Base
+class Import < ApplicationRecord
   has_many :imported_shows, dependent: :delete_all
   has_many :imported_venues, dependent: :delete_all
 

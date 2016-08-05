@@ -1,6 +1,6 @@
 class ImportsController < ApplicationController
-  before_filter :require_admin
-  before_filter :require_import, only: [:show, :confirm, :destroy]
+  before_action :require_admin
+  before_action :require_import, only: [:show, :confirm, :destroy]
 
   def new
     @import = Import.new

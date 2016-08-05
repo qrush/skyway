@@ -1,11 +1,11 @@
-require File.expand_path('../boot', __FILE__)
+require_relative 'boot'
 
 require 'rails/all'
 require 'csv'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
-Bundler.require(:default, Rails.env)
+Bundler.require(*Rails.groups)
 
 module Skyway
   class Application < Rails::Application
@@ -22,6 +22,8 @@ module Skyway
     # config.i18n.default_locale = :de
 
     config.active_record.raise_in_transactional_callbacks = true
+
+    config.active_record.time_zone_aware_types = [:datetime]
   end
 
   mattr_accessor :time_zone

@@ -1,4 +1,4 @@
-Skyway::Application.routes.draw do
+Rails.application.routes.draw do
   resource :tour
 
   resources :shows do

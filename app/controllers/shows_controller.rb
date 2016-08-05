@@ -1,5 +1,5 @@
 class ShowsController < ApplicationController
-  before_filter :require_admin, except: [:index, :show, :latest]
+  before_action :require_admin, except: [:index, :show, :latest]
 
   def index
     @year = params[:year] || DateTime.now.year.to_s

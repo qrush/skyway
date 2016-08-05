@@ -1,18 +1,18 @@
 ruby '2.2.3'
 source 'https://rubygems.org'
 
-gem 'rails', '~> 4.1'
+gem 'rails', '~> 5.0'
 gem 'spring', group: 'development'
 gem 'pg'
 
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'uglifier'
 
-gem 'bourbon'
-gem 'bitters'
-gem 'neat'
+gem 'bourbon', '~> 4.0.2'
+gem 'bitters', '~> 0.9.3'
+gem 'neat', '~> 1.6.0'
 
 gem 'dynamic_form'
 gem 'jbuilder'

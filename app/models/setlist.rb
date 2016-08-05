@@ -1,4 +1,4 @@
-class Setlist < ActiveRecord::Base
+class Setlist < ApplicationRecord
   belongs_to :show
   has_many :slots, -> { order position: :asc }, dependent: :destroy
   has_many :songs, through: :slots

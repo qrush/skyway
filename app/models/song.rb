@@ -1,9 +1,9 @@
-class Song < ActiveRecord::Base
+class Song < ApplicationRecord
   include Showable
 
   has_many :slots
   has_many :setlists, through: :slots
-  has_many :shows, -> { uniq.merge(Show.ordered) }, through: :setlists
+  has_many :shows, -> { distinct.merge(Show.ordered) }, through: :setlists
 
   to_param :name
 
