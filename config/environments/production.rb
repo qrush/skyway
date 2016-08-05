@@ -101,5 +101,6 @@ Rails.application.configure do
   }
 
   config.middleware.use Rack::Deflater
-  config.static_cache_control = "public, max-age=31536000"
+
+  config.public_file_server.headers = { 'Cache-Control' => 'public, max-age=31536000' }
 end
