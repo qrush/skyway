@@ -1,0 +1,22 @@
+.attendances {
+  .attendance {
+    text-align: right;
+    border-top: 0;
+
+    a {
+      @include button(simple, rgba(94, 201, 185, 1.0));
+
+      &:visited {
+        color: #333;
+      }
+    }
+
+    [data-attended=true] {
+      @include button(simple, $link-color);
+
+      &:visited {
+        color: #fff;
+      }
+    }
+  }
+}

@@ -1,6 +1,18 @@
 <header class="navigation">
   <div class="navigation-wrapper">
     <a href="/" class="logo"></a>
+    <div class="current-fan">
+      <% if signed_in? %>
+        <%= link_to current_fan.handle, current_fan, class: 'fan-profile', style: "background-image: url('#{current_fan.picture}');" %>
+      <% end %>
+      <%= link_to 'track my shows', attendances_path, class: 'track-shows' %>
+    </div>
+
+    <% if signed_in? %>
+      <a href="https://aqueous.auth0.com/v2/logout?returnTo=<%= auth_logout_url(back_to: request.path) %>" class='auth-button'>log out</a>
+    <% else %>
+      <a href="#" onclick="skyway.lock.show()" class='auth-button'>log in</a>
+    <% end %>
     <a href="" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
     <div class="nav">
       <ul id="navigation-menu">

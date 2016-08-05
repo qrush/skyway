@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160222183200) do
+ActiveRecord::Schema.define(version: 20160805174644) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +32,31 @@ ActiveRecord::Schema.define(version: 20160222183200) do
     t.string   "facebook_image_url"
   end
 
+  create_table "attendances", force: :cascade do |t|
+    t.integer "fan_id"
+    t.integer "show_id"
+    t.index ["fan_id", "show_id"], name: "index_attendances_on_fan_id_and_show_id", unique: true, using: :btree
+    t.index ["fan_id"], name: "index_attendances_on_fan_id", using: :btree
+    t.index ["show_id"], name: "index_attendances_on_show_id", using: :btree
+  end
+
+  create_table "fans", force: :cascade do |t|
+    t.string   "handle"
+    t.string   "picture"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["handle"], name: "index_fans_on_handle", using: :btree
+  end
+
+  create_table "identities", force: :cascade do |t|
+    t.string   "user_id",    null: false
+    t.integer  "fan_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["fan_id"], name: "index_identities_on_fan_id", using: :btree
+    t.index ["user_id"], name: "index_identities_on_user_id", using: :btree
+  end
+
   create_table "imported_shows", force: :cascade do |t|
     t.date     "performed_at"
     t.time     "starts_at"
@@ -43,9 +67,8 @@ ActiveRecord::Schema.define(version: 20160222183200) do
     t.integer  "import_id"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.index ["performed_at"], name: "index_imported_shows_on_performed_at", unique: true, using: :btree
   end
-
-  add_index "imported_shows", ["performed_at"], name: "index_imported_shows_on_performed_at", unique: true, using: :btree
 
   create_table "imported_venues", force: :cascade do |t|
     t.string   "name",       null: false
@@ -68,9 +91,8 @@ ActiveRecord::Schema.define(version: 20160222183200) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name",       limit: 255
+    t.index ["show_id"], name: "index_setlists_on_show_id", using: :btree
   end
-
-  add_index "setlists", ["show_id"], name: "index_setlists_on_show_id", using: :btree
 
   create_table "shows", force: :cascade do |t|
     t.integer  "venue_id"
@@ -90,12 +112,11 @@ ActiveRecord::Schema.define(version: 20160222183200) do
     t.time     "starts_at"
     t.text     "extra_notes"
     t.boolean  "featured",                        default: false, null: false
+    t.index ["embeds"], name: "index_shows_on_embeds", using: :btree
+    t.index ["notes"], name: "index_shows_on_notes", using: :gin
+    t.index ["performed_at"], name: "index_shows_on_performed_at", using: :btree
+    t.index ["venue_id"], name: "index_shows_on_venue_id", using: :btree
   end
-
-  add_index "shows", ["embeds"], name: "index_shows_on_embeds", using: :btree
-  add_index "shows", ["notes"], name: "index_shows_on_notes", using: :gin
-  add_index "shows", ["performed_at"], name: "index_shows_on_performed_at", using: :btree
-  add_index "shows", ["venue_id"], name: "index_shows_on_venue_id", using: :btree
 
   create_table "slots", force: :cascade do |t|
     t.integer  "setlist_id"
@@ -105,11 +126,10 @@ ActiveRecord::Schema.define(version: 20160222183200) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "notes",      limit: 255, default: [],                 array: true
+    t.index ["notes"], name: "index_slots_on_notes", using: :gin
+    t.index ["setlist_id"], name: "index_slots_on_setlist_id", using: :btree
+    t.index ["song_id"], name: "index_slots_on_song_id", using: :btree
   end
-
-  add_index "slots", ["notes"], name: "index_slots_on_notes", using: :gin
-  add_index "slots", ["setlist_id"], name: "index_slots_on_setlist_id", using: :btree
-  add_index "slots", ["song_id"], name: "index_slots_on_song_id", using: :btree
 
   create_table "songs", force: :cascade do |t|
     t.string   "name",        limit: 255,                 null: false
@@ -119,10 +139,9 @@ ActiveRecord::Schema.define(version: 20160222183200) do
     t.integer  "shows_count",             default: 0,     null: false
     t.text     "lyrics"
     t.text     "history"
+    t.index ["name"], name: "index_songs_on_name", unique: true, using: :btree
+    t.index ["shows_count"], name: "index_songs_on_shows_count", using: :btree
   end
-
-  add_index "songs", ["name"], name: "index_songs_on_name", unique: true, using: :btree
-  add_index "songs", ["shows_count"], name: "index_songs_on_shows_count", using: :btree
 
   create_table "venues", force: :cascade do |t|
     t.string   "name",       limit: 255, null: false
@@ -135,9 +154,8 @@ ActiveRecord::Schema.define(version: 20160222183200) do
     t.string   "facebook",   limit: 255
     t.float    "latitude"
     t.float    "longitude"
+    t.index ["latitude", "longitude"], name: "index_venues_on_latitude_and_longitude", using: :btree
+    t.index ["name"], name: "index_venues_on_name", using: :btree
   end
-
-  add_index "venues", ["latitude", "longitude"], name: "index_venues_on_latitude_and_longitude", using: :btree
-  add_index "venues", ["name"], name: "index_venues_on_name", using: :btree
 
 end

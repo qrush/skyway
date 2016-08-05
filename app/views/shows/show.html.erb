@@ -2,12 +2,6 @@
 
 <%= render "searches/form" %>
 
-<p class="setlist-actions">
-  <button data-clipboard-text="Just because you can doesn't mean you should — clipboard.js">
-    Copy setlist
-  </button>
-</p>
-
 <%= render @show, embeds: true %>
 
 <p class="pager">
@@ -25,3 +19,8 @@
   <meta property="og:description" content="<%= @show.simple_setlist %>">
 <% end %>
 
+<p class="setlist-actions">
+  <button data-clipboard-text="Just because you can doesn't mean you should — clipboard.js">
+    Copy setlist
+  </button>
+</p>

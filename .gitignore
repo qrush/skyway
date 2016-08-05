@@ -4,3 +4,4 @@
 *.json
 public/system
 *.sql*
+.powenv

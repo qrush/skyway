@@ -15,6 +15,17 @@ header.navigation {
   $navigation-submenu-width: 12em;
   $horizontal-bar-mode: $large-screen;
 
+  @mixin nav-button {
+    color: $navigation-color;
+    display: block;
+    font-family: $sans-serif;
+    font-weight: 700;
+    text-shadow: 0px 0px 4px #000;
+    &:hover {
+      color: $navigation-color;
+    }
+  }
+
   width: 100%;
   z-index: 999;
 
@@ -67,23 +78,62 @@ header.navigation {
   // Mobile view
 
   .navigation-menu-button {
-    color: $navigation-color;
-    display: block;
+    @include nav-button;
+    text-transform: uppercase;
     float: right;
-    font-family: $sans-serif;
-    font-weight: 700;
-    line-height: $navigation-height;
     margin: 0;
     padding-right: 1em;
-    text-transform: uppercase;
-    text-shadow: 0px 0px 4px #000;
+    line-height: $navigation-height;
 
     @include media ($horizontal-bar-mode) {
       display: none;
     }
 
-    &:hover {
-      color: $navigation-color;
+  }
+
+  .auth-button {
+    @include nav-button;
+    float: left;
+    margin: 0;
+    padding-left: 1em;
+    text-decoration: underline;
+    margin-top: 1em;
+
+    @include media ($horizontal-bar-mode) {
+      position: absolute;
+      top: 5em;
+      right: 0.5em;
+      margin-top: 0;
+    }
+  }
+
+  .current-fan {
+    float: left;
+    margin-top: 1em;
+    @include media ($horizontal-bar-mode) {
+      position: absolute;
+      top: 5em;
+      left: 0.5em;
+      margin-top: 0;
+    }
+  }
+
+  .fan-profile {
+    @include nav-button;
+    text-decoration: underline;
+    background-position: left center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding-left: 30px;
+  }
+
+  .track-shows {
+    @include nav-button;
+    text-decoration: underline;
+    display: none;
+
+    @include media ($horizontal-bar-mode) {
+      display: block;
     }
   }
 

@@ -1,0 +1,24 @@
+<% @title = "what shows have you been to?" %>
+
+<table class="attendances table-minimal">
+  <thead>
+    <tr>
+      <th class='attendance'></th>
+      <th>Date</th>
+      <th>Venue</th>
+      <th>City</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @shows.each do |show| %>
+      <tr>
+        <td class='attendance'>
+          <%= link_to_attend @attended_shows, show %>
+        </td>
+        <td><%= link_to show.when, show %></td>
+        <td><%= link_to show.venue.name, show.venue %></td>
+        <td><%= show.venue.location %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

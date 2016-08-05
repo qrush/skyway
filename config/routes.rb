@@ -9,6 +9,9 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :attendances
+  resources :fans
+
   resources :songs do
     member do
       patch :merge
@@ -63,6 +66,10 @@ Rails.application.routes.draw do
   }
 
   get "/:page.php", format: false, to: redirect('/%{page}')
+
+  get "/auth/auth0/callback" => "auth0#callback"
+  get "/auth/failure" => "auth0#failure"
+  get "/auth/logout" => "auth0#logout"
 
   root to: "home#show"
 
