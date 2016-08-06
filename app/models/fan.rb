@@ -5,6 +5,10 @@ class Fan < ApplicationRecord
   has_many :shows, through: :attendances
   has_many :songs, through: :shows
 
+  def performed_shows
+    @performed_shows ||= shows.performed
+  end
+
   def shows_count
     @shows_count ||= shows.count
   end

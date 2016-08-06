@@ -38,7 +38,9 @@
   <h3 class="type">Setlists seen</h3>
 
   <% if @fan.shows_count > 0 %>
-    <%= render @fan.shows.performed %>
+    <%= cache @fan.performed_shows do %>
+      <%= render @fan.performed_shows %>
+    <% end %>
   <% else %>
     <p>
       Haven't been to any shows yet!
@@ -50,10 +52,12 @@
   <h3 class="type">Songs seen</h3>
 
   <% if @fan.shows_count > 0 %>
-    <% @fan.songs_seen.each do |song| %>
-      <p>
-        <span><%= song.attended_count %></span> ⟶ <%= link_to(song.name, song, class: song.version) %>
-      </p>
+    <%= cache @fan.songs do %>
+      <% @fan.songs_seen.each do |song| %>
+        <p>
+          <span><%= song.attended_count %></span> ⟶ <%= link_to(song.name, song, class: song.version) %>
+        </p>
+      <% end %>
     <% end %>
   <% else %>
     <p>
