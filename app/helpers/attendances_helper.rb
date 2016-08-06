@@ -3,7 +3,7 @@ module AttendancesHelper
   ATTENDED_FALSE_TEXT = 'I attended this show'.freeze
 
   def link_to_attend(attended_shows, show)
-    return link_to(ATTENDED_FALSE_TEXT, '#', onclick: 'skyway.lock.show()') unless signed_in?
+    return link_to(ATTENDED_FALSE_TEXT, '#', onclick: 'skyway.lock.show()', data: { attended: false }) unless signed_in?
 
     attended = attended_shows.include?(show)
      link_to attended ? ATTENDED_TRUE_TEXT : ATTENDED_FALSE_TEXT,

@@ -1,6 +1,6 @@
-.attendances .attendance {
+.attendances-index .attendance {
+  border-top: 0 !important;
   text-align: right;
-  border-top: 0;
 }
 
 .shows-show .attendance {
@@ -29,22 +29,42 @@
   a[data-attended] {
     display: block;
     text-align: center;
+    text-decoration: none !important;
   }
 }
 
 a[data-attended] {
   @include button(simple, rgba(94, 201, 185, 1.0));
+  padding: 2px;
+  display: block;
+  font-size: 0.8em;
+  text-align: center;
 
-  &:visited {
-    color: #333;
+  @include media (large-screen) {
+    padding: 7px 18px;
+    font-size: inherit;
+  }
+
+  &:hover, &:visited {
+    color: #333 !important;
+    text-decoration: none !important;
   }
 }
 
 a[data-attended=true] {
   @include button(simple, $link-color);
+  padding: 2px;
+  display: block;
+  font-size: 0.8em;
 
-  &:visited {
-    color: #fff;
+  @include media (large-screen) {
+    padding: 7px 18px;
+    font-size: inherit;
+  }
+
+  &:hover, &:visited {
+    color: #fff !important;
+    text-decoration: none !important;
   }
 }
 
