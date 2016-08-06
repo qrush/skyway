@@ -29,7 +29,7 @@ gem 'geocoder'
 gem 'omniauth'
 gem 'omniauth-auth0'
 
-group :production do
+group :production, :staging do
   # Bumping some unicorn deps so the app builds on 2.2.0
   gem 'unicorn'
   gem 'kgio', '~> 2.9.3'
