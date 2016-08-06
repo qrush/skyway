@@ -15,8 +15,8 @@
       <span>first show attended</span>
     </p>
     <p class="grid-item">
-      <em><%= @fan.shows_since_debut %></em>
-      <span><%= 'show'.pluralize(@fan.shows_since_debut) %> since last show</span>
+      <em><%= @fan.shows_since_last_show %></em>
+      <span><%= 'show'.pluralize(@fan.shows_since_last_show) %> since last show</span>
     </p>
   <% else %>
     <p class="grid-item">

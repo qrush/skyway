@@ -21,8 +21,8 @@ class Fan < ApplicationRecord
     @debut_show ||= shows.ordered.last
   end
 
-  def shows_since_debut
-    @shows_since_debut ||= Show.before_today.where("performed_at > ?", debut_show.performed_at).count
+  def shows_since_last_show
+    @shows_since_last_show ||= Show.before_today.where("performed_at > ?", shows.ordered.first.performed_at).count
   end
 
   def to_param
