@@ -34,7 +34,7 @@
   </p>
 </div>
 
-<div class="latest">
+<div class="setlists">
   <h3 class="type">Setlists seen</h3>
 
   <% if @fan.shows_count > 0 %>
@@ -45,6 +45,23 @@
     </p>
   <% end %>
 </div>
+
+<div class="songs">
+  <h3 class="type">Songs seen</h3>
+
+  <% if @fan.shows_count > 0 %>
+    <% @fan.songs_seen.each do |song| %>
+      <p>
+        <span><%= song.attended_count %></span> ⟶ <%= link_to(song.name, song, class: song.version) %>
+      </p>
+    <% end %>
+  <% else %>
+    <p>
+      Haven't seen any songs yet!
+    </p>
+  <% end %>
+</div>
+
 
 <% if signed_in? && current_fan == @fan %>
   <p>

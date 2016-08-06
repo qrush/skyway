@@ -4,7 +4,8 @@ class Show < ApplicationRecord
 
   belongs_to :venue
   has_many :setlists, -> { order position: :asc }, dependent: :destroy
-  has_many :songs, through: :setlists
+  has_many :unordered_setlists, class_name: 'Setlist'
+  has_many :songs, through: :unordered_setlists
   has_many :attendances
   has_many :fans, through: :attendances
 

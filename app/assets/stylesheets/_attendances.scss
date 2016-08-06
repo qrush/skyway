@@ -47,3 +47,24 @@ a[data-attended=true] {
     color: #fff;
   }
 }
+
+body.fans-show {
+  article {
+    @include outer-container;
+
+    @include media($medium-screen) {
+      .setlists {
+        @include span-columns(7);
+      }
+
+      .songs {
+        @include span-columns(5);
+        @include omega();
+      }
+    }
+
+    .songs span {
+      font-size: 1.0em;
+    }
+  }
+}

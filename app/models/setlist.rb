@@ -1,7 +1,8 @@
 class Setlist < ApplicationRecord
   belongs_to :show
   has_many :slots, -> { order position: :asc }, dependent: :destroy
-  has_many :songs, through: :slots
+  has_many :unordered_slots, class_name: 'Slot'
+  has_many :songs, through: :unordered_slots
 
   def cache_key
     [super, *slots.map(&:cache_key)].join("-")
