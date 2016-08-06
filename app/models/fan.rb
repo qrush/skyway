@@ -18,7 +18,7 @@ class Fan < ApplicationRecord
   end
 
   def debut_show
-    @debut_show ||= shows.last
+    @debut_show ||= shows.ordered.last
   end
 
   def shows_since_debut
