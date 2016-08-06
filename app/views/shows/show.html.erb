@@ -2,6 +2,21 @@
 
 <%= render "searches/form" %>
 
+<div class="attendance">
+  <h4>Who was there?</h4>
+  <% @show.fans.each do |fan| %>
+    <%= link_to fan, class: 'fan-profile' do %>
+      <%= image_tag fan.picture %>
+    <% end %>
+  <% end %>
+  <% if @show.fans.empty? %>
+    <p>
+      No fans have tracked this show yet! Be the first:
+    </p>
+  <% end %>
+  <%= link_to_attend current_fan.shows, @show %>
+</div>
+
 <%= render @show, embeds: true %>
 
 <p class="pager">

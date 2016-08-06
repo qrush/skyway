@@ -1,22 +1,49 @@
-.attendances {
-  .attendance {
-    text-align: right;
-    border-top: 0;
+.attendances .attendance {
+  text-align: right;
+  border-top: 0;
+}
 
-    a {
-      @include button(simple, rgba(94, 201, 185, 1.0));
+.shows-show .attendance {
+  @include media ($large-screen) {
+    float: right;
+    padding-left: 1em;
+    padding-bottom: 1em;
+    width: 14em;
+  }
 
-      &:visited {
-        color: #333;
-      }
-    }
+  h4 {
+    font-size: 1.3em;
+    margin-bottom: 3px;
+    color: gray;
+  }
 
-    [data-attended=true] {
-      @include button(simple, $link-color);
+  p {
+    font-size: 0.9em;
+    color: gray;
+  }
 
-      &:visited {
-        color: #fff;
-      }
-    }
+  .fan-profile {
+    display: inline-block;
+  }
+
+  a[data-attended] {
+    display: block;
+    text-align: center;
+  }
+}
+
+a[data-attended] {
+  @include button(simple, rgba(94, 201, 185, 1.0));
+
+  &:visited {
+    color: #333;
+  }
+}
+
+a[data-attended=true] {
+  @include button(simple, $link-color);
+
+  &:visited {
+    color: #fff;
   }
 }

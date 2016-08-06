@@ -6,6 +6,7 @@ class Show < ApplicationRecord
   has_many :setlists, -> { order position: :asc }, dependent: :destroy
   has_many :songs, through: :setlists
   has_many :attendances
+  has_many :fans, through: :attendances
 
   has_attached_file :banner,
     styles: {fit: "1056x200#"},
