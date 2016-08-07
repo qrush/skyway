@@ -35,6 +35,7 @@ class Show < ApplicationRecord
       self.banner = show.banner if !self.banner? && show.banner?
       self.venue = show.venue
       self.performed_at = show.performed_at
+      self.attendances += show.attendances
       save!
       show.destroy
     end
