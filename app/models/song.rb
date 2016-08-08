@@ -5,6 +5,8 @@ class Song < ApplicationRecord
   has_many :setlists, through: :slots
   has_many :shows, -> { distinct.merge(Show.ordered) }, through: :setlists
 
+  attr_accessor :attended_count
+
   to_param :name
 
   scope :with_shows, -> { includes(:shows) }

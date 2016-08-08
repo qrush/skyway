@@ -4,6 +4,10 @@ class Show < ApplicationRecord
 
   belongs_to :venue
   has_many :setlists, -> { order position: :asc }, dependent: :destroy
+  has_many :unordered_setlists, class_name: 'Setlist'
+  has_many :songs, through: :unordered_setlists
+  has_many :attendances
+  has_many :fans, through: :attendances
 
   has_attached_file :banner,
     styles: {fit: "1056x200#"},
@@ -31,6 +35,7 @@ class Show < ApplicationRecord
       self.banner = show.banner if !self.banner? && show.banner?
       self.venue = show.venue
       self.performed_at = show.performed_at
+      self.attendances += show.attendances
       save!
       show.destroy
     end

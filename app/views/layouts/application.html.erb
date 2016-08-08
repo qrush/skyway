@@ -45,5 +45,24 @@ pageTracker._trackPageview();
   js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6&appId=1089482694451127";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
+<script src="https://cdn.auth0.com/js/lock/10.0/lock.min.js"></script>
+<script type="text/javascript">
+  skyway.lock = new Auth0Lock('11k3425sZHs3rLahHqNBRUTYDKcQasm9', 'aqueous.auth0.com', {
+    auth: {
+      redirectUrl: '<%= auth_auth0_callback_url(back_to: request.path) %>',
+      responseType: 'code',
+      params: {
+        scope: 'openid email' // Learn about scopes: https://auth0.com/docs/scopes
+      }
+    },
+    autoclose: true,
+    theme: {
+      logo: '<%= asset_url "logo_black.png" %>'
+    },
+    languageDictionary: {
+      title: "Aqueous"
+    },
+  });
+</script>
 </body>
 </html>

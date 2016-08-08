@@ -1,0 +1,90 @@
+.attendances-index .attendance {
+  border-top: 0 !important;
+  text-align: right;
+}
+
+.shows-show .attendance {
+  @include media ($large-screen) {
+    float: right;
+    padding-left: 1em;
+    padding-bottom: 1em;
+    width: 14em;
+  }
+
+  h4 {
+    font-size: 1.3em;
+    margin-bottom: 3px;
+    color: gray;
+  }
+
+  p {
+    font-size: 0.9em;
+    color: gray;
+  }
+
+  .fan-profile {
+    display: inline-block;
+  }
+
+  a[data-attended] {
+    display: block;
+    text-align: center;
+    text-decoration: none !important;
+  }
+}
+
+a[data-attended] {
+  @include button(simple, rgba(94, 201, 185, 1.0));
+  padding: 2px;
+  display: block;
+  font-size: 0.8em;
+  text-align: center;
+
+  @include media (large-screen) {
+    padding: 7px 18px;
+    font-size: inherit;
+  }
+
+  &:hover, &:visited {
+    color: #333 !important;
+    text-decoration: none !important;
+  }
+}
+
+a[data-attended=true] {
+  @include button(simple, $link-color);
+  padding: 2px;
+  display: block;
+  font-size: 0.8em;
+
+  @include media (large-screen) {
+    padding: 7px 18px;
+    font-size: inherit;
+  }
+
+  &:hover, &:visited {
+    color: #fff !important;
+    text-decoration: none !important;
+  }
+}
+
+body.fans-show {
+  article {
+    @include outer-container;
+
+    @include media($medium-screen) {
+      .setlists {
+        @include span-columns(7);
+      }
+
+      .songs {
+        @include span-columns(5);
+        @include omega();
+      }
+    }
+
+    .songs span {
+      font-size: 1.0em;
+    }
+  }
+}

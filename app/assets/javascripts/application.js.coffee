@@ -4,6 +4,7 @@
 #= require clipboard.min
 #= require_self
 
+#= require attended
 #= require highlight
 #= require menu
 #= require spark

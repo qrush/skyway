@@ -2,11 +2,20 @@
 
 <%= render "searches/form" %>
 
-<p class="setlist-actions">
-  <button data-clipboard-text="Just because you can doesn't mean you should — clipboard.js">
-    Copy setlist
-  </button>
-</p>
+<div class="attendance">
+  <h4>Who was there?</h4>
+  <% @show.fans.each do |fan| %>
+    <%= link_to fan, class: 'fan-profile' do %>
+      <%= image_tag fan.picture %>
+    <% end %>
+  <% end %>
+  <% if @show.fans.empty? %>
+    <p>
+      No fans have tracked this show yet! Be the first:
+    </p>
+  <% end %>
+  <%= link_to_attend current_fan.shows, @show %>
+</div>
 
 <%= render @show, embeds: true %>
 
@@ -25,3 +34,8 @@
   <meta property="og:description" content="<%= @show.simple_setlist %>">
 <% end %>
 
+<p class="setlist-actions">
+  <button data-clipboard-text="Just because you can doesn't mean you should — clipboard.js">
+    Copy setlist
+  </button>
+</p>

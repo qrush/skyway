@@ -26,7 +26,10 @@ gem 'kramdown'
 gem 'simple_mercator_location'
 gem 'geocoder'
 
-group :production do
+gem 'omniauth'
+gem 'omniauth-auth0'
+
+group :production, :staging do
   # Bumping some unicorn deps so the app builds on 2.2.0
   gem 'unicorn'
   gem 'kgio', '~> 2.9.3'

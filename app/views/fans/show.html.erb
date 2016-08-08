@@ -1,0 +1,74 @@
+<% @title = "stats for #{@fan.handle}" %>
+
+<div class="grid-items">
+  <p class="grid-item">
+    <em><%= @fan.shows_count %></em>
+    <span><%= 'show'.pluralize(@fan.shows_count) %> attended</span>
+  </p>
+  <p class="grid-item">
+    <em><%= @fan.shows_this_year_count %></em>
+    <span><%= 'show'.pluralize(@fan.shows_this_year_count) %> in <%= Date.today.year %> attended</span>
+  </p>
+  <% if @fan.debut_show %>
+    <p class="grid-item">
+      <em><%= @fan.debut_show.short_when %></em>
+      <span>first show attended</span>
+    </p>
+    <p class="grid-item">
+      <em><%= @fan.shows_since_last_show %></em>
+      <span><%= 'show'.pluralize(@fan.shows_since_last_show) %> since last show</span>
+    </p>
+  <% else %>
+    <p class="grid-item">
+      <em>soon!</em>
+      <span>first show attended</span>
+    </p>
+    <p class="grid-item">
+      <em><%= Show.count %></em>
+      <span>shows since last show</span>
+    </p>
+  <% end %>
+  <p class="grid-item">
+    <em><%= @fan.songs_count %></em>
+    <span><%= 'song'.pluralize(@fan.songs_count) %> seen live</span>
+  </p>
+</div>
+
+<div class="setlists">
+  <h3 class="type">Setlists seen</h3>
+
+  <% if @fan.shows_count > 0 %>
+    <%= cache @fan.performed_shows do %>
+      <%= render @fan.performed_shows %>
+    <% end %>
+  <% else %>
+    <p>
+      Haven't been to any shows yet!
+    </p>
+  <% end %>
+</div>
+
+<div class="songs">
+  <h3 class="type">Songs seen</h3>
+
+  <% if @fan.shows_count > 0 %>
+    <%= cache @fan.songs do %>
+      <% @fan.songs_seen.each do |song| %>
+        <p>
+          <span><%= song.attended_count %></span> ⟶ <%= link_to(song.name, song, class: song.version) %>
+        </p>
+      <% end %>
+    <% end %>
+  <% else %>
+    <p>
+      Haven't seen any songs yet!
+    </p>
+  <% end %>
+</div>
+
+
+<% if signed_in? && current_fan == @fan %>
+  <p>
+    <%= link_to "Track the shows you've been to!", attendances_path %>
+  </p>
+<% end %>
