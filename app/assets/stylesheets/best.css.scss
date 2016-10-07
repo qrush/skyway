@@ -7,11 +7,19 @@
 @import "neat";
 @import "footer";
 
-// http://www.colourlovers.com/palette/1867884/Chinese_Menu
-
 $background-color: #c0cdc5;
 $text-color: #483E2B;
 $max-width: 75em;
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: asset-url('PlayfairDisplay-Bold.eot');
+  src: asset-url('PlayfairDisplay-Bold.eot?#iefix') format('embedded-opentype'),
+       asset-url('PlayfairDisplay-Bold.woff') format('woff'),
+       asset-url('PlayfairDisplay-Bold.ttf') format('truetype');
+       font-weight: bold;
+       font-style: normal;
+}
 
 body {
   background: $background-color asset-url("cork-wallet.png") repeat;
@@ -53,9 +61,12 @@ h2, h3, h5 {
   font-family: 'Raleway', sans-serif;
 }
 
-h2 {
-  font-size: 1.2em;
-  margin-bottom: 1em;
+article.type-system-sans h2 {
+  font-family: 'Playfair Display';
+  font-size: 4em;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #747470;
 }
 
 h3 {
@@ -185,8 +196,8 @@ a#dogs {
     position: fixed;
     bottom: -75px;
     z-index: 99;
-    width: 650px;
-    height: 650px;
+    width: 600px;
+    height: 600px;
     right: 0;
   }
 
