@@ -160,4 +160,38 @@ article {
 
 footer {
   font-size: 75%;
+
+  p, ul, aside, #mc_embed_signup {
+    text-align: left;
+  }
+
+  p a {
+    background-position: left center;
+  }
+
+  ul li {
+    padding-left: 0;
+  }
+}
+
+a#dogs {
+  background: asset-url("dogs.png") no-repeat left center;
+  background-size: contain;
+  text-indent: -9999px;
+  display: block;
+  height: 0px;
+
+  @include media($large-screen) {
+    position: fixed;
+    bottom: -75px;
+    z-index: 99;
+    width: 650px;
+    height: 650px;
+    right: 0;
+  }
+
+  &:hover {
+    @include transition(all 0.3s ease-in-out);
+    bottom: -50px;
+  }
 }

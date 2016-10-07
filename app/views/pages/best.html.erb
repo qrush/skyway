@@ -1,12 +1,10 @@
 <% @title = "Best in Show" %>
 
 <%= link_to "<h1>Aqueous</h1>".html_safe, root_path, id: "root" %>
-<h2>Est. 2006 &mdash; Buffalo, NY</h2>
-
-<h3>Best in Show</h3>
+<h2>Best in Show</h2>
 
 <p>
-  Recorded live at Penuche's in Manchester, NH on May 13th, 2016. <%= link_to "Download them all!", "https://s3.amazonaws.com/files.aqueousband.net/sampler/2016/2016.zip", id: "download" %>
+  Our latest EP! <%= link_to "Download them all!", "https://s3.amazonaws.com/files.aqueousband.net/sampler/2016/2016.zip", id: "download" %>
 </p>
 
 <div id="mediaplayer"></div>
@@ -37,6 +35,8 @@
 <p>
   <%= link_to "Learn more about us", page_path("about") %>, <%= link_to "buy some swag", "http://aqueous1.bandcamp.com/merch" %>, or <%= link_to "come see us play sometime", tour_path %>.<br />Thanks for listening.
 </p>
+
+<a href="https://soundcloud.com/aqueousband" id="dogs">more</a>
 
 <%= content_for :footer do %>
   <br /><small><a href="https://thenounproject.com/artworkbean">Icons by artworkbean</a> from the Noun Project</small>
