@@ -17,6 +17,7 @@ gem 'neat', '~> 1.6.0'
 gem 'dynamic_form'
 gem 'jbuilder'
 gem 'rack-rewrite'
+gem 'rack-cors'
 gem 'chronic'
 
 gem 'paperclip'
