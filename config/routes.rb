@@ -71,7 +71,8 @@ Rails.application.routes.draw do
   get "/auth/failure" => "auth0#failure"
   get "/auth/logout" => "auth0#logout"
 
-  root to: redirect(path: "/bestinshow", status: 302)
+  root to: 'home#show'
+  # root to: redirect(path: "/bestinshow", status: 302)
 
   get "/*id" => 'pages#show', as: :page, format: false
 end

@@ -1,12 +1,20 @@
 <% @title = "Best in Show" %>
 
+<%= link_to 'continue to full site »', home_path, id: 'home' %>
+
 <%= link_to page_path('bestinshow'), id: "root" do %>
   <h1>Best in Show</h1>
 <% end %>
 <h2>Aqueous</h2>
 
+<a href="https://soundcloud.com/aqueousband" id="dogs">more</a>
+
 <p>
-  Our latest EP, 4 well-selected tracks we've pampered for your delight.<br />Take one for a trial:
+  Our latest EP, 4 well-selected tracks we've pampered for your delight.
+</p>
+
+<p>
+  Take one for a trial:
 </p>
 
 <div id="mediaplayer"></div>
@@ -21,10 +29,11 @@
 </article>
 
 <p>
-  <%= link_to "Learn more about us", page_path("about") %>, <%= link_to "buy some swag", "http://aqueous1.bandcamp.com/merch" %>, or <%= link_to "come see us play sometime", tour_path %>.<br />Thanks for listening.
+  <%= link_to "Learn more about us", page_path("about") %>, <%= link_to "buy some swag", "http://aqueous1.bandcamp.com/merch" %>, or <%= link_to "come see us play sometime", tour_path %>.
 </p>
-
-<a href="https://soundcloud.com/aqueousband" id="dogs">more</a>
+<p>
+  Thanks for listening. 
+</p>
 
 <%= content_for :footer do %>
   <br /><small><a href="https://thenounproject.com/artworkbean">Icons by artworkbean</a> from the Noun Project</small>
