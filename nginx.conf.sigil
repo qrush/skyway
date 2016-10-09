@@ -8,9 +8,10 @@ server {
 
   return 301 https://$host:443$request_uri;
 }
+
 server {
-  listen      [::]:443 ssl spdy;
-  listen      443 ssl spdy;
+  listen      [::]:443 ssl http2;
+  listen      443 ssl http2;
   {{ if .SSL_SERVER_NAME }}server_name {{ .SSL_SERVER_NAME }}; {{ end }}
 
   access_log  /var/log/nginx/{{ .APP }}-access.log;
@@ -20,7 +21,6 @@ server {
   ssl_certificate_key {{ .APP_SSL_PATH }}/server.key;
 
   keepalive_timeout   70;
-  add_header          Alternate-Protocol  443:npn-spdy/2;
 
   location    / {
     gzip on;
