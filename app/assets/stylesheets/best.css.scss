@@ -10,6 +10,7 @@
 $background-color: #c0cdc5;
 $text-color: #483E2B;
 $max-width: 75em;
+$font-family: 'Neutra Display Alt', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 
 @font-face {
   font-family: 'Playfair Display';
@@ -21,9 +22,20 @@ $max-width: 75em;
        font-style: normal;
 }
 
+@font-face {
+  font-family: 'Neutra Display Alt';
+  src: url('NeutraDisp-LightAlt.eot');
+  src: url('NeutraDisp-LightAlt.eot?#iefix') format('embedded-opentype'),
+       url('NeutraDisp-LightAlt.woff') format('woff'),
+       url('NeutraDisp-LightAlt.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+
 body {
   background: $background-color asset-url("cork-wallet.png") repeat;
-  font-family: 'Oxygen', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-family: $font-family;
 }
 
 #wrapper {
@@ -44,29 +56,26 @@ h1, h2, h3 {
 }
 
 h1 {
-  @include filter(sepia(100%) brightness(0.3) opacity(95%));
-  background: asset-url("biglogo_white@2x.png") no-repeat left center;
-  background-size: contain;
-  text-indent: -9999px;
-  width: 100%;
-  margin-top: 0.5em;
-  height: 3em;
-
-  @include media($large-screen) {
-    height: 3em;
-  }
-}
-
-h2, h3, h5 {
-  font-family: 'Raleway', sans-serif;
-}
-
-article.type-system-sans h2 {
   font-family: 'Playfair Display';
-  font-size: 4em;
+  font-size: 6em;
+  letter-spacing: -6px;
   font-weight: bold;
-  margin-bottom: 15px;
+  margin-bottom: 0;
   color: #747470;
+}
+
+#root {
+  text-decoration: none;
+}
+
+h2 {
+  font-family: 'Neutra Display Alt';
+  width: 100%;
+  font-size: 3em;
+  color: #444342;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 1em;
 }
 
 h3 {
@@ -82,8 +91,6 @@ h5 {
 
 dl {
   margin-top: 1em;
-  font-family: 'Raleway', sans-serif;
-
   dt {
     padding-top: 1em;
     padding-bottom: 1em;
@@ -117,23 +124,19 @@ dl {
     margin-bottom: 2em;
   }
 
-  @for $i from 1 through 10 {
-    dt#song#{$i} {
-      background: asset-url("waveforms/song#{$i}.png") no-repeat left center;
-      background-size: contain;
-    }
+  dt#song1 {
+    background: asset-url("waveforms/randomcompany.png") no-repeat left center;
+    background-size: contain;
   }
 }
 
 p {
-  font-size: 1.1em;
-  font-family: 'Raleway', sans-serif;
+  font-size: 1.6em;
   text-align: left;
 }
 
 small {
   font-style: italic;
-  font-size: 80%;
 }
 
 #mediaplayer {
@@ -170,8 +173,6 @@ article {
 }
 
 footer {
-  font-size: 75%;
-
   p, ul, aside, #mc_embed_signup {
     text-align: left;
   }
@@ -182,6 +183,14 @@ footer {
 
   ul li {
     padding-left: 0;
+  }
+
+  input[type="email"], input, label {
+    font-family: $font-family;
+  }
+
+  aside {
+    font-size: 14px;
   }
 }
 

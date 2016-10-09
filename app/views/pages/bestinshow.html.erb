@@ -1,0 +1,31 @@
+<% @title = "Best in Show" %>
+
+<%= link_to page_path('bestinshow'), id: "root" do %>
+  <h1>Best in Show</h1>
+<% end %>
+<h2>Aqueous</h2>
+
+<p>
+  Our latest EP, 4 well-selected tracks we've pampered for your delight.<br />Take one for a trial:
+</p>
+
+<div id="mediaplayer"></div>
+
+<article>
+  <div id="live">
+    <dl>
+      <dt id="song1"><a href="#" data-song="1" data-behavior="play">Random Company</a></dt>
+      <dd><%= link_to "Download", "https://s3.amazonaws.com/files.aqueousband.net/sampler/Best/RandomCompany.mp3", "data-behavior" => "download" %> ~ 8:05 ~ 7.4 MB</dd>
+    </dl>
+  </div>
+</article>
+
+<p>
+  <%= link_to "Learn more about us", page_path("about") %>, <%= link_to "buy some swag", "http://aqueous1.bandcamp.com/merch" %>, or <%= link_to "come see us play sometime", tour_path %>.<br />Thanks for listening.
+</p>
+
+<a href="https://soundcloud.com/aqueousband" id="dogs">more</a>
+
+<%= content_for :footer do %>
+  <br /><small><a href="https://thenounproject.com/artworkbean">Icons by artworkbean</a> from the Noun Project</small>
+<% end %>
