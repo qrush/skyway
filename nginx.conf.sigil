@@ -30,8 +30,6 @@ server {
     gzip_vary on;
     gzip_comp_level  6;
 
-## Start CORS here.  See http://enable-cors.org/server_nginx.html for comments
-
     if (\$http_origin ~* (^https?://.*\.$VHOST$)) {
         set \$cors corson;
     }
@@ -73,7 +71,6 @@ server {
         add_header Content-Type 'text/plain charset=UTF-8';
         return 204;
     }
-### End CORS
 
     proxy_pass  http://{{ .APP }};
     proxy_http_version 1.1;
