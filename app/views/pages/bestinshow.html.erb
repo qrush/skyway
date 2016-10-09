@@ -10,11 +10,7 @@
 <a href="https://soundcloud.com/aqueousband" id="dogs">more</a>
 
 <p>
-  Our latest EP, 4 well-selected tracks we've pampered for your delight.
-</p>
-
-<p>
-  Take one for a trial:
+  Our latest EP, 4 well-selected tracks we've pampered for your delight. Take one for a trial:
 </p>
 
 <div id="mediaplayer"></div>
@@ -29,10 +25,15 @@
 </article>
 
 <p>
-  <%= link_to "Learn more about us", page_path("about") %>, <%= link_to "buy some swag", "http://aqueous1.bandcamp.com/merch" %>, or <%= link_to "come see us play sometime", tour_path %>.
+  Mixed at the wonderful Sonic Farm Studios in Colden, NY. Honed on the road driving all over the Northeast, and sometimes down South or West. This is our Best in Show &mdash; and we hope you'll think so too.
 </p>
+
+<p id='buy'>
+  <%= link_to 'Buy Now: $10', 'https://aqueous1.bandcamp.com/album/sonic-farm-presents-aqueous-live-at-the-mad-tea-party-jam-6-17-16?action=buy&from=embed', target: '_blank' %>
+</p>
+
 <p>
-  Thanks for listening. 
+  <%= link_to "Learn more about us", page_path("about") %>, <%= link_to "buy some swag", "http://aqueous1.bandcamp.com/merch" %>, or <%= link_to "come see us play sometime", tour_path %>. Thanks for listening.
 </p>
 
 <%= content_for :footer do %>

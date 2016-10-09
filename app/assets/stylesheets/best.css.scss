@@ -10,10 +10,11 @@
 $background-color: #c0cdc5;
 $text-color: #483E2B;
 $max-width: 75em;
+$header-font-family: 'Playfair Display';
 $font-family: 'Neutra Display Alt', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 
 @font-face {
-  font-family: 'Playfair Display';
+  font-family: $header-font-family;
   src: asset-url('PlayfairDisplay-Bold.eot');
   src: asset-url('PlayfairDisplay-Bold.eot?#iefix') format('embedded-opentype'),
        asset-url('PlayfairDisplay-Bold.woff') format('woff'),
@@ -145,6 +146,9 @@ dl {
 p {
   font-size: 1.6em;
   text-align: left;
+  @include media($large-screen) {
+    width: 50%;
+  }
 }
 
 small {
@@ -167,13 +171,11 @@ article {
     &:hover {
       color: $link-color;
       text-decoration: none;
-      border-bottom: 1px dashed $link-color;
     }
 
     &#download {
       font-weight: bold;
       text-decoration: none;
-      border-bottom: 1px dashed $link-color;
     }
 
     &[data-behavior~=download] {
@@ -208,6 +210,20 @@ footer {
   }
 }
 
+p#buy {
+  text-align: center;
+  @include media($large-screen) {
+    text-align: left;
+  }
+
+  a {
+    font-family: $header-font-family;
+    @include button(simple, #a88a3f);
+    font-size: 30px;
+    padding: 20px;
+  }
+}
+
 a#home {
   font-size: 20px;
   @include media($large-screen) {
@@ -236,5 +252,9 @@ a#dogs {
     width: 600px;
     height: 600px;
     right: 0;
+  }
+
+  &:hover {
+    border: none;
   }
 }
