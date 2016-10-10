@@ -189,16 +189,18 @@ article {
 }
 
 footer {
-  p, ul, aside, #mc_embed_signup {
-    text-align: left;
-  }
+  @include media($large-screen) {
+    p, ul, aside, #mc_embed_signup {
+      text-align: left;
+    }
 
-  p a {
-    background-position: left center;
-  }
+    p a {
+      background-position: left center;
+    }
 
-  ul li {
-    padding-left: 0;
+    ul li {
+      padding-left: 0;
+    }
   }
 
   input[type="email"], input, label {
