@@ -108,9 +108,11 @@ dl {
     padding-bottom: 1em;
     overflow: hidden;
     font-size: 175%;
+    text-align: center;
 
     @include media($large-screen) {
       font-size: 200%;
+      text-align: left;
     }
 
     a, a:visited {
@@ -135,11 +137,21 @@ dl {
 
   dd {
     margin-bottom: 2em;
+    text-align: center;
+
+    @include media($large-screen) {
+      text-align: left;
+    }
   }
 
   dt#song1 {
-    background: asset-url("waveforms/randomcompany.png") no-repeat left center;
+    background: asset-url("waveforms/randomcompany.png") no-repeat;
     background-size: contain;
+    background-position: center center;
+
+    @include media($large-screen) {
+      background-position: left center;
+    }
   }
 }
 
