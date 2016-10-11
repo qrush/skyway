@@ -142,6 +142,9 @@ dl {
     @include media($large-screen) {
       text-align: left;
     }
+    a {
+      font-size: 18px;
+    }
   }
 
   dt#song1 {
@@ -239,7 +242,7 @@ p#buy {
 }
 
 a#home {
-  font-size: 20px;
+  font-size: 26px;
   @include media($large-screen) {
     position: absolute;
     top: 0;
