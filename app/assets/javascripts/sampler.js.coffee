@@ -7,7 +7,11 @@ jwplayer.key = "RMvgim99iIA6JMnO0pelofjf2EOnWZEAelk/zA=="
 @sampler = {}
 
 $ =>
-  playlist = ({sources: [{file: download.href}]} for download in document.querySelectorAll("[data-behavior~=download]"))
+  if document.querySelector("[data-behavior~=download]")
+    playlist = ({sources: [{file: download.href}]} for download in document.querySelectorAll("[data-behavior~=download]"))
+  else
+    playlist = ({sources: [{file: item.dataset.track}]} for item in document.querySelectorAll("[data-track]"))
+
 
   @sampler.player = jwplayer('mediaplayer').setup
     id: 'playerID'
