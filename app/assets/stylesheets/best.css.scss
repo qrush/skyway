@@ -218,7 +218,13 @@ footer {
     }
   }
 
+  ul li a {
+    font-weight: normal;
+  }
+
   input[type="email"], input, label {
+    font-size: 18px;
+    font-weight: normal;
     font-family: $font-family;
   }
 
