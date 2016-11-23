@@ -9,7 +9,6 @@
 
 <div id="wavebanner" class="banner">
   <%= link_to tour_path do %>
-    The Random Company Tour has begun!
     <% if @week_count.nonzero? %>
       There's <%= pluralize(@week_count, "show") %> this week
     <% end %>
