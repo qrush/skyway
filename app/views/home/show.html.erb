@@ -9,11 +9,8 @@
 
 <div id="wavebanner" class="banner">
   <%= link_to tour_path do %>
-    <% if @week_count.nonzero? %>
-      There's <%= pluralize(@week_count, "show") %> this week
-    <% end %>
-    ➾
-  <% end %>
+    There's <%= pluralize(@week_count, "show") %> this week ➾
+  <% end if @week_count.nonzero? %>
 </div>
 
 <section class="left" id="news">
