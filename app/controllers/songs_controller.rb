@@ -6,8 +6,15 @@ class SongsController < ApplicationController
   before_action :require_admin, except: [:index, :show]
 
   def index
-    @playlist = Playlist.find(params[:order])
-    @show_ids = Show.before_today.order(performed_at: :asc).pluck(:id)
+    respond_to do |format|
+      format.html do
+        @playlist = Playlist.find(params[:order])
+        @show_ids = Show.before_today.order(performed_at: :asc).pluck(:id)
+      end
+      format.csv do
+        render csv: Song.with_shows, filename: "songs-#{Date.today}"
+      end
+    end
   end
 
   def show
