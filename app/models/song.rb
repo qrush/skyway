@@ -47,7 +47,7 @@ class Song < ApplicationRecord
   end
 
   def self.to_csv
-    attributes = %w(name shows_count debut_show_date shows_since_last_play)
+    attributes = %w(name shows_count debut_show_date shows_since_last_play cover)
 
     CSV.generate(headers: true) do |csv|
       csv << attributes
