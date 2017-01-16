@@ -3,6 +3,7 @@ class HomeController < ApplicationController
     @latest_shows   = Show.latest.limit(7)
     @taped_shows    = Show.taped.limit(2)
     @featured_show  = Show.where(featured: true).first
+    @year = DateTime.now.year.to_s
   end
 
   def show
