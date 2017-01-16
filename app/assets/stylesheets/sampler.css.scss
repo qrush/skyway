@@ -14,7 +14,7 @@ $text-color: #483E2B;
 
 body {
   background: $background-color asset-url("groovepaper.png") repeat;
-  font-family: 'Oxygen', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-family: $sans-serif;
 }
 
 #wrapper {

@@ -2,9 +2,8 @@
 <html>
 <head>
   <%= render "layouts/head" %>
-  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
   <%= yield :head %>
-  <link href='https://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
 </head>
 <body class="<%= controller_name %> <%= controller_name %>-<%= controller.action_name %>">
 
@@ -46,6 +45,7 @@ pageTracker._trackPageview();
   js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6&appId=1089482694451127";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
+<!--
 <script src="https://cdn.auth0.com/js/lock/10.0/lock.min.js"></script>
 <script type="text/javascript">
   skyway.lock = new Auth0Lock('11k3425sZHs3rLahHqNBRUTYDKcQasm9', 'aqueous.auth0.com', {
@@ -64,6 +64,42 @@ pageTracker._trackPageview();
       title: "Aqueous"
     },
   });
+</script>
+-->
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "MusicGroup",
+  "url": "https://aqueousband.com/",
+  "sameAs": "https://aqueous1.bandcamp.com/",
+  "name": "Aqueous",
+  "description": "Aqueous is a groove rock band.",
+  "image": "<%= asset_url 'photos/fall2016.jpg' %>",
+  "potentialAction": {
+    "@type": "ListenAction",
+    "target": [
+      {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://soundcloud.com/aqueousband",
+        "actionPlatform": [
+          "http://schema.org/DesktopWebPlatform",
+          "http://schema.org/IOSPlatform",
+          "http://schema.org/AndroidPlatform"
+        ],
+        "InLanguage": "USD"
+      }
+    ],
+    "expectsAcceptanceOf": {
+      "@type": "Offer",
+      "eligibleRegion": [
+        {
+          "@type": "Country",
+          "name": "US"
+        }
+      ]
+    }
+  }
+}
 </script>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <%= csrf_meta_tags %>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <meta name="keywords" content="Aqueous, Band, Aqueous Band, Buffalo, New York, Rock, Jamband, Progessive" />
-<meta name="description" content="Groovy rock band that uses gratifying harmonies and multiple soundscapes to build an intense bond with the crowd through an improvisational foundation." /> 
+<meta name="description" content="Groovy rock band that uses gratifying harmonies and multiple soundscapes to build an intense bond with the crowd through an improvisational foundation." />
 
 <meta property="og:site_name" content="Aqueous">
 <%= tag :meta, property: "og:url",   content: request.url %>
@@ -10,3 +10,5 @@
 <%= tag :meta, property: "og:image", content: @og_image || "https://s3.amazonaws.com/files.aqueousband.net/images/bestinshow_albumart.jpg" %>
 <%= tag :meta, property: "og:description", content: @og_description if @og_description %>
 <%= tag :meta, property: "og:updated_time", content: @og_updated_time.to_i if @og_updated_time %>
+
+<link href='https://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>

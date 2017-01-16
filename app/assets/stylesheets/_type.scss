@@ -1,8 +1,6 @@
 // Refill type system
 
 article.type-system-sans {
-  $sans-serif: 'Oxygen', sans-serif;
-
   @include clearfix;
   text-align: left;
 
@@ -122,7 +120,7 @@ article.type-system-sans {
     img {
       height: 3em;
     }
-  } 
+  }
 
   .footer-links {
     @include clearfix;
@@ -164,7 +162,7 @@ article.type-system-sans {
     font-size: 1em;
     font-weight: 800;
     margin-bottom: .4em;
-  }  
+  }
 
   hr {
     border: 1px solid transparentize($footer-disclaimer-color, .3);

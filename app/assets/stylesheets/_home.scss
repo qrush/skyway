@@ -120,8 +120,20 @@ body.home-show {
     }
   }
 
+  .bit-track-artist-header, .bit-header-narrow, .bit-bottom, .bit-rsvp {
+    display: none !important;
+  }
+
+  .bit-buy-tix {
+    font-size: 16px;
+  }
+
   table {
     margin: 0;
+
+    a {
+      font-family: $sans-serif !important;
+    }
 
     td {
       border-top: 1px solid rgba(204, 204, 204, 0.4);
@@ -133,7 +145,7 @@ body.home-show {
       }
     }
 
-    td:first-child {
+    td:nth-child(2) {
       width: 30%;
       font-weight: 700;
       opacity: 0.5;
@@ -185,7 +197,7 @@ form.search-big {
   margin-bottom: 0;
 
   input[type='search'] {
-    font-family: 'Oxygen', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    font-family: $sans-serif;
     background: $black;
     margin: 0;
     text-align: center;
