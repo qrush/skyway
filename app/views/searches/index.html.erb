@@ -3,7 +3,7 @@
 <% if @search.query.present? %>
   <% @title = "Searching for '#{@search.query}'" %>
 
-  <p class="type">Songs matching '<%= @search.query %>'</p>
+  <p class="type">Songs &amp; lyrics matching '<%= @search.query %>'</p>
 
   <% if @search.songs.present? %>
     <% @search.songs.each do |song| %>

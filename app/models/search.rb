@@ -4,7 +4,7 @@ class Search
 
   def songs
     @songs ||= if @query
-      Song.with_shows.where("name ilike ?", "%#{@query}%").by_name
+      Song.with_shows.where("name ilike :query or lyrics ilike :query", query: "%#{@query}%").by_name
     else
       []
     end
