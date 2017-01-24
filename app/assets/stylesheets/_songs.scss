@@ -33,10 +33,30 @@ body.lyrics-index {
       border-bottom: 1px solid #ddd;
       padding-bottom: 15px;
     }
+
     em {
       font-style: italic;
       font-weight: normal;
+    }
+
+    .info {
       font-size: 0.8em;
+    }
+
+    article {
+      clear: both;
+      @include outer-container;
+
+      @include media($medium-screen) {
+        section.left {
+          @include span-columns(6);
+        }
+
+        section.right {
+          @include span-columns(6);
+          @include omega();
+        }
+      }
     }
   }
 }
