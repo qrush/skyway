@@ -1,5 +1,5 @@
 class LyricsController < ApplicationController
   def index
-    @songs = Song.with_shows.with_lyrics
+    @albums = Album.order(released_on: :desc)
   end
 end

@@ -24,6 +24,23 @@ a.cover, a.cover:visited {
   }
 }
 
+body.lyrics-index {
+  #lyrics {
+    text-align: center;
+
+    h3 {
+      font-size: 1.5em;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 15px;
+    }
+    em {
+      font-style: italic;
+      font-weight: normal;
+      font-size: 0.8em;
+    }
+  }
+}
+
 body.songs-show {
   article {
     @include outer-container;

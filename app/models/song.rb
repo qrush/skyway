@@ -4,6 +4,7 @@ class Song < ApplicationRecord
   has_many :slots
   has_many :setlists, through: :slots
   has_many :shows, -> { distinct.merge(Show.ordered) }, through: :setlists
+  belongs_to :album, touch: true
 
   attr_accessor :attended_count
 

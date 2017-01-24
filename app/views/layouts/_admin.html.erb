@@ -19,10 +19,4 @@
   <% if @venue.try(:persisted?) %>
     <li><%= link_to "Edit venue", [:edit, @venue] %></li>
   <% end %>
-
-  <li><%= link_to "New news", new_article_path %></li>
-  <% if @article.try(:persisted?) %>
-    <li><%= link_to "Edit article", [:edit, @article] %></li>
-    <li><%= link_to "Delete article", @article, method: :delete, data: {confirm: "Are you sure you want to delete this article?"} %></li>
-  <% end %>
 </ul>

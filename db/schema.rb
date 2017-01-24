@@ -139,14 +139,15 @@ ActiveRecord::Schema.define(version: 20170124022617) do
   end
 
   create_table "songs", force: :cascade do |t|
-    t.string   "name",        limit: 255,                 null: false
-    t.boolean  "cover",                   default: false, null: false
+    t.string   "name",           limit: 255,                 null: false
+    t.boolean  "cover",                      default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "shows_count",             default: 0,     null: false
+    t.integer  "shows_count",                default: 0,     null: false
     t.text     "lyrics"
     t.text     "history"
     t.integer  "album_id"
+    t.integer  "album_position"
     t.index ["album_id"], name: "index_songs_on_album_id", using: :btree
     t.index ["name"], name: "index_songs_on_name", unique: true, using: :btree
     t.index ["shows_count"], name: "index_songs_on_shows_count", using: :btree

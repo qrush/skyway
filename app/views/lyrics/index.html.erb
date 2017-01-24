@@ -2,8 +2,22 @@
 
 <%= render "searches/form" %>
 
-<div id="songs">
-  <% cache @songs do %>
-    <%= render @songs %>
+<div id="lyrics">
+  <p>
+    Here's all the lyrics to our songs. Dig in to each song for videos, shows played at, and more!
+  </p>
+
+  <% cache @albums do %>
+    <% @albums.each do |album| %>
+      <h3><%= album.name %></h3>
+      <% album.songs.each do |song| %>
+        <p>
+          <%= link_to song.name, song, id: dom_id(song), class: song.version %>
+        </p>
+        <div class="info">
+          <%= raw_format song.lyrics || '<em>Lyrics coming soon!</em>'.html_safe %>
+        </div>
+      <% end %>
+    <% end %>
   <% end %>
 </div>

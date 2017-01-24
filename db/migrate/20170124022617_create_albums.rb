@@ -8,6 +8,7 @@ class CreateAlbums < ActiveRecord::Migration[5.0]
 
     change_table :songs do |t|
       t.belongs_to :album
+      t.integer :album_position
     end
   end
 end

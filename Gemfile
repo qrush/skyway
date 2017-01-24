@@ -25,6 +25,7 @@ gem 'high_voltage'
 gem 'kramdown'
 gem 'simple_mercator_location'
 gem 'geocoder'
+gem 'musicbrainz', require: false
 
 gem 'omniauth'
 gem 'omniauth-auth0'
