@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160805174644) do
+ActiveRecord::Schema.define(version: 20170124022617) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "albums", force: :cascade do |t|
+    t.string   "name"
+    t.date     "released_on"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "announcements", force: :cascade do |t|
     t.text     "body"
@@ -139,6 +146,8 @@ ActiveRecord::Schema.define(version: 20160805174644) do
     t.integer  "shows_count",             default: 0,     null: false
     t.text     "lyrics"
     t.text     "history"
+    t.integer  "album_id"
+    t.index ["album_id"], name: "index_songs_on_album_id", using: :btree
     t.index ["name"], name: "index_songs_on_name", unique: true, using: :btree
     t.index ["shows_count"], name: "index_songs_on_shows_count", using: :btree
   end
