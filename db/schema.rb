@@ -18,8 +18,10 @@ ActiveRecord::Schema.define(version: 20170124022617) do
   create_table "albums", force: :cascade do |t|
     t.string   "name"
     t.date     "released_on"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "bandcamp_url"
+    t.string   "youtube_url"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "announcements", force: :cascade do |t|

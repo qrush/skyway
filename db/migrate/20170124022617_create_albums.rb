@@ -3,6 +3,8 @@ class CreateAlbums < ActiveRecord::Migration[5.0]
     create_table :albums do |t|
       t.string :name
       t.date :released_on
+      t.string :bandcamp_url
+      t.string :youtube_url
       t.timestamps
     end
 

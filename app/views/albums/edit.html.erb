@@ -1,0 +1,18 @@
+<% @title = "Editing #{@album.name}" %>
+
+<%= form_for @album do |f| %>
+  <%= f.label :youtube_url %>
+  <%= f.text_field :youtube_url %>
+
+  <%= f.label :bandcamp_url %>
+  <%= f.text_field :bandcamp_url %>
+
+  <%= f.submit %>
+<% end %>
+
+<h3>All songs on album:</h3>
+<% @album.songs.each do |song| %>
+<p>
+  <%= link_to song.name, song %> - Lyrics: <%= song.lyrics.present? ? "Yes" : "No" %>
+</p>
+<% end %>

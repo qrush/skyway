@@ -7,11 +7,17 @@
     Here's all the lyrics to our songs. Dig in to each song for videos, shows they were played at, and more!
   </p>
 
-  <% cache @albums do %>
-    <% @albums.each do |album| %>
-      <article>
-        <h3><%= album.name %></h3>
-        <% album.songs.each do |song| %>
+  <% @albums.each do |album| %>
+    <article>
+      <h3>
+        <% if admin? %>
+          <%= link_to album.name, [:edit, album] %>
+        <% else %>
+          <%= link_to album.name, album.bandcamp_url %>
+        <% end %>
+      </h3>
+      <% cache album do %>
+        <% album.songs_with_lyrics.each do |song| %>
           <section class="<%= cycle('left', 'right') %>">
             <p>
               <%= link_to song.name, song, id: dom_id(song), class: song.version %>
@@ -21,7 +27,7 @@
             </div>
           </section>
         <% end %>
-      </article>
-    <% end %>
-  <% end %>
+      <% end %>
+    </article>
+<% end %>
 </div>

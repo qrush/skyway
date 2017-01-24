@@ -8,7 +8,6 @@ namespace :musicbrainz do
       c.contact = "nick@quaran.to"
     end
 
-
     aqueous = MusicBrainz::Artist.find("5df34416-d6dd-4692-b92d-86f81d724b9d")
     puts "Processing albums..."
     Album.transaction do
