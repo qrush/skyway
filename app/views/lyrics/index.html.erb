@@ -1,0 +1,9 @@
+<% @title = 'Lyrics' %>
+
+<%= render "searches/form" %>
+
+<div id="songs">
+  <% cache @songs do %>
+    <%= render @songs %>
+  <% end %>
+</div>

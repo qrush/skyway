@@ -30,7 +30,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :articles, path: :news
+  get '/news' => redirect('https://facebook.com/aqueousband')
+
+  resources :lyrics
 
   resources :searches, path: "search"
   resources :announcements
