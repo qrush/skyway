@@ -1,0 +1,21 @@
+<article>
+  <h3>
+    <% if admin? %>
+      <%= link_to album.name, [:edit, album] %>
+    <% elsif album.bandcamp_url %>
+      <%= link_to album.name, album.bandcamp_url %>
+    <% else %>
+      <%= album.name %>
+    <% end %>
+  </h3>
+  <% album.songs_with_lyrics.each do |song| %>
+    <section class="<%= cycle('left', 'right') %>">
+      <p>
+        <%= link_to song.name, song, id: dom_id(song), class: song.version %>
+      </p>
+      <div class="info">
+        <%= raw_format song.lyrics || '<em>Lyrics coming soon!</em>'.html_safe %>
+      </div>
+    </section>
+  <% end %>
+</article>

@@ -11,7 +11,7 @@ class Song < ApplicationRecord
   to_param :name
 
   scope :with_shows, -> { includes(:shows) }
-  scope :with_lyrics, -> { where("lyrics <> ''") }
+  scope :with_lyrics, -> { order(album_position: :asc).where("lyrics <> ''") }
 
   before_destroy :check_for_slots
   after_touch :update_shows_count
