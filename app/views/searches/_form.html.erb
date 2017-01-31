@@ -7,7 +7,7 @@
       <% song = Song.random_lyric_song %>
       <%= link_to song do %>
         <%= strip_tags(random_lyric(song.lyrics)) %>...
-      <% end %>
+      <% end if song %>
     </div>
     <%= f.submit "Search" %>
   <% end %>
