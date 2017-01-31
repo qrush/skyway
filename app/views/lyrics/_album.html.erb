@@ -1,7 +1,7 @@
 <article>
   <h3>
-    <% if admin? %>
-      <%= link_to album.name, [:edit, album] %>
+    <% if admin? && album.persisted? %>
+      <%= link_to album.name, edit_album_path(album) %>
     <% elsif album.bandcamp_url %>
       <%= link_to album.name, album.bandcamp_url %>
     <% else %>
