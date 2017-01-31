@@ -191,24 +191,48 @@ body.home-show {
 form.search-big {
   @include outer-container;
 
-  background: $white;
+  background: $black;
   width: 100%;
   margin-top: 0;
   margin-bottom: 0;
 
-  div {
-    background: $black asset-url('search-icon.png') no-repeat;
+  .query {
+    background: transparent asset-url('search-icon.png') no-repeat;
     background-size: 15px;
     background-position: 10px center;
+  }
+
+  .lyric {
+    font-style: italic;
+    padding: 8px 10px 8px 0;
+    text-align: right;
+    display: none;
+
+    a {
+      font-family: $sans-serif;
+      color: $white;
+      font-size: 70%;
+    }
+  }
+
+  @include media($medium-screen) {
+    .query {
+      @include span-columns(5);
+    }
+
+    .lyric {
+      @include span-columns(7);
+      @include omega();
+    }
   }
 
   input[type='search'] {
     background: transparent;
     width: 300px;
     font-family: $sans-serif;
+    color: $white;
     margin: 0 auto 0 25px;
     text-align: left;
-    color: $white;
     border: none;
     border-radius: 0;
     padding-top: 10px;

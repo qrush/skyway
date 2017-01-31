@@ -16,6 +16,10 @@ class Song < ApplicationRecord
   before_destroy :check_for_slots
   after_touch :update_shows_count
 
+  def self.random_lyric_song
+    with_lyrics.sample
+  end
+
   def version
     cover? ? "cover" : "original"
   end

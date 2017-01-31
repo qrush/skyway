@@ -1,7 +1,13 @@
 <% content_for :top do %>
   <%= form_for @search || Search.new, method: :get, html: {class: "search-big"} do |f| %>
-    <div>
+    <div class="query">
       <%= f.text_field :query, name: :query, type: :search, placeholder: "Search for a song, venue, location..." %>
+    </div>
+    <div class="lyric">
+      <% song = Song.random_lyric_song %>
+      <%= link_to song do %>
+        <%= strip_tags(random_lyric(song.lyrics)) %>...
+      <% end %>
     </div>
     <%= f.submit "Search" %>
   <% end %>

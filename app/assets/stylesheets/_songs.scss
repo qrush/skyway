@@ -77,6 +77,10 @@ body.songs-show {
       .info {
         @include span-columns(7);
         @include omega();
+
+        iframe {
+          width: 500px !important;
+        }
       }
     }
   }
