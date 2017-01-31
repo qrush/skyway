@@ -21,6 +21,6 @@
         <%= nav_menu %>
       </ul>
     </div>
-    <%= render "searches/form" %>
+    <%= render "searches/form" unless @hide_search %>
   </div>
 </header>
