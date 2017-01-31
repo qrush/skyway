@@ -196,17 +196,26 @@ form.search-big {
   margin-top: 0;
   margin-bottom: 0;
 
+  div {
+    background: $black asset-url('search-icon.png') no-repeat;
+    background-size: 15px;
+    background-position: 10px center;
+  }
+
   input[type='search'] {
+    background: transparent;
+    width: 300px;
     font-family: $sans-serif;
-    background: $black;
-    margin: 0;
-    text-align: center;
+    margin: 0 auto 0 25px;
+    text-align: left;
     color: $white;
     border: none;
     border-radius: 0;
     padding-top: 10px;
     padding-bottom: 10px;
-    background-image: asset-url('search-icon.png') no-repeat;
+    &:focus {
+      box-shadow: none;
+    }
   }
 
   input[type='submit'] {
