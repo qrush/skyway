@@ -22,6 +22,10 @@ class Search
     @shows ||= Show.performed.find(show_ids)
   end
 
+  def shows_cache_key
+    Digest::MD5.hexdigest(shows.pluck(:id, :updated_at).map(&:to_s).join('-'))
+  end
+
   private
 
     def show_ids

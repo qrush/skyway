@@ -29,7 +29,7 @@
 
   <% if @search.shows.present? %>
     <div data-highlight="<%= @search.query %>">
-      <% cache @search.shows do %>
+      <% cache @search.shows_cache_key do %>
         <%= render @search.shows %>
       <% end %>
     </div>
