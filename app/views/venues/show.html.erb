@@ -1,7 +1,5 @@
 <% @title = @venue.name %>
 
-<%= render "searches/form" %>
-
 <p>
   Performed at <em><%= pluralize @venue.shows.size, "time" %></em>.
   Appeared at this venue for <em><%= number_to_percentage @venue.shows_percentage, precision: 1 %></em> of all shows.

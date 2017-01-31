@@ -1,7 +1,5 @@
 <% @title = @song.name %>
 
-<%= render "searches/form" %>
-
 <div id="sparkline"></div>
 <div id="songs" data-show-ids="<%= @show_ids.to_json %>">
   <%= render @song %>

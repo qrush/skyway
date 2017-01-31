@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170124022617) do
+ActiveRecord::Schema.define(version: 20170131032805) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -151,6 +151,7 @@ ActiveRecord::Schema.define(version: 20170124022617) do
     t.integer  "album_id"
     t.integer  "album_position"
     t.index ["album_id"], name: "index_songs_on_album_id", using: :btree
+    t.index ["lyrics"], name: "index_songs_on_lyrics", using: :btree
     t.index ["name"], name: "index_songs_on_name", unique: true, using: :btree
     t.index ["shows_count"], name: "index_songs_on_shows_count", using: :btree
   end
