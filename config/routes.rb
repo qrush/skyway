@@ -74,6 +74,8 @@ Rails.application.routes.draw do
   get "/auth/failure" => "auth0#failure"
   get "/auth/logout" => "auth0#logout"
 
+  get "/sitemap.xml" => "sitemap#index", :format => "xml", :as => :sitemap
+
   root to: 'home#show'
 
   get "/*id" => 'pages#show', as: :page, format: false

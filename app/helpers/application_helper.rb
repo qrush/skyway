@@ -25,4 +25,8 @@ module ApplicationHelper
   def file_url(path)
     "https://s3.amazonaws.com/files.aqueousband.net/images/#{path}"
   end
+
+  def sitemap_date(record)
+    record.updated_at.strftime '%Y-%m-%d'
+  end
 end
