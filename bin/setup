@@ -15,7 +15,7 @@ echo "Cleaning out old logs"
 
 # Install dependencies
 echo "Installing libraries and plugins"
-{ gem list -i bundler || gem install bundler
+{ gem which bundler || gem install bundler
   bundle
 } >&3 2>&1
 

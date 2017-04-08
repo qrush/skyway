@@ -1,34 +1,16 @@
 # Skyway
 
-Official stats and community site for [Aqueous](http://www.aqueousband.com/).
+Official stats and community site for [Aqueous](https://aqueous.band/).
 
 ## Setup (OSX)
 
-Install [Homebrew](http://brew.sh/) and [Pow](http://pow.cx), then:
+Clone the repo, install Vagrant. Then:
 
 ``` shell
-# Add rbenv to bash so that it loads every time you open a terminal
-echo 'if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi' >> ~/.bash_profile
-source ~/.bash_profile
-
-# Install Ruby!
-rbenv install
+vagrant up
 ```
 
-Then:
-
-``` shell
-git clone git@github.com:qrush/skyway.git
-cd skyway
-bin/setup -v
-```
-
-And make sure to link your app with Pow! Assuming you installed it in `~/Dev`:
-
-``` shell
-cd ~/.pow
-ln -s ~/Dev/skyway
-```
+Once it's done, visit: http://local.aqueous.band. Done.
 
 ## Ops
 
