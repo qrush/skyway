@@ -6,3 +6,4 @@ public/system
 *.sql*
 .powenv
 .vagrant
+.DS_Store

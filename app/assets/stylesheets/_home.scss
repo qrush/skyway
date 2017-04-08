@@ -48,14 +48,15 @@ body.home-show {
     }
   }
 
+  $heroheight: 350px;
   header.hero {
     padding: 1px 16px 16px 16px;
-    background: rgba(10, 10, 10, 1) asset-url('banner@2x.jpg') no-repeat;
+    background: rgba(10, 10, 10, 1) asset-url('banner2@2x.jpg') no-repeat;
     background-size: cover;
 
     @include media($large-screen) {
-      height: 250px;
-      background-position: center -110px;
+      height: $heroheight;
+      background-position: center top;
       position: absolute;
       top: 72px;
       width: $max-width;
@@ -64,7 +65,7 @@ body.home-show {
     }
 
     h1 {
-      background: asset-url("biglogo_white@2x.png") no-repeat 50% 50%;
+      background: asset-url("biglogo_white@2x.png") no-repeat 0% 50%;
       text-indent: -9999px;
       width: 100%;
       margin-top: 0.5em;
@@ -75,7 +76,6 @@ body.home-show {
 
       @include media($medium-screen) {
         background-size: contain;
-        height: 125px;
       }
     }
 
@@ -84,7 +84,7 @@ body.home-show {
       color: #fff;
       @include media($large-screen) {
         display: block;
-        padding-top: 4.75em;
+        padding-top: $heroheight - 125px;
         text-align: right;
         text-shadow: 1px 1px 2px rgba(0, 0, 0, 1);
       }
@@ -105,7 +105,7 @@ body.home-show {
     @include outer-container;
 
     @include media($large-screen) {
-      padding-top: 250px;
+      padding-top: $heroheight;
     }
 
     @include media($medium-screen) {
