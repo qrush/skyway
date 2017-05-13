@@ -28,7 +28,7 @@ su - vagrant -c 'curl -sSL https://get.rvm.io | bash -s stable --ruby=2.3.1'
 su - vagrant -c 'rvm rvmrc warning ignore allGemfiles'
 
 # passenger
-su - vagrant -c 'gem install passenger'
+su - vagrant -c 'gem install passenger --version 5.1.4'
 su - vagrant -c 'rvmsudo passenger-install-nginx-module --auto --auto-download'
 
 # node
@@ -48,7 +48,7 @@ events {
 }
 
 http {
-    passenger_root /home/vagrant/.rvm/gems/ruby-2.3.1/gems/passenger-5.1.2;
+    passenger_root /home/vagrant/.rvm/gems/ruby-2.3.1/gems/passenger-5.1.4;
     passenger_ruby /home/vagrant/.rvm/gems/ruby-2.3.1/wrappers/ruby;
 
     include       mime.types;

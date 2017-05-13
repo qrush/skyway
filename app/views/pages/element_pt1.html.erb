@@ -1,0 +1,22 @@
+<% @title = "Element Pt. I" %>
+
+<%= link_to 'continue to full site »', home_path, id: 'home' %>
+
+<%= link_to page_path('element_pt1'), id: "root" do %>
+  <h1>Element Pt. I</h1>
+<% end %>
+<h2>Aqueous</h2>
+
+<a href="https://soundcloud.com/aqueousband" id="element_pt1">more</a>
+
+<p>
+  Get our brand new EP, Element Pt. 1:
+</p>
+
+<p id='buy'>
+  <%= link_to 'Buy Now', 'http://itunes.apple.com/album/id1233947731?ls=1&app=itunes', target: '_blank' %>
+</p>
+
+<p>
+  <%= link_to "Learn more about us", page_path("about") %>, <%= link_to "buy some swag", "http://aqueous1.bandcamp.com/merch" %>, or <%= link_to "come see us play sometime", tour_path %>. Thanks for listening.
+</p>

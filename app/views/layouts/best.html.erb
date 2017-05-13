@@ -5,7 +5,7 @@
   <%= stylesheet_link_tag "best", media: "all", "data-turbolinks-track" => true %>
   <%= yield :head %>
 </head>
-<body class="<%= controller_name %> <%= controller_name %>-<%= controller.action_name %>">
+<body class="<%= controller_name %> <%= controller_name %>-<%= controller.action_name %> pages--<%= params[:id] %>">
 
 <div id="wrapper">
   <article class="type-system-sans">

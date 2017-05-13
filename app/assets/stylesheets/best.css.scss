@@ -1,6 +1,5 @@
 @import "globals";
 @import "reset";
-
 @import "bourbon";
 @import "bitters/bitters";
 @import "bitters/flashes";
@@ -37,6 +36,43 @@ $font-family: 'Neutra Display Alt', 'Helvetica Neue', 'Helvetica', 'Arial', sans
 body {
   background: $background-color asset-url("cork-wallet.png") repeat;
   font-family: $font-family;
+}
+
+$element-background-color: #1B1B3C;
+$element-text-color: #ffffff;
+$element-header-color: darken(#ffffff, 5%);
+
+body.pages--element_pt1 {
+  background-color: $element-background-color;
+  color: $element-text-color;
+
+  footer p a {
+    display: none;
+  }
+
+  p > a, footer a, a#home {
+    color: lighten(#4C8A67, 30%) !important;
+  }
+
+  p, label {
+    color: $element-text-color !important;
+  }
+
+  h1 {
+    font-family: Helvetica;
+  }
+
+  h1, h2, h3, h4, h5 {
+    color: $element-header-color;
+  }
+
+  p#buy a {
+    @include button(simple, #2eb29e);
+    font-size: 30px;
+    padding: 20px;
+    color: #fff !important;
+
+  }
 }
 
 #wrapper {
@@ -255,6 +291,30 @@ a#home {
     right: 0;
     margin-right: 15px;
     margin-top: 15px;
+  }
+}
+
+a#element_pt1 {
+  background: asset-url("element_pt1.jpg") no-repeat center center;
+  background-size: contain;
+  text-indent: -9999px;
+
+  width: 80%;
+  min-height: 250px;
+  display: block;
+  margin: 0 auto 0.8em auto;
+
+  @include media($large-screen) {
+    position: fixed;
+    bottom: -15px;
+    z-index: -1;
+    width: 600px;
+    height: 600px;
+    right: 0;
+  }
+
+  &:hover {
+    border: none;
   }
 }
 
