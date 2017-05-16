@@ -76,7 +76,8 @@ Rails.application.routes.draw do
 
   get "/sitemap.xml" => "sitemap#index", :format => "xml", :as => :sitemap
 
-  root to: 'home#show'
+  root to: redirect(path: "/element_pt1", status: 302)
+  #root to: 'home#show'
 
   get "/*id" => 'pages#show', as: :page, format: false
 end
