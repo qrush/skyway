@@ -51,7 +51,7 @@ body.home-show {
   $heroheight: 350px;
   header.hero {
     padding: 1px 16px 16px 16px;
-    background: rgba(10, 10, 10, 1) asset-url('banner2@2x.jpg') no-repeat;
+    background: rgba(10, 10, 10, 1) asset-url('banner3@2x.jpg') no-repeat;
     background-size: cover;
 
     @include media($large-screen) {
@@ -65,7 +65,7 @@ body.home-show {
     }
 
     h1 {
-      background: asset-url("biglogo_white@2x.png") no-repeat 0% 50%;
+      background: asset-url("biglogo_white@2x.png") no-repeat 50% 50%;
       text-indent: -9999px;
       width: 100%;
       margin-top: 0.5em;
