@@ -8,7 +8,7 @@ class SongsController < ApplicationController
   def index
     respond_to do |format|
       format.html do
-        @playlist = Playlist.find(params[:order])
+        @playlist = Playlist.find(params[:order], page: params[:page])
         @show_ids = Show.before_today.order(performed_at: :asc).pluck(:id)
       end
       format.csv do

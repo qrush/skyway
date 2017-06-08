@@ -18,6 +18,7 @@ gem 'dynamic_form'
 gem 'jbuilder'
 gem 'rack-rewrite'
 gem 'chronic'
+gem 'kaminari'
 
 gem 'paperclip'
 gem 'aws-sdk'
