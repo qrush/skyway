@@ -88,6 +88,30 @@ sudo make build
 
 Might need to rebuild after that.
 
+## Waveforms
+
+Making some wave(form)s? Install this for Linux:
+
+```
+# install deps
+sudo apt-get install make g++ libsndfile-dev lib-png++-dev libpng12-dev libboost-program-options-dev sox libsox-fmt-mp3 mp3info
+
+# install wav2png
+git clone git@github.com:beschulz/wav2png.git
+cd wav2png/build
+make install
+
+# Move downloads over and wave it up
+mv ~/Downloads/*.mp3 tmp/
+./script/wav2png
+```
+
+For mp3 length:
+
+```
+mp3info -p "%S\n" something.mp3
+```
+
 ## License
 
 MIT. See `LICENSE`.
