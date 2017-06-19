@@ -8,7 +8,7 @@ jwplayer.key = "RMvgim99iIA6JMnO0pelofjf2EOnWZEAelk/zA=="
 
 $ =>
   if document.querySelector("[data-behavior~=download]")
-    playlist = ({sources: [{file: download.href}]} for download in document.querySelectorAll("[data-behavior~=download]"))
+    playlist = ({sources: [{file: download.dataset.songUrl}]} for download in document.querySelectorAll("[data-behavior~=download]"))
   else
     playlist = ({sources: [{file: item.dataset.track}]} for item in document.querySelectorAll("[data-track]"))
 
@@ -24,6 +24,8 @@ $ =>
       {type: 'flash', src: '/jwplayer.flash.swf'}
     ]
 
+$("[data-behavior~=download]").on "click", (event) ->
+  $("[data-behavior~=play][data-song=#{$(this).data('song')}]").click()
 
 $("[data-behavior~=play]").on "click", (event) ->
   $track = $(this)
