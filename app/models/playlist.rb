@@ -2,6 +2,7 @@ class Playlist
   ORDERS = {
     "name"   => "Alphabetical",
     "covers" => "Covers",
+    "originals" => "Originals",
     "debuts" => "Debuts",
     "freq"   => "Frequency"
   }
@@ -13,6 +14,7 @@ class Playlist
     Hash[ORDERS.keys.zip([
       AlphabeticalPlaylist,
       CoverPlaylist,
+      OriginalPlaylist,
       DebutPlaylist,
       FrequencyPlaylist
     ])].fetch(order, FrequencyPlaylist)
@@ -61,6 +63,16 @@ class CoverPlaylist < Playlist
 
   def title
     "Covered songs (#{songs.total_count})"
+  end
+end
+
+class OriginalPlaylist < Playlist
+  def playlist(scope)
+    scope.where(cover: false).by_name
+  end
+
+  def title
+    "Original songs (#{songs.total_count})"
   end
 end
 
