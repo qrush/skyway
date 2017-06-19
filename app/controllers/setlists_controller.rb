@@ -7,8 +7,10 @@ class SetlistsController < ApplicationController
 
   def update
     @show = find_show_by_performed_at
-    @new_show = Show.parse(show_params)
-    @new_show.replace(@show)
+    Show.transaction do
+      @new_show = Show.parse(show_params)
+      @new_show.replace(@show)
+    end
 
     flash[:success] = "Successfully updated this show's setlist."
     redirect_to @new_show

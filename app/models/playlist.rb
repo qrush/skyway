@@ -2,29 +2,31 @@ class Playlist
   ORDERS = {
     "name"   => "Alphabetical",
     "covers" => "Covers",
+    "originals" => "Originals",
     "debuts" => "Debuts",
     "freq"   => "Frequency"
   }
 
   include ActiveModel::Model
-  attr_accessor :order
+  attr_accessor :order, :page
 
   def self.playlist_for(order)
     Hash[ORDERS.keys.zip([
       AlphabeticalPlaylist,
       CoverPlaylist,
+      OriginalPlaylist,
       DebutPlaylist,
       FrequencyPlaylist
     ])].fetch(order, FrequencyPlaylist)
   end
 
-  def self.find(order)
+  def self.find(order, page: 1)
     playlist_class = playlist_for(order)
-    playlist_class.new(order: ORDERS.keys.include?(order) ? order : ORDERS.keys.last)
+    playlist_class.new(order: ORDERS.keys.include?(order) ? order : ORDERS.keys.last, page: page)
   end
 
   def songs
-    @songs ||= playlist(Song.with_shows)
+    @songs ||= playlist(Song.with_shows.page(page))
   end
 
   def cache_key
@@ -60,7 +62,17 @@ class CoverPlaylist < Playlist
   end
 
   def title
-    "Covered songs (#{songs.count})"
+    "Covered songs (#{songs.total_count})"
+  end
+end
+
+class OriginalPlaylist < Playlist
+  def playlist(scope)
+    scope.where(cover: false).by_name
+  end
+
+  def title
+    "Original songs (#{songs.total_count})"
   end
 end
 
@@ -78,13 +90,11 @@ class DebutPlaylist < Playlist
 end
 
 class FrequencyPlaylist < Playlist
-  LIMIT = 30
-
   def playlist(scope)
-    scope.order(shows_count: :desc).limit(LIMIT).by_name
+    scope.order(shows_count: :desc).by_name
   end
 
   def title
-    "Top #{LIMIT} frequently played songs"
+    "Most frequently played songs"
   end
 end

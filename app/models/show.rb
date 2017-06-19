@@ -30,7 +30,7 @@ class Show < ApplicationRecord
     Parser.parse(params).tap(&:save)
   end
 
-  def replace(show)
+  def parse_and_replace(show)
     transaction do
       self.banner = show.banner if !self.banner? && show.banner?
       self.venue = show.venue
