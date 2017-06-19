@@ -24,8 +24,10 @@ $ =>
       {type: 'flash', src: '/jwplayer.flash.swf'}
     ]
 
+$("[data-behavior~=download]").on "click", (event) ->
+  $("[data-behavior~=play][data-song=#{$(this).data('song')}]").click()
 
-$("[data-behavior~=download], [data-behavior~=play]").on "click", (event) ->
+$("[data-behavior~=play]").on "click", (event) ->
   $track = $(this)
   sampler.player.pause()
 
