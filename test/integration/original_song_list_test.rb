@@ -18,8 +18,5 @@ class OriginalSongListTest < ActionDispatch::IntegrationTest
 
     assert_not page.has_text?("Origami")
     assert page.has_text?("YYZ")
-
-
-    assert false, "brian should have had 5 chats "
   end
 end
