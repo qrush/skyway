@@ -31,9 +31,11 @@ module ApplicationHelper
   end
 
   def copy_for(title)
-    if copy = Copy.find_by(title: title).load&.first
-      renderer = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true)
-      renderer.render(copy.blurb).html_safe
+    benchmark "Contentful Load: #{title}" do
+      if copy = Copy.find_by(title: title).load&.first
+        renderer = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true)
+        renderer.render(copy.blurb).html_safe
+      end
     end
   end
 end
