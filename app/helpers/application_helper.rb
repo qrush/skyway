@@ -29,4 +29,11 @@ module ApplicationHelper
   def sitemap_date(record)
     record.updated_at.strftime '%Y-%m-%d'
   end
+
+  def copy_for(title)
+    if copy = Copy.find_by(title: title).load&.first
+      renderer = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true)
+      renderer.render(copy.blurb).html_safe
+    end
+  end
 end

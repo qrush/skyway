@@ -7,3 +7,4 @@ public/system
 .powenv
 .vagrant
 .DS_Store
+.env

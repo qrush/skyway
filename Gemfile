@@ -28,6 +28,9 @@ gem 'simple_mercator_location'
 gem 'geocoder'
 gem 'musicbrainz', require: false
 
+gem 'contentful_model'
+gem 'redcarpet'
+
 gem 'omniauth'
 gem 'omniauth-auth0'
 
@@ -44,11 +47,9 @@ group :production, :staging do
   gem 'bugsnag'
 end
 
-group :test do
+group :development, :test do
+  gem 'rails-erd'
+  gem 'dotenv-rails'
   gem 'capybara'
   gem 'launchy'
-end
-
-group :development do
-  gem 'rails-erd'
 end

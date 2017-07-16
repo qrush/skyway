@@ -40,6 +40,9 @@
   }
 
   .about {
+    p:first-child {
+      text-align: center;
+    }
     @include media($large-screen) {
       img {
         width: 75%;
