@@ -5,7 +5,7 @@
 
 <header class="hero">
   <h1>Aqueous</h1>
-  <p>(is a groove rock band)</p>
+  <p><%= @homepage.tagline %></p>
 </header>
 
 <div id="wavebanner" class="banner">
@@ -17,14 +17,14 @@
 <section class="left" id="news">
   <h2>News</h2>
   <p>
-    <%== @announcement.body %>
+    <%= render_markdown(@homepage.news) %>
   </p>
 </section>
 
 <section class="right" id="listen">
   <h2>Listen</h2>
 
-  <iframe class="bandcamp" src="https://bandcamp.com/EmbeddedPlayer/album=1122680202/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/" seamless><a href="http://aqueous1.bandcamp.com/album/best-in-show">Best in Show by Aqueous</a></iframe>
+  <iframe class="bandcamp" src="https://bandcamp.com/EmbeddedPlayer/album=<%= @homepage.listen %>/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/" seamless><a href="http://aqueous1.bandcamp.com/album/best-in-show">Best in Show by Aqueous</a></iframe>
 
   <p class="more">
     <%= link_to "More music &rarr;".html_safe, page_path("music") %>
@@ -42,7 +42,7 @@
 
 <section class="right" id="watch">
   <h2>Watch</h2>
-  <iframe id="youtube" width="100%" src="<%= @announcement.embed_url %>" frameborder="0" allowfullscreen></iframe>
+  <iframe id="youtube" width="100%" src="//www.youtube.com/embed/<%= @homepage.watch %>" frameborder="0" allowfullscreen></iframe>
   <p class="more">
     <%= link_to "More videos &rarr;".html_safe, "http://youtube.com/AqueousBand" %>
   </p>
