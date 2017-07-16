@@ -1,51 +1,5 @@
 <% @title = "Contact" %>
 
 <section id="contact">
-  <aside>
-    <h2>Info</h2>
-    <ul>
-      <li><%= link_to_file_url "Press Kit (PDF)", "2016/Aqueous+Press+Kit.pdf" %></li>
-      <li><%= link_to_file_url "Press Photo", "2016/Aqueous+Press+Photo+1.jpg" %></li>
-      <li><%= link_to "Taping Policy", page_path("taping") %></li>
-      <li><%= link_to "Street Team", page_path("mobilize") %></li>
-      <li><%= link_to_file_url "Input List & Stage Plot", "2017/AQ%2BInput%2BList%2B2017.pdf", class: "small" %></li>
-    </ul>
-  </aside>
-
-  <h2>Management</h2>
-  <ul>
-    <li>Plexus Entertainment Group</li>
-    <li>Dan Rucinski - <%= mail_to "dan@plexusentertainmentgroup.com", "dan@plexusentertainmentgroup.com" %></li>
-    <li>Kunj Shah - <%= mail_to "kunj@plexusentertainmentgroup.com", "kunj@plexusentertainmentgroup.com" %></li>
-  </ul>
-
-  <h2>Booking</h2>
-  <ul>
-    <li><%= link_to "Paradigm Talent Agency", "http://www.paradigmagency.com/" %></li>
-    <li>John Bongiorno - <%= mail_to "jbongiorno@paradigmagency.com", "jbongiorno@paradigmagency.com" %></li>
-    <li>Ethan Berlin - <%= mail_to "eberlin@paradigmagency.com", "eberlin@paradigmagency.com" %></li>
-    <li>Levi Walker - <%= mail_to "lwalker@paradigmagency.com", "lwalker@paradigmagency.com" %></li>
-  </ul>
-
-  <h2>Marketing/PR</h2>
-  <ul>
-    <li>Sam Haumesser - <%= mail_to "samhaumesser.aqpr@gmail.com", "samhaumesser.aqpr@gmail.com" %></li>
-  </ul>
-
-  <h2>Street Team</h2>
-  <ul>
-    <li>Liz Bierbrauer - <%= mail_to "aqueouspromotions@gmail.com", "aqueouspromotions@gmail.com" %></li>
-  </ul>
-
-  <h2>Fan Relations</h2>
-  <ul>
-    <li>Do you want to send us a friendly message?</li>
-    <li><%= mail_to "aqueousband@gmail.com", "aqueousband@gmail.com" %></li>
-  </ul>
-
-  <h2>Website</h2>
-  <ul>
-    <li>Have questions about the website?</li>
-    <li>Ask <%= mail_to "nick@quaran.to", "nick@quaran.to" %>! This site is <%= link_to "open source", "https://github.com/qrush/skyway" %>.</li>
-  </ul>
+  <%= copy_for "contact" %>
 </section>
