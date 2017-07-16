@@ -28,6 +28,7 @@ gem 'simple_mercator_location'
 gem 'geocoder'
 gem 'musicbrainz', require: false
 
+gem 'dotenv-rails'
 gem 'contentful_model'
 gem 'redcarpet'
 
@@ -49,7 +50,6 @@ end
 
 group :development, :test do
   gem 'rails-erd'
-  gem 'dotenv-rails'
   gem 'capybara'
   gem 'launchy'
 end

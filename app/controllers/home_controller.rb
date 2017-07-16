@@ -7,7 +7,9 @@ class HomeController < ApplicationController
   end
 
   def show
-    @homepage = Homepage.find_by(title: "home").load.first
+    benchmark "Contentful Homepage Load" do
+      @homepage = Homepage.find_by(title: "home").load.first
+    end
     @week_count = Show.where(["performed_at >= ? and performed_at <= ?", Date.today, Date.today.end_of_week]).count
   end
 end
