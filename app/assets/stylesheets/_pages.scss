@@ -40,58 +40,34 @@
   }
 
   .about {
-    p:first-child {
+    p {
       text-align: center;
-    }
-    @include media($large-screen) {
-      img {
-        width: 75%;
-        height: 75%;
+      @include media($large-screen) {
+        img {
+          width: 75%;
+          height: 75%;
+        }
+      }
+
+      > a > img {
+        max-width: 50%;
       }
     }
-  }
+    table {
+      th:first-child {
+        width: 20%;
+      }
+      td {
+        text-align: left;
+        vertical-align: top;
+      }
 
-  #bios {
-    h2 {
-      margin-bottom: 1em;
-    }
-
-    h3 {
-      margin: 0;
-      float: left;
-      padding-left: 165px;
-    }
-
-    p {
-      padding-top: 30px;
-      padding-left: 165px;
-      margin-bottom: 2em;
-      background-repeat: no-repeat;
-      background-size: 150px;
-    }
-
-    #mike {
-      background-image: asset-url("photos/mike3.jpg");
-    }
-
-    #dave {
-      background-image: asset-url("photos/dave3.jpg");
-    }
-
-    #evan {
-      background-image: asset-url("photos/evan3.jpg");
-    }
-
-    #tom {
-      background-image: asset-url("photos/tom3.jpg");
-    }
-
-    #rob {
-      background-image: asset-url("photos/rob3.jpg");
-    }
-
-    code {
-      font-family: "Monaco", "Courier New", monospace;
+      @include media($large-screen) {
+        img {
+          width: 200px;
+          padding-right: 20px;
+        }
+      }
     }
   }
 
