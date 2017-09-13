@@ -6,7 +6,7 @@ sudo update-locale LANG=en_US.UTF-8
 sudo update-locale LC_ALL=en_US.UTF-8
 
 sudo apt-get update
-sudo apt-get install -y build-essential git curl libxslt1-dev libxml2-dev libssl-dev libcurl4-openssl-dev imagemagick
+sudo apt-get install -y build-essential gnupg2 git curl libxslt1-dev libxml2-dev libssl-dev libcurl4-openssl-dev imagemagick
 
 # postgres
 echo "deb http://apt.postgresql.org/pub/repos/apt/ precise-pgdg main " | sudo tee -a /etc/apt/sources.list.d/pgdg.list
@@ -24,6 +24,7 @@ sudo /etc/init.d/postgresql restart
 sudo su - postgres -c 'createuser -s vagrant'
 
 # rvm and ruby
+su - vagrant -c 'gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB'
 su - vagrant -c 'curl -sSL https://get.rvm.io | bash'
 su - vagrant -c 'rvm install ruby-2.4.1'
 su - vagrant -c 'rvm rvmrc warning ignore allGemfiles'
@@ -38,8 +39,9 @@ su - vagrant -c 'nvm install 0.10'
 su - vagrant -c 'nvm alias default 0.10'
 
 # app
+su - vagrant -c 'gem install bundler'
 su - vagrant -c 'mkdir -p /var/www'
-su - vagrant -c 'cd /var/www/skyway && bin/setup'
+su - vagrant -c 'cd /var/www/skyway && bin/setup -v'
 
 # finish passenger
 echo 'worker_processes  2;
