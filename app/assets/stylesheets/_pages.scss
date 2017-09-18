@@ -54,6 +54,16 @@
       }
     }
     table {
+      @media all and (max-width:768px) {
+        h3 {
+          margin-top: 3px;
+          text-align: center;
+        }
+
+        tr { display: table; width:100%; }
+        td { display: table-row; }
+      }
+
       th:first-child {
         width: 20%;
       }
