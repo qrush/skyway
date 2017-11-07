@@ -16,17 +16,12 @@
 
 <section class="left" id="news">
   <h2>News</h2>
-  <p>
-    <%= render_markdown(@homepage.news) %>
-  </p>
+  <%= render_markdown(@homepage.news) %>
 </section>
 
 <section class="right" id="listen">
   <h2>Listen</h2>
-
-  <p>
-    <%= render_markdown(@homepage.listen) %>
-  </p>
+  <%= render_markdown(@homepage.listen) %>
 
   <p class="more">
     <%= link_to "More music &rarr;".html_safe, page_path("music") %>
@@ -35,7 +30,7 @@
 
 <section class="left" id="tour">
   <h2>Tour</h2>
-  <script charset="utf-8" src="https://widget.bandsintown.com/main.min.js"></script><a class="bit-widget-initializer" data-artist-name="Aqueous" data-display-local-dates="false" data-display-past-dates="false" data-auto-style="false" data-text-color="#000000" data-link-color="#FA6900" data-popup-background-color="#FFFFFF" data-background-color="#FFFFFF" data-display-limit="5" data-link-text-color="#000000"></a>
+  <%= render_markdown(@homepage.tour) %>
 
   <p class="more">
     <%= link_to "More dates &rarr;".html_safe, tour_path %>
@@ -44,7 +39,8 @@
 
 <section class="right" id="watch">
   <h2>Watch</h2>
-  <iframe id="youtube" width="100%" src="//www.youtube.com/embed/<%= @homepage.watch %>" frameborder="0" allowfullscreen></iframe>
+  <%= render_markdown(@homepage.watch) %>
+
   <p class="more">
     <%= link_to "More videos &rarr;".html_safe, "http://youtube.com/AqueousBand" %>
   </p>
