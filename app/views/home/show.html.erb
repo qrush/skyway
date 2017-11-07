@@ -24,7 +24,9 @@
 <section class="right" id="listen">
   <h2>Listen</h2>
 
-  <iframe class="bandcamp" src="https://bandcamp.com/EmbeddedPlayer/album=<%= @homepage.listen %>/size=large/bgcol=ffffff/linkcol=0687f5/artwork=small/transparent=true/" seamless><a href="http://aqueous1.bandcamp.com/album/best-in-show">Best in Show by Aqueous</a></iframe>
+  <p>
+    <%= render_markdown(@homepage.listen) %>
+  </p>
 
   <p class="more">
     <%= link_to "More music &rarr;".html_safe, page_path("music") %>
