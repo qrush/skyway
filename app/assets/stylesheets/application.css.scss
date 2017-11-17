@@ -24,7 +24,7 @@
 @import "attendances";
 
 body {
-  background: #cbd7e5 asset-url("circles-and-roundabouts.png") repeat;
+  background: rgba(91, 177, 69, 0.3) asset-url("intersection.png") repeat;
   font-family: $sans-serif;
 }
 
