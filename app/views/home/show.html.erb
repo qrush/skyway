@@ -8,6 +8,8 @@
   <p><%= @homepage.tagline %></p>
 </header>
 
+<%= render 'layouts/nugs' %>
+
 <div id="wavebanner" class="banner">
   <%= link_to tour_path do %>
     There's <%= pluralize(@week_count, "show") %> this week ➾

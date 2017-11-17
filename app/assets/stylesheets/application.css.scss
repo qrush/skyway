@@ -24,7 +24,7 @@
 @import "attendances";
 
 body {
-  background: rgba(91, 177, 69, 0.3) asset-url("intersection.png") repeat;
+  background: $body-background asset-url("intersection.png") repeat;
   font-family: $sans-serif;
 }
 

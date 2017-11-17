@@ -58,7 +58,7 @@ header.navigation {
     }
 
     @include media ($large-screen) {
-      background: #000 asset-url("biglogo_white@2x.png") 50% 50% no-repeat;
+      background: $logo-background asset-url("biglogo_white@2x.png") 50% 50% no-repeat;
       background-size: contain;
       height: 100px;
       max-height: 100px;
@@ -67,7 +67,6 @@ header.navigation {
       width: 100%;
       position: absolute;
       margin-top: 70px;
-      opacity: 0.6;
 
       img {
         display: none;
@@ -331,9 +330,9 @@ header.navigation {
     @include transition (all 0.2s ease-in-out);
     display: inline;
     background: $navigation-nav-button-background;
-    border-radius: $base-border-radius; 
+    border-radius: $base-border-radius;
     color: white;
-    font-size: .8em;  
+    font-size: .8em;
     font-weight: 800;
     text-transform: uppercase;
     padding: .4em .5em;
@@ -354,7 +353,7 @@ header.navigation {
     $search-bar-border: 1px solid $search-bar-border-color;
     $search-bar-background: lighten($search-bar-border-color, 10);
 
-    padding: .85em .6em; 
+    padding: .85em .6em;
     .search-and-submit {
       position: relative;
 
@@ -392,12 +391,44 @@ header.navigation {
 
     @include media($horizontal-bar-mode) {
       width: 20em;
-      position: relative; 
+      position: relative;
       display: inline-block;
 
       input {
         @include box-sizing(border-box);
         display: block;
+      }
+    }
+  }
+}
+
+#nugs {
+  text-align: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+
+  a {
+    background: asset-url('nugs.png') right center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding-right: 146px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: $black;
+
+    &:hover {
+      color: $link-color;
+      @include transition (all 0.3s ease-in-out);
+    }
+  }
+
+  .search-big & {
+    background: $logo-background;
+    a {
+      color: $white;
+      background-image: asset-url('nugs-white.png');
+      &:hover {
+        color: lighten($link-color, 20%);
       }
     }
   }

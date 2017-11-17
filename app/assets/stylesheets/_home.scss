@@ -105,7 +105,7 @@ body.home-show {
     @include outer-container;
 
     @include media($large-screen) {
-      padding-top: $heroheight;
+      padding-top: $heroheight - 15px;
     }
 
     @include media($medium-screen) {
@@ -191,7 +191,7 @@ body.home-show {
 form.search-big {
   @include outer-container;
 
-  background: $black;
+  background: $search-background;
   width: 100%;
   margin-top: 0;
   margin-bottom: 0;
@@ -239,6 +239,9 @@ form.search-big {
     padding-bottom: 10px;
     &:focus {
       box-shadow: none;
+    }
+    &::placeholder {
+      color: $white;
     }
   }
 

@@ -1,5 +1,7 @@
 <% content_for :top do %>
   <%= form_for @search || Search.new, method: :get, html: {class: "search-big"} do |f| %>
+    <%= render 'layouts/nugs' %>
+
     <div class="query">
       <%= f.text_field :query, name: :query, type: :search, placeholder: "Search for a song, venue, location..." %>
     </div>
