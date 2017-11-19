@@ -13,7 +13,6 @@ header.navigation {
   $navigation-active-link-color: transparentize(white, 0.5);
   $navigation-submenu-padding: 1em;
   $navigation-submenu-width: 12em;
-  $horizontal-bar-mode: $large-screen;
 
   @mixin nav-button {
     color: $navigation-color;
@@ -41,7 +40,7 @@ header.navigation {
       padding-bottom: 94px;
     }
 
-    @include media ($horizontal-bar-mode) {
+    @include media ($large-screen) {
       border: none;
     }
   }
@@ -84,7 +83,7 @@ header.navigation {
     padding-right: 1em;
     line-height: $navigation-height;
 
-    @include media ($horizontal-bar-mode) {
+    @include media ($large-screen) {
       display: none;
     }
 
@@ -98,7 +97,7 @@ header.navigation {
     text-decoration: underline;
     margin-top: 1em;
 
-    @include media ($horizontal-bar-mode) {
+    @include media ($large-screen) {
       position: absolute;
       top: 5em;
       right: 0.5em;
@@ -109,7 +108,7 @@ header.navigation {
   .current-fan {
     float: left;
     margin-top: 1em;
-    @include media ($horizontal-bar-mode) {
+    @include media ($large-screen) {
       position: absolute;
       top: 5em;
       left: 0.5em;
@@ -131,7 +130,7 @@ header.navigation {
     text-decoration: underline;
     display: none;
 
-    @include media ($horizontal-bar-mode) {
+    @include media ($large-screen) {
       display: block;
     }
   }
@@ -152,7 +151,7 @@ header.navigation {
     width: 100%;
     z-index: 9999;
 
-    @include media ($horizontal-bar-mode) {
+    @include media ($large-screen) {
       display: inline;
       margin: 0;
       padding: 0;
@@ -172,7 +171,7 @@ header.navigation {
     padding-right: .8em;
     border-bottom: 1px solid rgba(55, 55, 55, 0.3);
 
-    @include media ($horizontal-bar-mode) {
+    @include media ($large-screen) {
       background: transparent;
       display: inline;
       line-height: $navigation-height;
@@ -189,7 +188,7 @@ header.navigation {
       text-transform: lowercase;
       font-size: 140%;
 
-      @include media ($horizontal-bar-mode) {
+      @include media ($large-screen) {
         padding-left: 16.75px;
         padding-right: 16.75px;
         padding-top: 4px;
@@ -206,7 +205,7 @@ header.navigation {
       margin-bottom: 4px;
 
       &:hover {
-        @include media ($horizontal-bar-mode) {
+        @include media ($large-screen) {
           border-top: 4px solid $black;
           @include transition (all 0.15s ease-in-out);
         }
@@ -250,7 +249,7 @@ header.navigation {
       display: block;
     }
 
-    @include media($horizontal-bar-mode) {
+    @include media($large-screen) {
       padding-right: .8em;
       position: relative;
     }
@@ -261,14 +260,14 @@ header.navigation {
     padding-left: 0;
     background: #fff;
 
-    @include media($horizontal-bar-mode) {
+    @include media($large-screen) {
       //left: -$navigation-submenu-padding;
       position: absolute;
       right: 0;
     }
 
     .submenu {
-      @include media($horizontal-bar-mode) {
+      @include media($large-screen) {
         left: $navigation-submenu-width - .2em;
         top: 0;
       }
@@ -278,7 +277,7 @@ header.navigation {
       display: block;
       padding-right: 0;
 
-      @include media($horizontal-bar-mode) {
+      @include media($large-screen) {
         line-height: $navigation-height / 1.3;
 
         &:first-child > a {
@@ -298,7 +297,7 @@ header.navigation {
         text-align: right;
         width: 100%;
 
-        @include media($horizontal-bar-mode) {
+        @include media($large-screen) {
           padding-left: $navigation-submenu-padding;
           text-align: left;
           width: $navigation-submenu-width;
@@ -389,7 +388,7 @@ header.navigation {
       }
     }
 
-    @include media($horizontal-bar-mode) {
+    @include media($large-screen) {
       width: 20em;
       position: relative;
       display: inline-block;
@@ -411,14 +410,20 @@ header.navigation {
     background: asset-url('nugs.png') right center;
     background-repeat: no-repeat;
     background-size: contain;
-    padding-right: 146px;
     padding-top: 10px;
     padding-bottom: 10px;
     color: $black;
+    font-size: 80%;
+    padding-right: 130px;
 
     &:hover {
       color: $link-color;
       @include transition (all 0.3s ease-in-out);
+    }
+
+    @include media($large-screen) {
+      font-size: 100%;
+      padding-right: 145px;
     }
   }
 
