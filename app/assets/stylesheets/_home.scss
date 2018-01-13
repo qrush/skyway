@@ -51,7 +51,7 @@ body.home-show {
   $heroheight: 350px;
   header.hero {
     padding: 1px 16px 16px 16px;
-    background: rgba(10, 10, 10, 1) asset-url('banner3@2x.jpg') no-repeat;
+    background: rgba(10, 10, 10, 1) asset-url('banner4@2x.jpg') no-repeat;
     background-size: cover;
 
     @include media($large-screen) {
@@ -248,4 +248,11 @@ form.search-big {
   input[type='submit'] {
     display: none;
   }
+}
+
+.photo-credit {
+  text-align: center;
+  clear: both;
+  padding-top: 30px;
+  font-size: 70%;
 }
