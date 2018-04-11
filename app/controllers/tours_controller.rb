@@ -1,5 +1,5 @@
 class ToursController < ApplicationController
   def show
-    @shows = Show.upcoming
+    @shows_by_venue = Show.upcoming.group_by(&:venue)
   end
 end

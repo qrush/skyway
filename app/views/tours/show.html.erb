@@ -12,25 +12,33 @@
     </tr>
   </thead>
   <tbody>
-    <% @shows.each do |show| %>
+    <% @shows_by_venue.each do |venue, shows| %>
       <tr>
         <td>
-          <% if admin? %>
-            <%= link_to performed_at_for(show), show %>
-          <% else %>
-            <%= performed_at_for(show) %>
+          <% shows.each do |show| %>
+            <% if admin? %>
+              <%= link_to performed_at_for(show), show %>
+            <% else %>
+              <%= performed_at_for(show) %>
+            <% end %>
+            <br />
           <% end %>
         </td>
-        <td><%= show.venue.location %></td>
+        <td><%= venue.location %></td>
         <td>
-          <%= link_to show.venue.name, show.venue %>
-          <% if show.age_restriction.present? %>
-            <small>Age Restrictions: <%= show.age_restriction %>+</small>
+          <%= link_to venue.name, venue %>
+          <% if shows.first.age_restriction.present? %>
+            <small>Age Restrictions: <%= shows.first.age_restriction %>+</small>
           <% end %>
         </td>
-        <td><%= starts_at_for(show) %></td>
-        <td><%= link_to_tickets(show) %></td>
-        <td><%= link_to_address_for(show.venue) %></td>
+        <td>
+          <% shows.each do |show| %>
+            <%= starts_at_for(show) %>
+            <br />
+          <% end %>
+        </td>
+        <td><%= link_to_tickets(shows.first) %></td>
+        <td><%= link_to_address_for(venue) %></td>
       </tr>
     <% end %>
   </tbody>
