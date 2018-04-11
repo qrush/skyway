@@ -40,12 +40,19 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.4.0)
     arel (7.1.4)
-    aws-sdk (2.5.1)
-      aws-sdk-resources (= 2.5.1)
-    aws-sdk-core (2.5.1)
+    aws-partitions (1.80.0)
+    aws-sdk-core (3.19.0)
+      aws-partitions (~> 1.0)
+      aws-sigv4 (~> 1.0)
       jmespath (~> 1.0)
-    aws-sdk-resources (2.5.1)
-      aws-sdk-core (= 2.5.1)
+    aws-sdk-kms (1.5.0)
+      aws-sdk-core (~> 3)
+      aws-sigv4 (~> 1.0)
+    aws-sdk-s3 (1.9.0)
+      aws-sdk-core (~> 3)
+      aws-sdk-kms (~> 1)
+      aws-sigv4 (~> 1.0)
+    aws-sigv4 (1.0.2)
     bitters (0.9.3)
       bourbon (>= 3.1)
       sass (>= 3.2)
@@ -119,7 +126,7 @@ GEM
     jbuilder (2.6.0)
       activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
-    jmespath (1.3.1)
+    jmespath (1.4.0)
     jquery-rails (4.1.1)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
@@ -259,7 +266,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  aws-sdk
+  aws-sdk-s3
   bitters (~> 0.9.3)
   bourbon (~> 4.0.2)
   bugsnag

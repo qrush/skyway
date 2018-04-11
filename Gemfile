@@ -21,7 +21,7 @@ gem 'chronic'
 gem 'kaminari'
 
 gem 'paperclip'
-gem 'aws-sdk'
+gem 'aws-sdk-s3'
 gem 'high_voltage'
 gem 'kramdown'
 gem 'simple_mercator_location'
