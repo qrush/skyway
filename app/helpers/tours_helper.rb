@@ -5,12 +5,8 @@ module ToursHelper
     link_to venue.address || venue.location, "http://maps.google.com?q=#{CGI.escape(query)}"
   end
 
-  def link_to_price_for(show)
-    if show.url.present?
-      link_to "Tickets (#{price_for(show)})", show.url
-    else
-      price_for(show)
-    end
+  def link_to_tickets(show)
+    link_to "Tickets", show.url.presence || show.venue.url.presence || "https://facebook.com/aqueousband/events"
   end
 
   def price_for(show)
