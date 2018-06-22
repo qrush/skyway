@@ -32,7 +32,14 @@
 
 <section class="left" id="tour">
   <h2>Tour</h2>
-  <%= render_markdown(@homepage.tour) %>
+  <table>
+    <% @upcoming_shows.each do |show| %>
+    <tr>
+      <td><%= performed_at_for(show) %></td>
+      <td><%= show.name %></td>
+    </tr>
+    <% end %>
+  </table>
 
   <p class="more">
     <%= link_to "More dates &rarr;".html_safe, tour_path %>
