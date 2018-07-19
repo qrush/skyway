@@ -7,7 +7,7 @@ module ApplicationHelper
       link_to("Lyrics",   lyrics_path),
       link_to("Merch",    "https://aqueousband.hilinemerchandising.com/"),
       link_to("Setlists", setlists_path),
-      link_to("Mobilize", page_path("mobilize")),
+      link_to("Mobilize", "https://www.signupgenius.com/go/60b0449aaaa2da0fe3-aqueous"),
       link_to("About",    page_path("about")),
       link_to("Contact",  page_path("contact"))
     ]
