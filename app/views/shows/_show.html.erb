@@ -1,6 +1,6 @@
 <article class="show" id="<%= dom_id(show) %>">
     <header data-behavior="setlist">
-      <h2><%= link_to show.when, show %></h2>
+      <h2><%= link_to show.when, show %> <small><%= show.tour_notes %></small></h2>
       <%= render show.venue %>
     </header>
 

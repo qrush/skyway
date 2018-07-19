@@ -3,6 +3,9 @@
 <%= form.label :performed_at, "Date of show" %>
 <%= form.date_field :performed_at, value: @show.new_record? && Date.tomorrow %>
 
+<%= form.label :tour_notes, "Tour notes" %>
+<%= form.text_field :tour_notes, placeholder: "Shows up under the date" %>
+
 <%= form.label :starts_at, "Time of admission" %>
 <%= form.time_field :starts_at, step: 15.minutes, value: @show.new_record? && "21:00" %>
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170131032805) do
+ActiveRecord::Schema.define(version: 20180719023024) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -121,6 +121,7 @@ ActiveRecord::Schema.define(version: 20170131032805) do
     t.time     "starts_at"
     t.text     "extra_notes"
     t.boolean  "featured",                        default: false, null: false
+    t.string   "tour_notes"
     t.index ["embeds"], name: "index_shows_on_embeds", using: :btree
     t.index ["notes"], name: "index_shows_on_notes", using: :gin
     t.index ["performed_at"], name: "index_shows_on_performed_at", using: :btree
