@@ -40,6 +40,10 @@ article.type-system-sans {
     @include media($medium-screen) {
       font-size: 1.4em;
     }
+
+    small {
+      font-size: 75%;
+    }
   }
 
   h3 {
