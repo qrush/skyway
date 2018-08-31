@@ -12,6 +12,8 @@ $ =>
   else
     playlist = ({sources: [{file: item.dataset.track}]} for item in document.querySelectorAll("[data-track]"))
 
+  return if playlist.length is 0
+
   @sampler.player = jwplayer('mediaplayer').setup
     id: 'playerID'
     controls: false

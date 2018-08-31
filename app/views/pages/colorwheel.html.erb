@@ -1,4 +1,5 @@
 <% @title = "Color Wheel" %>
+<% buy_url = "https://bit.ly/2wuxFrT" %>
 <%= content_for :head do %>
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,900,900i" rel="stylesheet">
 <% end %>
@@ -6,11 +7,11 @@
 <%= link_to 'continue to full site »', home_path, id: 'home' %>
 
 <h2>Aqueous</h2>
-<%= link_to page_path('colorwheel'), id: "root" do %>
+<%= link_to buy_url, id: "root" do %>
   <h1>Color Wheel</h1>
 <% end %>
 
-<a href="https://bit.ly/2wuxFrT" id="colorwheel">more</a>
+<%= link_to "more", buy_url, id: "colorwheel" %>
 
 <ol>
   <li>Second Sight</li>
@@ -26,7 +27,7 @@
 </ol>
 
 <h3><span>Wave One</span> Coming Soon</h3>
-<%= link_to 'Vinyl Preorder', 'https://bit.ly/2wuxFrT', id: "vinyl" %>
+<%= link_to 'Vinyl Preorder', buy_url, id: "vinyl" %>
 
 <p class="quote">
   "Color Wheel feels like a step forward for the band in every way. We tapped into a distinctly more emotional and purposeful space when writing it, and there’s a raw honesty throughout the album’s lyrics and themes that I think a lot of people can relate to, too. Though some of those themes are a little heavier, there’s a constant thread of hopeful optimism that we hope people will really connect with. Musically, the band has evolved and this album finds us exploring some new and very exciting musical lanes, too. The whole album, meant to be listened to in order, feels much like a continuing story or narrative, and the music unfolds as such."<br />-Mike Gantzer
