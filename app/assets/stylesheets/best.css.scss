@@ -57,7 +57,10 @@ body.pages--colorwheel {
     font-size: 55px;
     text-transform: uppercase;
     letter-spacing: -1px;
-    line-height: 40px;
+    line-height: 50px;
+    @include media($large-screen) {
+      line-height: 40px;
+    }
   }
 
   h2 {
@@ -137,9 +140,16 @@ body.pages--colorwheel {
   }
 
   ol {
-    margin-top: 5em;
-    margin-left: 3em;
     list-style: decimal;
+    margin-left: 20%;
+    @include media($medium-screen) {
+      margin-left: 39%;
+    }
+    @include media($large-screen) {
+      margin-left: 3em;
+      margin-top: 5em;
+    }
+
     li {
       font-size: 16px;
       text-transform: uppercase;
