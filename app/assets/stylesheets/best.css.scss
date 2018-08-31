@@ -25,6 +25,53 @@ $colorwheel-header-color: darken(#ffffff, 5%);
 $colorwheel-link-color: #d4a852;
 $colorwheel-font-family: "Raleway";
 
+/* via https://codepen.io/nohoid/pen/kIfto */
+@include keyframes(rainbow) {
+  $red: #ff2400;
+  $orange: #e81d1d;
+  $tan: #e8b71d;
+  $yellow: #e3e81d;
+  $green: #1de840;
+  $aqua: #1ddde8;
+  $blue: #2b1de8;
+  $purple: #dd00f3;
+  0% {
+    background: radial-gradient(200px, $red, $orange, $tan, $yellow, $green, $aqua, $blue, $purple);
+  }
+
+  12.5% {
+    background: radial-gradient(200px, $orange, $tan, $yellow, $green, $aqua, $blue, $purple, $red);
+  }
+
+  25% {
+    background: radial-gradient(200px, $tan, $yellow, $green, $aqua, $blue, $purple, $red, $orange);
+  }
+
+  37.5% {
+    background: radial-gradient(200px, $yellow, $green, $aqua, $blue, $purple, $red, $orange, $tan);
+  }
+
+  50% {
+    background: radial-gradient(200px, $green, $aqua, $blue, $purple, $red, $orange, $tan, $yellow);
+  }
+
+  62.5% {
+    background: radial-gradient(200px, $aqua, $blue, $purple, $red, $orange, $tan, $yellow, $green);
+  }
+
+  75% {
+    background: radial-gradient(200px, $blue, $purple, $red, $orange, $tan, $yellow, $green, $aqua);
+  }
+
+  87.5% {
+    background: radial-gradient(200px, $purple, $red, $orange, $tan, $yellow, $green, $aqua, $blue);
+  }
+
+  100% {
+    background: radial-gradient(200px, $red, $orange, $tan, $yellow, $green, $aqua, $blue, $purple);
+  }
+}
+
 @font-face {
   font-family: $header-font-family;
   src: asset-url('PlayfairDisplay-Bold.eot');
@@ -90,19 +137,27 @@ body.pages--colorwheel {
     }
   }
 
-  #vinyl {
-    font-family: $colorwheel-font-family;
-    display: block;
+  .vinyl {
     text-align: center;
-    text-transform: uppercase;
-    font-size: 30px;
-    font-weight: 900;
-    letter-spacing: 5px;
     margin-top: 1em;
     margin-bottom: 1em;
-    color: $colorwheel-link-color !important;
-    &:hover {
-      text-decoration: underline;
+    a {
+      font-family: $colorwheel-font-family;
+      display: inline-block;
+      text-align: center;
+      text-transform: uppercase;
+      font-size: 30px;
+      font-weight: 900;
+      text-align: center;
+
+      letter-spacing: 5px;
+      padding: 15px;
+      background: $colorwheel-link-color;
+      color: #fff !important;
+      &:hover {
+        background: radial-gradient(200px, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+        @include animation(rainbow 1s ease-in-out infinite reverse);
+      }
     }
   }
 
