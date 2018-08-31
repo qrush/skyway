@@ -8,7 +8,7 @@ class PagesController < ApplicationController
 
   def layout_for_page
     case params[:id]
-    when 'bestinshow', 'element_pt1'
+    when 'bestinshow', 'element_pt1', 'colorwheel'
       'best'
     when 'sampler'
       'sampler'

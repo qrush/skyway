@@ -8,9 +8,22 @@
 
 $background-color: #c0cdc5;
 $text-color: #483E2B;
-$max-width: 75em;
 $header-font-family: 'Playfair Display';
-$font-family: 'Neutra Display Alt', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+
+$best-max-width: 75em;
+$best-font-family: 'Neutra Display Alt', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+
+$element-max-width: 75em;
+$element-background-color: #1B1B3C;
+$element-text-color: #ffffff;
+$element-header-color: darken(#ffffff, 5%);
+
+$colorwheel-max-width: 50em;
+$colorwheel-background-color: #1b1b1b;
+$colorwheel-text-color: #ffffff;
+$colorwheel-header-color: darken(#ffffff, 5%);
+$colorwheel-link-color: #d4a852;
+$colorwheel-font-family: "Raleway";
 
 @font-face {
   font-family: $header-font-family;
@@ -32,19 +45,153 @@ $font-family: 'Neutra Display Alt', 'Helvetica Neue', 'Helvetica', 'Arial', sans
   font-style: normal;
 }
 
+body.pages--colorwheel {
+  background: $colorwheel-background-color;
+  font-family: $colorwheel-font-family;
+  color: $colorwheel-text-color;
 
-body {
-  background: $background-color asset-url("cork-wallet.png") repeat;
-  font-family: $font-family;
+  h1 {
+    font-family: $colorwheel-font-family;
+    text-align: center;
+    font-weight: 400 !important;
+    font-size: 55px;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+  }
+
+  h2 {
+    margin-top: 1em;
+    margin-bottom: 0;
+    text-align: center;
+    font-family: $colorwheel-font-family;
+    font-weight: 900 !important;
+    font-size: 38px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+  }
+
+  h3 {
+    font-family: $colorwheel-font-family;
+    clear: both;
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 0em;
+    font-size: 38px;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    span {
+      font-weight: 900;
+      font-style: italic;
+      letter-spacing: 5px;
+    }
+  }
+
+  #vinyl {
+    font-family: $colorwheel-font-family;
+    display: block;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 30px;
+    font-weight: 900;
+    letter-spacing: 5px;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    color: $colorwheel-link-color !important;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  h1, h2, h3, h4, h5 {
+    color: $colorwheel-header-color;
+  }
+
+  p, li {
+    color: $colorwheel-text-color;
+  }
+
+  p > a, footer a, a#home {
+    color: $colorwheel-link-color !important;
+  }
+
+  footer {
+    p {
+      width: 100%;
+
+      a {
+        background: asset-url("logo_white.png") no-repeat center;
+        background-size: contain;
+        opacity: 0.8;
+      }
+    }
+
+    ul, aside {
+      text-align: center !important;
+    }
+
+    ul li a:hover {
+      text-decoration: underline;
+      border-bottom: none;
+    }
+  }
+
+  ol {
+    margin-top: 5em;
+    margin-left: 3em;
+    list-style: decimal;
+    li {
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+    small {
+      font-style: normal;
+      font-size: 70%;
+    }
+  }
+
+  #wrapper {
+    max-width: $colorwheel-max-width;
+  }
+
+  .quote {
+    text-align: justify;
+    width: 100%;
+    text-transform: uppercase;
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  #mc_embed_signup {
+    display: none;
+  }
 }
 
-$element-background-color: #1B1B3C;
-$element-text-color: #ffffff;
-$element-header-color: darken(#ffffff, 5%);
+body.pages--bestinshow {
+  background: $background-color asset-url("cork-wallet.png") repeat;
+  font-family: $best-font-family;
+
+  article {
+    max-width: $best-max-width;
+  }
+
+  a#home {
+    font-size: 26px;
+  }
+
+  #wrapper {
+    max-width: $best-max-width;
+  }
+}
 
 body.pages--element_pt1 {
-  background-color: $element-background-color;
+  background: $element-background-color asset-url("cork-wallet.png") repeat;
+  font-family: $best-font-family;
   color: $element-text-color;
+
+  article {
+    max-width: $element-max-width;
+  }
 
   footer p a {
     display: none;
@@ -54,12 +201,21 @@ body.pages--element_pt1 {
     color: lighten(#4C8A67, 30%) !important;
   }
 
+  a#home {
+    font-size: 26px;
+  }
+
   p, label {
     color: $element-text-color !important;
   }
 
   h1 {
     font-family: Helvetica;
+    color: #fff !important;
+  }
+
+  h2 {
+    color: #fff !important;
   }
 
   h1, h2, h3, h4, h5 {
@@ -71,12 +227,14 @@ body.pages--element_pt1 {
     font-size: 30px;
     padding: 20px;
     color: #fff !important;
+  }
 
+  #wrapper {
+    max-width: $element-max-width;
   }
 }
 
 #wrapper {
-  max-width: $max-width;
   margin-left: auto;
   margin-right: auto;
   padding: 1em;
@@ -84,130 +242,130 @@ body.pages--element_pt1 {
   color: $text-color;
 }
 
-body.pages-show article {
-  max-width: $max-width;
-}
-
 h1, h2, h3 {
   text-align: left;
 }
 
-h1 {
-  font-family: 'Playfair Display';
-  font-size: 6em;
-  letter-spacing: -6px;
-  font-weight: bold;
-  margin-bottom: 0;
-  color: #747470;
-  line-height: 0.9em;
-  text-align: center;
-
-  @include media($large-screen) {
-    text-align: left;
-  }
-}
 
 #root {
   text-decoration: none;
 }
 
-h2 {
-  font-family: 'Neutra Display Alt';
-  width: 100%;
-  font-size: 3em;
-  color: #444342;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  text-align: center;
-
-  @include media($large-screen) {
-    text-align: left;
-    margin-bottom: 0.8em;
-  }
-}
-
-h3 {
-  margin-top: 2em;
-  font-size: 4em;
-}
-
-h5 {
-  margin-top: 1em;
-  font-size: 1.5em;
-  border-bottom: 1px dashed #ccc;
-}
-
-dl {
-  margin-top: 1em;
-  dt {
-    padding-top: 1em;
-    padding-bottom: 1em;
-    overflow: hidden;
-    font-size: 175%;
+body.pages--bestinshow,
+body.pages--element_pt1 {
+  h1 {
+    font-family: 'Playfair Display';
+    font-size: 6em;
+    letter-spacing: -6px;
+    font-weight: bold;
+    margin-bottom: 0;
+    color: #747470;
+    line-height: 0.9em;
     text-align: center;
 
     @include media($large-screen) {
-      font-size: 200%;
       text-align: left;
     }
+  }
 
-    a, a:visited {
-      font-weight: normal;
-      background: asset-url("play.png") right no-repeat;
+  h2 {
+    font-family: 'Neutra Display Alt';
+    width: 100%;
+    font-size: 3em;
+    color: #444342;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+
+    @include media($large-screen) {
+      text-align: left;
+      margin-bottom: 0.8em;
+    }
+  }
+
+  h3 {
+    margin-top: 2em;
+    font-size: 4em;
+  }
+
+  h5 {
+    margin-top: 1em;
+    font-size: 1.5em;
+    border-bottom: 1px dashed #ccc;
+  }
+
+  dl {
+    margin-top: 1em;
+    dt {
+      padding-top: 1em;
+      padding-bottom: 1em;
+      overflow: hidden;
+      font-size: 175%;
+      text-align: center;
+
+      @include media($large-screen) {
+        font-size: 200%;
+        text-align: left;
+      }
+
+      a, a:visited {
+        font-weight: normal;
+        background: asset-url("play.png") right no-repeat;
+        background-size: contain;
+        padding-right: 40px;
+        color: $white;
+        @include filter(sepia(100%) brightness(0.3) opacity(95%));
+        @include transition (all 0.2s ease-in-out);
+
+        &[data-status=pause] {
+          background-image: asset-url("pause.png");
+        }
+
+        &:hover {
+          @include filter(sepia(100%) brightness(0) opacity(95%));
+          border: none;
+        }
+      }
+    }
+
+    dd {
+      margin-bottom: 2em;
+      text-align: center;
+
+      @include media($large-screen) {
+        text-align: left;
+      }
+      a {
+        font-size: 18px;
+      }
+    }
+
+    dt#song1 {
+      background: asset-url("waveforms/randomcompany.png") no-repeat;
       background-size: contain;
-      padding-right: 40px;
-      color: $white;
-      @include filter(sepia(100%) brightness(0.3) opacity(95%));
-      @include transition (all 0.2s ease-in-out);
+      background-position: center center;
 
-      &[data-status=pause] {
-        background-image: asset-url("pause.png");
-      }
-
-      &:hover {
-        @include filter(sepia(100%) brightness(0) opacity(95%));
-        border: none;
+      @include media($large-screen) {
+        background-position: left center;
       }
     }
   }
 
-  dd {
-    margin-bottom: 2em;
-    text-align: center;
-
+  p {
+    font-size: 1.6em;
+    text-align: left;
     @include media($large-screen) {
-      text-align: left;
-    }
-    a {
-      font-size: 18px;
+      width: 50%;
     }
   }
 
-  dt#song1 {
-    background: asset-url("waveforms/randomcompany.png") no-repeat;
-    background-size: contain;
-    background-position: center center;
-
-    @include media($large-screen) {
-      background-position: left center;
-    }
+  small {
+    font-style: italic;
   }
-}
 
-p {
-  font-size: 1.6em;
-  text-align: left;
-  @include media($large-screen) {
-    width: 50%;
+  #mediaplayer {
+    display: none;
   }
-}
-
-small {
-  font-style: italic;
-}
-
-#mediaplayer {
-  display: none;
 }
 
 article {
@@ -261,7 +419,7 @@ footer {
   input[type="email"], input, label {
     font-size: 18px;
     font-weight: normal;
-    font-family: $font-family;
+    font-family: $best-font-family;
   }
 
   aside {
@@ -284,7 +442,6 @@ p#buy {
 }
 
 a#home {
-  font-size: 26px;
   @include media($large-screen) {
     position: absolute;
     top: 0;
@@ -335,6 +492,27 @@ a#dogs {
     width: 600px;
     height: 600px;
     right: 0;
+  }
+
+  &:hover {
+    border: none;
+  }
+}
+
+a#colorwheel {
+  background: asset-url("colorwheel.jpg") no-repeat center center;
+  background-size: contain;
+  text-indent: -9999px;
+
+  width: 80%;
+  min-height: 250px;
+  display: block;
+  margin: 0 auto 0.8em auto;
+
+  @include media($large-screen) {
+    float: right;
+    width: 400px;
+    height: 400px;
   }
 
   &:hover {
