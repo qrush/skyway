@@ -130,7 +130,7 @@ body.pages--colorwheel {
     font-size: 38px;
     text-transform: uppercase;
     letter-spacing: 5px;
-    span {
+    em strong {
       font-weight: 900;
       font-style: italic;
       letter-spacing: 5px;
@@ -157,6 +157,7 @@ body.pages--colorwheel {
       &:hover {
         background: radial-gradient(200px, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
         @include animation(rainbow 1s ease-in-out infinite reverse);
+        text-decoration: none;
       }
     }
   }
@@ -169,8 +170,11 @@ body.pages--colorwheel {
     color: $colorwheel-text-color;
   }
 
-  p > a, footer a, a#home {
+  p a, footer a, a#home {
     color: $colorwheel-link-color !important;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   footer {
@@ -226,6 +230,10 @@ body.pages--colorwheel {
     text-transform: uppercase;
     font-size: 14px;
     line-height: 16px;
+
+    p {
+      margin-bottom: 0;
+    }
   }
 
   #mc_embed_signup {
