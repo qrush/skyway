@@ -1,8 +1,5 @@
 //= require jquery
 //= require jquery_ujs
-//= require jwplayer
-
-jwplayer.key = "RMvgim99iIA6JMnO0pelofjf2EOnWZEAelk/zA=="
 
 $(document).ready(function () {
   var vid = document.getElementById("bgvid");

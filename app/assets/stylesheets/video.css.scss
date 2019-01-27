@@ -1,12 +1,38 @@
 @import "globals";
 @import "reset";
 
+@import "bourbon";
+@import "bitters/bitters";
+@import "bitters/flashes";
+@import "neat";
+
+@font-face {
+  font-family: 'League Gothic';
+  src: asset-url('leaguegothic-regular-webfont.eot');
+  src: asset-url('leaguegothic-regular-webfont.eot?#iefix') format('embedded-opentype'),
+        asset-url('leaguegothic-regular-webfont.woff') format('woff'),
+        asset-url('leaguegothic-regular-webfont.ttf') format('truetype'),
+        asset-url('leaguegothic-regular-webfont.svg#league_gothicregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
 $background-color: rgba(211, 186, 132, 0.1);
 $text-color: #483E2B;
+$font-family: 'League Gothic', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+
+html {
+  height: 100%;
+}
 
 body {
   background: $background-color;
-  font-family: $sans-serif;
+  font-family: $font-family;
+  height: 100%;
+}
+
+article {
+  height: 100%;
 }
 
 #wrapper {
@@ -14,12 +40,8 @@ body {
   margin-left: auto;
   margin-right: auto;
   padding: 1em;
-  background: $background-color;
   color: $text-color;
-}
-
-footer {
-  font-size: 75%;
+  height: 100%;
 }
 
 /* via https://codepen.io/dudleystorey/pen/knqyK */
@@ -39,12 +61,7 @@ video {
   transition: 1s opacity;
 }
 
-.stopfade { 
-   opacity: .5;
-}
-
 #polina { 
-  font-family: Agenda-Light, Agenda Light, Agenda, Arial Narrow, sans-serif;
   font-weight:100; 
   background: rgba(0,0,0,0.3);
   color: white;
@@ -54,27 +71,13 @@ video {
   float: right;
   font-size: 1.2rem;
 }
+
 h1 {
-  font-size: 3rem;
+  font-size: 10rem;
+  font-family: $font-family;
   text-transform: uppercase;
   margin-top: 0;
-  letter-spacing: .3rem;
-}
-#polina button { 
-  display: block;
-  width: 80%;
-  padding: .4rem;
-  border: none; 
-  margin: 1rem auto; 
-  font-size: 1.3rem;
-  background: rgba(255,255,255,0.23);
   color: #fff;
-  border-radius: 3px; 
-  cursor: pointer;
-  transition: .3s background;
-}
-#polina button:hover { 
-   background: rgba(0,0,0,0.5);
 }
 
 a {
@@ -88,10 +91,40 @@ a {
 a:hover{
   background:rgba(0,0,0,0.9);
 }
+
 @media screen and (max-width: 500px) { 
   div{width:70%;} 
 }
 @media screen and (max-device-width: 800px) {
   html { background: url(https://thenewcode.com/assets/images/polina.jpg) #000 no-repeat center center fixed; }
   #bgvid { display: none; }
+}
+
+header {
+  height: 100%;
+  width: 300px;
+  float: right;
+  background: rgba(0, 0, 0, 0.5);
+
+  ul {
+    text-align: left;
+    font-size: 50px;
+    text-transform: uppercase;
+    li {
+      padding: 20px 0;
+      &:hover {
+        background: rgba(0, 0, 0, 0.5);
+      }
+
+      a {
+        background: none;
+        width: 100%;
+
+        &:hover {
+          color: #E6EFC2;
+          background: none;
+        }
+      }
+    }
+  }
 }
