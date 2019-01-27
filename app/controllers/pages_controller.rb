@@ -12,6 +12,8 @@ class PagesController < ApplicationController
       'best'
     when 'sampler'
       'sampler'
+    when 'video'
+      'video'
     else
       'application'
     end
