@@ -1,0 +1,130 @@
+@import "globals";
+@import "reset";
+
+@import "bourbon";
+@import "bitters/bitters";
+@import "bitters/flashes";
+@import "neat";
+
+@font-face {
+  font-family: 'League Gothic';
+  src: asset-url('leaguegothic-regular-webfont.eot');
+  src: asset-url('leaguegothic-regular-webfont.eot?#iefix') format('embedded-opentype'),
+        asset-url('leaguegothic-regular-webfont.woff') format('woff'),
+        asset-url('leaguegothic-regular-webfont.ttf') format('truetype'),
+        asset-url('leaguegothic-regular-webfont.svg#league_gothicregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+$background-color: rgba(211, 186, 132, 0.1);
+$text-color: #483E2B;
+$font-family: 'League Gothic', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+
+html {
+  height: 100%;
+}
+
+body {
+  background: $background-color;
+  font-family: $font-family;
+  height: 100%;
+}
+
+article {
+  height: 100%;
+}
+
+#wrapper {
+  max-width: $max-width;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1em;
+  color: $text-color;
+  height: 100%;
+}
+
+/* via https://codepen.io/dudleystorey/pen/knqyK */
+
+video { 
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  transform: translateX(-50%) translateY(-50%);
+  background: url('//demosthenes.info/assets/images/polina.jpg') no-repeat;
+  background-size: cover;
+  transition: 1s opacity;
+}
+
+#polina { 
+  font-weight:100; 
+  background: rgba(0,0,0,0.3);
+  color: white;
+  padding: 2rem;
+  width: 33%;
+  margin:2rem;
+  float: right;
+  font-size: 1.2rem;
+}
+
+h1 {
+  font-size: 10rem;
+  font-family: $font-family;
+  text-transform: uppercase;
+  margin-top: 0;
+  color: #fff;
+}
+
+a {
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+  background:rgba(0,0,0,0.5);
+  padding: .5rem;
+  transition: .6s background; 
+}
+a:hover{
+  background:rgba(0,0,0,0.9);
+}
+
+@media screen and (max-width: 500px) { 
+  div{width:70%;} 
+}
+@media screen and (max-device-width: 800px) {
+  html { background: url(https://thenewcode.com/assets/images/polina.jpg) #000 no-repeat center center fixed; }
+  #bgvid { display: none; }
+}
+
+header {
+  height: 100%;
+  width: 300px;
+  float: right;
+  background: rgba(0, 0, 0, 0.5);
+
+  ul {
+    text-align: left;
+    font-size: 50px;
+    text-transform: uppercase;
+    li {
+      padding: 20px 0;
+      &:hover {
+        background: rgba(0, 0, 0, 0.5);
+      }
+
+      a {
+        background: none;
+        width: 100%;
+
+        &:hover {
+          color: #E6EFC2;
+          background: none;
+        }
+      }
+    }
+  }
+}
