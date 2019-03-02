@@ -24,7 +24,7 @@
 @import "attendances";
 
 body {
-  background: $body-background asset-url("intersection.png") repeat;
+  background: $body-background asset-url($theme-background-image) repeat;
   font-family: $sans-serif;
 }
 

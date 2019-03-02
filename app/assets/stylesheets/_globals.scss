@@ -1,8 +1,10 @@
-$link-color: #FA6900;
+$link-color: #CC2A41;
 $white: rgba(255, 255, 255, 0.9);
 $black: rgba(0, 0, 0, 0.75);
-$body-background: rgba(91, 177, 69, 0.5);
+$body-background: #351330;
 $logo-background: #777;
 $search-background: darken($logo-background, 10%);
 $max-width: 60em;
 $sans-serif: 'Oxygen', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+
+$theme-background-image: "dark-honeycomb.png";

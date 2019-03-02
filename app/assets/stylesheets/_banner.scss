@@ -28,14 +28,13 @@
 
 #wavebanner {
   a {
-    background: asset-url('waveforms/front.png') no-repeat;
+    background: asset-url('waveforms/song2.png') no-repeat;
     background-size: contain;
     background-position: center;
     text-align: center;
     margin-top: 15px;
     padding: 1em 0;
     font-size: 1.4em;
-    @include filter(hue-rotate(180deg));
 
     @include media($large-screen) {
       margin: 10px 0;

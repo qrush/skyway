@@ -10,7 +10,7 @@ class HomeController < ApplicationController
     benchmark "Contentful Homepage Load" do
       @homepage = Homepage.find_by(title: "home").load.first
     end
-    @week_count = Show.where(["performed_at >= ? and performed_at <= ?", Date.today, Date.today.end_of_week]).count
+    @week_count = 2 || Show.where(["performed_at >= ? and performed_at <= ?", Date.today, Date.today.end_of_week]).count
     @upcoming_shows = Show.upcoming.limit(5)
   end
 end
