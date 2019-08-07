@@ -51,25 +51,27 @@ body.home-show {
   $heroheight: 350px;
   header.hero {
     padding: 1px 16px 16px 16px;
-    background: rgba(10, 10, 10, 1) asset-url('banner5@2x.jpg') no-repeat;
-    background-size: cover;
+    background: rgba(10, 10, 10, 1) asset-url('banner6@2x.jpg') no-repeat;
+    background-size: auto;
 
     @include media($large-screen) {
       height: $heroheight;
       background-position: center top;
       position: absolute;
-      top: 72px;
+      top: 76px;
       width: $max-width;
       margin-left: -16px;
       max-width: 100%;
+      background-size: cover;
     }
 
     h1 {
-      background: asset-url("biglogo_white@2x.png") no-repeat 50% 50%;
+      background: asset-url("biglogo@2x.png") no-repeat center left;
       text-indent: -9999px;
       width: 100%;
-      margin-top: 0.5em;
+      margin-top: 10px;
       margin-bottom: 0;
+      opacity: 0.5;
 
       background-size: contain;
       min-height: 75px;

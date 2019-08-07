@@ -21,12 +21,12 @@
   <%= render_markdown(@homepage.news) %>
 </section>
 
-<section class="right" id="listen">
-  <h2>Listen</h2>
-  <%= render_markdown(@homepage.listen) %>
+<section class="right" id="watch">
+  <h2>Watch</h2>
+  <%= render_markdown(@homepage.watch) %>
 
   <p class="more">
-    <%= link_to "More music &rarr;".html_safe, page_path("music") %>
+    <%= link_to "More videos &rarr;".html_safe, "https://youtube.com/AqueousBand" %>
   </p>
 </section>
 
@@ -46,12 +46,12 @@
   </p>
 </section>
 
-<section class="right" id="watch">
-  <h2>Watch</h2>
-  <%= render_markdown(@homepage.watch) %>
+<section class="right" id="listen">
+  <h2>Listen</h2>
+  <%= render_markdown(@homepage.listen) %>
 
   <p class="more">
-    <%= link_to "More videos &rarr;".html_safe, "http://youtube.com/AqueousBand" %>
+    <%= link_to "More music &rarr;".html_safe, page_path("music") %>
   </p>
 </section>
 
