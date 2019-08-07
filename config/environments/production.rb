@@ -53,7 +53,12 @@ Rails.application.configure do
   config.log_tags = [ :request_id ]
 
   # Use a different cache store in production.
-  config.cache_store = :dalli_store, ENV["MEMCACHED_URL"]
+  if ENV["MEMCACHEDCLOUD_SERVERS"]
+    config.cache_store = :mem_cache_store, ENV["MEMCACHEDCLOUD_SERVERS"].split(','),
+      { :username => ENV["MEMCACHEDCLOUD_USERNAME"], :password => ENV["MEMCACHEDCLOUD_PASSWORD"] }
+  else
+    config.cache_store = :dalli_store, ENV["MEMCACHED_URL"]
+  end
   config.session_store ActionDispatch::Session::CacheStore, expire_after: 7.days
 
   # Use a real queuing backend for Active Job (and separate queues per environment)
