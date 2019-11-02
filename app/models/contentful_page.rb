@@ -1,4 +1,4 @@
-class ContentfulBase < ContentfulModel::Base
+class ContentfulPage < ContentfulModel::Base
   extend ActiveSupport::Benchmarkable
 
   class << self
