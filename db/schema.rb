@@ -96,10 +96,10 @@ ActiveRecord::Schema.define(version: 20180719023024) do
 
   create_table "setlists", force: :cascade do |t|
     t.integer  "show_id"
-    t.integer  "position",               null: false
+    t.integer  "position",   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "name",       limit: 255
+    t.string   "name"
     t.index ["show_id"], name: "index_setlists_on_show_id", using: :btree
   end
 
@@ -108,19 +108,19 @@ ActiveRecord::Schema.define(version: 20180719023024) do
     t.date     "performed_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "notes",               limit: 255, default: [],                 array: true
-    t.boolean  "unknown_setlist",                 default: false, null: false
-    t.string   "banner_file_name",    limit: 255
-    t.string   "banner_content_type", limit: 255
+    t.string   "notes",               default: [],                 array: true
+    t.boolean  "unknown_setlist",     default: false, null: false
+    t.string   "banner_file_name"
+    t.string   "banner_content_type"
     t.integer  "banner_file_size"
     t.datetime "banner_updated_at"
     t.text     "embeds"
     t.text     "url"
-    t.string   "price",               limit: 255
-    t.string   "age_restriction",     limit: 255
+    t.string   "price"
+    t.string   "age_restriction"
     t.time     "starts_at"
     t.text     "extra_notes"
-    t.boolean  "featured",                        default: false, null: false
+    t.boolean  "featured",            default: false, null: false
     t.string   "tour_notes"
     t.index ["embeds"], name: "index_shows_on_embeds", using: :btree
     t.index ["notes"], name: "index_shows_on_notes", using: :gin
@@ -131,22 +131,22 @@ ActiveRecord::Schema.define(version: 20180719023024) do
   create_table "slots", force: :cascade do |t|
     t.integer  "setlist_id"
     t.integer  "song_id"
-    t.integer  "position",                               null: false
-    t.boolean  "transition",             default: false, null: false
+    t.integer  "position",                   null: false
+    t.boolean  "transition", default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "notes",      limit: 255, default: [],                 array: true
+    t.string   "notes",      default: [],                 array: true
     t.index ["notes"], name: "index_slots_on_notes", using: :gin
     t.index ["setlist_id"], name: "index_slots_on_setlist_id", using: :btree
     t.index ["song_id"], name: "index_slots_on_song_id", using: :btree
   end
 
   create_table "songs", force: :cascade do |t|
-    t.string   "name",           limit: 255,                 null: false
-    t.boolean  "cover",                      default: false, null: false
+    t.string   "name",                           null: false
+    t.boolean  "cover",          default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "shows_count",                default: 0,     null: false
+    t.integer  "shows_count",    default: 0,     null: false
     t.text     "lyrics"
     t.text     "history"
     t.integer  "album_id"
@@ -158,14 +158,14 @@ ActiveRecord::Schema.define(version: 20180719023024) do
   end
 
   create_table "venues", force: :cascade do |t|
-    t.string   "name",       limit: 255, null: false
+    t.string   "name",       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "location",   limit: 255
+    t.string   "location"
     t.text     "url"
-    t.string   "address",    limit: 255
-    t.string   "twitter",    limit: 255
-    t.string   "facebook",   limit: 255
+    t.string   "address"
+    t.string   "twitter"
+    t.string   "facebook"
     t.float    "latitude"
     t.float    "longitude"
     t.index ["latitude", "longitude"], name: "index_venues_on_latitude_and_longitude", using: :btree
