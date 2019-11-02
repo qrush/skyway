@@ -1,3 +1,3 @@
-class Colorwheel < ContentfulModel::Base
+class Colorwheel < ContentfulBase
   self.content_type_id = "colorwheel"
 end

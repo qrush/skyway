@@ -1,16 +1,16 @@
-<% @title = musicpage.title %>
+<% @title = Musicpage.instance.title %>
 
 <h2>our latest</h2>
 
 <section id="music" class="left">
-  <%== musicpage.latest_album %>
+  <%== Musicpage.instance.latest_album %>
 </section>
 
 <section id="watch" class="right">
-  <%== musicpage.latest_video %>
+  <%== Musicpage.instance.latest_video %>
 </section>
 
 <h2>the archive</h2>
 <section class="archive">
-  <%== musicpage.archive %>
+  <%== Musicpage.instance.archive %>
 </section>

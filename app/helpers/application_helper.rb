@@ -42,16 +42,4 @@ module ApplicationHelper
     renderer = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
     renderer.render(text).html_safe
   end
-
-  def musicpage
-    @musicpage ||= benchmark "Contentful Musicpage Load" do
-      Musicpage.find("7FVrQGAm76AMIqwkqQaICg")
-    end
-  end
-
-  def colorwheel
-    @colorwheel ||= benchmark "Contentful Colorwheel Load" do
-      Colorwheel.find("1Hyj0hxDY8CeIcEmKOWWCG")
-    end
-  end
 end
