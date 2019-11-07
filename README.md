@@ -4,13 +4,9 @@ Official stats and community site for [Aqueous](https://aqueousband.com/).
 
 ## Setup (OSX)
 
-Clone the repo, install Vagrant. Then:
+Clone the repo, run `bin/setup`.
 
-``` shell
-vagrant up
-```
-
-Once it's done, visit: http://local.aqueous.band. Done.
+Once it's done, visit: http://localhost:3000
 
 ## Ops
 
