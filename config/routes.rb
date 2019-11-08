@@ -39,7 +39,6 @@ Rails.application.routes.draw do
   resources :announcements
   resource :admin
 
-  get "/home" => "home#show"
   get "/setlists" => "home#index"
 
   get "/street.php", format: false, to: redirect('/mobilize')
@@ -76,8 +75,9 @@ Rails.application.routes.draw do
 
   get "/sitemap.xml" => "sitemap#index", :format => "xml", :as => :sitemap
 
-  # root to: redirect(path: "/colorwheel", status: 302)
-  root to: 'home#show'
+  ORIG_URL = 'https://aqueousband.com'
+  get "/home" => redirect(ORIG_URL)
+  root to: redirect(ORIG_URL)
 
   get "/*id" => 'pages#show', as: :page, format: false
 end
