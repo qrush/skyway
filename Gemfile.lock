@@ -94,7 +94,7 @@ GEM
       contentful-management (~> 1.0)
       redcarpet
       require_all
-    crass (1.0.4)
+    crass (1.0.5)
     dalli (2.7.6)
     domain_name (0.5.20170404)
       unf (>= 0.0.5, < 1.0.0)
@@ -140,7 +140,7 @@ GEM
     kramdown (1.11.1)
     launchy (2.4.3)
       addressable (~> 2.3)
-    loofah (2.2.3)
+    loofah (2.3.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)
