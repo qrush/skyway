@@ -75,9 +75,18 @@ Rails.application.routes.draw do
 
   get "/sitemap.xml" => "sitemap#index", :format => "xml", :as => :sitemap
 
-  ORIG_URL = 'https://aqueousband.com'
-  get "/home" => redirect(ORIG_URL)
+  ORIG_HOST = 'aqueousband.com'
+  ORIG_URL = "https://#{ORIG_HOST}"
   root to: redirect(ORIG_URL)
+
+  %W(
+    /home
+    /about
+    /contact
+    /music
+  ).each do |page|
+    get page => redirect(host: ORIG_HOST)
+  end
 
   get "/*id" => 'pages#show', as: :page, format: false
 end
