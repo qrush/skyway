@@ -13,6 +13,7 @@ gem 'uglifier'
 gem 'bourbon', '~> 4.0.2'
 gem 'bitters', '~> 0.9.3'
 gem 'neat', '~> 1.6.0'
+gem 'sassc'
 
 gem 'dynamic_form'
 gem 'jbuilder'
