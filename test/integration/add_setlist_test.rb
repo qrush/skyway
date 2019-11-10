@@ -6,7 +6,7 @@ class AddSetlistTest < ActionDispatch::IntegrationTest
   end
 
   test "adding a setlist" do
-    visit "/home"
+    visit "/setlists"
     click_link "Setlists"
     click_link "January 1st, 2016"
     click_link "Edit setlist"

@@ -1,7 +1,7 @@
 ruby '2.6.5'
 source 'https://rubygems.org'
 
-gem 'rails', '~> 5.0'
+gem 'rails', '~> 5.1'
 gem 'spring', group: 'development'
 gem 'pg'
 
@@ -13,6 +13,7 @@ gem 'uglifier'
 gem 'bourbon', '~> 4.0.2'
 gem 'bitters', '~> 0.9.3'
 gem 'neat', '~> 1.6.0'
+gem 'sassc'
 
 gem 'dynamic_form'
 gem 'jbuilder'

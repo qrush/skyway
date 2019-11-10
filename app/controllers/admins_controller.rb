@@ -3,6 +3,6 @@ class AdminsController < ApplicationController
 
   def show
     admin!
-    redirect_to root_path
+    redirect_to setlists_path
   end
 end
