@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  ORIG_URL = 'https://aqueousband.com'
+  get "/home" => redirect(ORIG_URL)
+  %w(music lyrics about contact).each do |page|
+    get "/#{page}" => redirect("#{ORIG_URL}/#{page}")
+  end
+  get "/news" => redirect('https://facebook.com/aqueousband')
+
   resource :tour
 
   resources :shows do
@@ -29,8 +36,6 @@ Rails.application.routes.draw do
       patch :confirm
     end
   end
-
-  get '/news' => redirect('https://facebook.com/aqueousband')
 
   resources :lyrics
   resources :albums
@@ -75,8 +80,6 @@ Rails.application.routes.draw do
 
   get "/sitemap.xml" => "sitemap#index", :format => "xml", :as => :sitemap
 
-  ORIG_URL = 'https://aqueousband.com'
-  get "/home" => redirect(ORIG_URL)
   root to: redirect(ORIG_URL)
 
   get "/*id" => 'pages#show', as: :page, format: false
