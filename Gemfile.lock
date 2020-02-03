@@ -187,7 +187,7 @@ GEM
       mimemagic (~> 0.3.0)
       terrapin (~> 0.6.0)
     pg (0.18.4)
-    rack (2.0.7)
+    rack (2.0.8)
     rack-rewrite (1.5.1)
     rack-test (0.6.3)
       rack (>= 1.0)
