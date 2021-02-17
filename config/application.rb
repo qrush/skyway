@@ -28,4 +28,8 @@ module Skyway
 
   mattr_accessor :time_zone
   self.time_zone = ActiveSupport::TimeZone['Eastern Time (US & Canada)']
+
+  config.action_dispatch.default_headers = {
+    'X-Frame-Options' => 'ALLOW-FROM https://aqueousband.com'
+  }
 end
