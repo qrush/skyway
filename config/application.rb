@@ -24,12 +24,12 @@ module Skyway
     # config.i18n.default_locale = :de
 
     config.active_record.time_zone_aware_types = [:datetime]
+
+    config.action_dispatch.default_headers = {
+      'X-Frame-Options' => 'ALLOW-FROM https://aqueousband.com'
+    }
   end
 
   mattr_accessor :time_zone
   self.time_zone = ActiveSupport::TimeZone['Eastern Time (US & Canada)']
-
-  config.action_dispatch.default_headers = {
-    'X-Frame-Options' => 'ALLOW-FROM https://aqueousband.com'
-  }
 end
