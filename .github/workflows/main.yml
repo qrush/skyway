@@ -1,0 +1,56 @@
+# .github/workflows/main.yaml
+name: Main
+env:
+  POSTGRES_PASSWORD: postgres
+
+on: [push]
+
+jobs:
+  rake:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:10.15
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: ${{ env.POSTGRES_PASSWORD }}
+          POSTGRES_DB: postgres
+        ports:
+        # will assign a random free host port
+        - 5432/tcp
+        # needed because the postgres container does not provide a healthcheck
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Ruby 2.6
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.6.7
+        bundler-cache: true
+
+    - name: install PostgreSQL client
+      run: sudo apt-get install libpq-dev
+
+    - name: Build and create DB
+      env:
+        RAILS_ENV: test
+        PGHOST: localhost
+        PGUSER: postgres
+        PGPORT: ${{ job.services.postgres.ports[5432] }} # get randomly assigned published port
+        REDIS_HOST: redis
+        REDIS_PORT: ${{ job.services.redis.ports[6379] }}
+      run: |
+        bin/rails db:setup
+    - name: Run tests
+      env:
+        RAILS_ENV: test
+        PGHOST: localhost
+        PGUSER: postgres
+        PGPORT: ${{ job.services.postgres.ports[5432] }} # get randomly assigned published port
+        REDIS_HOST: redis
+        REDIS_PORT: ${{ job.services.redis.ports[6379] }}
+      run: |
+        bundle exec rake

@@ -150,7 +150,9 @@ GEM
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
-    mimemagic (0.3.2)
+    mimemagic (0.3.10)
+      nokogiri (~> 1)
+      rake
     mini_mime (1.0.1)
     mini_portile2 (2.4.0)
     minitest (5.11.3)
@@ -305,7 +307,7 @@ DEPENDENCIES
   unicorn
 
 RUBY VERSION
-   ruby 2.6.5p114
+   ruby 2.6.7p197
 
 BUNDLED WITH
    1.17.3
