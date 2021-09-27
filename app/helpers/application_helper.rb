@@ -5,7 +5,7 @@ module ApplicationHelper
       link_to("Tour",     tour_path),
       link_to("Music",    page_path("music")),
       link_to("Lyrics",   lyrics_path),
-      link_to("Merch",    "http://merch.aqueousband.com"),
+      # link_to("Merch",    "http://merch.aqueousband.com"),
       link_to("Setlists", setlists_path),
       link_to("Mobilize", "http://mobilize.aqueousband.com"),
       link_to("About",    page_path("about")),
