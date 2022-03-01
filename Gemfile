@@ -46,6 +46,8 @@ group :production, :staging do
   gem 'dalli'
 
   gem 'bugsnag'
+
+  gem 'redis-rails'
 end
 
 group :development, :test do

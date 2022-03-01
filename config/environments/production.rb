@@ -57,7 +57,9 @@ Rails.application.configure do
     config.cache_store = :mem_cache_store, ENV["MEMCACHEDCLOUD_SERVERS"].split(','),
       { :username => ENV["MEMCACHEDCLOUD_USERNAME"], :password => ENV["MEMCACHEDCLOUD_PASSWORD"] }
   elsif (redis_url = ENV["REDIS_URL"])
-    config.cache_store = :redis_cache_store, { url: redis_url }
+    config.cache_store = :redis_store, redis_url, { expires_in: 90.minutes }
+    # after Rails 5.2:
+    # config.cache_store = :redis_cache_store, { url: redis_url }
   else
     config.cache_store = :dalli_store, ENV["MEMCACHED_URL"]
   end
