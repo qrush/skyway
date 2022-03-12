@@ -80,6 +80,8 @@ Rails.application.routes.draw do
 
   get "/sitemap.xml" => "sitemap#index", :format => "xml", :as => :sitemap
 
+  get "/healthz", to: proc { [200, {}, ['success']] }
+
   root to: redirect(ORIG_URL)
 
   get "/*id" => 'pages#show', as: :page, format: false
